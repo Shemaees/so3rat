@@ -9,7 +9,7 @@
                         <div class="card-title text-center">
                             <div class="p-1">
                                 {{--                                <img src="{{asset('assets/img/logo.png')}}" alt="LOGO" width="40%"/>--}}
-                                MISMAR
+                                SO3RAT
                             </div>
                         </div>
                         <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">

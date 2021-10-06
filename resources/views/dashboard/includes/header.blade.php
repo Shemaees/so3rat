@@ -46,7 +46,7 @@
                                 <i></i>
                             </span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('dashboard.admins.profile')}}">
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">
                                 <i class="ft-user"></i>
                                  الملف الشحصي
                             </a>
