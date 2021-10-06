@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
-        <!-- Home Banner -->
+    @include('front.includes.header')
+
+    <!-- Home Banner -->
     <section class="section section-search">
         <div class="container-fluid">
             <div class="banner-wrapper">
@@ -78,74 +80,74 @@
     </section>
 
         <!-- Clinic and Specialities -->
-    <section class="section section-specialities">
-        <div class="container-fluid">
-            <div class="section-header text-center">
-                <h2>Clinic and Specialities</h2>
-                <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-9">
-                    <!-- Slider -->
-                    <div class="specialities-slider slider">
+        <section class="section section-specialities">
+            <div class="container-fluid">
+                <div class="section-header text-center">
+                    <h2>Clinic and Specialities</h2>
+                    <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <!-- Slider -->
+                        <div class="specialities-slider slider" >
 
-                        <!-- Slider Item -->
-                        <div class="speicality-item text-center">
-                            <div class="speicality-img">
-                                <img src="{{asset('front/assets/img/specialities/specialities-01.png')}}" class="img-fluid" alt="Speciality">
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            <!-- Slider Item -->
+                            <div class="speicality-item text-center">
+                                <div class="speicality-img" >
+                                    <img src="{{asset('front/assets/img/specialities/specialities-01.png')}}" class="img-fluid" alt="Speciality">
+                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                </div>
+                                <p>Urology</p>
                             </div>
-                            <p>Urology</p>
-                        </div>
-                        <!-- /Slider Item -->
+                            <!-- /Slider Item -->
 
-                        <!-- Slider Item -->
-                        <div class="speicality-item text-center">
-                            <div class="speicality-img">
-                                <img src="{{asset('front/assets/img/specialities/specialities-02.png')}}" class="img-fluid" alt="Speciality">
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            <!-- Slider Item -->
+                            <div class="speicality-item text-center">
+                                <div class="speicality-img">
+                                    <img src="{{asset('front/assets/img/specialities/specialities-02.png')}}" class="img-fluid" alt="Speciality">
+                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                </div>
+                                <p>Neurology</p>
                             </div>
-                            <p>Neurology</p>
-                        </div>
-                        <!-- /Slider Item -->
+                            <!-- /Slider Item -->
 
-                        <!-- Slider Item -->
-                        <div class="speicality-item text-center">
-                            <div class="speicality-img">
-                                <img src="{{asset('front/assets/img/specialities/specialities-03.png')}}" class="img-fluid" alt="Speciality">
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            <!-- Slider Item -->
+                            <div class="speicality-item text-center">
+                                <div class="speicality-img">
+                                    <img src="{{asset('front/assets/img/specialities/specialities-03.png')}}" class="img-fluid" alt="Speciality">
+                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                </div>
+                                <p>Orthopedic</p>
                             </div>
-                            <p>Orthopedic</p>
-                        </div>
-                        <!-- /Slider Item -->
+                            <!-- /Slider Item -->
 
-                        <!-- Slider Item -->
-                        <div class="speicality-item text-center">
-                            <div class="speicality-img">
-                                <img src="{{asset('front/assets/img/specialities/specialities-04.png')}}" class="img-fluid" alt="Speciality">
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            <!-- Slider Item -->
+                            <div class="speicality-item text-center">
+                                <div class="speicality-img">
+                                    <img src="{{asset('front/assets/img/specialities/specialities-04.png')}}" class="img-fluid" alt="Speciality">
+                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                </div>
+                                <p>Cardiologist</p>
                             </div>
-                            <p>Cardiologist</p>
-                        </div>
-                        <!-- /Slider Item -->
+                            <!-- /Slider Item -->
 
-                        <!-- Slider Item -->
-                        <div class="speicality-item text-center">
-                            <div class="speicality-img">
-                                <img src="{{asset('front/assets/img/specialities/specialities-05.png')}}" class="img-fluid" alt="Speciality">
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            <!-- Slider Item -->
+                            <div class="speicality-item text-center">
+                                <div class="speicality-img">
+                                    <img src="{{asset('front/assets/img/specialities/specialities-05.png')}}" class="img-fluid" alt="Speciality">
+                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                </div>
+                                <p>Dentist</p>
                             </div>
-                            <p>Dentist</p>
+                            <!-- /Slider Item -->
+
                         </div>
-                        <!-- /Slider Item -->
+                        <!-- /Slider -->
 
                     </div>
-                    <!-- /Slider -->
-
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
         <!-- Clinic and Specialities -->
 
         <!-- Popular Section -->
@@ -362,7 +364,7 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-05.jpg">
+                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-05.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -410,7 +412,7 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-06.jpg">
+                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-06.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -458,7 +460,7 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-07.jpg">
+                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-07.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -506,7 +508,7 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="assets/img/doctors/doctor-08.jpg">
+                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-08.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -562,7 +564,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5 features-img">
-                    <img src="assets/img/features/feature.png" class="img-fluid" alt="Feature">
+                    <img src="{{asset('front/assets/img/features/feature.png')}}" class="img-fluid" alt="Feature">
                 </div>
                 <div class="col-md-7">
                     <div class="section-header">
@@ -572,42 +574,42 @@
                     <div class="features-slider slider">
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="assets/img/features/feature-01.jpg" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-01.jpg')}}" class="img-fluid" alt="Feature">
                             <p>Patient Ward</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="assets/img/features/feature-02.jpg" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-02.jpg')}}" class="img-fluid" alt="Feature">
                             <p>Test Room</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="assets/img/features/feature-03.jpg" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-03.jpg')}}" class="img-fluid" alt="Feature">
                             <p>ICU</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="assets/img/features/feature-04.jpg" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-04.jpg')}}" class="img-fluid" alt="Feature">
                             <p>Laboratory</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="assets/img/features/feature-05.jpg" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-05.jpg')}}" class="img-fluid" alt="Feature">
                             <p>Operation</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="assets/img/features/feature-06.jpg" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-06.jpg')}}" class="img-fluid" alt="Feature">
                             <p>Medical</p>
                         </div>
                         <!-- /Slider Item -->
@@ -635,13 +637,13 @@
                     <!-- Blog Post -->
                     <div class="blog grid-blog">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="assets/img/blog/blog-01.jpg" alt="Post Image"></a>
+                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-01.jpg')}}" alt="Post Image"></a>
                         </div>
                         <div class="blog-content">
                             <ul class="entry-meta meta-item">
                                 <li>
                                     <div class="post-author">
-                                        <a href="doctor-profile.html"><img src="assets/img/doctors/doctor-thumb-01.jpg" alt="Post Author"> <span>Dr. Ruby Perrin</span></a>
+                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-01.jpg')}}" alt="Post Author"> <span>Dr. Ruby Perrin</span></a>
                                     </div>
                                 </li>
                                 <li><i class="far fa-clock"></i> 4 Dec 2019</li>
@@ -658,13 +660,13 @@
                     <!-- Blog Post -->
                     <div class="blog grid-blog">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="assets/img/blog/blog-02.jpg" alt="Post Image"></a>
+                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-02.jpg')}}" alt="Post Image"></a>
                         </div>
                         <div class="blog-content">
                             <ul class="entry-meta meta-item">
                                 <li>
                                     <div class="post-author">
-                                        <a href="doctor-profile.html"><img src="assets/img/doctors/doctor-thumb-02.jpg" alt="Post Author"> <span>Dr. Darren Elder</span></a>
+                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="Post Author"> <span>Dr. Darren Elder</span></a>
                                     </div>
                                 </li>
                                 <li><i class="far fa-clock"></i> 3 Dec 2019</li>
@@ -681,13 +683,13 @@
                     <!-- Blog Post -->
                     <div class="blog grid-blog">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="assets/img/blog/blog-03.jpg" alt="Post Image"></a>
+                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-03.jpg')}}" alt="Post Image"></a>
                         </div>
                         <div class="blog-content">
                             <ul class="entry-meta meta-item">
                                 <li>
                                     <div class="post-author">
-                                        <a href="doctor-profile.html"><img src="assets/img/doctors/doctor-thumb-03.jpg" alt="Post Author"> <span>Dr. Deborah Angel</span></a>
+                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-03.jpg')}}" alt="Post Author"> <span>Dr. Deborah Angel</span></a>
                                     </div>
                                 </li>
                                 <li><i class="far fa-clock"></i> 3 Dec 2019</li>
@@ -704,13 +706,13 @@
                     <!-- Blog Post -->
                     <div class="blog grid-blog">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="assets/img/blog/blog-04.jpg" alt="Post Image"></a>
+                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-04.jpg')}}" alt="Post Image"></a>
                         </div>
                         <div class="blog-content">
                             <ul class="entry-meta meta-item">
                                 <li>
                                     <div class="post-author">
-                                        <a href="doctor-profile.html"><img src="assets/img/doctors/doctor-thumb-04.jpg" alt="Post Author"> <span>Dr. Sofia Brient</span></a>
+                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-04.jpg')}}" alt="Post Author"> <span>Dr. Sofia Brient</span></a>
                                     </div>
                                 </li>
                                 <li><i class="far fa-clock"></i> 2 Dec 2019</li>

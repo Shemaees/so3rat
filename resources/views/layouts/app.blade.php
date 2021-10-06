@@ -23,7 +23,6 @@
     <body>
     <!-- Main Wrapper -->
         <div class="main-wrapper">
-            @include('front.includes.header')
 
             @yield('content')
 
