@@ -9,7 +9,7 @@
                     <div class="col-md-12 col-12">
                         <nav aria-label="breadcrumb" class="page-breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="home">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Change Password</li>
                             </ol>
                         </nav>
@@ -77,7 +77,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="index.html">
+                                            <a href="home">
                                                 <i class="fas fa-sign-out-alt"></i>
                                                 <span>Logout</span>
                                             </a>

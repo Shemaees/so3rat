@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.userLogin')
 @section('content')
-    @include('front.includes.sub-header')
+    @include('front.includes.header')
         <!-- Page Content -->
         <div class="content">
             <div class="container-fluid">
@@ -20,11 +20,11 @@
                                     <!-- Register Form -->
                                     <form action="https://doccure-html.dreamguystech.com/template/doctor-dashboard.html">
                                         <div class="form-group form-focus">
-                                            <input type="text" class="form-control floating">
+                                            <input type="text" class="form-control floating" name="name">
                                             <label class="focus-label">Name</label>
                                         </div>
                                         <div class="form-group form-focus">
-                                            <input type="text" class="form-control floating">
+                                            <input type="text" class="form-control floating" name="email">
                                             <label class="focus-label">Mobile Number</label>
                                         </div>
                                         <div class="form-group form-focus">

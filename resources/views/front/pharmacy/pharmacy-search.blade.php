@@ -9,7 +9,7 @@
                     <div class="col-md-8 col-12">
                         <nav aria-label="breadcrumb" class="page-breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="home.html">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Search</li>
                             </ol>
                         </nav>

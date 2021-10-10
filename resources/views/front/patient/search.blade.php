@@ -1,6 +1,17 @@
 @extends('layouts.app')
+@section('style')
+    <!-- Select2 CSS -->
+{{--    <link rel="stylesheet" href="{{asset('front/assets/plugins/select2/css/select2.min.css')}}">--}}
+    <style>
+        .doc-details{
+            display: flex!important;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    </style>
+    @endsection
 @section('content')
-    @include('front.includes.sub-header')
+    @include('front.includes.header')
         <!-- Breadcrumb -->
         <div class="breadcrumb-bar">
             <div class="container-fluid">
@@ -8,22 +19,23 @@
                     <div class="col-md-8 col-12">
                         <nav aria-label="breadcrumb" class="page-breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Search</li>
+                                <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('front/global.home')}}</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{__('front/global.search')}}</li>
                             </ol>
                         </nav>
-                        <h2 class="breadcrumb-title">2245 matches found for : Dentist In Bangalore</h2>
+                        <h2 class="breadcrumb-title float-right pr-5">نتائج البحث</h2>
                     </div>
                     <div class="col-md-4 col-12 d-md-block d-none">
                         <div class="sort-by">
                             <span class="sort-title">Sort by</span>
                             <span class="sortby-fliter">
-									<select class="select">
-										<option>Select</option>
-										<option class="sorting">Rating</option>
-										<option class="sorting">Popular</option>
-										<option class="sorting">Latest</option>
-										<option class="sorting">Free</option>
+									<select class="select2-selection__rendered">
+										<option>اختر</option>
+										<option class="sorting">الأكثر تقييما</option>
+										<option class="sorting">الأقل سعرا</option>
+										<option class="sorting">الأكثر سعرا</option>
+										<option class="sorting">الأكثر اشتراكا</option>
+                                        <option class="sorting">الأقل اشتراكا</option>
 									</select>
 								</span>
                         </div>
@@ -42,8 +54,8 @@
 
                         <!-- Search Filter -->
                         <div class="card search-filter">
-                            <div class="card-header">
-                                <h4 class="card-title mb-0">Search Filter</h4>
+                            <div class="card-header float-right">
+                                <h4 class="card-title mb-0 float-right">{{__('front/search.filter')}}</h4>
                             </div>
                             <div class="card-body">
                                 <div class="filter-widget">
@@ -52,56 +64,56 @@
                                     </div>
                                 </div>
                                 <div class="filter-widget">
-                                    <h4>Gender</h4>
+                                    <h4 >{{__('front/global.gender')}}</h4 >
                                     <div>
                                         <label class="custom_check">
 											<input type="checkbox" name="gender_type" checked>
-											<span class="checkmark"></span> Male Doctor
+											<span class="checkmark"></span> {{__('front/global.male')}}
 										</label>
                                     </div>
                                     <div>
                                         <label class="custom_check">
 											<input type="checkbox" name="gender_type">
-											<span class="checkmark"></span> Female Doctor
+											<span class="checkmark"></span> {{__('front/global.female')}}
 										</label>
                                     </div>
                                 </div>
                                 <div class="filter-widget">
-                                    <h4>Select Specialist</h4>
+                                    <h4>{{__('front/global.days')}}</h4>
                                     <div>
                                         <label class="custom_check">
 											<input type="checkbox" name="select_specialist" checked>
-											<span class="checkmark"></span> Urology
+											<span class="checkmark"></span> السبت
 										</label>
                                     </div>
                                     <div>
                                         <label class="custom_check">
 											<input type="checkbox" name="select_specialist" checked>
-											<span class="checkmark"></span> Neurology
+											<span class="checkmark"></span> الأحد
 										</label>
                                     </div>
                                     <div>
                                         <label class="custom_check">
 											<input type="checkbox" name="select_specialist">
-											<span class="checkmark"></span> Dentist
+											<span class="checkmark"></span> الأثنين
 										</label>
                                     </div>
                                     <div>
                                         <label class="custom_check">
 											<input type="checkbox" name="select_specialist">
-											<span class="checkmark"></span> Orthopedic
+											<span class="checkmark"></span> الثلاثاء
 										</label>
                                     </div>
                                     <div>
                                         <label class="custom_check">
 											<input type="checkbox" name="select_specialist">
-											<span class="checkmark"></span> Cardiologist
+											<span class="checkmark"></span>الأربعاء
 										</label>
                                     </div>
                                     <div>
                                         <label class="custom_check">
 											<input type="checkbox" name="select_specialist">
-											<span class="checkmark"></span> Cardiologist
+											<span class="checkmark"></span> الخميس
 										</label>
                                     </div>
                                 </div>
@@ -120,298 +132,82 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="doctor-widget">
-                                    <div class="doc-info-right">
-                                        <div class="clini-infos">
-                                            <ul>
-                                                <li><i class="far fa-thumbs-up"></i> 98%</li>
-                                                <li><i class="far fa-comment"></i> 17 Feedback</li>
-                                                <li><i class="fas fa-map-marker-alt"></i> Florida, USA</li>
-                                                <li><i class="far fa-money-bill-alt"></i> $300 - $1000 <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i> </li>
-                                            </ul>
+                                    <div class="doctor-img col-3">
+                                        <a href="#">
+                                            <img src="{{asset('front/assets/img/doctors/doctor-thumb-01.jpg')}}" class="img-fluid" alt="User Image">
+                                        </a>
+                                    </div>
+                                <div class="col-9">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h4 class="doc-name float-right">الأسم:</h4>
                                         </div>
-                                        <div class="clinic-booking">
-                                            <a class="view-pro-btn" href="doctor-profile.html">View Profile</a>
-                                            <a class="apt-btn" href="booking.html">Book Appointment</a>
+                                        <div class="col-4">
+                                            <h4 class="doc-name float-right">الدولة:</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="doc-name float-right">المدينة:</h4>
                                         </div>
                                     </div>
-                                    <div class="doc-info-left">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <h4 class="doc-name float-right">رقم مقيم:</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-7 d-flex doc-details">
+                                            <div class="d-flex">
+                                                <h4 class="doc-name float-right">المؤهل:</h4>
+                                                <p>Test data</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <h4 class="doc-name  float-right">البكاليوريوس:</h4>
+                                                <p>Test data</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <h4 class="doc-name  float-right">الماجيستير:</h4>
+                                                <p>Test data</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <h4 class="doc-name float-right">الدكتوراه:</h4>
+                                                <p>Test data</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-5 doc-details">
+                                                <div class="d-flex">
+                                                    <h4 class="doc-name float-right">طريقه التواصل:</h4>
+                                                    <p>Test data</p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <h4 class="doc-name float-right">قنوات التواصل:</h4>
+                                                    <p>Test data</p>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <h4 class="doc-name float-right">ايام التواصل:</h4>
+                                                    <p>Test data</p>
+                                                </div>
+                                                <div class="d-flex">
+                                                   <h4 class="doc-name float-right">اوقات التواصل:</h4>
+                                                    <p>Test data</p>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h4 class="float-right"> الاهتمامات</h4>
+                                        </div>
+                                    </div>
+                                    <div class="clinic-booking">
 
-                                        <div class="doc-info-cont">
-                                            <h4 class="doc-name"><a href="doctor-profile.html">Dr. Ruby Perrin</a></h4>
-                                            <p class="doc-speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-                                            <h5 class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</h5>
-                                            <div class="rating">
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span class="d-inline-block average-rating">(17)</span>
-                                            </div>
-                                            <div class="clinic-details">
-                                                <p class="doc-location"><i class="fas fa-map-marker-alt"></i> Florida, USA</p>
-                                                <ul class="clinic-gallery">
-                                                    <li>
-                                                        <a href="assets/img/features/feature-01.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-01.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-02.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-02.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-03.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-03.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-04.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-04.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="clinic-services">
-                                                <span>Dental Fillings</span>
-                                                <span> Whitneing</span>
-                                            </div>
-                                        </div>
-                                        <div class="doctor-img">
-                                            <a href="doctor-profile.html">
-                                                <img src="assets/img/doctors/doctor-thumb-01.jpg" class="img-fluid" alt="User Image">
-                                            </a>
-                                        </div>
+                                        <a class="view-pro-btn " href="{{route('doctor-profile')}}">الملف الشخصي</a>
+                                        <a class="apt-btn " href="{{route('booking')}}">اشتراك</a>
                                     </div>
+                                </div>
 
                                 </div>
                             </div>
                         </div>
                         <!-- /Doctor Widget -->
-
-                        <!-- Doctor Widget -->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="doctor-widget">
-
-                                    <div class="doc-info-right">
-                                        <div class="clini-infos">
-                                            <ul>
-                                                <li><i class="far fa-thumbs-up"></i> 100%</li>
-                                                <li><i class="far fa-comment"></i> 35 Feedback</li>
-                                                <li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
-                                                <li><i class="far fa-money-bill-alt"></i> $50 - $300 <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="clinic-booking">
-                                            <a class="view-pro-btn" href="doctor-profile.html">View Profile</a>
-                                            <a class="apt-btn" href="booking.html">Book Appointment</a>
-                                        </div>
-                                    </div>
-                                    <div class="doc-info-left">
-
-                                        <div class="doc-info-cont">
-                                            <h4 class="doc-name"><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
-                                            <p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
-                                            <h5 class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</h5>
-                                            <div class="rating">
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span class="d-inline-block average-rating">(35)</span>
-                                            </div>
-                                            <div class="clinic-details">
-                                                <p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
-                                                <ul class="clinic-gallery">
-                                                    <li>
-                                                        <a href="assets/img/features/feature-01.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-01.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-02.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-02.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-03.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-03.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-04.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-04.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="clinic-services">
-                                                <span>Dental Fillings</span>
-                                                <span> Whitneing</span>
-                                            </div>
-                                        </div>
-                                        <div class="doctor-img">
-                                            <a href="doctor-profile.html">
-                                                <img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid" alt="User Image">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-
-                        <!-- Doctor Widget -->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="doctor-widget">
-                                    <div class="doc-info-right">
-                                        <div class="clini-infos">
-                                            <ul>
-                                                <li><i class="far fa-thumbs-up"></i> 98%</li>
-                                                <li><i class="far fa-comment"></i> 17 Feedback</li>
-                                                <li><i class="fas fa-map-marker-alt"></i> Florida, USA</li>
-                                                <li><i class="far fa-money-bill-alt"></i> $300 - $1000 <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i> </li>
-                                            </ul>
-                                        </div>
-                                        <div class="clinic-booking">
-                                            <a class="view-pro-btn" href="doctor-profile.html">View Profile</a>
-                                            <a class="apt-btn" href="booking.html">Book Appointment</a>
-                                        </div>
-                                    </div>
-                                    <div class="doc-info-left">
-
-                                        <div class="doc-info-cont">
-                                            <h4 class="doc-name"><a href="doctor-profile.html">Dr. Ruby Perrin</a></h4>
-                                            <p class="doc-speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-                                            <h5 class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</h5>
-                                            <div class="rating">
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span class="d-inline-block average-rating">(17)</span>
-                                            </div>
-                                            <div class="clinic-details">
-                                                <p class="doc-location"><i class="fas fa-map-marker-alt"></i> Florida, USA</p>
-                                                <ul class="clinic-gallery">
-                                                    <li>
-                                                        <a href="assets/img/features/feature-01.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-01.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-02.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-02.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-03.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-03.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-04.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-04.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="clinic-services">
-                                                <span>Dental Fillings</span>
-                                                <span> Whitneing</span>
-                                            </div>
-                                        </div>
-                                        <div class="doctor-img">
-                                            <a href="doctor-profile.html">
-                                                <img src="assets/img/doctors/doctor-thumb-01.jpg" class="img-fluid" alt="User Image">
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-
-                        <!-- Doctor Widget -->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="doctor-widget">
-
-                                    <div class="doc-info-right">
-                                        <div class="clini-infos">
-                                            <ul>
-                                                <li><i class="far fa-thumbs-up"></i> 100%</li>
-                                                <li><i class="far fa-comment"></i> 35 Feedback</li>
-                                                <li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
-                                                <li><i class="far fa-money-bill-alt"></i> $50 - $300 <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="clinic-booking">
-                                            <a class="view-pro-btn" href="doctor-profile.html">View Profile</a>
-                                            <a class="apt-btn" href="booking.html">Book Appointment</a>
-                                        </div>
-                                    </div>
-                                    <div class="doc-info-left">
-
-                                        <div class="doc-info-cont">
-                                            <h4 class="doc-name"><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
-                                            <p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
-                                            <h5 class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</h5>
-                                            <div class="rating">
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star filled"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span class="d-inline-block average-rating">(35)</span>
-                                            </div>
-                                            <div class="clinic-details">
-                                                <p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
-                                                <ul class="clinic-gallery">
-                                                    <li>
-                                                        <a href="assets/img/features/feature-01.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-01.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-02.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-02.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-03.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-03.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="assets/img/features/feature-04.jpg" data-fancybox="gallery">
-                                                            <img src="assets/img/features/feature-04.jpg" alt="Feature">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="clinic-services">
-                                                <span>Dental Fillings</span>
-                                                <span> Whitneing</span>
-                                            </div>
-                                        </div>
-                                        <div class="doctor-img">
-                                            <a href="doctor-profile.html">
-                                                <img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid" alt="User Image">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Doctor Widget -->
-
 
                         <div class="load-more text-center">
                             <a class="btn btn-primary btn-sm" href="javascript:void(0);">Load More</a>
@@ -423,4 +219,21 @@
 
         </div>
         <!-- /Page Content -->
+
+@endsection
+
+@section('scripts')
+    <!-- Sticky Sidebar JS -->
+    <script src="{{asset('front/assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
+    <script src="{{asset('front/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
+
+    <!-- Select2 JS -->
+{{--            <script src="{{asset('front/assets/plugins/select2/js/select2.min.js')}}"></script>--}}
+
+    <!-- Datetimepicker JS -->
+    <script src="{{asset('front/assets/js/moment.min.js')}}"></script>
+    <script src="{{asset('front/assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+
+    <!-- Fancybox JS -->
+    <script src="{{asset('front/assets/plugins/fancybox/jquery.fancybox.min.js')}}"></script>
 @endsection

@@ -48,16 +48,16 @@
                     <div class="search-box search-box-3">
                         <form action="https://doccure-html.dreamguystech.com/template/search.html">
                             <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="الإهتمامات">
+                                <input type="text" class="form-control" placeholder="الإهتمامات" name="interests" id="interests">
                             </div>
                             <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="النوع">
+                                <input type="text" class="form-control" placeholder="النوع" name="gender" id="gender">
                             </div>
                             <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="الدولة">
+                                <input type="text" class="form-control" placeholder="الدولة" name="country" id="country">
                             </div>
                             <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="المدينة">
+                                <input type="text" class="form-control" placeholder="المدينة" name="city" id="city">
                             </div>
 
                             <button type="submit" class="btn btn-primary search-btn btn-search mt-0"><i class="fas fa-search"></i>  <span>Search</span>

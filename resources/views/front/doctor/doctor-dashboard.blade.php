@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 @section('content')
-    @include('front.includes.sub-header')
+    @include('front.includes.header')
 
         <!-- Breadcrumb -->
         <div class="breadcrumb-bar">
@@ -10,7 +10,7 @@
                     <div class="col-md-12 col-12">
                         <nav aria-label="breadcrumb" class="page-breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                             </ol>
                         </nav>
@@ -109,7 +109,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{route('index')}}">
+                                            <a href="{{route('home')}}">
                                                 <i class="fas fa-sign-out-alt"></i>
                                                 <span>Logout</span>
                                             </a>

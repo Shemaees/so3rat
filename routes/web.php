@@ -12,11 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::view('/', 'front.index')->name('index');
-Route::view('index-1', 'front.index-1')->name('index-1');
-Route::view('index-2', 'front.index-2')->name('index-2');
-Route::view('index-3', 'front.index-3')->name('index-3');
+Route::view('/', 'front.index-3')->name('home');
+Route::view('home', 'front.index-3')->name('home');
 Route::view('index-slide', 'front.doctor.index-slide')->name('index-slide');
 Route::view('doctor-add-blog', 'front.doctor.doctor-add-blog')->name('doctor-add-blog');
 Route::view('doctor-blog', 'front.blog.doctor-blog')->name('doctor-blog');
@@ -30,7 +27,7 @@ Route::view('doctor-profile-settings', 'front.doctor.doctor-profile-settings')->
 Route::view('doctor-register', 'front.doctor.doctor-register')->name('doctor-register');
 Route::view('doctor-dashboard', 'front.doctor.doctor-dashboard')->name('doctor-dashboard');
 Route::view('appointments', 'front.doctor.appointments')->name('appointments');
-Route::view('schedule-timings', 'front.doctor.schedule-timings')->name('schedule-timings');
+Route::view('schedule-timings', 'front.doctor.schedule-timings')->name('schedule-timing');
 Route::view('my-patients', 'front.doctor.my-patients')->name('my-patients');
 Route::view('chat-doctor', 'front.doctor.chat-doctor')->name('chat-doctor');
 Route::view('invoices', 'front.invoices.invoices')->name('invoices');

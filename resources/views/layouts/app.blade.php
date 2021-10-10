@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-textdirection="rtl">
     <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="full-url" content="{{ URL('') }}">
+        <meta name="language" content="{{ app()->getLocale() }}">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <title>Doccure</title>
@@ -14,6 +19,7 @@
         <!-- Fontawesome CSS -->
         <link rel="stylesheet" href="{{asset('front/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
         <link rel="stylesheet" href="{{asset('front/assets/plugins/fontawesome/css/all.min.css')}}">
+        @yield('style')
 
         <!-- Main CSS -->
         <link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
@@ -42,7 +48,10 @@
     <!-- Slick JS -->
     <script src="{{asset('front/assets/js/slick.js')}}"></script>
 
+    @yield('scripts')
+
     <!-- Custom JS -->
     <script src="{{asset('front/assets/js/script.js')}}"></script>
+
     </body>
 </html>
