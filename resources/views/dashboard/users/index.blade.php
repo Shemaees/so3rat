@@ -31,12 +31,12 @@
                         </div>
                     </div>
                 </div>
-{{--                <button type="button" class="mr-3 ml-auto btn btn-outline-info btn-sm-width box-shadow-3 mb-1 "--}}
-{{--                        data-toggle="modal"--}}
-{{--                        data-target="#add-user">--}}
-{{--                    {{ __('global.add') }}--}}
-{{--                    <i class="ft-plus icon-left"></i>--}}
-{{--                </button>--}}
+                {{--                <button type="button" class="mr-3 ml-auto btn btn-outline-info btn-sm-width box-shadow-3 mb-1 "--}}
+                {{--                        data-toggle="modal"--}}
+                {{--                        data-target="#add-user">--}}
+                {{--                    {{ __('global.add') }}--}}
+                {{--                    <i class="ft-plus icon-left"></i>--}}
+                {{--                </button>--}}
             </div>
             <div class="content-body">
                 <!-- DOM - jQuery events table -->
@@ -107,8 +107,8 @@
                                                                 <a href="{{route('dashboard.users.change_status',$active_user-> id)}}"
                                                                    class="dropdown-item"
                                                                    onclick="return confirm('{{__('user.change_status')}}');">
-                                                                        <i class="ft-unlock primary"></i>
-                                                                        {{__('global.deactivate')}}
+                                                                    <i class="ft-unlock primary"></i>
+                                                                    {{__('global.deactivate')}}
                                                                 </a>
                                                                 <a href="{{route('dashboard.users.show',$active_user-> id)}}"
                                                                    class="dropdown-item">
@@ -120,19 +120,19 @@
                                                                     <i class="ft-slash primary"></i>
                                                                     {{__('global.block')}}
                                                                 </a>
-{{--                                                                <form--}}
-{{--                                                                    action="{{ route('dashboard.users.delete', $active_user->id) }}"--}}
-{{--                                                                    method="POST"--}}
-{{--                                                                    onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
-{{--                                                                    style="display: inline-block;">--}}
-{{--                                                                    @csrf--}}
-{{--                                                                    <input type="hidden" name="_method" value="DELETE">--}}
-{{--                                                                    <a href="#" class="dropdown-item"--}}
-{{--                                                                       onclick="$(this).parent().submit()">--}}
-{{--                                                                        <i class="ft-trash-2"></i>--}}
-{{--                                                                        {{__('global.delete')}}--}}
-{{--                                                                    </a>--}}
-{{--                                                                </form>--}}
+                                                                {{--                                                                <form--}}
+                                                                {{--                                                                    action="{{ route('dashboard.users.delete', $active_user->id) }}"--}}
+                                                                {{--                                                                    method="POST"--}}
+                                                                {{--                                                                    onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
+                                                                {{--                                                                    style="display: inline-block;">--}}
+                                                                {{--                                                                    @csrf--}}
+                                                                {{--                                                                    <input type="hidden" name="_method" value="DELETE">--}}
+                                                                {{--                                                                    <a href="#" class="dropdown-item"--}}
+                                                                {{--                                                                       onclick="$(this).parent().submit()">--}}
+                                                                {{--                                                                        <i class="ft-trash-2"></i>--}}
+                                                                {{--                                                                        {{__('global.delete')}}--}}
+                                                                {{--                                                                    </a>--}}
+                                                                {{--                                                                </form>--}}
                                                             </div>
                                                         </div>
                                                     </td>

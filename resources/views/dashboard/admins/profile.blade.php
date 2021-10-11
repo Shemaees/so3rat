@@ -81,10 +81,10 @@
                                                                             <td>{{__('dashboard/admin.email')}}:</td>
                                                                             <td>{{$admin->email}}</td>
                                                                         </tr>
-{{--                                                                        <tr>--}}
-{{--                                                                            <td>{{__('dashboard/admin.status')}}:</td>--}}
-{{--                                                                            <td>{{$subscription->visits_number}}</td>--}}
-{{--                                                                        </tr>--}}
+                                                                        {{--                                                                        <tr>--}}
+                                                                        {{--                                                                            <td>{{__('dashboard/admin.status')}}:</td>--}}
+                                                                        {{--                                                                            <td>{{$subscription->visits_number}}</td>--}}
+                                                                        {{--                                                                        </tr>--}}
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
@@ -120,9 +120,11 @@
             type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/select/form-select2.js')}}" type="text/javascript"></script>
 @endsection
 

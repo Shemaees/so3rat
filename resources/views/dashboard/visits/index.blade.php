@@ -2,11 +2,11 @@
 
 @section('style')
 
-{{--    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>--}}
-{{--    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>--}}
-{{--    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/css-rtl/core/menu/menu-types/vertical-menu.css')}}">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/css-rtl/core/colors/palette-gradient.css')}}">--}}
+    {{--    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>--}}
+    {{--    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>--}}
+    {{--    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>--}}
+    {{--    <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/css-rtl/core/menu/menu-types/vertical-menu.css')}}">--}}
+    {{--    <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/css-rtl/core/colors/palette-gradient.css')}}">--}}
 @endsection
 
 @section('content')
@@ -129,9 +129,11 @@
                                                         </td>
                                                         <td>
                                                             @if($visit->status == '1' )
-                                                                <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                                <span
+                                                                    class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
                                                             @else
-                                                                <span class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                                <span
+                                                                    class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
                                                             @endif
                                                         </td>
                                                         <td>
@@ -143,7 +145,8 @@
                                                                     <i class="ft-settings"></i>
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a href="{{route('dashboard.visits.show',$visit->id)}}" class="dropdown-item">
+                                                                    <a href="{{route('dashboard.visits.show',$visit->id)}}"
+                                                                       class="dropdown-item">
                                                                         <i class="ft-eye"></i>
                                                                         {{__('global.show')}}
                                                                     </a>
@@ -172,7 +175,8 @@
                                                                         onsubmit="return confirm('{{ __('global.areYouSure') }}');"
                                                                         style="display: inline-block;">
                                                                         @csrf
-                                                                        <input type="hidden" name="_method" value="DELETE">
+                                                                        <input type="hidden" name="_method"
+                                                                               value="DELETE">
                                                                         <a href="#" class="dropdown-item"
                                                                            onclick="$(this).parent().submit()">
                                                                             <i class="ft-trash-2"></i>
@@ -196,11 +200,11 @@
                                                     </tr>
                                                 @endforelse
                                                 </tbody>
-{{--                                                <tfoot>--}}
-{{--                                                {{ $visits->links() }}--}}
-{{--                                                </tfoot>--}}
+                                                {{--                                                <tfoot>--}}
+                                                {{--                                                {{ $visits->links() }}--}}
+                                                {{--                                                </tfoot>--}}
                                             </table>
-{{--                                             Pagination--}}
+                                            {{--                                             Pagination--}}
                                             <div class="d-flex justify-content-center">
                                                 {{ $visits->links('vendor.pagination.bootstrap-4') }}
                                             </div>
@@ -248,7 +252,7 @@
                                 <select name="categories" id="categories" class="form-control">
                                     @foreach($categories as $category)
                                         <option
-                                            value="{{ $category->id }}" >{{ $category->name }}</option>
+                                            value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 <label for="error-roles"></label>
@@ -258,7 +262,7 @@
                         <div class="form-group ">
                             <label for="description">{{ __('dashboard/visit.description') }}</label>
                             <textarea type="text" class="form-control" id="description" name="description"
-                                   placeholder="{{ __('dashboard/visit.description') }}">
+                                      placeholder="{{ __('dashboard/visit.description') }}">
                             </textarea>
                             <label for="error-period"></label>
                         </div>
@@ -299,7 +303,7 @@
                             <label for="name">{{ __('dashboard/visit.name') }}</label>
                             <input type="text" class="form-control" id="name-edit" name="name"
                                    placeholder="{{ __('dashboard/visit.name') }}"
-                                   value="" >
+                                   value="">
                             <label for="error-name"></label>
                         </div>
                         <div class="row">
@@ -315,7 +319,7 @@
                                 <select name="categories" id="categories-edit" class="form-control">
                                     @foreach($categories as $category)
                                         <option
-                                            value="{{ $category->id }}" >{{ $category->name }}</option>
+                                            value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 <label for="error-roles"></label>
@@ -350,18 +354,18 @@
 @endsection
 
 @section('vendor')
-{{--    <script src="{{asset('assets/dashboard/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>--}}
-{{--    <script src="{{asset('assets/dashboard/vendors/js/tables/datatable/dataTables.buttons.min.js')}}" type="text/javascript"></script>--}}
+    {{--    <script src="{{asset('assets/dashboard/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>--}}
+    {{--    <script src="{{asset('assets/dashboard/vendors/js/tables/datatable/dataTables.buttons.min.js')}}" type="text/javascript"></script>--}}
 @endsection
 
 @section('script')
-{{--    <script src="{{asset('assets/dashboard/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>--}}
+    {{--    <script src="{{asset('assets/dashboard/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>--}}
     <script src="{{asset('assets/dashboard/js/scripts/modal/components-modal.js')}}" type="text/javascript"></script>
-{{--    <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.flash.min.js') }}"></script>--}}
-{{--    <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.html5.min.js') }}"></script>--}}
-{{--    <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.print.min.js') }}"></script>--}}
-{{--    <script src="{{ asset('assets/dashboard/js/scripts/navs/navs.js') }}" type="text/javascript"></script>--}}
-{{--    <script src="{{ asset('assets/dashboard/js/scripts/tables/datatables/datatable-advanced.js')}}" type="text/javascript"></script>--}}
+    {{--    <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.flash.min.js') }}"></script>--}}
+    {{--    <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.html5.min.js') }}"></script>--}}
+    {{--    <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.print.min.js') }}"></script>--}}
+    {{--    <script src="{{ asset('assets/dashboard/js/scripts/navs/navs.js') }}" type="text/javascript"></script>--}}
+    {{--    <script src="{{ asset('assets/dashboard/js/scripts/tables/datatables/datatable-advanced.js')}}" type="text/javascript"></script>--}}
 
     <script>
 
@@ -403,7 +407,7 @@
                     $("#add-visit").removeClass('loading')
                     $("#add-visit-form .errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
                     animateCSS('#add-visit.errorMessage', 'bounceIn');
-                    if (response.status){
+                    if (response.status) {
                         setTimeout(function () {
                             animateCSS('#add-visit .errorMessage', 'flipOutX').then(() => $("#add-visit .errorMessage").html(''));
                             window.location.reload();
@@ -453,7 +457,7 @@
                     $("#edit-visit").removeClass('loading')
                     $("#edit-visit-form.errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
                     animateCSS('#edit-visit .errorMessage', 'bounceIn');
-                    if (response.status){
+                    if (response.status) {
                         setTimeout(function () {
                             animateCSS('#edit-visit .errorMessage', 'flipOutX').then(() => $("#edit-visit .errorMessage").html(''));
                             window.location.reload();
@@ -465,7 +469,7 @@
         });
 
         function setUrl(url) {
-             $('#edit-visit-url').val(url)
+            $('#edit-visit-url').val(url)
         }
 
         $('.btn-edit').on('click', function (e) {

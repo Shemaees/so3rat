@@ -142,7 +142,7 @@
                                             {{--                                            {{ $users->links() }}--}}
                                             </tfoot>
                                         </table>
-{{--                                        Pagination--}}
+                                        {{--                                        Pagination--}}
                                         <div class="d-flex justify-content-center">
                                             {{ $nonActiveUsers->links('vendor.pagination.bootstrap-4') }}
                                         </div>

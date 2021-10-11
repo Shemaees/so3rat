@@ -2,9 +2,12 @@
 
 @section('style')
 
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
+          rel="stylesheet"/>
 
 @endsection
 
@@ -38,19 +41,19 @@
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
                             {{__('global.actions')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-{{--                            <form--}}
-{{--                                action=""--}}
-{{--                                method="POST"--}}
-{{--                                onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
-{{--                                style="display: inline-block;">--}}
-{{--                                @csrf--}}
-{{--                                <input type="hidden" name="_method" value="DELETE">--}}
-{{--                                <a href="#" class="dropdown-item"--}}
-{{--                                   onclick="$(this).parent().submit()">--}}
-{{--                                    <i class="ft-trash-2"></i>--}}
-{{--                                    {{__('global.delete')}}--}}
-{{--                                </a>--}}
-{{--                            </form>--}}
+                            {{--                            <form--}}
+                            {{--                                action=""--}}
+                            {{--                                method="POST"--}}
+                            {{--                                onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
+                            {{--                                style="display: inline-block;">--}}
+                            {{--                                @csrf--}}
+                            {{--                                <input type="hidden" name="_method" value="DELETE">--}}
+                            {{--                                <a href="#" class="dropdown-item"--}}
+                            {{--                                   onclick="$(this).parent().submit()">--}}
+                            {{--                                    <i class="ft-trash-2"></i>--}}
+                            {{--                                    {{__('global.delete')}}--}}
+                            {{--                                </a>--}}
+                            {{--                            </form>--}}
 
                             <a href=""
                                class="dropdown-item"
@@ -142,7 +145,8 @@
                                                                     <i class="ft-settings"></i>
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a href="{{route('dashboard.subscriptions.show',$subscription->id)}}" class="dropdown-item">
+                                                                    <a href="{{route('dashboard.subscriptions.show',$subscription->id)}}"
+                                                                       class="dropdown-item">
                                                                         <i class="ft-eye"></i>
                                                                         {{__('global.show')}}
                                                                     </a>
@@ -171,7 +175,8 @@
                                                                         onsubmit="return confirm('{{ __('global.areYouSure') }}');"
                                                                         style="display: inline-block;">
                                                                         @csrf
-                                                                        <input type="hidden" name="_method" value="DELETE">
+                                                                        <input type="hidden" name="_method"
+                                                                               value="DELETE">
                                                                         <a href="#" class="dropdown-item"
                                                                            onclick="$(this).parent().submit()">
                                                                             <i class="ft-trash-2"></i>
@@ -184,7 +189,8 @@
                                                                         onsubmit="return confirm('{{ __('global.areYouSure') }}');"
                                                                         style="display: inline-block;">
                                                                         @csrf
-                                                                        <input type="hidden" name="_method" value="DELETE">
+                                                                        <input type="hidden" name="_method"
+                                                                               value="DELETE">
                                                                         <a href="#" class="dropdown-item"
                                                                            onclick="$(this).parent().submit()">
                                                                             <i class="ft-trash-2"></i>
@@ -267,7 +273,7 @@
                         <div class="form-group ">
                             <label for="description">{{ __('dashboard/subscription.description') }}</label>
                             <textarea type="text" class="form-control" id="description" name="description"
-                                   placeholder="{{ __('dashboard/subscription.description') }}">
+                                      placeholder="{{ __('dashboard/subscription.description') }}">
                             </textarea>
                             <label for="error-period"></label>
                         </div>
@@ -291,7 +297,8 @@
     </div>
 
     <!--edit subscription Modal -->
-    <div class="modal fade text-left" id="edit-subscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
+    <div class="modal fade text-left" id="edit-subscription" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel35"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -308,7 +315,7 @@
                             <label for="name">{{ __('dashboard/subscription.name') }}</label>
                             <input type="text" class="form-control" id="name-edit" name="name"
                                    placeholder="{{ __('dashboard/subscription.name') }}"
-                                   value="" >
+                                   value="">
                             <label for="error-name"></label>
                         </div>
                         <div class="row">
@@ -371,7 +378,7 @@
 @endsection
 
 @section('script')
-{{--    <script src="{{asset('assets/dashboard/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>--}}
+    {{--    <script src="{{asset('assets/dashboard/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>--}}
     <script src="{{asset('assets/dashboard/js/scripts/modal/components-modal.js')}}" type="text/javascript"></script>
     <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.flash.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.html5.min.js') }}"></script>
@@ -418,7 +425,7 @@
                     $("#add-subscription").removeClass('loading')
                     $("#add-subscription-form .errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
                     animateCSS('#add-subscription.errorMessage', 'bounceIn');
-                    if (response.status){
+                    if (response.status) {
                         setTimeout(function () {
                             animateCSS('#add-subscription .errorMessage', 'flipOutX').then(() => $("#add-subscription .errorMessage").html(''));
                             window.location.reload();
@@ -468,7 +475,7 @@
                     $("#edit-subscription").removeClass('loading')
                     $("#edit-subscription-form.errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
                     animateCSS('#edit-subscription .errorMessage', 'bounceIn');
-                    if (response.status){
+                    if (response.status) {
                         setTimeout(function () {
                             animateCSS('#edit-subscription .errorMessage', 'flipOutX').then(() => $("#edit-subscription .errorMessage").html(''));
                             window.location.reload();
@@ -482,7 +489,7 @@
         });
 
         function setUrl(url) {
-             $('#edit-subscription-url').val(url)
+            $('#edit-subscription-url').val(url)
         }
 
 

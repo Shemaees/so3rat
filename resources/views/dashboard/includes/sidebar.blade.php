@@ -8,251 +8,251 @@
                     <span class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span>
                 </a>
             </li>
-{{--            <li class="nav-item nav-dropdown">--}}
-{{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
-{{--                    <i class="fa-fw fas fa-users nav-icon">--}}
+            {{--            <li class="nav-item nav-dropdown">--}}
+            {{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
+            {{--                    <i class="fa-fw fas fa-users nav-icon">--}}
 
-{{--                    </i>--}}
-{{--                    {{__('dashboard/subscription.title')}}--}}
-{{--                </a>--}}
-{{--                <ul class="nav-dropdown-items">--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.subscriptions.index') ? 'active' : ''}}">--}}
-{{--                        <a href="{{ route('dashboard.subscriptions.index') }}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
+            {{--                    </i>--}}
+            {{--                    {{__('dashboard/subscription.title')}}--}}
+            {{--                </a>--}}
+            {{--                <ul class="nav-dropdown-items">--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.subscriptions.index') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{ route('dashboard.subscriptions.index') }}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
 
-{{--                            </i>--}}
-{{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
-{{--                            المفعله--}}
-{{--                        </span>--}}
-{{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
-{{--                            {{\App\Models\Subscription::count()}}--}}
-{{--                        </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.subscriptions.trashed') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('dashboard.subscriptions.trashed')}}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                            </i>--}}
-{{--                            المحذوفه--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item nav-dropdown">--}}
-{{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
-{{--                    <i class="fa-fw fas fa-users nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
+            {{--                            المفعله--}}
+            {{--                        </span>--}}
+            {{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
+            {{--                            {{\App\Models\Subscription::count()}}--}}
+            {{--                        </span>--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.subscriptions.trashed') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{route('dashboard.subscriptions.trashed')}}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            المحذوفه--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
+            {{--            <li class="nav-item nav-dropdown">--}}
+            {{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
+            {{--                    <i class="fa-fw fas fa-users nav-icon">--}}
 
-{{--                    </i>--}}
-{{--                    {{__('dashboard/category.title')}}--}}
-{{--                </a>--}}
-{{--                <ul class="nav-dropdown-items">--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.categories.index') ? 'active' : ''}}">--}}
-{{--                        <a href="{{ route('dashboard.categories.index') }}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
+            {{--                    </i>--}}
+            {{--                    {{__('dashboard/category.title')}}--}}
+            {{--                </a>--}}
+            {{--                <ul class="nav-dropdown-items">--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.categories.index') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{ route('dashboard.categories.index') }}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
 
-{{--                            </i>--}}
-{{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
-{{--                            المفعله--}}
-{{--                        </span>--}}
-{{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
-{{--                            {{\App\Models\Category::count()}}--}}
-{{--                        </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.categories.trashed') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('dashboard.categories.trashed')}}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                            </i>--}}
-{{--                            المحذوفه--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
+            {{--                            </i>--}}
+            {{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
+            {{--                            المفعله--}}
+            {{--                        </span>--}}
+            {{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
+            {{--                            {{\App\Models\Category::count()}}--}}
+            {{--                        </span>--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.categories.trashed') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{route('dashboard.categories.trashed')}}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            المحذوفه--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
 
-{{--            <li class="nav-item nav-dropdown">--}}
-{{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
-{{--                    <i class="fa-fw fas fa-users nav-icon">--}}
+            {{--            <li class="nav-item nav-dropdown">--}}
+            {{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
+            {{--                    <i class="fa-fw fas fa-users nav-icon">--}}
 
-{{--                    </i>--}}
-{{--                    {{__('dashboard/visit.title')}}--}}
-{{--                </a>--}}
-{{--                <ul class="nav-dropdown-items">--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.visits.index') ? 'active' : ''}}">--}}
-{{--                        <a href="{{ route('dashboard.visits.index') }}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
+            {{--                    </i>--}}
+            {{--                    {{__('dashboard/visit.title')}}--}}
+            {{--                </a>--}}
+            {{--                <ul class="nav-dropdown-items">--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.visits.index') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{ route('dashboard.visits.index') }}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
 
-{{--                            </i>--}}
-{{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
-{{--                            المفعله--}}
-{{--                        </span>--}}
-{{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
-{{--                            {{\App\Models\Visit::count()}}--}}
-{{--                        </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.visits.trashed') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('dashboard.visits.trashed')}}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                            </i>--}}
-{{--                            المحذوفه--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item nav-dropdown">--}}
-{{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
-{{--                    <i class="fa-fw fas fa-users nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
+            {{--                            المفعله--}}
+            {{--                        </span>--}}
+            {{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
+            {{--                            {{\App\Models\Visit::count()}}--}}
+            {{--                        </span>--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.visits.trashed') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{route('dashboard.visits.trashed')}}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            المحذوفه--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
+            {{--            <li class="nav-item nav-dropdown">--}}
+            {{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
+            {{--                    <i class="fa-fw fas fa-users nav-icon">--}}
 
-{{--                    </i>--}}
-{{--                    {{__('dashboard/order.title')}}--}}
-{{--                </a>--}}
-{{--                <ul class="nav-dropdown-items">--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.orders.index') ? 'active' : ''}}">--}}
-{{--                        <a href="{{ route('dashboard.orders.index') }}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
+            {{--                    </i>--}}
+            {{--                    {{__('dashboard/order.title')}}--}}
+            {{--                </a>--}}
+            {{--                <ul class="nav-dropdown-items">--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.orders.index') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{ route('dashboard.orders.index') }}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
 
-{{--                            </i>--}}
-{{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
-{{--                            {{__('dashboard/order.upcoming')}}--}}
-{{--                        </span>--}}
-{{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
-{{--                            {{\App\Models\Order::count()}}--}}
-{{--                        </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.orders.archived') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('dashboard.orders.archived')}}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                            </i>--}}
-{{--                            {{__('dashboard/order.archived')}}--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item nav-dropdown">--}}
-{{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
-{{--                    <i class="fa-fw fas fa-users nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
+            {{--                            {{__('dashboard/order.upcoming')}}--}}
+            {{--                        </span>--}}
+            {{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
+            {{--                            {{\App\Models\Order::count()}}--}}
+            {{--                        </span>--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.orders.archived') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{route('dashboard.orders.archived')}}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            {{__('dashboard/order.archived')}}--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
+            {{--            <li class="nav-item nav-dropdown">--}}
+            {{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
+            {{--                    <i class="fa-fw fas fa-users nav-icon">--}}
 
-{{--                    </i>--}}
-{{--                    {{__('user.requests')}}--}}
-{{--                </a>--}}
-{{--                <ul class="nav-dropdown-items">--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.requests.index') ? 'active' : ''}}">--}}
-{{--                        <a href="{{ route('dashboard.requests.index') }}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
+            {{--                    </i>--}}
+            {{--                    {{__('user.requests')}}--}}
+            {{--                </a>--}}
+            {{--                <ul class="nav-dropdown-items">--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.requests.index') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{ route('dashboard.requests.index') }}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
 
-{{--                            </i>--}}
-{{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
-{{--                            المفعله--}}
-{{--                        </span>--}}
-{{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
-{{--                            {{\App\Models\SubscriptionUserVisit::count()}}--}}
-{{--                        </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.requests.non-active') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('dashboard.requests.non-active')}}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                            </i>--}}
-{{--                            الغير مفعله--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
+            {{--                            </i>--}}
+            {{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
+            {{--                            المفعله--}}
+            {{--                        </span>--}}
+            {{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
+            {{--                            {{\App\Models\SubscriptionUserVisit::count()}}--}}
+            {{--                        </span>--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.requests.non-active') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{route('dashboard.requests.non-active')}}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            الغير مفعله--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
 
-{{--            <li class="nav-item nav-dropdown">--}}
-{{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
-{{--                    <i class="fa-fw fas fa-users nav-icon">--}}
+            {{--            <li class="nav-item nav-dropdown">--}}
+            {{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
+            {{--                    <i class="fa-fw fas fa-users nav-icon">--}}
 
-{{--                    </i>--}}
-{{--                    {{__('dashboard/user.title')}}--}}
-{{--                </a>--}}
-{{--                <ul class="nav-dropdown-items">--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.users.index') ? 'active' : ''}}">--}}
-{{--                        <a href="{{ route('dashboard.users.index') }}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
+            {{--                    </i>--}}
+            {{--                    {{__('dashboard/user.title')}}--}}
+            {{--                </a>--}}
+            {{--                <ul class="nav-dropdown-items">--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.users.index') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{ route('dashboard.users.index') }}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
 
-{{--                            </i>--}}
-{{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
-{{--                            المفعله--}}
-{{--                        </span>--}}
-{{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
-{{--                            {{\App\Models\Visit::count()}}--}}
-{{--                        </span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.users.non-active') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('dashboard.users.non-active')}}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                            </i>--}}
-{{--                            الغير مفعله--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.users.blocked') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('dashboard.users.blocked')}}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                            </i>--}}
-{{--                            المحظوره--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
+            {{--                            </i>--}}
+            {{--                            <span class="menu-title" data-i18n="nav.dash.main">--}}
+            {{--                            المفعله--}}
+            {{--                        </span>--}}
+            {{--                            <span class="badge badge badge-info badge-pill float-right mr-2">--}}
+            {{--                            {{\App\Models\Visit::count()}}--}}
+            {{--                        </span>--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.users.non-active') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{route('dashboard.users.non-active')}}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            الغير مفعله--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.users.blocked') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{route('dashboard.users.blocked')}}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            المحظوره--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
 
-{{--            <li class="nav-item nav-dropdown">--}}
-{{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
-{{--                    <i class="fa-fw fas fa-users nav-icon">--}}
+            {{--            <li class="nav-item nav-dropdown">--}}
+            {{--                <a class="nav-link  nav-dropdown-toggle" href="#">--}}
+            {{--                    <i class="fa-fw fas fa-users nav-icon">--}}
 
-{{--                    </i>--}}
-{{--                    إداره شئون المشرفين--}}
-{{--                </a>--}}
-{{--                <ul class="nav-dropdown-items">--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.permissions.*') ? 'active' : ''}}">--}}
-{{--                        <a href="{{ route('dashboard.permissions.index') }}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
+            {{--                    </i>--}}
+            {{--                    إداره شئون المشرفين--}}
+            {{--                </a>--}}
+            {{--                <ul class="nav-dropdown-items">--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.permissions.*') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{ route('dashboard.permissions.index') }}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
 
-{{--                            </i>--}}
-{{--                            {{__('dashboard/permission.title')}}--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item {{request()->routeIs('dashboard.roles.*') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('dashboard.roles.index')}}" class="nav-link ">--}}
-{{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                            </i>--}}
-{{--                            {{__('dashboard/role.title')}}--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item nav-dropdown">--}}
-{{--                        <a class="nav-link  nav-dropdown-toggle" href="#">--}}
-{{--                            <i class="fa-fw fas fa-users nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            {{__('dashboard/permission.title')}}--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item {{request()->routeIs('dashboard.roles.*') ? 'active' : ''}}">--}}
+            {{--                        <a href="{{route('dashboard.roles.index')}}" class="nav-link ">--}}
+            {{--                            <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            {{__('dashboard/role.title')}}--}}
+            {{--                        </a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="nav-item nav-dropdown">--}}
+            {{--                        <a class="nav-link  nav-dropdown-toggle" href="#">--}}
+            {{--                            <i class="fa-fw fas fa-users nav-icon">--}}
 
-{{--                            </i>--}}
-{{--                            {{__('dashboard/admin.title')}}--}}
-{{--                        </a>--}}
-{{--                        <ul class="nav-dropdown-items">--}}
-{{--                            <li class="nav-item {{request()->routeIs('dashboard.admins.index') ? 'active' : ''}}">--}}
-{{--                                <a href="{{ route('dashboard.admins.index') }}" class="nav-link ">--}}
-{{--                                    <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
+            {{--                            </i>--}}
+            {{--                            {{__('dashboard/admin.title')}}--}}
+            {{--                        </a>--}}
+            {{--                        <ul class="nav-dropdown-items">--}}
+            {{--                            <li class="nav-item {{request()->routeIs('dashboard.admins.index') ? 'active' : ''}}">--}}
+            {{--                                <a href="{{ route('dashboard.admins.index') }}" class="nav-link ">--}}
+            {{--                                    <i class="fa-fw fas fa-unlock-alt nav-icon">--}}
 
-{{--                                    </i>--}}
-{{--                                    <span class="menu-title" data-i18n="nav.dash.main">--}}
-{{--                            المفعله--}}
-{{--                        </span>--}}
-{{--                                    <span class="badge badge badge-info badge-pill float-right mr-2">--}}
-{{--                            {{\App\Models\Admin::count()}}--}}
-{{--                        </span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item {{request()->routeIs('dashboard.admins.trashed') ? 'active' : ''}}">--}}
-{{--                                <a href="{{route('dashboard.admins.trashed')}}" class="nav-link ">--}}
-{{--                                    <i class="fa-fw fas fa-briefcase nav-icon">--}}
-{{--                                    </i>--}}
-{{--                                    الغير مفعله--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
+            {{--                                    </i>--}}
+            {{--                                    <span class="menu-title" data-i18n="nav.dash.main">--}}
+            {{--                            المفعله--}}
+            {{--                        </span>--}}
+            {{--                                    <span class="badge badge badge-info badge-pill float-right mr-2">--}}
+            {{--                            {{\App\Models\Admin::count()}}--}}
+            {{--                        </span>--}}
+            {{--                                </a>--}}
+            {{--                            </li>--}}
+            {{--                            <li class="nav-item {{request()->routeIs('dashboard.admins.trashed') ? 'active' : ''}}">--}}
+            {{--                                <a href="{{route('dashboard.admins.trashed')}}" class="nav-link ">--}}
+            {{--                                    <i class="fa-fw fas fa-briefcase nav-icon">--}}
+            {{--                                    </i>--}}
+            {{--                                    الغير مفعله--}}
+            {{--                                </a>--}}
+            {{--                            </li>--}}
+            {{--                        </ul>--}}
+            {{--                    </li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
             {{--            @if(auth()->user()->hasRole('مدرس'))--}}
             {{--                <li class="nav-item ">--}}
             {{--                    <a href="{{route('exams.create')}}" class="nav-link ">--}}

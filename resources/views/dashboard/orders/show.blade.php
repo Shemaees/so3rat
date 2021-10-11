@@ -42,17 +42,17 @@
                                     {{__('global.delete')}}
                                 </a>
                             </form>
-{{--                            <a href="{{route('dashboard.orders.change_status',$order->id)}}"--}}
-{{--                               class="dropdown-item"--}}
-{{--                               onclick="return confirm('{{__('dashboard/order.change_status')}}');">--}}
-{{--                                @if($order->status == 0)--}}
-{{--                                    <i class="ft-lock primary"></i>--}}
-{{--                                    {{__('global.activate')}}--}}
-{{--                                @else--}}
-{{--                                    <i class="ft-unlock primary"></i>--}}
-{{--                                    {{__('global.deactivate')}}--}}
-{{--                                @endif--}}
-{{--                            </a>--}}
+                            {{--                            <a href="{{route('dashboard.orders.change_status',$order->id)}}"--}}
+                            {{--                               class="dropdown-item"--}}
+                            {{--                               onclick="return confirm('{{__('dashboard/order.change_status')}}');">--}}
+                            {{--                                @if($order->status == 0)--}}
+                            {{--                                    <i class="ft-lock primary"></i>--}}
+                            {{--                                    {{__('global.activate')}}--}}
+                            {{--                                @else--}}
+                            {{--                                    <i class="ft-unlock primary"></i>--}}
+                            {{--                                    {{__('global.deactivate')}}--}}
+                            {{--                                @endif--}}
+                            {{--                            </a>--}}
 
                         </div>
                     </div>
@@ -107,16 +107,16 @@
                                                                             <td>{{__('dashboard/order.day')}}:</td>
                                                                             @foreach($timeSlots as $timeSlot)
                                                                                 @if($timeSlot->id == $order->time_slot_id)
-                                                                            <td>
-                                                                                {{$timeSlot->day}}
-                                                                            </td>
+                                                                                    <td>
+                                                                                        {{$timeSlot->day}}
+                                                                                    </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td>{{__('dashboard/order.time')}}</td>
                                                                             <td>
                                                                                 {{$timeSlot->from}} : {{$timeSlot->to}}
                                                                             </td>
-                                                                                @endif
+                                                                            @endif
                                                                             @endforeach
                                                                         </tr>
 
@@ -159,13 +159,18 @@
                                                                         <tr>
                                                                             <td>{{__('dashboard/order.status')}}:</td>
                                                                             @if($order->status == '1' )
-                                                                                <td> <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.complete')}}</span></td>
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-success pt-1 pb-1"> {{__('global.complete')}}</span>
+                                                                                </td>
                                                                             @else
-                                                                                <td> <span class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.uncomplete')}}</span> </td>
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.uncomplete')}}</span>
+                                                                                </td>
                                                                             @endif
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/order.description')}}:</td>
+                                                                            <td>{{__('dashboard/order.description')}}:
+                                                                            </td>
                                                                             <td>{{$order->description}}</td>
                                                                         </tr>
                                                                         </tbody>
@@ -203,9 +208,11 @@
             type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/select/form-select2.js')}}" type="text/javascript"></script>
 @endsection
 

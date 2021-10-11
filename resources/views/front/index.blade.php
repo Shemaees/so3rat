@@ -19,10 +19,12 @@
                             <span class="form-text">Based on your Location</span>
                         </div>
                         <div class="form-group search-info">
-                            <input type="text" class="form-control" placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc">
+                            <input type="text" class="form-control"
+                                   placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc">
                             <span class="form-text">Ex : Dental or Sugar Check up etc</span>
                         </div>
-                        <button type="submit" class="btn btn-primary search-btn mt-0"><i class="fas fa-search"></i> <span>Search</span></button>
+                        <button type="submit" class="btn btn-primary search-btn mt-0"><i class="fas fa-search"></i>
+                            <span>Search</span></button>
                     </form>
                 </div>
                 <!-- /Search -->
@@ -30,7 +32,7 @@
             </div>
         </div>
     </section>
-        <!-- /Home Banner -->
+    <!-- /Home Banner -->
 
     <section class="section home-tile-section">
         <div class="container-fluid">
@@ -46,7 +48,8 @@
                                 <div class="doctor-book-card-content tile-card-content-1">
                                     <div>
                                         <h3 class="card-title mb-0">Visit a Doctor</h3>
-                                        <a href="search.html" class="btn book-btn1 px-3 py-2 mt-3" tabindex="0">Book Now</a>
+                                        <a href="search.html" class="btn book-btn1 px-3 py-2 mt-3" tabindex="0">Book
+                                            Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +60,8 @@
                                 <div class="doctor-book-card-content tile-card-content-1">
                                     <div>
                                         <h3 class="card-title mb-0">Find a Pharmacy</h3>
-                                        <a href="pharmacy-search.html" class="btn book-btn1 px-3 py-2 mt-3" tabindex="0">Find Now</a>
+                                        <a href="pharmacy-search.html" class="btn book-btn1 px-3 py-2 mt-3"
+                                           tabindex="0">Find Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +72,8 @@
                                 <div class="doctor-book-card-content tile-card-content-1">
                                     <div>
                                         <h3 class="card-title mb-0">Find a Lab</h3>
-                                        <a href="javascript:void(0);" class="btn book-btn1 px-3 py-2 mt-3" tabindex="0">Coming Soon</a>
+                                        <a href="javascript:void(0);" class="btn book-btn1 px-3 py-2 mt-3" tabindex="0">Coming
+                                            Soon</a>
                                     </div>
                                 </div>
                             </div>
@@ -79,78 +84,84 @@
         </div>
     </section>
 
-        <!-- Clinic and Specialities -->
-        <section class="section section-specialities">
-            <div class="container-fluid">
-                <div class="section-header text-center">
-                    <h2>Clinic and Specialities</h2>
-                    <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-9">
-                        <!-- Slider -->
-                        <div class="specialities-slider slider" >
+    <!-- Clinic and Specialities -->
+    <section class="section section-specialities">
+        <div class="container-fluid">
+            <div class="section-header text-center">
+                <h2>Clinic and Specialities</h2>
+                <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <!-- Slider -->
+                    <div class="specialities-slider slider">
 
-                            <!-- Slider Item -->
-                            <div class="speicality-item text-center">
-                                <div class="speicality-img" >
-                                    <img src="{{asset('front/assets/img/specialities/specialities-01.png')}}" class="img-fluid" alt="Speciality">
-                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                </div>
-                                <p>Urology</p>
+                        <!-- Slider Item -->
+                        <div class="speicality-item text-center">
+                            <div class="speicality-img">
+                                <img src="{{asset('front/assets/img/specialities/specialities-01.png')}}"
+                                     class="img-fluid" alt="Speciality">
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                             </div>
-                            <!-- /Slider Item -->
-
-                            <!-- Slider Item -->
-                            <div class="speicality-item text-center">
-                                <div class="speicality-img">
-                                    <img src="{{asset('front/assets/img/specialities/specialities-02.png')}}" class="img-fluid" alt="Speciality">
-                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                </div>
-                                <p>Neurology</p>
-                            </div>
-                            <!-- /Slider Item -->
-
-                            <!-- Slider Item -->
-                            <div class="speicality-item text-center">
-                                <div class="speicality-img">
-                                    <img src="{{asset('front/assets/img/specialities/specialities-03.png')}}" class="img-fluid" alt="Speciality">
-                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                </div>
-                                <p>Orthopedic</p>
-                            </div>
-                            <!-- /Slider Item -->
-
-                            <!-- Slider Item -->
-                            <div class="speicality-item text-center">
-                                <div class="speicality-img">
-                                    <img src="{{asset('front/assets/img/specialities/specialities-04.png')}}" class="img-fluid" alt="Speciality">
-                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                </div>
-                                <p>Cardiologist</p>
-                            </div>
-                            <!-- /Slider Item -->
-
-                            <!-- Slider Item -->
-                            <div class="speicality-item text-center">
-                                <div class="speicality-img">
-                                    <img src="{{asset('front/assets/img/specialities/specialities-05.png')}}" class="img-fluid" alt="Speciality">
-                                    <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                </div>
-                                <p>Dentist</p>
-                            </div>
-                            <!-- /Slider Item -->
-
+                            <p>Urology</p>
                         </div>
-                        <!-- /Slider -->
+                        <!-- /Slider Item -->
+
+                        <!-- Slider Item -->
+                        <div class="speicality-item text-center">
+                            <div class="speicality-img">
+                                <img src="{{asset('front/assets/img/specialities/specialities-02.png')}}"
+                                     class="img-fluid" alt="Speciality">
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            </div>
+                            <p>Neurology</p>
+                        </div>
+                        <!-- /Slider Item -->
+
+                        <!-- Slider Item -->
+                        <div class="speicality-item text-center">
+                            <div class="speicality-img">
+                                <img src="{{asset('front/assets/img/specialities/specialities-03.png')}}"
+                                     class="img-fluid" alt="Speciality">
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            </div>
+                            <p>Orthopedic</p>
+                        </div>
+                        <!-- /Slider Item -->
+
+                        <!-- Slider Item -->
+                        <div class="speicality-item text-center">
+                            <div class="speicality-img">
+                                <img src="{{asset('front/assets/img/specialities/specialities-04.png')}}"
+                                     class="img-fluid" alt="Speciality">
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            </div>
+                            <p>Cardiologist</p>
+                        </div>
+                        <!-- /Slider Item -->
+
+                        <!-- Slider Item -->
+                        <div class="speicality-item text-center">
+                            <div class="speicality-img">
+                                <img src="{{asset('front/assets/img/specialities/specialities-05.png')}}"
+                                     class="img-fluid" alt="Speciality">
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                            </div>
+                            <p>Dentist</p>
+                        </div>
+                        <!-- /Slider Item -->
 
                     </div>
+                    <!-- /Slider -->
+
                 </div>
             </div>
-        </section>
-        <!-- Clinic and Specialities -->
+        </div>
+    </section>
+    <!-- Clinic and Specialities -->
 
-        <!-- Popular Section -->
+    <!-- Popular Section -->
     <section class="section section-doctor">
         <div class="container-fluid">
             <div class="row">
@@ -160,9 +171,12 @@
                         <p>Lorem Ipsum is simply dummy text </p>
                     </div>
                     <div class="about-content">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
-                        <p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes</p>
-                        <a href="javascript:;">Read More..</a>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum.</p>
+                        <p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
+                            ipsum' will uncover many web sites still in their infancy. Various versions have evolved
+                            over the years, sometimes</p>
+                        <a href="javascript:">Read More..</a>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -172,7 +186,8 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-01.jpg')}}">
+                                    <img class="img-fluid" alt="User Image"
+                                         src="{{asset('front/assets/img/doctors/doctor-01.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -220,7 +235,8 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-02.jpg')}}">
+                                    <img class="img-fluid" alt="User Image"
+                                         src="{{asset('front/assets/img/doctors/doctor-02.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -268,7 +284,8 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-03.jpg')}}">
+                                    <img class="img-fluid" alt="User Image"
+                                         src="{{asset('front/assets/img/doctors/doctor-03.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -316,7 +333,8 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-04.jpg')}}">
+                                    <img class="img-fluid" alt="User Image"
+                                         src="{{asset('front/assets/img/doctors/doctor-04.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -364,7 +382,8 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-05.jpg')}}">
+                                    <img class="img-fluid" alt="User Image"
+                                         src="{{asset('front/assets/img/doctors/doctor-05.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -412,7 +431,8 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-06.jpg')}}">
+                                    <img class="img-fluid" alt="User Image"
+                                         src="{{asset('front/assets/img/doctors/doctor-06.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -460,7 +480,8 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-07.jpg')}}">
+                                    <img class="img-fluid" alt="User Image"
+                                         src="{{asset('front/assets/img/doctors/doctor-07.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -508,7 +529,8 @@
                         <div class="profile-widget">
                             <div class="doc-img">
                                 <a href="doctor-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-08.jpg')}}">
+                                    <img class="img-fluid" alt="User Image"
+                                         src="{{asset('front/assets/img/doctors/doctor-08.jpg')}}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>
@@ -557,9 +579,9 @@
             </div>
         </div>
     </section>
-        <!-- /Popular Section -->
+    <!-- /Popular Section -->
 
-        <!-- Availabe Features -->
+    <!-- Availabe Features -->
     <section class="section section-features">
         <div class="container-fluid">
             <div class="row">
@@ -569,47 +591,54 @@
                 <div class="col-md-7">
                     <div class="section-header">
                         <h2 class="mt-2">Availabe Features in Our Clinic</h2>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. </p>
                     </div>
                     <div class="features-slider slider">
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="{{asset('front/assets/img/features/feature-01.jpg')}}" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-01.jpg')}}" class="img-fluid"
+                                 alt="Feature">
                             <p>Patient Ward</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="{{asset('front/assets/img/features/feature-02.jpg')}}" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-02.jpg')}}" class="img-fluid"
+                                 alt="Feature">
                             <p>Test Room</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="{{asset('front/assets/img/features/feature-03.jpg')}}" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-03.jpg')}}" class="img-fluid"
+                                 alt="Feature">
                             <p>ICU</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="{{asset('front/assets/img/features/feature-04.jpg')}}" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-04.jpg')}}" class="img-fluid"
+                                 alt="Feature">
                             <p>Laboratory</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="{{asset('front/assets/img/features/feature-05.jpg')}}" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-05.jpg')}}" class="img-fluid"
+                                 alt="Feature">
                             <p>Operation</p>
                         </div>
                         <!-- /Slider Item -->
 
                         <!-- Slider Item -->
                         <div class="feature-item text-center">
-                            <img src="{{asset('front/assets/img/features/feature-06.jpg')}}" class="img-fluid" alt="Feature">
+                            <img src="{{asset('front/assets/img/features/feature-06.jpg')}}" class="img-fluid"
+                                 alt="Feature">
                             <p>Medical</p>
                         </div>
                         <!-- /Slider Item -->
@@ -618,16 +647,17 @@
             </div>
         </div>
     </section>
-        <!-- /Availabe Features -->
+    <!-- /Availabe Features -->
 
-        <!-- Blog Section -->
+    <!-- Blog Section -->
     <section class="section section-blogs">
         <div class="container-fluid">
 
             <!-- Section Header -->
             <div class="section-header text-center">
                 <h2>Blogs and News</h2>
-                <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <!-- /Section Header -->
 
@@ -637,19 +667,25 @@
                     <!-- Blog Post -->
                     <div class="blog grid-blog">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-01.jpg')}}" alt="Post Image"></a>
+                            <a href="blog-details.html"><img class="img-fluid"
+                                                             src="{{asset('front/assets/img/blog/blog-01.jpg')}}"
+                                                             alt="Post Image"></a>
                         </div>
                         <div class="blog-content">
                             <ul class="entry-meta meta-item">
                                 <li>
                                     <div class="post-author">
-                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-01.jpg')}}" alt="Post Author"> <span>Dr. Ruby Perrin</span></a>
+                                        <a href="doctor-profile.html"><img
+                                                src="{{asset('front/assets/img/doctors/doctor-thumb-01.jpg')}}"
+                                                alt="Post Author"> <span>Dr. Ruby Perrin</span></a>
                                     </div>
                                 </li>
                                 <li><i class="far fa-clock"></i> 4 Dec 2019</li>
                             </ul>
-                            <h3 class="blog-title"><a href="blog-details.html">Doccure – Making your clinic painless visit?</a></h3>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
+                            <h3 class="blog-title"><a href="blog-details.html">Doccure – Making your clinic painless
+                                    visit?</a></h3>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod
+                                tempor.</p>
                         </div>
                     </div>
                     <!-- /Blog Post -->
@@ -660,19 +696,25 @@
                     <!-- Blog Post -->
                     <div class="blog grid-blog">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-02.jpg')}}" alt="Post Image"></a>
+                            <a href="blog-details.html"><img class="img-fluid"
+                                                             src="{{asset('front/assets/img/blog/blog-02.jpg')}}"
+                                                             alt="Post Image"></a>
                         </div>
                         <div class="blog-content">
                             <ul class="entry-meta meta-item">
                                 <li>
                                     <div class="post-author">
-                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="Post Author"> <span>Dr. Darren Elder</span></a>
+                                        <a href="doctor-profile.html"><img
+                                                src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}"
+                                                alt="Post Author"> <span>Dr. Darren Elder</span></a>
                                     </div>
                                 </li>
                                 <li><i class="far fa-clock"></i> 3 Dec 2019</li>
                             </ul>
-                            <h3 class="blog-title"><a href="blog-details.html">What are the benefits of Online Doctor Booking?</a></h3>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
+                            <h3 class="blog-title"><a href="blog-details.html">What are the benefits of Online Doctor
+                                    Booking?</a></h3>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod
+                                tempor.</p>
                         </div>
                     </div>
                     <!-- /Blog Post -->
@@ -683,19 +725,25 @@
                     <!-- Blog Post -->
                     <div class="blog grid-blog">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-03.jpg')}}" alt="Post Image"></a>
+                            <a href="blog-details.html"><img class="img-fluid"
+                                                             src="{{asset('front/assets/img/blog/blog-03.jpg')}}"
+                                                             alt="Post Image"></a>
                         </div>
                         <div class="blog-content">
                             <ul class="entry-meta meta-item">
                                 <li>
                                     <div class="post-author">
-                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-03.jpg')}}" alt="Post Author"> <span>Dr. Deborah Angel</span></a>
+                                        <a href="doctor-profile.html"><img
+                                                src="{{asset('front/assets/img/doctors/doctor-thumb-03.jpg')}}"
+                                                alt="Post Author"> <span>Dr. Deborah Angel</span></a>
                                     </div>
                                 </li>
                                 <li><i class="far fa-clock"></i> 3 Dec 2019</li>
                             </ul>
-                            <h3 class="blog-title"><a href="blog-details.html">Benefits of consulting with an Online Doctor</a></h3>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
+                            <h3 class="blog-title"><a href="blog-details.html">Benefits of consulting with an Online
+                                    Doctor</a></h3>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod
+                                tempor.</p>
                         </div>
                     </div>
                     <!-- /Blog Post -->
@@ -706,19 +754,25 @@
                     <!-- Blog Post -->
                     <div class="blog grid-blog">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-04.jpg')}}" alt="Post Image"></a>
+                            <a href="blog-details.html"><img class="img-fluid"
+                                                             src="{{asset('front/assets/img/blog/blog-04.jpg')}}"
+                                                             alt="Post Image"></a>
                         </div>
                         <div class="blog-content">
                             <ul class="entry-meta meta-item">
                                 <li>
                                     <div class="post-author">
-                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-04.jpg')}}" alt="Post Author"> <span>Dr. Sofia Brient</span></a>
+                                        <a href="doctor-profile.html"><img
+                                                src="{{asset('front/assets/img/doctors/doctor-thumb-04.jpg')}}"
+                                                alt="Post Author"> <span>Dr. Sofia Brient</span></a>
                                     </div>
                                 </li>
                                 <li><i class="far fa-clock"></i> 2 Dec 2019</li>
                             </ul>
-                            <h3 class="blog-title"><a href="blog-details.html">5 Great reasons to use an Online Doctor</a></h3>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
+                            <h3 class="blog-title"><a href="blog-details.html">5 Great reasons to use an Online
+                                    Doctor</a></h3>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod
+                                tempor.</p>
                         </div>
                     </div>
                     <!-- /Blog Post -->
@@ -730,5 +784,5 @@
             </div>
         </div>
     </section>
-        <!-- /Blog Section -->
-    @endsection
+    <!-- /Blog Section -->
+@endsection

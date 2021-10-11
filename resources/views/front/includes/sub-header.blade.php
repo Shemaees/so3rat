@@ -31,23 +31,23 @@
                         <li><a href="{{route('index-slide')}}">Home slider 2</a></li>
                     </ul>
                 </li>
-                <li class="has-submenu"> <a href="#"> لقاءات</a>
+                <li class="has-submenu"><a href="#"> لقاءات</a>
                     <ul class="submenu">
                         <li><a href="{{route('doctor-dashboard')}}">Doctor Dashboard</a></li>
-{{--                        <li><a href="{{route('appointments')}}">Appointments</a></li>--}}
-{{--                        <li><a href="{{route('schedule-timing')}}s">Schedule Timing</a></li>--}}
-{{--                        <li><a href="{{route('my-patients')}}">Patients List</a></li>--}}
-{{--                        <li><a href="{{route('patient-profile')}}">Patients Profile</a></li>--}}
-{{--                        <li><a href="{{route('chat-doctor')}}">Chat</a></li>--}}
-{{--                        <li><a href="{{route('invoices')}}">Invoices</a></li>--}}
+                        {{--                        <li><a href="{{route('appointments')}}">Appointments</a></li>--}}
+                        {{--                        <li><a href="{{route('schedule-timing')}}s">Schedule Timing</a></li>--}}
+                        {{--                        <li><a href="{{route('my-patients')}}">Patients List</a></li>--}}
+                        {{--                        <li><a href="{{route('patient-profile')}}">Patients Profile</a></li>--}}
+                        {{--                        <li><a href="{{route('chat-doctor')}}">Chat</a></li>--}}
+                        {{--                        <li><a href="{{route('invoices')}}">Invoices</a></li>--}}
                         <li><a href="{{route('doctor-profile-settings')}}">Profile Settings</a></li>
-{{--                        <li><a href="{{route('reviews')}}">Reviews</a></li>--}}
+                        {{--                        <li><a href="{{route('reviews')}}">Reviews</a></li>--}}
                         <li><a href="{{route('doctor-register')}}">Doctor Register</a></li>
                     </ul>
                 </li>
-                <li class="has-submenu"> <a href="#">من نحن</a>
+                <li class="has-submenu"><a href="#">من نحن</a>
                     <ul class="submenu">
-                        <li class="has-submenu"> <a href="#">Doctors</a>
+                        <li class="has-submenu"><a href="#">Doctors</a>
                             <ul class="submenu">
                                 <li><a href="map-grid.html">Map Grid</a>
                                 </li>
@@ -78,19 +78,19 @@
                     </ul>
                 </li>
 
-                <li class="login-link"> <a href="login.html"> تسجيل الدخول / تسجيل</a>
+                <li class="login-link"><a href="login.html"> تسجيل الدخول / تسجيل</a>
                 </li>
             </ul>
         </div>
         <ul class="nav header-navbar-rht">
             <li class="nav-item contact-item">
-                <div class="header-contact-img"> <i class="far fa-hospital"></i>
+                <div class="header-contact-img"><i class="far fa-hospital"></i>
                 </div>
                 <div class="header-contact-detail">
                     <p class="contact-header">Contact</p>
                 </div>
             </li>
-            <li class="nav-item"> <a class="nav-link header-login" href="login.html">تسجيل الدخول / تسجيل </a>
+            <li class="nav-item"><a class="nav-link header-login" href="login.html">تسجيل الدخول / تسجيل </a>
             </li>
         </ul>
     </nav>

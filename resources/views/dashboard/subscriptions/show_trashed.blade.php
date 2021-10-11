@@ -88,23 +88,32 @@
                                                                     <table class="table table-borderless  mb-0">
                                                                         <tbody>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.name')}}:</td>
+                                                                            <td>{{__('dashboard/subscription.name')}}:
+                                                                            </td>
                                                                             <td>{{$subscription->name}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.price')}}:</td>
+                                                                            <td>{{__('dashboard/subscription.price')}}
+                                                                                :
+                                                                            </td>
                                                                             <td>{{$subscription->price}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.visits_number')}}:</td>
+                                                                            <td>{{__('dashboard/subscription.visits_number')}}
+                                                                                :
+                                                                            </td>
                                                                             <td>{{$subscription->visits_number}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.period')}}:</td>
+                                                                            <td>{{__('dashboard/subscription.period')}}
+                                                                                :
+                                                                            </td>
                                                                             <td>{{$subscription->period}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.description')}}:</td>
+                                                                            <td>{{__('dashboard/subscription.description')}}
+                                                                                :
+                                                                            </td>
                                                                             <td>{{$subscription->description}}</td>
                                                                         </tr>
                                                                         </tbody>
@@ -142,9 +151,11 @@
             type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/select/form-select2.js')}}" type="text/javascript"></script>
 @endsection
 

@@ -29,32 +29,32 @@
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
                             {{__('global.actions')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-{{--                            <form--}}
-{{--                                action="{{ route('dashboard.users.delete', $user->id) }}"--}}
-{{--                                method="POST"--}}
-{{--                                onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
-{{--                                style="display: inline-block;">--}}
-{{--                                @csrf--}}
-{{--                                <input type="hidden" name="_method" value="DELETE">--}}
-{{--                                <a href="#" class="dropdown-item"--}}
-{{--                                   onclick="$(this).parent().submit()">--}}
-{{--                                    <i class="ft-trash-2"></i>--}}
-{{--                                    {{__('global.delete')}}--}}
-{{--                                </a>--}}
-{{--                            </form>--}}
-{{--                            <form--}}
-{{--                                action="{{ route('dashboard.users.force', $user->id) }}"--}}
-{{--                                method="POST"--}}
-{{--                                onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
-{{--                                style="display: inline-block;">--}}
-{{--                                @csrf--}}
-{{--                                <input type="hidden" name="_method" value="DELETE">--}}
-{{--                                <a href="#" class="dropdown-item"--}}
-{{--                                   onclick="$(this).parent().submit()">--}}
-{{--                                    <i class="ft-trash-2"></i>--}}
-{{--                                    {{__('global.force_delete')}}--}}
-{{--                                </a>--}}
-{{--                            </form>--}}
+                            {{--                            <form--}}
+                            {{--                                action="{{ route('dashboard.users.delete', $user->id) }}"--}}
+                            {{--                                method="POST"--}}
+                            {{--                                onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
+                            {{--                                style="display: inline-block;">--}}
+                            {{--                                @csrf--}}
+                            {{--                                <input type="hidden" name="_method" value="DELETE">--}}
+                            {{--                                <a href="#" class="dropdown-item"--}}
+                            {{--                                   onclick="$(this).parent().submit()">--}}
+                            {{--                                    <i class="ft-trash-2"></i>--}}
+                            {{--                                    {{__('global.delete')}}--}}
+                            {{--                                </a>--}}
+                            {{--                            </form>--}}
+                            {{--                            <form--}}
+                            {{--                                action="{{ route('dashboard.users.force', $user->id) }}"--}}
+                            {{--                                method="POST"--}}
+                            {{--                                onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
+                            {{--                                style="display: inline-block;">--}}
+                            {{--                                @csrf--}}
+                            {{--                                <input type="hidden" name="_method" value="DELETE">--}}
+                            {{--                                <a href="#" class="dropdown-item"--}}
+                            {{--                                   onclick="$(this).parent().submit()">--}}
+                            {{--                                    <i class="ft-trash-2"></i>--}}
+                            {{--                                    {{__('global.force_delete')}}--}}
+                            {{--                                </a>--}}
+                            {{--                            </form>--}}
 
                         </div>
                     </div>
@@ -114,13 +114,19 @@
                                                                         <tr>
                                                                             <td>{{__('user.status')}}:</td>
                                                                             @if($user->status == '1' )
-                                                                                <td> <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span></td>
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                                                </td>
 
                                                                             @elseif($user->status == '2')
-                                                                                <td><span class="badge badge-default badge-warning pt-1 pb-1"> {{__('global.block')}}</span> </td>
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-warning pt-1 pb-1"> {{__('global.block')}}</span>
+                                                                                </td>
 
                                                                             @else
-                                                                                <td> <span class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span> </td>
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                                                </td>
                                                                             @endif
                                                                         </tr>
                                                                         </tbody>
@@ -158,9 +164,11 @@
             type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/select/form-select2.js')}}" type="text/javascript"></script>
 @endsection
 

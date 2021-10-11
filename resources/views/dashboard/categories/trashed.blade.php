@@ -2,10 +2,14 @@
 
 @section('style')
 
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>
-    <link href="{{asset('assets/dashboard/vendors/css/forms/toggle/switchery.min.css')}}"  rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{asset('assets/dashboard/vendors/css/forms/toggle/switchery.min.css')}}" rel="stylesheet"
+          type="text/css">
     <link href="{{asset('assets/dashboard/css-rtl/core/colors/palette-switch.css')}}" rel="stylesheet" type="text/css">
 
 @endsection
@@ -40,13 +44,13 @@
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
                             {{__('global.actions')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-{{--                            <a href=""--}}
-{{--                               class="dropdown-item"--}}
-{{--                               data-toggle="modal"--}}
-{{--                               data-target="#add-category">--}}
-{{--                                <i class="ft-plus"></i>--}}
-{{--                                {{__('global.add')}}--}}
-{{--                            </a>--}}
+                            {{--                            <a href=""--}}
+                            {{--                               class="dropdown-item"--}}
+                            {{--                               data-toggle="modal"--}}
+                            {{--                               data-target="#add-category">--}}
+                            {{--                                <i class="ft-plus"></i>--}}
+                            {{--                                {{__('global.add')}}--}}
+                            {{--                            </a>--}}
                         </div>
                     </div>
                 </div>
@@ -60,7 +64,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">
-                                       {{__('dashboard/category.trashed')}}
+                                        {{__('dashboard/category.trashed')}}
                                     </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
@@ -105,9 +109,11 @@
                                                     </td>
                                                     <td>
                                                         @if($trash_category->status === 1)
-                                                            <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                            <span
+                                                                class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
                                                         @else
-                                                            <span class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                            <span
+                                                                class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
                                                         @endif
                                                     </td>
 
@@ -186,7 +192,8 @@
             type="text/javascript"></script>
     <script src="{{ asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{ asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
 
 @endsection
 

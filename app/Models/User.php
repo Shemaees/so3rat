@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -25,7 +23,9 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
-        'address',
+        'user_type',
+        'birthdate',
+        'gender',
         'status',
     ];
 
@@ -48,8 +48,35 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function profile()
+    {
+        if ($this->user_type == 'Doctor')
+            return $this->doctorProfile();
+        elseif ($this->user_type == 'Patient')
+            return $this->patientProfile();
+    }
+    public function doctorProfile(): HasOne
+    {
+        return $this->hasOne(DoctorProfile::class);
+    }
+
+    public function patientProfile(): HasOne
+    {
+        return $this->hasOne(PatientProfile::class);
+    }
+
     public function scopeActive($query)
     {
         return $query->where('status', 'Active');
+    }
+
+    public function scopeDoctor($query)
+    {
+        return $query->where('type', 'Doctor');
+    }
+
+    public function scopePatient($query)
+    {
+        return $query->where('type', 'Patient');
     }
 }

@@ -106,13 +106,24 @@
                                                                         <tr>
                                                                             <td>{{__('dashboard/visit.status')}}:</td>
                                                                             @if($visit->status == '1' )
-                                                                                <td> <p><mark class="bg-success">{{__('global.active')}}</mark></p></td>
+                                                                                <td>
+                                                                                    <p>
+                                                                                        <mark
+                                                                                            class="bg-success">{{__('global.active')}}</mark>
+                                                                                    </p>
+                                                                                </td>
                                                                             @else
-                                                                                <td> <p><mark class="bg-danger">{{__('global.non_active')}}</mark></p> </td>
+                                                                                <td>
+                                                                                    <p>
+                                                                                        <mark
+                                                                                            class="bg-danger">{{__('global.non_active')}}</mark>
+                                                                                    </p>
+                                                                                </td>
                                                                             @endif
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/visit.description')}}:</td>
+                                                                            <td>{{__('dashboard/visit.description')}}:
+                                                                            </td>
                                                                             <td>{{$visit->description}}</td>
                                                                         </tr>
                                                                         </tbody>
@@ -150,9 +161,11 @@
             type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/select/form-select2.js')}}" type="text/javascript"></script>
 @endsection
 

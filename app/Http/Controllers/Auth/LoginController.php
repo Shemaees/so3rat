@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,5 +39,24 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    /**
+     * The user has been authenticated.
+     *
+     * @param Request $request
+     * @param  mixed  $user
+     * @return RedirectResponse|JsonResponse|void
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->status == 'Wating for admin confirm')
+        {
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return $request->wantsJson()
+                ? new JsonResponse([], 204)
+                : redirect()->back()->withErrors($user->status);
+        }
     }
 }

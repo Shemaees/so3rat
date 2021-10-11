@@ -2,9 +2,12 @@
 
 @section('style')
 
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
+          rel="stylesheet"/>
 
 @endsection
 
@@ -38,13 +41,13 @@
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
                             {{__('global.actions')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-{{--                            <a href=""--}}
-{{--                               class="dropdown-item"--}}
-{{--                               data-toggle="modal"--}}
-{{--                               data-target="#add-subscription">--}}
-{{--                                <i class="ft-plus"></i>--}}
-{{--                                {{__('global.add')}}--}}
-{{--                            </a>--}}
+                            {{--                            <a href=""--}}
+                            {{--                               class="dropdown-item"--}}
+                            {{--                               data-toggle="modal"--}}
+                            {{--                               data-target="#add-subscription">--}}
+                            {{--                                <i class="ft-plus"></i>--}}
+                            {{--                                {{__('global.add')}}--}}
+                            {{--                            </a>--}}
                         </div>
                     </div>
                 </div>
@@ -125,7 +128,8 @@
                                                                 <i class="ft-settings"></i>
                                                             </button>
                                                             <div class="dropdown-menu">
-                                                                <a href="{{route('dashboard.subscriptions.show_trashed',$trash_subscription->id)}}" class="dropdown-item">
+                                                                <a href="{{route('dashboard.subscriptions.show_trashed',$trash_subscription->id)}}"
+                                                                   class="dropdown-item">
                                                                     <i class="ft-eye">
                                                                     </i>
                                                                     {{__('global.show')}}

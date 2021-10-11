@@ -32,7 +32,8 @@
     <!-- BEGIN Page Level CSS-->
     <link rel="stylesheet" type="text/css"
           href="{{asset('assets/dashboard/css-rtl/core/menu/menu-types/vertical-menu.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/css-rtl/core/colors/palette-gradient.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{asset('assets/dashboard/css-rtl/core/colors/palette-gradient.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/css-rtl/pages/login-register.css')}}">
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->

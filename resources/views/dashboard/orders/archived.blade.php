@@ -2,9 +2,12 @@
 
 @section('style')
 
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
+          rel="stylesheet"/>
 
 @endsection
 
@@ -107,7 +110,8 @@
                                                                 <i class="ft-settings"></i>
                                                             </button>
                                                             <div class="dropdown-menu">
-                                                                <a href="{{route('dashboard.orders.show',$ar_order->id)}}" class="dropdown-item">
+                                                                <a href="{{route('dashboard.orders.show',$ar_order->id)}}"
+                                                                   class="dropdown-item">
                                                                     <i class="ft-eye">
                                                                     </i>
                                                                     {{__('global.show')}}

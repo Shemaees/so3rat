@@ -2,9 +2,12 @@
 
 @section('style')
 
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
+          rel="stylesheet"/>
 
 @endsection
 
@@ -131,7 +134,7 @@
                                                                 @endif
                                                             @endforeach
                                                         </td>
-                                                        <td >
+                                                        <td>
                                                             @foreach($subscriptions as $subscription)
                                                                 @if($request->subscription_id == $subscription->id)
                                                                     {{__($subscription->name)}}
@@ -141,9 +144,11 @@
                                                         <td> {{$request->visited_at}} </td>
                                                         <td>
                                                             @if($request->user_request == '1' )
-                                                                <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                                <span
+                                                                    class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
                                                             @else
-                                                                <span class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                                <span
+                                                                    class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
                                                             @endif
                                                         </td>
                                                         <td>{{$request->user_request_date}}</td>
@@ -156,7 +161,8 @@
                                                                     <i class="ft-settings"></i>
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a href="{{route('dashboard.requests.show',$request->id)}}" class="dropdown-item">
+                                                                    <a href="{{route('dashboard.requests.show',$request->id)}}"
+                                                                       class="dropdown-item">
                                                                         <i class="ft-eye"></i>
                                                                         {{__('global.show')}}
                                                                     </a>

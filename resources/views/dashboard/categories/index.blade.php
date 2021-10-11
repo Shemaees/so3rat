@@ -2,10 +2,14 @@
 
 @section('style')
 
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>
-    <link href="{{asset('assets/dashboard/vendors/css/forms/toggle/switchery.min.css')}}"  rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/dataTables.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{asset('assets/dashboard/vendors/css/forms/toggle/switchery.min.css')}}" rel="stylesheet"
+          type="text/css">
     <link href="{{asset('assets/dashboard/css-rtl/core/colors/palette-switch.css')}}" rel="stylesheet" type="text/css">
 
 @endsection
@@ -122,9 +126,11 @@
                                                         </td>
                                                         <td>
                                                             @if($category->status === 1)
-                                                                <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                                <span
+                                                                    class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
                                                             @else
-                                                                <span class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                                <span
+                                                                    class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
                                                             @endif
                                                         </td>
 
@@ -137,10 +143,10 @@
                                                                     <i class="ft-settings"></i>
                                                                 </button>
                                                                 <div class="dropdown-menu">
-{{--                                                                    <a href="{{route('dashboard.categories.show',$category->id)}}" class="dropdown-item">--}}
-{{--                                                                        <i class="ft-eye"></i>--}}
-{{--                                                                        {{__('global.show')}}--}}
-{{--                                                                    </a>--}}
+                                                                    {{--                                                                    <a href="{{route('dashboard.categories.show',$category->id)}}" class="dropdown-item">--}}
+                                                                    {{--                                                                        <i class="ft-eye"></i>--}}
+                                                                    {{--                                                                        {{__('global.show')}}--}}
+                                                                    {{--                                                                    </a>--}}
                                                                     <a href="#" class="dropdown-item btn-edit"
                                                                        data-toggle="modal"
                                                                        data-edit-url='{{ route('dashboard.categories.edit', $category->id )}}'
@@ -166,7 +172,8 @@
                                                                         onsubmit="return confirm('{{ __('global.areYouSure') }}');"
                                                                         style="display: inline-block;">
                                                                         @csrf
-                                                                        <input type="hidden" name="_method" value="DELETE">
+                                                                        <input type="hidden" name="_method"
+                                                                               value="DELETE">
                                                                         <a href="#" class="dropdown-item"
                                                                            onclick="$(this).parent().submit()">
                                                                             <i class="ft-trash-2"></i>
@@ -179,7 +186,8 @@
                                                                         onsubmit="return confirm('{{ __('global.areYouSure') }}');"
                                                                         style="display: inline-block;">
                                                                         @csrf
-                                                                        <input type="hidden" name="_method" value="DELETE">
+                                                                        <input type="hidden" name="_method"
+                                                                               value="DELETE">
                                                                         <a href="#" class="dropdown-item"
                                                                            onclick="$(this).parent().submit()">
                                                                             <i class="ft-trash-2"></i>
@@ -204,7 +212,7 @@
                                                 @endforelse
                                                 </tbody>
                                                 <tfoot>
-{{--                                                {{ $categories->links() }}--}}
+                                                {{--                                                {{ $categories->links() }}--}}
                                                 </tfoot>
                                             </table>
                                             {{ $categories->links('vendor.pagination.bootstrap-4') }}
@@ -241,7 +249,7 @@
                                    placeholder="{{ __('dashboard/category.name') }}">
                             <label for="error-name"></label>
                         </div>
-                        </div>
+                    </div>
                     <div class="errorMessage"></div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning mr-1"
@@ -309,12 +317,13 @@
             type="text/javascript"></script>
     <script src="{{ asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{ asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
 
 @endsection
 
 @section('script')
-{{--    <script src="{{ asset('assets/dashboard/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>--}}
+    {{--    <script src="{{ asset('assets/dashboard/js/scripts/forms/checkbox-radio.js')}}" type="text/javascript"></script>--}}
     <script src="{{ asset('assets/dashboard/js/scripts/modal/components-modal.js')}}" type="text/javascript"></script>
     <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.flash.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendors/js/tables/buttons.html5.min.js') }}"></script>
@@ -362,7 +371,7 @@
                     $("#add-category").removeClass('loading')
                     $("#add-category-form .errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
                     animateCSS('#add-category.errorMessage', 'bounceIn');
-                    if (response.status){
+                    if (response.status) {
                         setTimeout(function () {
                             animateCSS('#add-category .errorMessage', 'flipOutX').then(() => $("#add-category .errorMessage").html(''));
                             window.location.reload();
@@ -412,7 +421,7 @@
                     $("#edit-category").removeClass('loading')
                     $("#edit-category-form .errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
                     animateCSS('#edit-category .errorMessage', 'bounceIn');
-                    if (response.status){
+                    if (response.status) {
                         setTimeout(function () {
                             animateCSS('#edit-category .errorMessage', 'flipOutX').then(() => $("#edit-category .errorMessage").html(''));
                             window.location.reload();

@@ -137,7 +137,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                @empty
+                                            @empty
                                                 <tr>
                                                     <div class="row mr-2 ml-2">
                                                         <button type="text"

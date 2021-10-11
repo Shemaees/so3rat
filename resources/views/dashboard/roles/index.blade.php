@@ -122,7 +122,8 @@
                                                                     <i class="ft-settings"></i>
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a href="{{route('dashboard.roles.show',$role->id)}}" class="dropdown-item">
+                                                                    <a href="{{route('dashboard.roles.show',$role->id)}}"
+                                                                       class="dropdown-item">
                                                                         <i class="ft-eye"></i>
                                                                         {{__('global.show')}}
                                                                     </a>
@@ -132,7 +133,8 @@
                                                                         onsubmit="return confirm('{{ __('global.areYouSure') }}');"
                                                                         style="display: inline-block;">
                                                                         @csrf
-                                                                        <input type="hidden" name="_method" value="DELETE">
+                                                                        <input type="hidden" name="_method"
+                                                                               value="DELETE">
                                                                         <a href="#" class="dropdown-item"
                                                                            onclick="$(this).parent().submit()">
                                                                             <i class="ft-trash-2"></i>
@@ -143,16 +145,16 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    @empty
-                                                        <tr>
-                                                            <div class="row mr-2 ml-2">
-                                                                <button type="text"
-                                                                        class="btn btn-lg btn-block btn-outline-danger mb-2"
-                                                                        id="type-error">
-                                                                    {{__('global.no_data')}}
-                                                                </button>
-                                                            </div>
-                                                        </tr>
+                                                @empty
+                                                    <tr>
+                                                        <div class="row mr-2 ml-2">
+                                                            <button type="text"
+                                                                    class="btn btn-lg btn-block btn-outline-danger mb-2"
+                                                                    id="type-error">
+                                                                {{__('global.no_data')}}
+                                                            </button>
+                                                        </div>
+                                                    </tr>
                                                 @endforelse
                                                 </tbody>
                                             </table>
@@ -347,7 +349,7 @@
                     $("#add-role").removeClass('loading')
                     $("#add-role-form .errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
                     animateCSS('#add-role .errorMessage', 'bounceIn');
-                    if (response.status){
+                    if (response.status) {
                         setTimeout(function () {
                             animateCSS('#add-role .errorMessage', 'flipOutX').then(() => $("#add-role .errorMessage").html(''));
                             window.location.reload();

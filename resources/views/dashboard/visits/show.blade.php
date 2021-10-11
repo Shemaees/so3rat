@@ -83,49 +83,53 @@
                                 </div>
                                 @include('dashboard.includes.alerts.success')
                                 @include('dashboard.includes.alerts.errors')
-                                    <div class="card-body">
-                                        <div class="mb-2">
-                                            <div class="card-content collapse show">
-                                                <div class="card-body card-dashboard">
-                                                    <div id="accordionWrap5" role="tablist"
-                                                         aria-multiselectable="true">
-                                                        <div class="card collapse-icon accordion-icon-rotate">
-                                                            <div class="row">
-                                                                <div class="card-content collapse show">
-                                                                    <div class="table-responsive">
-                                                                        <table class="table table-borderless  mb-0">
-                                                                            <tbody>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/visit.name')}}:</td>
-                                                                                <td>{{$visit->name}}</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/visit.price')}}:</td>
-                                                                                <td>{{$visit->price}}</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/visit.category')}}:</td>
-                                                                                    @foreach($categories as $category)
-                                                                                        @if ($category->id == $visit->category_id)
-                                                                                            <td>{{$category->name}}</td>
-                                                                                        @endif
-                                                                                    @endforeach
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/visit.status')}}:</td>
-                                                                                @if($visit->status == '1' )
-                                                                                  <td> <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span></td>
-                                                                                @else
-                                                                                   <td> <span class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span> </td>
+                                <div class="card-body">
+                                    <div class="mb-2">
+                                        <div class="card-content collapse show">
+                                            <div class="card-body card-dashboard">
+                                                <div id="accordionWrap5" role="tablist"
+                                                     aria-multiselectable="true">
+                                                    <div class="card collapse-icon accordion-icon-rotate">
+                                                        <div class="row">
+                                                            <div class="card-content collapse show">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-borderless  mb-0">
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/visit.name')}}:</td>
+                                                                            <td>{{$visit->name}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/visit.price')}}:</td>
+                                                                            <td>{{$visit->price}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/visit.category')}}:</td>
+                                                                            @foreach($categories as $category)
+                                                                                @if ($category->id == $visit->category_id)
+                                                                                    <td>{{$category->name}}</td>
                                                                                 @endif
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/visit.description')}}:</td>
-                                                                                <td>{{$visit->description}}</td>
-                                                                            </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
+                                                                            @endforeach
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/visit.status')}}:</td>
+                                                                            @if($visit->status == '1' )
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                                                </td>
+                                                                            @else
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                                                </td>
+                                                                            @endif
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/visit.description')}}:
+                                                                            </td>
+                                                                            <td>{{$visit->description}}</td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -133,17 +137,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <nav class="mb-3">
-                                            <div class="nav nav-tabs">
-
-                                            </div>
-                                        </nav>
-                                        <div class="tab-content">
+                                    </div>
+                                    <nav class="mb-3">
+                                        <div class="nav nav-tabs">
 
                                         </div>
-                                    </div>
+                                    </nav>
+                                    <div class="tab-content">
+
                                     </div>
                                 </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <!-- // Basic form layout section end -->
@@ -158,9 +163,11 @@
             type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/select/form-select2.js')}}" type="text/javascript"></script>
 @endsection
 

@@ -104,7 +104,8 @@
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.name')}}:</td>
+                                                                            <td>{{__('dashboard/subscription.name')}}:
+                                                                            </td>
                                                                             <td>
                                                                                 @foreach($subscriptions as $subscription)
                                                                                     @if($request->subscription_id == $subscription->id)
@@ -125,9 +126,11 @@
                                                                             <td>{{__('global.status')}}:</td>
                                                                             <td>
                                                                                 @if($request->user_request == '1' )
-                                                                                    <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                                                    <span
+                                                                                        class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
                                                                                 @else
-                                                                                    <span class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                                                    <span
+                                                                                        class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
                                                                                 @endif
                                                                             </td>
                                                                         </tr>
@@ -166,9 +169,11 @@
             type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/select/form-select2.js')}}" type="text/javascript"></script>
 @endsection
 

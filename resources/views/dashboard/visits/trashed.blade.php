@@ -39,13 +39,13 @@
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
                             {{__('global.actions')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-{{--                            <a href=""--}}
-{{--                               class="dropdown-item"--}}
-{{--                               data-toggle="modal"--}}
-{{--                               data-target="#add-visit">--}}
-{{--                                <i class="ft-plus"></i>--}}
-{{--                                {{__('global.add')}}--}}
-{{--                            </a>--}}
+                            {{--                            <a href=""--}}
+                            {{--                               class="dropdown-item"--}}
+                            {{--                               data-toggle="modal"--}}
+                            {{--                               data-target="#add-visit">--}}
+                            {{--                                <i class="ft-plus"></i>--}}
+                            {{--                                {{__('global.add')}}--}}
+                            {{--                            </a>--}}
 
                         </div>
                     </div>
@@ -127,9 +127,11 @@
                                                     </td>
                                                     <td>
                                                         @if($trash_visit->status == '1' )
-                                                            <span class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                            <span
+                                                                class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
                                                         @else
-                                                            <span class="badge badge-default badge-danger pt-1 pb-1">{{__('global.non_active')}}</span>
+                                                            <span
+                                                                class="badge badge-default badge-danger pt-1 pb-1">{{__('global.non_active')}}</span>
                                                         @endif
                                                     </td>
                                                     <td>
@@ -141,7 +143,8 @@
                                                                 <i class="ft-settings"></i>
                                                             </button>
                                                             <div class="dropdown-menu">
-                                                                <a href="{{route('dashboard.visits.show_trashed',$trash_visit->id)}}" class="dropdown-item">
+                                                                <a href="{{route('dashboard.visits.show_trashed',$trash_visit->id)}}"
+                                                                   class="dropdown-item">
                                                                     <i class="ft-eye">
                                                                     </i>
                                                                     {{__('global.show')}}

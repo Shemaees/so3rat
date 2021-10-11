@@ -83,41 +83,49 @@
                                 </div>
                                 @include('dashboard.includes.alerts.success')
                                 @include('dashboard.includes.alerts.errors')
-                                    <div class="card-body">
-                                        <div class="mb-2">
-                                            <div class="card-content collapse show">
-                                                <div class="card-body card-dashboard">
-                                                    <div id="accordionWrap5" role="tablist"
-                                                         aria-multiselectable="true">
-                                                        <div class="card collapse-icon accordion-icon-rotate">
-                                                            <div class="row">
-                                                                <div class="card-content collapse show">
-                                                                    <div class="table-responsive">
-                                                                        <table class="table table-borderless  mb-0">
-                                                                            <tbody>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/subscription.name')}}:</td>
-                                                                                <td>{{$subscription->name}}</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/subscription.price')}}:</td>
-                                                                                <td>{{$subscription->price}}</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/subscription.visits_number')}}:</td>
-                                                                                <td>{{$subscription->visits_number}}</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/subscription.period')}}:</td>
-                                                                                <td>{{$subscription->period}}</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>{{__('dashboard/subscription.description')}}:</td>
-                                                                                <td>{{$subscription->description}}</td>
-                                                                            </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
+                                <div class="card-body">
+                                    <div class="mb-2">
+                                        <div class="card-content collapse show">
+                                            <div class="card-body card-dashboard">
+                                                <div id="accordionWrap5" role="tablist"
+                                                     aria-multiselectable="true">
+                                                    <div class="card collapse-icon accordion-icon-rotate">
+                                                        <div class="row">
+                                                            <div class="card-content collapse show">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-borderless  mb-0">
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/subscription.name')}}:
+                                                                            </td>
+                                                                            <td>{{$subscription->name}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/subscription.price')}}
+                                                                                :
+                                                                            </td>
+                                                                            <td>{{$subscription->price}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/subscription.visits_number')}}
+                                                                                :
+                                                                            </td>
+                                                                            <td>{{$subscription->visits_number}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/subscription.period')}}
+                                                                                :
+                                                                            </td>
+                                                                            <td>{{$subscription->period}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/subscription.description')}}
+                                                                                :
+                                                                            </td>
+                                                                            <td>{{$subscription->description}}</td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -125,17 +133,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <nav class="mb-3">
-                                            <div class="nav nav-tabs">
-
-                                            </div>
-                                        </nav>
-                                        <div class="tab-content">
+                                    </div>
+                                    <nav class="mb-3">
+                                        <div class="nav nav-tabs">
 
                                         </div>
-                                    </div>
+                                    </nav>
+                                    <div class="tab-content">
+
                                     </div>
                                 </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <!-- // Basic form layout section end -->
@@ -150,9 +159,11 @@
             type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/bootstrap-checkbox.min.js')}}"
             type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/toggle/switchery.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/dashboard/vendors/js/forms/select/select2.full.min.js')}}"
+            type="text/javascript"></script>
     <script src="{{asset('assets/dashboard/js/scripts/forms/select/form-select2.js')}}" type="text/javascript"></script>
 @endsection
 
