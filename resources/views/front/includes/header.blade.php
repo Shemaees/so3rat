@@ -76,7 +76,7 @@
                         <img class="rounded-circle" src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" width="31" alt="Darren Elder">
                         </span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('doctor-profile')}}">
+                    <div class="dropdown-menu dropdown-menu-left"><a class="dropdown-item" href="{{route('doctor-profile')}}">
                             <i class="ft-user"></i>
                             الملف الشحصي
                         </a>

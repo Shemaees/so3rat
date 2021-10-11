@@ -1,18 +1,16 @@
 <footer class="footer">
-
     <!-- Footer Top -->
     <div class="footer-top">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-
                     <!-- Footer Widget -->
-                    <div class="footer-widget footer-about">
+                    <div class="footer-widget footer-about d-flex" style="display: flex!important;flex-direction: column;align-items: flex-start;">
                         <div class="footer-logo">
                             <img src="{{asset('front/assets/img/footer-logo.png')}}" alt="logo">
                         </div>
                         <div class="footer-about-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>--}}
                             <div class="social-icon">
                                 <ul>
                                     <li>
@@ -41,7 +39,7 @@
                 <div class="col-lg-3 col-md-6">
 
                     <!-- Footer Widget -->
-                    <div class="footer-widget footer-menu">
+                    <div class="footer-widget footer-menu d-flex" style="display: flex!important;flex-direction: column;align-items: flex-start;">
                         <h2 class="footer-title">سياسه الاستخدام</h2>
                         <ul>
                             <li><a href="search.html">Search for Doctors</a></li>
@@ -58,7 +56,7 @@
                 <div class="col-lg-3 col-md-6">
 
                     <!-- Footer Widget -->
-                    <div class="footer-widget footer-menu">
+                    <div class="footer-widget footer-menu d-flex" style="display: flex!important;flex-direction: column;align-items: flex-start;">
                         <h2 class="footer-title">السياسات والشروط</h2>
                         <ul>
                             <li><a href="appointments.html">سياسه الخصوصيه</a></li>
@@ -75,7 +73,7 @@
                 <div class="col-lg-3 col-md-6">
 
                     <!-- Footer Widget -->
-                    <div class="footer-widget footer-contact">
+                    <div class="footer-widget footer-contact d-flex" style="display: flex!important;flex-direction: column;align-items: flex-start;">
                         <h2 class="footer-title">اتصل بنا</h2>
                         <div class="footer-contact-info">
                             <div class="footer-address">

@@ -8,6 +8,11 @@
             flex-direction: column;
             align-items: flex-start;
         }
+        .filter-widget{
+            display: flex!important;
+            flex-direction: column;
+            align-items: flex-start;
+        }
     </style>
     @endsection
 @section('content')
@@ -63,7 +68,7 @@
                                         <input type="text" class="form-control datetimepicker" placeholder="Select Date">
                                     </div>
                                 </div>
-                                <div class="filter-widget">
+                                <div class="filter-widget d-flex">
                                     <h4 >{{__('front/global.gender')}}</h4 >
                                     <div>
                                         <label class="custom_check">

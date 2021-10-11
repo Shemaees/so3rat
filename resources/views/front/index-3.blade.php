@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('style')
+    <link href="{{asset('front/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet"/>
+    @endsection
 @section('content')
     @include('front.includes.header')
 
@@ -46,18 +49,47 @@
                 <!-- Search -->
                 <div class="banner-wrapper">
                     <div class="search-box search-box-3">
-                        <form action="https://doccure-html.dreamguystech.com/template/search.html">
+                        <form action="https://doccure-html.dreamguystech.com/template/search.html" style="margin-right: 5rem">
                             <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="الإهتمامات" name="interests" id="interests">
+{{--                                <input type="text" class="form-control" placeholder="الإهتمامات" name="interests" id="interests">--}}
+                                <select class="form-control " name="interests" id="interests" multiple="multiple" style="width: 231px;">
+                                    <option>التغذيه الأنبوبيه</option>
+                                    <option>التغذيه الوريديه</option>
+                                    <option>عمليه التقييم الغذائي</option>
+                                    <option>الأمراض اللإستقلالبه</option>
+                                    <option>سمنه اطفال</option>
+                                    <option>نحافه اطفال</option>
+                                    <option>سكري اطفال</option>
+                                    <option>سمنه بالغين</option>
+                                    <option>نحافه بالغين</option>
+                                </select>
                             </div>
                             <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="النوع" name="gender" id="gender">
+{{--                                <input type="text" class="form-control" placeholder="النوع" name="gender" id="gender">--}}
+                                <select class="form-control" name="gender" id="gender" multiple="multiple" style="width: 231px;">
+                                    <option>{{__('front/global.male')}}</option>
+                                    <option>{{__('front/global.female')}}</option>
+                                </select>
                             </div>
                             <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="الدولة" name="country" id="country">
+{{--                                <input type="text" class="form-control" placeholder="الدولة" name="country" id="country">--}}
+                                <select class="form-control" name="country" id="country" multiple="multiple" style="width: 231px;">
+                                    <option> مصر </option>
+                                    <option> السعوديه </option>
+                                    <option> الإمارات </option>
+                                    <option> الأردن </option>
+                                    <option> عمان </option>
+                                </select>
                             </div>
                             <div class="form-group ">
-                                <input type="text" class="form-control" placeholder="المدينة" name="city" id="city">
+{{--                                <input type="text" class="form-control" placeholder="المدينة" name="city" id="city">--}}
+                                <select class="form-control" name="city" id="city" multiple="multiple" style="width: 231px;">
+                                    <option> العاشر من رمضان </option>
+                                    <option> العبور </option>
+                                    <option> الشروق </option>
+                                    <option> السادس من اكتوبر </option>
+                                    <option> بدر </option>
+                                </select>
                             </div>
 
                             <button type="submit" class="btn btn-primary search-btn btn-search mt-0"><i class="fas fa-search"></i>  <span>Search</span>
@@ -482,4 +514,32 @@
             </div>
         </section>
         <!-- /Popular Section -->
+@endsection
+@section('scripts')
+    <script src="{{asset('front/assets/plugins/select2/js/select2.min.js')}}"></script>
+    <script>
+        $('select').select2({
+            insertTag: function (data, tag) {
+                // Insert the tag at the end of the results
+                data.push(tag);
+            }
+        });
+        $("#interests").select2({
+            placeholder: "الإهتمامات",
+            allowClear: true
+        });
+        $("#gender").select2({
+            placeholder: "النوع",
+            allowClear: true
+        });
+        $("#city").select2({
+            placeholder: "المدينه",
+            allowClear: true
+        });
+        $("#country").select2({
+            placeholder: "البلد",
+            allowClear: true
+        });
+    </script>
+
 @endsection
