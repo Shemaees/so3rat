@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'XSS'], function () {
     Route::group(['namespace' => 'Dashboard', 'middleware' => 'guest:admins'], function () {
@@ -11,4 +12,5 @@ Route::group(['middleware' => 'XSS'], function () {
         Route::post('logout', [App\Http\Controllers\Dashboard\LoginController::class, 'logout'])->name('dashboard.logout');
         Route::get('/', [App\Http\Controllers\Dashboard\DashboardController::class, 'index'])->name('dashboard.home');
     });
+
 });

@@ -1810,7 +1810,7 @@ button.bg-danger:hover {
 .slick-track {
     position: relative;
     top: 0;
-    left: 0;
+    right: 950px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -2318,7 +2318,7 @@ button.bg-danger:hover {
     content: "";
     position: absolute;
     top: 2px;
-    right: 0;
+    left: 3.3rem;
     border: 7px solid #fff;
     border-color: transparent transparent #ffffff #ffffff;
     -webkit-transform-origin: 0 0;
@@ -2684,7 +2684,7 @@ html.menu-opened body {
 .footer .footer-menu ul li a {
     color: #fff;
     font-size: 15px;
-    padding-left: 20px;
+    padding-right: 20px;
     position: relative;
     transition: all 0.4s ease 0s;
 }
@@ -2699,7 +2699,7 @@ html.menu-opened body {
     content: "\f101";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    left: 0;
+    right: 0;
     margin-right: 5px;
     position: absolute;
     top: 0;
@@ -4018,7 +4018,7 @@ html.menu-opened body {
     font-weight: 400;
     margin: auto;
     position: absolute;
-    right: 15px;
+    left: 15px;
     top: 10px;
 }
 
@@ -4028,7 +4028,7 @@ html.menu-opened body {
     position: relative;
     font-size: 14px;
     font-size: .9375rem;
-    padding-left: 30px;
+    padding-right: 30px;
     margin-bottom: 10px;
     cursor: pointer;
     -webkit-user-select: none;
@@ -4050,7 +4050,7 @@ html.menu-opened body {
 .custom_check .checkmark {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     height: 20px;
     width: 20px;
     border: 1px solid #dcdcdc;
