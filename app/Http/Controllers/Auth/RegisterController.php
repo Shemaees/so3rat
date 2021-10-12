@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,NULL,NULL,deleted_at,NULL'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone'=> ['required','unique:users,phone,NULL,NULL,deleted_at,NULL','regex:/^(\+?\(?[0-9]{2,3}\)?)([ -]?[0-9]{2,4}){3}$/','min:10','max:18'],
+            'photo'=> ['required','image','mimes:jpeg,png,jpg,gif,svg', 'max:5000'],
             'birthdate' => ['required', 'date_format:Y-m-d', 'before:today'],
             'qualification' => ['required', 'string'],
 
@@ -97,7 +98,7 @@ class RegisterController extends Controller
             'medical_license_number' => ['required_if:user_type:Doctor', 'numeric'],
             'communication_types' => ['required_if:user_type:Doctor', 'string'],
             'communication_way' => ['required_if:user_type:Doctor', 'string', 'in:Private,Group,Both'],
-            'accept_promotions' => ['required_if:user_type:Doctor', 'string', 'in:Private,Group,Both'],
+            'accept_promotions' => ['required_if:user_type:Doctor', 'string', 'in:Yes,No'],
             'follow_up_fee' => ['required_if:user_type:Doctor,doctor_type:Follow up of patients', 'numeric', 'between:0,9999.99'],
             'training_fee' => ['required_if:user_type:Doctor,doctor_type:Trainer', 'numeric', 'between:0,9999.99'],
             'classification_certificate' => ['required_if:user_type:Doctor', 'string'],

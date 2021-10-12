@@ -18,6 +18,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{asset('front/assets/css/style.css')}}">
+    @yield('styles')
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -52,7 +53,7 @@
 <!-- Bootstrap Core JS -->
 <script src="{{asset('front/assets/js/popper.min.js')}}"></script>
 <script src="{{asset('front/assets/js/bootstrap.min.js')}}"></script>
-
+@yield('scripts')
 <!-- Custom JS -->
 <script src="{{asset('front/assets/js/script.js')}}"></script>
 

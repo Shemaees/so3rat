@@ -524,10 +524,10 @@
                 data.push(tag);
             }
         });
-        $("#interests").select2({
-            placeholder: "الإهتمامات",
-            allowClear: true
-        });
+            $("#interests").select2({
+                placeholder: "الإهتمامات",
+                allowClear: true
+            });
         $("#gender").select2({
             placeholder: "النوع",
             allowClear: true
