@@ -77,12 +77,18 @@ class RegisterController extends Controller
             'sport_activities' => ['required_if:user_type:Patient', 'number', 'in:1.2,1.375,1.55,1.752'],
             'favorite_meals' => ['required_if:user_type:Patient', 'string'],
             'unfavorite_meals' => ['required_if:user_type:Patient', 'string'],
-            'carbohydrates' => ['required_if:user_type:Patient', 'string', 'in:Favorite,Unfavorite'],
-            'vegetables' => ['required_if:user_type:Patient', 'string', 'in:Favorite,Unfavorite'],
-            'fruits' => ['required_if:user_type:Patient', 'string', 'in:Favorite,Unfavorite'],
-            'dairy_products' => ['required_if:user_type:Patient', 'string', 'in:Favorite,Unfavorite'],
-            'meat' => ['required_if:user_type:Patient', 'string', 'in:Favorite,Unfavorite'],
-            'fats' => ['required_if:user_type:Patient', 'string', 'in:Favorite,Unfavorite'],
+            'carbohydrates_favorite' => ['required_if:user_type:Patient', 'string'],
+            'carbohydrates_unFavorite' => ['required_if:user_type:Patient', 'string'],
+            'vegetables_favorite' => ['required_if:user_type:Patient', 'string'],
+            'vegetables_unFavorite' => ['required_if:user_type:Patient', 'string'],
+            'fruits_favorite' => ['required_if:user_type:Patient', 'string'],
+            'fruits_unFavorite' => ['required_if:user_type:Patient', 'string'],
+            'dairy_products_favorite' => ['required_if:user_type:Patient', 'string'],
+            'dairy_products_unFavorite' => ['required_if:user_type:Patient', 'string'],
+            'meat_favorite' => ['required_if:user_type:Patient', 'string'],
+            'meat_unFavorite' => ['required_if:user_type:Patient', 'string'],
+            'fats_favorite' => ['required_if:user_type:Patient', 'string'],
+            'fats_unFavorite' => ['required_if:user_type:Patient', 'string'],
             'health_goal' => ['required_if:user_type:Patient', 'string'],
             'motivation' => ['required_if:user_type:Patient', 'string'],
             'confidence' => ['required_if:user_type:Patient', 'string'],
@@ -101,11 +107,12 @@ class RegisterController extends Controller
             'accept_promotions' => ['required_if:user_type:Doctor', 'string', 'in:Yes,No'],
             'follow_up_fee' => ['required_if:user_type:Doctor,doctor_type:Follow up of patients', 'numeric', 'between:0,9999.99'],
             'training_fee' => ['required_if:user_type:Doctor,doctor_type:Trainer', 'numeric', 'between:0,9999.99'],
+            'training_program' => ['required_if:user_type:Doctor,doctor_type:Trainer', 'string'],
             'classification_certificate' => ['required_if:user_type:Doctor', 'string'],
             'bank_statements_certificate' => ['required_if:user_type:Doctor', 'string'],
             'university_qualification' => ['required_if:user_type:Doctor', 'string'],
             'experience_certificate' => ['required_if:user_type:Doctor', 'string'],
-            'specialty_certificate' => ['required_if:user_type:Doctor', 'string']
+            'specialty_certificate' => ['required_if:user_type:Doctor', 'string'],
         ]);
     }
 
@@ -122,6 +129,7 @@ class RegisterController extends Controller
         $user->user_type = $data['user_type'];
         $user->email = $data['email'];
         $user->phone = $data['phone'];
+        $user->photo = $data['photo'];
         $user->birthdate = Carbon::make($data['birthdate'])->toDateString();
         $user->password = Hash::make($data['password']);
         if ($user->save()){
@@ -143,6 +151,7 @@ class RegisterController extends Controller
                 $profile->university_qualification = $data['university_qualification'];
                 $profile->experience_certificate = $data['experience_certificate'];
                 $profile->specialty_certificate = $data['specialty_certificate'];
+                $profile->training_program = $data['training_program'];
             }
             else{
                 $profile = new PatientProfile();
@@ -159,12 +168,18 @@ class RegisterController extends Controller
                 $profile->sport_activities = $data['sport_activities'];
                 $profile->favorite_meals = $data['favorite_meals'];
                 $profile->unfavorite_meals = $data['unfavorite_meals'];
-                $profile->carbohydrates = $data['carbohydrates'];
-                $profile->vegetables = $data['vegetables'];
-                $profile->fruits = $data['fruits'];
-                $profile->dairy_products = $data['dairy_products'];
-                $profile->meat = $data['meat'];
-                $profile->fats = $data['fats'];
+                $profile->carbohydrates_favorite = $data['carbohydrates_favorite'];
+                $profile->vegetables_favorite = $data['vegetables_favorite'];
+                $profile->fruits_favorite = $data['fruits_favorite'];
+                $profile->dairy_products_favorite = $data['dairy_products_favorite'];
+                $profile->meat_favorite = $data['meat_favorite'];
+                $profile->fats_favorite = $data['fats_favorite'];
+                $profile->carbohydrates_unFavorite = $data['carbohydrates_unFavorite'];
+                $profile->vegetables_unFavorite = $data['vegetables_unFavorite'];
+                $profile->fruits_unFavorite = $data['fruits_unFavorite'];
+                $profile->dairy_products_unFavorite = $data['dairy_products_unFavorite'];
+                $profile->meat_unFavorite = $data['meat_unFavorite'];
+                $profile->fats_unFavorite = $data['fats_unFavorite'];
                 $profile->health_goal = $data['health_goal'];
                 $profile->motivation = $data['motivation'];
                 $profile->confidence = $data['confidence'];

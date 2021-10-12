@@ -48,6 +48,8 @@
     <!-- Slick JS -->
     <script src="{{asset('front/assets/js/slick.js')}}"></script>
 
+    <script src="{{asset('front/assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
+    <script src="{{asset('front/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
     @yield('scripts')
 
     <!-- Custom JS -->

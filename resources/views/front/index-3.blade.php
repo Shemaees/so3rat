@@ -49,7 +49,7 @@
                 <!-- Search -->
                 <div class="banner-wrapper">
                     <div class="search-box search-box-3">
-                        <form action="https://doccure-html.dreamguystech.com/template/search.html" style="margin-right: 5rem">
+                        <form action="{{route('search')}}" style="margin-right: 5rem">
                             <div class="form-group ">
 {{--                                <input type="text" class="form-control" placeholder="الإهتمامات" name="interests" id="interests">--}}
                                 <select class="form-control " name="interests" id="interests" multiple="multiple" style="width: 231px;">

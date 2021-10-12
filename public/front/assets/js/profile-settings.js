@@ -6,9 +6,9 @@ Version      : 1.0
 
 (function($) {
     "use strict";
-	
+
 	// Pricing Options Show
-	
+
 	$('#pricing_select input[name="rating_option"]').on('click', function() {
 		if ($(this).val() == 'price_free') {
 			$('#custom_price_cont').hide();
@@ -19,34 +19,34 @@ Version      : 1.0
 		else {
 		}
 	});
-	
+
 	// Education Add More
-	
+
     $(".education-info").on('click','.trash', function () {
 		$(this).closest('.education-cont').remove();
 		return false;
     });
 
     $(".add-education").on('click', function () {
-		
+
 		var educationcontent = '<div class="row form-row education-cont">' +
 			'<div class="col-12 col-md-10 col-lg-11">' +
 				'<div class="row form-row">' +
 					'<div class="col-12 col-md-6 col-lg-4">' +
 						'<div class="form-group">' +
-							'<label>Degree</label>' +
+							'<label>الدرجه العلمية</label>' +
 							'<input type="text" class="form-control">' +
 						'</div>' +
 					'</div>' +
 					'<div class="col-12 col-md-6 col-lg-4">' +
 						'<div class="form-group">' +
-							'<label>College/Institute</label>' +
+							'<label>التخصص</label>' +
 							'<input type="text" class="form-control">' +
 						'</div>' +
 					'</div>' +
 					'<div class="col-12 col-md-6 col-lg-4">' +
 						'<div class="form-group">' +
-							'<label>Year of Completion</label>' +
+							'<label>المنشئه العلميه</label>' +
 							'<input type="text" class="form-control">' +
 						'</div>' +
 					'</div>' +
@@ -54,20 +54,20 @@ Version      : 1.0
 			'</div>' +
 			'<div class="col-12 col-md-2 col-lg-1"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>' +
 		'</div>';
-		
+
         $(".education-info").append(educationcontent);
         return false;
     });
-	
+
 	// Experience Add More
-	
+
     $(".experience-info").on('click','.trash', function () {
 		$(this).closest('.experience-cont').remove();
 		return false;
     });
 
     $(".add-experience").on('click', function () {
-		
+
 		var experiencecontent = '<div class="row form-row experience-cont">' +
 			'<div class="col-12 col-md-10 col-lg-11">' +
 				'<div class="row form-row">' +
@@ -99,13 +99,13 @@ Version      : 1.0
 			'</div>' +
 			'<div class="col-12 col-md-2 col-lg-1"><label class="d-md-block d-sm-none d-none">&nbsp;</label><a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a></div>' +
 		'</div>';
-		
+
         $(".experience-info").append(experiencecontent);
         return false;
     });
-	
+
 	// Awards Add More
-	
+
     $(".awards-info").on('click','.trash', function () {
 		$(this).closest('.awards-cont').remove();
 		return false;
@@ -131,13 +131,13 @@ Version      : 1.0
 				'<a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a>' +
 			'</div>' +
 		'</div>';
-		
+
         $(".awards-info").append(regcontent);
         return false;
     });
-	
+
 	// Membership Add More
-	
+
     $(".membership-info").on('click','.trash', function () {
 		$(this).closest('.membership-cont').remove();
 		return false;
@@ -157,13 +157,13 @@ Version      : 1.0
 				'<a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a>' +
 			'</div>' +
 		'</div>';
-		
+
         $(".membership-info").append(membershipcontent);
         return false;
     });
-	
+
 	// Registration Add More
-	
+
     $(".registrations-info").on('click','.trash', function () {
 		$(this).closest('.reg-cont').remove();
 		return false;
@@ -189,9 +189,9 @@ Version      : 1.0
 				'<a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i></a>' +
 			'</div>' +
 		'</div>';
-		
+
         $(".registrations-info").append(regcontent);
         return false;
     });
-	
+
 })(jQuery);

@@ -14,8 +14,8 @@
         }
 
         #grad1 {
-            background-color: : #249680;
-            background-image: linear-gradient(120deg,#249680, #81D4FA)
+            background-color : #249680;
+            /*background-image: linear-gradient(120deg,#249680, #81D4FA)*/
         }
 
         #msform {
@@ -79,13 +79,13 @@
             box-shadow: none !important;
             border: none;
             font-weight: bold;
-            border-bottom: 2px solid skyblue;
+            border-bottom: 2px solid #249680;
             outline-width: 0
         }
 
         #msform .action-button {
             width: 100px;
-            background: skyblue;
+            background: #249680;
             font-weight: bold;
             color: white;
             border: 0 none;
@@ -97,7 +97,7 @@
 
         #msform .action-button:hover,
         #msform .action-button:focus {
-            box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #249680
         }
 
         #msform .action-button-previous {
@@ -126,7 +126,7 @@
         }
 
         select.list-dt:focus {
-            border-bottom: 2px solid skyblue
+            border-bottom: 2px solid #249680
         }
 
         .card {
@@ -208,7 +208,7 @@
 
         #progressbar li.active:before,
         #progressbar li.active:after {
-            background: skyblue
+            background: #249680
         }
 
         .radio-group {
@@ -218,10 +218,10 @@
 
         .radio {
             display: inline-block;
-            width: 204;
-            height: 104;
+            width: 204px;
+            height: 104px;
             border-radius: 0;
-            background: lightblue;
+            background: #249680;
             box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
             box-sizing: border-box;
             cursor: pointer;
@@ -255,19 +255,32 @@
                     <p>Fill all form field to go to next step</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform">
+                            <form id="msform" method="POST" action="{{route('register')}}">
+                                @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">
-                                    <li class="active" id="account"><strong>معلومات</strong></li>
-                                    <li id="personal"><strong>Personal</strong></li>
-                                    <li id="payment"><strong>Payment</strong></li>
-                                    <li id="confirm"><strong>Finish</strong></li>
+                                    <li class="active" id="account"><strong> معلومات عامة</strong></li>
+                                    <li id="personal"><strong>معلومات المريض</strong></li>
+                                    <li id="payment"><strong>معلومات الإخصائي</strong></li>
+                                    <li id="confirm"><strong>تم</strong></li>
                                 </ul>
                                 <!-- fieldsets -->
 
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">{{__('front/global.account_info')}}</h2>
+                                        <div class="change-avatar">
+                                            <div class="upload-img col-6 pt-5">
+                                                <div class="change-photo-btn">
+                                                    <span><i class="fa fa-upload pl-2"></i>تحميل صورة</span>
+                                                    <input type="file" class="upload" onchange="readURL(this);" name="photo">
+                                                </div>
+                                                <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+                                            </div>
+                                            <div class="profile-img col-6">
+                                                <img id="output" class="pb-3">
+                                            </div>
+                                        </div>
                                         <div class="form-group form-focus d-flex">
                                             <div class="col-6">
                                                 <select class="form-control" name="type" id="type" required>
@@ -277,7 +290,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-6">
-                                                <select class="form-control" name="type" id="type" required>
+                                                <select class="form-control" name="gender" id="gender" required>
                                                     <option value="" disabled selected>{{__('front/global.gender')}}</option>
                                                     <option value="patient"> {{__('front/global.male')}} </option>
                                                     <option value="doctor"> {{__('front/global.female')}} </option>
@@ -297,7 +310,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="button" name="next" class="next action-button" value="الخطوه التالية" />
+                                    <input type="button" name="next" class="next action-button" value="{{__('front/global.next')}}" />
                                 </fieldset>
 
                                 <fieldset>
@@ -398,10 +411,10 @@
                                                 <label class="float-right">{{__('front/patient.sport_activities')}}</label>
                                                 <select class="form-control" name="allergenic_foods" id="allergenic_foods" required>
 {{--                                                    <option value="" disabled selected>هل لديك أطعمة معينه تسبب الحساسية؟</option>--}}
-                                                    <option value="خامل">خامل 1.2 : لا تمارين - اعمال مكتبية  </option>
-                                                    <option value="نشاط خفيف"> نشاط خفيف 1.375 : 20 دقيقع رياضه خفيفة / نمارين , 1-3 ايام بالاسبوع مثل المشي ,ركوب الدراجه أو الجري </option>
-                                                    <option value="نشاط متوسط">نشاط متوسط 1.55 : 30-60 دقيقة رياضة متوسطة / تمارين , 3-5 ايام بالأسبوع  </option>
-                                                    <option value="نشاط عالي">نشاط عالي 1.725 : 60 دقيقة رياضه عنيفة / تمارين , 5-7 ايام بالأسبوع  </option>
+                                                    <option value="1.2">خامل 1.2 : لا تمارين - اعمال مكتبية  </option>
+                                                    <option value="1.375"> نشاط خفيف 1.375 : 20 دقيقع رياضه خفيفة / نمارين , 1-3 ايام بالاسبوع مثل المشي ,ركوب الدراجه أو الجري </option>
+                                                    <option value="1.55">نشاط متوسط 1.55 : 30-60 دقيقة رياضة متوسطة / تمارين , 3-5 ايام بالأسبوع  </option>
+                                                    <option value="1.725">نشاط عالي 1.725 : 60 دقيقة رياضه عنيفة / تمارين , 5-7 ايام بالأسبوع  </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -420,37 +433,37 @@
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.carbohydrates')}}</label>
-                                                <input type="text"  class="form-control" name="Favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="Unfavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="carbohydrates_favorite" placeholder="المفضلة">
+                                                <input type="text"  class="form-control" name="carbohydrates_unFavorite" placeholder="الغير مفضلة">
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.vegetables')}}</label>
-                                                <input type="text"  class="form-control" name="Favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="Unfavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="vegetables_favorite" placeholder="المفضلة">
+                                                <input type="text"  class="form-control" name="vegetables_unFavorite" placeholder="الغير مفضلة">
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.fruits')}}</label>
-                                                <input type="text"  class="form-control" name="Favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="Unfavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="fruits_favorite" placeholder="المفضلة">
+                                                <input type="text"  class="form-control" name="fruits_unFavorite" placeholder="الغير مفضلة">
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.dairy_products')}}</label>
-                                                <input type="text"  class="form-control" name="Favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="Unfavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="dairy_products_favorite" placeholder="المفضلة">
+                                                <input type="text"  class="form-control" name="dairy_products_unFavorite" placeholder="الغير مفضلة">
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.meat')}}</label>
-                                                <input type="text"  class="form-control" name="Favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="Unfavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="meat_favorite" placeholder="المفضلة">
+                                                <input type="text"  class="form-control" name="meat_unFavorite" placeholder="الغير مفضلة">
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.fats')}}</label>
-                                                <input type="text"  class="form-control" name="Favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="Unfavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="fats_favorite" placeholder="المفضلة">
+                                                <input type="text"  class="form-control" name="fats_unFavorite" placeholder="الغير مفضلة">
                                             </div>
                                         </div>
                                         <h2 class="fs-title text-center">الأسئلة العامة</h2>
@@ -485,13 +498,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+                                    <input type="button" name="previous" class="previous action-button-previous" value="{{__('front/global.previous')}}" />
+                                    <input type="button" name="next" class="next action-button" value="{{__('front/global.next')}}" />
                                 </fieldset>
 
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">معلومات الإخصائي</h2>
+                                        <div class="d-flex pt-3">
+                                            <div class="form-group col-6 " >
+                                                <label class="float-right">{{__('front/doctor.country')}}</label>
+                                                <input type="text" class="form-control" name="country">
+                                            </div>
+                                            <div class="form-group col-6 " >
+                                                <label class="float-right">{{__('front/doctor.city')}}</label>
+                                                <input type="text" class="form-control" name="city">
+                                            </div>
+                                        </div>
                                         <div class="d-flex pt-3">
                                             <div class="form-group col-12">
                                                 <label class="float-right">{{__('front/doctor.doctor_type')}}</label>
@@ -503,74 +526,185 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="d-flex pt-3">
-                                            <div class="form-group col-12 d-none" id="patients">
-                                                <label class="float-right">{{__('front/doctor.about')}}</label>
-                                                <textarea class="form-control" name="about"></textarea>
+                                        <div class="d-none" id="patients">
+                                            <div class="d-flex pt-3">
+                                                <div class="form-group col-12" >
+                                                    <label class="float-right">{{__('front/doctor.about')}}</label>
+                                                    <textarea class="form-control" name="about"></textarea>
+                                                </div>
                                             </div>
+                                            <div class="d-flex pt-3">
+                                                <div class="form-group col-12 " >
+                                                    <label class="float-right">{{__('front/doctor.intrests')}}</label>
+                                                    <select class="form-control" name="intrests" id="intrests" required multiple="multiple">
+                                                        <option value="" disabled selected>{{__('front/doctor.doctor_type')}}</option>
+                                                        <option value="التغذيه الأنبوبيه">التغذيه الأنبوبيه</option>
+                                                        <option value="التغذيه الوريديه">التغذيه الوريديه</option>
+                                                        <option value="عمليه التقييم الغذائي">عمليه التقييم الغذائي</option>
+                                                        <option value="الأمراض اللإستقلالبه">الأمراض اللإستقلالبه</option>
+                                                        <option value="سمنه اطفال">سمنه اطفال</option>
+                                                        <option value="نحافه اطفال">نحافه اطفال</option>
+                                                        <option value="سكري اطفال">سكري اطفال</option>
+                                                        <option value="سمنه بالغين">سمنه بالغين</option>
+                                                        <option value="نحافه بالغين">نحافه بالغين</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex pt-3">
+                                                <div class="form-group col-6" >
+                                                    <label class="float-right">{{__('front/doctor.communication_way')}}</label>
+                                                    <select class="form-control" name="communication_way" id="communication_way" required>
+                                                        <option value="" disabled selected>{{__('front/doctor.communication_way')}}</option>
+                                                        <option value="Private">شخصي</option>
+                                                        <option value="Group">مجموعات الدعم</option>
+                                                        <option value="Both">هما معا</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-6 " >
+                                                    <label class="float-right">{{__('front/doctor.accept_promotions')}}</label>
+                                                    <select class="form-control" name="accept_promotions" id="accept_promotions" required>
+                                                        <option value="" disabled selected>{{__('front/doctor.accept_promotions')}}</option>
+                                                        <option value="Yes">نعم</option>
+                                                        <option value="No">لا</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex pt-3">
+                                                <div class="form-group col-6 " >
+                                                    <label class="float-right">{{__('front/doctor.follow_up_fee')}}</label>
+                                                    <input type="number" class="form-control" name=follow_up_fee">
+                                                </div>
+                                                <div class="form-group col-6 " >
+                                                    <label class="float-right">{{__('front/doctor.training_fee')}}</label>
+                                                    <input type="number" class="form-control" name="training_fee">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex pt-3 col-12">
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>{{__('front/doctor.classification_certificate')}}</span>
+                                                            <input type="file" class="upload" name="classification_certificate">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>{{__('front/doctor.bank_statements_certificate')}}</span>
+                                                            <input type="file" class="upload" name="bank_statements_certificate">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>شهادة {{__('front/doctor.university_qualification')}} </span>
+                                                            <input type="file" class="upload" name="university_qualification">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+{{--                                            <div class="d-flex pt-3 col-12">--}}
+{{--                                                <div class="form-group col-4" >--}}
+{{--                                                    <label class="float-right">{{__('front/doctor.classification_certificate')}}</label>--}}
+{{--                                                    <input type="file" class="upload" name="classification_certificate">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="form-group col-4 " >--}}
+{{--                                                    <label class="float-right">{{__('front/doctor.bank_statements_certificate')}}</label>--}}
+{{--                                                    <input type="file" class="upload" name="bank_statements_certificate">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="form-group col-4 " >--}}
+{{--                                                    <label class="float-right">{{__('front/doctor.university_qualification')}}</label>--}}
+{{--                                                    <input type="file" class="upload" name="university_qualification">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </div>
-                                        <div class="d-flex pt-3">
-                                            <div class="form-group col-12 d-none" id="patients">
-                                                <label class="float-right">{{__('front/doctor.intrests')}}</label>
-                                                <select class="form-control" name="intrests" id="intrests" required multiple="multiple">
-                                                    <option value="" disabled selected>{{__('front/doctor.doctor_type')}}</option>
-                                                    <option value="التغذيه الأنبوبيه">التغذيه الأنبوبيه</option>
-                                                    <option value="التغذيه الوريديه">التغذيه الوريديه</option>
-                                                    <option value="عمليه التقييم الغذائي">عمليه التقييم الغذائي</option>
-                                                    <option value="الأمراض اللإستقلالبه">الأمراض اللإستقلالبه</option>
-                                                    <option value="سمنه اطفال">سمنه اطفال</option>
-                                                    <option value="نحافه اطفال">نحافه اطفال</option>
-                                                    <option value="سكري اطفال">سكري اطفال</option>
-                                                    <option value="سمنه بالغين">سمنه بالغين</option>
-                                                    <option value="نحافه بالغين">نحافه بالغين</option>
-                                                </select>
+                                        <div class="d-none" id="trainer">
+                                            <div class="d-flex pt-3">
+                                                <div class="form-group col-12" >
+                                                    <label class="float-right">{{__('front/doctor.about')}}</label>
+                                                    <textarea class="form-control" name="about"></textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-flex pt-3">
-                                            <div class="form-group col-12 d-none" id="patients">
-                                                <label class="float-right">{{__('front/doctor.communication_way')}}</label>
-                                                <select class="form-control" name="communication_way" id="communication_way" required>
-                                                    <option value="" disabled selected>{{__('front/doctor.communication_way')}}</option>
-                                                    <option value="Private">شخصي</option>
-                                                    <option value="Group">مجموعات الدعم</option>
-                                                    <option value="Both">هما معا</option>
-                                                </select>
+                                            <div class="d-flex pt-3">
+                                                <div class="form-group col-12 " >
+                                                    <label class="float-right">{{__('front/doctor.intrests')}}</label>
+                                                    <select class="form-control" name="intrests" id="intrests" required multiple="multiple">
+                                                        <option value="" disabled selected>{{__('front/doctor.doctor_type')}}</option>
+                                                        <option value="التغذيه الأنبوبيه">التغذيه الأنبوبيه</option>
+                                                        <option value="التغذيه الوريديه">التغذيه الوريديه</option>
+                                                        <option value="عمليه التقييم الغذائي">عمليه التقييم الغذائي</option>
+                                                        <option value="الأمراض اللإستقلالبه">الأمراض اللإستقلالبه</option>
+                                                        <option value="سمنه اطفال">سمنه اطفال</option>
+                                                        <option value="نحافه اطفال">نحافه اطفال</option>
+                                                        <option value="سكري اطفال">سكري اطفال</option>
+                                                        <option value="سمنه بالغين">سمنه بالغين</option>
+                                                        <option value="نحافه بالغين">نحافه بالغين</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-flex pt-3">
-                                            <div class="form-group col-12 d-none" id="patients">
-                                                <label class="float-right">{{__('front/doctor.follow_up_fee')}}</label>
-                                                <input type="number" class="form-control" name=follow_up_fee">
+                                            <div class="d-flex pt-3">
+                                                <div class="form-group col-6 " >
+                                                    <label class="float-right">{{__('front/doctor.medical_license_number')}}</label>
+                                                    <input type="number" class="form-control" name="medical_license_number">
+                                                </div>
+                                                <div class="form-group col-6 " >
+                                                    <label class="float-right">{{__('front/doctor.training_fee')}}</label>
+                                                    <input type="number" class="form-control" name="training_fee">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-flex pt-3">
-                                            <div class="form-group col-12 d-none" id="patients">
-                                                <label class="float-right">{{__('front/doctor.accept_promotions')}}</label>
-                                                <select class="form-control" name="accept_promotions" id="accept_promotions" required>
-                                                    <option value="" disabled selected>{{__('front/doctor.accept_promotions')}}</option>
-                                                    <option value="Yes">نعم</option>
-                                                    <option value="No">لا</option>
-                                                </select>
+                                            <div class="d-flex pt-3 col-12">
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>{{__('front/doctor.classification_certificate')}}</span>
+                                                            <input type="file" class="upload" name="classification_certificate">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>{{__('front/doctor.bank_statements_certificate')}}</span>
+                                                            <input type="file" class="upload" name="bank_statements_certificate">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>{{__('front/doctor.experience_certificate')}}</span>
+                                                            <input type="file" class="upload" name="university_experience_certificate">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="d-flex pt-3 col-12">
-                                            <div class="form-group col-4 d-none" id="patients">
-                                                <label class="float-right">{{__('front/doctor.classification_certificate')}}</label>
-                                                <input type="file" class="upload" name="classification_certificate">
-                                            </div>
-                                            <div class="form-group col-4 d-none" id="patients">
-                                                <label class="float-right">{{__('front/doctor.bank_statements_certificate')}}</label>
-                                                <input type="file" class="upload" name="bank_statements_certificate">
-                                            </div>
-                                            <div class="form-group col-4 d-none" id="patients">
-                                                <label class="float-right">{{__('front/doctor.university_qualification')}}</label>
-                                                <input type="file" class="upload" name="university_qualification">
-                                            </div>
-                                        </div>
-                                        <div class="d-flex pt-3">
-                                            <div class="form-group col-12 " id="trainer">
-                                                <label class="float-right">{{__('front/doctor.training_fee')}}</label>
-                                                <input type="number" class="form-control" name="training_fee">
+                                            <div class="d-flex pt-3 col-12">
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>{{__('front/doctor.university_qualification')}}</span>
+                                                            <input type="file" class="upload" name="university_qualification">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>{{__('front/doctor.specialty_certificate')}}</span>
+                                                            <input type="file" class="upload" name="specialty_certificate">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="change-avatar">
+                                                    <div class="upload-img col-4 pt-5">
+                                                        <div class="change-photo-btn">
+                                                            <span><i class="fa fa-upload pl-2"></i>{{__('front/doctor.training_program')}}</span>
+                                                            <input type="file" class="upload" name="training_program">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <h2 class="fs-title text-center">{{__('front/doctor.degree')}}</h2>
@@ -603,14 +737,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="add-more">
-                                                    <a href="javascript:void(0);" class="add-education"><i class="fa fa-plus-circle"></i> Add More</a>
+                                                    <a href="javascript:void(0);" class="add-education"><i class="fa fa-plus-circle"></i> إضافة</a>
                                                 </div>
                                             </div>
                                         </div>
 
                                     </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                    <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+                                    <input type="button" name="previous" class="previous action-button-previous" value="{{__('front/global.previous')}}" />
+                                    <input type="submit" name="make_payment" class="next action-button" value="{{__('front/global.confirm')}}" />
                                 </fieldset>
 
                                 <fieldset>
@@ -639,6 +773,20 @@
     <!-- Profile Settings JS -->
     <script src="{{asset('front/assets/js/profile-settings.js')}}"></script>
     <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#output')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(150);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
         $('select').select2({
             insertTag: function (data, tag) {
                 // Insert the tag at the end of the results
@@ -650,6 +798,7 @@
             placeholder: "التاريخ الطبي والمشاكل التغذوية",
             allowClear: true
         });
+
         $('#history').on('change', function() {
                 var test = [];
                 $.each($('#history :selected'), function(){
@@ -699,6 +848,12 @@
                     }
                     else
                         $('#patients').addClass('d-none');
+
+                    if($(this).val() == 'Trainer') {
+                        $('#trainer').removeClass('d-none');
+                    }
+                    else
+                        $('#trainer').addClass('d-none');
                 })
 
             }

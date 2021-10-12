@@ -22,4 +22,11 @@ return
         'confidence'                                                    => 'مدى ثقتك في قرتك علي تحقيق هدفك ؟',
         'nutritionists_number_worked_with_before'                       => 'كم عدد أخصائيين التغذية الذين تعاملت معهم من قبل ؟',
         'lost_weight_without_planning_or_knowing_reasons'               => 'هل فقدت الوزن بدون تخطيط وبدون معرفه السبب ؟',
+        'history'                                                       => 'التاريخ الطبي والمشاكل التغذوية',
+        'usual_medicines'                                               => 'هل يتم تناول اي نوع من الأدويه ؟ ',
+        'name'                                                          => 'الإسم',
+        'phone'                                                         => 'رقم الهاتف',
+        'age'                                                           => 'العمر',
+        'gender'                                                        => 'النوع',
+
     ];

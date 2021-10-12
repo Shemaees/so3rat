@@ -204,7 +204,7 @@
                                     </div>
                                     <div class="clinic-booking">
 
-                                        <a class="view-pro-btn " href="{{route('doctor-profile')}}">الملف الشخصي</a>
+                                        <a class="view-pro-btn " href="{{route('doctor-dashboard')}}">الملف الشخصي</a>
                                         <a class="apt-btn " href="{{route('booking')}}">اشتراك</a>
                                     </div>
                                 </div>
@@ -213,10 +213,6 @@
                             </div>
                         </div>
                         <!-- /Doctor Widget -->
-
-                        <div class="load-more text-center">
-                            <a class="btn btn-primary btn-sm" href="javascript:void(0);">Load More</a>
-                        </div>
                     </div>
                 </div>
 

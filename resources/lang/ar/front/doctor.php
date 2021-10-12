@@ -13,5 +13,13 @@ return
         'accept_promotions'                 => 'هل تقبل كود خصم ؟',
         'classification_certificate'        => 'شهادة التصنيف المهني',
         'bank_statements_certificate'       => 'شهاة البيانات البنكية',
-        'university_qualification'          => 'المؤهل الجامعي'
+        'university_qualification'          => 'المؤهل الجامعي',
+        'city'                              => 'المدينة',
+        'country'                           => 'الدولة',
+        'medical_license_number'            => 'رقم الرخصة الطبية',
+        'experience_certificate'            => 'شهادة خبرة لا تقل عن 5 سنوات ',
+        'specialty_certificate'             => 'شهادة التخصص',
+        'training_program'                  => 'البرنامج التدريبي',
+        'profile'                           => 'الملف الشخصي',
+
     ];
