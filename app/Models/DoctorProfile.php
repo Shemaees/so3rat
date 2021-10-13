@@ -29,6 +29,7 @@ class DoctorProfile extends Model
         'accept_promotions',
         'follow_up_fee',
         'training_fee',
+        'training_program',
         'classification_certificate',
         'bank_statements_certificate',
         'university_qualification',

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Patient;
+namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -25,7 +25,7 @@ class HomeController extends Controller
             })->when($request->city, function ($q) use ($request) {
                 return $q->whereRelation('doctorProfile', 'city', $request->city);
             })->when($request->country, function ($q) use ($request) {
-                return $q->whereRelation('profile', 'country', $request->country);
+                return $q->whereRelation('doctorProfile', 'country', $request->country);
             })->when($request->intrests, function ($q) use ($request) {
                 return $q->whereHas('doctorProfile', function ($q) use ($request) {
                     return $q->where('intrests', 'like', '%'.$request->intrests.'%')

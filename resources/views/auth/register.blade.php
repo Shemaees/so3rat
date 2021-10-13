@@ -167,12 +167,22 @@
             content: "\f023"
         }
 
-        #progressbar #personal:before {
+        #progressbar #doctor:before {
             font-family: FontAwesome;
             content: "\f007"
         }
 
-        #progressbar #payment:before {
+        #progressbar #doctor-trainer:before {
+            font-family: FontAwesome;
+            content: "\f007"
+        }
+
+        #progressbar #doctor-follow-up:before {
+            font-family: FontAwesome;
+            content: "\f007"
+        }
+
+        #progressbar #patient:before {
             font-family: FontAwesome;
             content: "\f09d"
         }
@@ -244,7 +254,7 @@
             width: 100% !important;;
         }
     </style>
-        @endsection
+@endsection
 @section('content')
 <!-- MultiStep Form -->
     <div class="container-fluid" id="grad1">
@@ -258,10 +268,10 @@
                             <form id="msform" method="POST" action="{{route('register')}}">
                                 @csrf
                                 <!-- progressbar -->
-                                <ul id="progressbar">
+                                <ul id="progressbar" class="d-flex justify-content-center">
                                     <li class="active" id="account"><strong> معلومات عامة</strong></li>
-                                    <li id="personal"><strong>معلومات المريض</strong></li>
-                                    <li id="payment"><strong>معلومات الإخصائي</strong></li>
+                                    <li id="patient"><strong>معلومات المريض</strong></li>
+                                    <li id="doctor"><strong>معلومات الإخصائي</strong></li>
                                     <li id="confirm"><strong>تم</strong></li>
                                 </ul>
                                 <!-- fieldsets -->
@@ -313,7 +323,7 @@
                                     <input type="button" name="next" class="next action-button" value="{{__('front/global.next')}}" />
                                 </fieldset>
 
-                                <fieldset>
+                                <fieldset >
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">{{__('front/patient.info')}}</h2>
                                         <div class="col-12 d-flex">
