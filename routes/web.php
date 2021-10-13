@@ -12,6 +12,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['namespace'=>'Home', 'middleware'=>'auth:web'], function () {
+//    Route::post('logout', [App\Http\Controllers\Dashboard\LoginController::class, 'logout'])->name('dashboard.logout');
+//    Route::get('/', [App\Http\Controllers\Dashboard\DashboardController::class, 'index'])->name('dashboard.home');
+    Route::get('/home', function () {
+            if (auth()->user()->user_type('Doctor')) {
+                return redirect('/dashboard');
+            }
+        return redirect('/');
+    });
+    Route::group(['prefix' => 'doctor'], function () {
+        Route::get('/dashboard' , [App\Http\Controllers\Doctor\HomeController::class, 'index'])->name('doctor-dashboard');
+
+    });
+
+});
+
+
+
+
 Route::view('/', 'front.index-3')->name('home');
 Route::view('home', 'front.index-3')->name('home');
 Route::view('index-slide', 'front.doctor.index-slide')->name('index-slide');
@@ -25,7 +44,7 @@ Route::view('doctor-pending', 'front.doctor.doctor-pending')->name('doctor-pendi
 Route::view('doctor-profile', 'front.doctor.doctor-profile')->name('doctor-profile');
 Route::view('doctor-profile-settings', 'front.doctor.doctor-profile-settings')->name('doctor-profile-settings');
 Route::view('doctor-register', 'front.doctor.doctor-register')->name('doctor-register');
-Route::view('doctor-dashboard', 'front.doctor.doctor-dashboard')->name('doctor-dashboard');
+//Route::view('doctor-dashboard', 'front.doctor.doctor-dashboard')->name('doctor-dashboard');
 Route::view('appointments', 'front.doctor.appointments')->name('appointments');
 Route::view('schedule-timings', 'front.doctor.schedule-timings')->name('schedule-timing');
 Route::view('my-patients', 'front.doctor.my-patients')->name('my-patients');
@@ -34,11 +53,12 @@ Route::view('invoices', 'front.invoices.invoices')->name('invoices');
 Route::view('invoices-view', 'front.invoices.invoice-view')->name('invoice-view');
 Route::view('reviews', 'front.doctor.reviews')->name('reviews');
 Route::view('booking', 'front.booking.booking')->name('booking');
-Route::view('booking-success', 'front.booking.booking-success')->name('booking-success')
-;
+Route::view('booking-success', 'front.booking.booking-success')->name('booking-success');
+
+
 Route::view('change-password', 'front.auth.change-password')->name('change-password');
-Route::view('login', 'front.auth.login')->name('login');
-Route::view('register', 'front.auth.register')->name('register');
+//Route::view('login', 'front.auth.login')->name('login');
+//Route::view('register', 'front.auth.register')->name('register');
 Route::view('forget-password', 'front.auth.forget-password')->name('forget-password');
 
 Route::view('chat', 'front.patient.chat')->name('chat');

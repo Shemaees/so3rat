@@ -18,13 +18,13 @@
             /*background-image: linear-gradient(120deg,#249680, #81D4FA)*/
         }
 
-        #msform {
+        #add-user-form {
             text-align: center;
             position: relative;
             margin-top: 20px
         }
 
-        #msform fieldset .form-card {
+        #add-user-form fieldset .form-card {
             background: white;
             border: 0 none;
             border-radius: 0px;
@@ -36,7 +36,7 @@
             position: relative
         }
 
-        #msform fieldset {
+        #add-user-form fieldset {
             background: white;
             border: 0 none;
             border-radius: 0.5rem;
@@ -47,17 +47,17 @@
             position: relative
         }
 
-        #msform fieldset:not(:first-of-type) {
+        #add-user-form fieldset:not(:first-of-type) {
             display: none
         }
 
-        #msform fieldset .form-card {
+        #add-user-form fieldset .form-card {
             text-align: left;
             color: #9E9E9E
         }
 
-        #msform input,
-        #msform textarea {
+        #add-user-form input,
+        #add-user-form textarea {
             padding: 0px 8px 4px 8px;
             border: none;
             border-bottom: 1px solid #ccc;
@@ -72,8 +72,8 @@
             letter-spacing: 1px
         }
 
-        #msform input:focus,
-        #msform textarea:focus {
+        #add-user-form input:focus,
+        #add-user-form textarea:focus {
             -moz-box-shadow: none !important;
             -webkit-box-shadow: none !important;
             box-shadow: none !important;
@@ -83,7 +83,7 @@
             outline-width: 0
         }
 
-        #msform .action-button {
+        #add-user-form .action-button {
             width: 100px;
             background: #249680;
             font-weight: bold;
@@ -95,12 +95,12 @@
             margin: 10px 5px
         }
 
-        #msform .action-button:hover,
-        #msform .action-button:focus {
+        #add-user-form .action-button:hover,
+        #add-user-form .action-button:focus {
             box-shadow: 0 0 0 2px white, 0 0 0 3px #249680
         }
 
-        #msform .action-button-previous {
+        #add-user-form .action-button-previous {
             width: 100px;
             background: #616161;
             font-weight: bold;
@@ -112,8 +112,8 @@
             margin: 10px 5px
         }
 
-        #msform .action-button-previous:hover,
-        #msform .action-button-previous:focus {
+        #add-user-form .action-button-previous:hover,
+        #add-user-form .action-button-previous:focus {
             box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
         }
 
@@ -265,25 +265,25 @@
                     <p>Fill all form field to go to next step</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform" method="POST" action="{{route('register')}}">
-                                @csrf
+                            <form id="add-user-form">
+{{--                                @csrf--}}
                                 <!-- progressbar -->
-                                <ul id="progressbar" class="d-flex justify-content-center">
-                                    <li class="active" id="account"><strong> معلومات عامة</strong></li>
-                                    <li id="patient"><strong>معلومات المريض</strong></li>
-                                    <li id="doctor"><strong>معلومات الإخصائي</strong></li>
-                                    <li id="confirm"><strong>تم</strong></li>
-                                </ul>
+{{--                                <ul id="progressbar" class="d-flex justify-content-center">--}}
+{{--                                    <li class="active" id="account"><strong> معلومات عامة</strong></li>--}}
+{{--                                    <li id="complete" class=""><strong>التكملة</strong></li>--}}
+{{--                                    <li id="patient" class="d-none"><strong>معلومات المريض</strong></li>--}}
+{{--                                    <li id="doctor" class="d-none"><strong>معلومات الإخصائي</strong></li>--}}
+{{--                                    <li id="confirm"><strong>تم</strong></li>--}}
+{{--                                </ul>--}}
                                 <!-- fieldsets -->
-
-                                <fieldset>
+                                    <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">{{__('front/global.account_info')}}</h2>
                                         <div class="change-avatar">
                                             <div class="upload-img col-6 pt-5">
                                                 <div class="change-photo-btn">
                                                     <span><i class="fa fa-upload pl-2"></i>تحميل صورة</span>
-                                                    <input type="file" class="upload" onchange="readURL(this);" name="photo">
+                                                    <input type="file" class="upload" onchange="readURL(this);" name="photo" >
                                                 </div>
                                                 <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
                                             </div>
@@ -293,22 +293,22 @@
                                         </div>
                                         <div class="form-group form-focus d-flex">
                                             <div class="col-6">
-                                                <select class="form-control" name="type" id="type" required>
+                                                <select class="form-control" name="type" id="type" >
                                                     <option value="" disabled selected>اختر نوع المستخدم</option>
-                                                    <option value="patient"> {{__('front/patient.title')}} </option>
-                                                    <option value="doctor"> {{__('front/doctor.title')}} </option>
+                                                    <option value="Patient"> {{__('front/patient.title')}} </option>
+                                                    <option value="Doctor"> {{__('front/doctor.title')}} </option>
                                                 </select>
                                             </div>
                                             <div class="col-6">
-                                                <select class="form-control" name="gender" id="gender" required>
+                                                <select class="form-control" name="gender" id="gender" >
                                                     <option value="" disabled selected>{{__('front/global.gender')}}</option>
                                                     <option value="patient"> {{__('front/global.male')}} </option>
                                                     <option value="doctor"> {{__('front/global.female')}} </option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <input type="text" name="uname" placeholder="اسم المستخدم"  required/>
-                                        <input type="email" name="email" placeholder="البريد الإلكتروني" required/>
+                                        <input type="text" name="uname" placeholder="اسم المستخدم"  />
+                                        <input type="email" name="email" placeholder="البريد الإلكتروني" />
                                         <input type="password" name="pwd" placeholder="كلمه السر" />
                                         <input type="password" name="cpwd" placeholder="تأكيد كلمه السر" />
                                         <div class="form-group form-focus d-flex">
@@ -320,25 +320,27 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="button" name="next" class="next action-button" value="{{__('front/global.next')}}" />
-                                </fieldset>
+{{--                                    <input type="button" name="next" class="next action-button" value="{{__('front/global.next')}}" />--}}
+{{--                                        <button type="submit">{{__('front/global.confirm')}}</button>--}}
+                                    </fieldset>
 
-                                <fieldset >
+                                <div class="" id="patient-form">
+                                    <fieldset >
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">{{__('front/patient.info')}}</h2>
                                         <div class="col-12 d-flex">
                                             <div class="form-group col-6">
                                                 <label class="float-right">الطول(سم)</label>
-                                                <input type="number" step="0.01" class="form-control" name="length">
+                                                <input type="number" step="0.01" class="form-control" name="length" >
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">الوزن(كجم)</label>
-                                                <input type="number" step="0.01" class="form-control" name="weight">
+                                                <input type="number" step="0.01" class="form-control" name="weight" >
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex">
                                             <div class="form-group form-focus col-6 ">
-                                                <select class="form-control" name="history" id="history" style="width:50%"  multiple="multiple" required>
+                                                <select class="form-control" name="history" id="history" style="width:50%"  multiple="multiple" >
                                                     <option value="ارتفاع ضغط الدم">ارتفاع ضغط الدم </option>
                                                     <option value="امراض السكري"> امراض السكري </option>
                                                     <option value="السمنة"> السمنة </option>
@@ -353,12 +355,12 @@
                                                 </select>
                                             </div>
                                             <div id="ifYes" class="col-6 d-none">
-                                                <input type="text" id="car" name="car"  placeholder="{{__('front/global.history')}}"/><br />
+                                                <input type="text" id="car" name="car"  placeholder="{{__('front/global.history')}}" /><br/>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="col-6">
-                                                <select class="form-control" name="usual_medicines" id="usual_medicines" required>
+                                                <select class="form-control" name="usual_medicines" id="usual_medicines" >
                                                     <option value="" disabled selected>هل يتم تناول اي نوع من الأدويه؟</option>
                                                     <option value="yes">نعم </option>
                                                     <option value="no"> لا </option>
@@ -370,7 +372,7 @@
                                         </div>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="col-6">
-                                                <select class="form-control" name="allergenic_foods" id="allergenic_foods" required>
+                                                <select class="form-control" name="allergenic_foods" id="allergenic_foods" >
                                                     <option value="" disabled selected>هل لديك أطعمة معينه تسبب الحساسية؟</option>
                                                     <option value="yes">نعم </option>
                                                     <option value="no"> لا </option>
@@ -383,43 +385,43 @@
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-4">
                                                 <label class="float-right">اعلي وزن حصلت عليه؟</label>
-                                                <input type="number" step="0.01" class="form-control" name="about_wieght">
+                                                <input type="number" step="0.01" class="form-control" name="about_wieght" >
                                             </div>
                                             <div class="form-group col-4">
                                                 <label class="float-right">اقل وزن حصلت عليه؟</label>
-                                                <input type="number" step="0.01" class="form-control" name="about_wieght">
+                                                <input type="number" step="0.01" class="form-control" name="about_wieght" >
                                             </div>
                                             <div class="form-group col-4">
                                                 <label class="float-right">الوزن المعتاد</label>
-                                                <input type="number" step="0.01" class="form-control" name="about_wieght">
+                                                <input type="number" step="0.01" class="form-control" name="about_wieght" >
                                             </div>
                                         </div>
                                         <h2 class="fs-title text-center">نمط الحياه</h2>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.meals_number')}}</label>
-                                                <input type="number"  class="form-control" name="meals_number">
+                                                <input type="number"  class="form-control" name="meals_number" >
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.meals_order')}}</label>
-                                                <input type="text" class="form-control" name="meals_order">
+                                                <input type="text" class="form-control" name="meals_order" >
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.average_sleeping_hours')}}</label>
-                                                <input type="number"  class="form-control" name="average_sleeping_hours">
+                                                <input type="number"  class="form-control" name="average_sleeping_hours" >
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.cups_of_water_daily')}}</label>
-                                                <input type="number" class="form-control" name="cups_of_water_daily" placeholder="كوب(240ملي)">
+                                                <input type="number" class="form-control" name="cups_of_water_daily" placeholder="كوب(240ملي)" >
                                             </div>
                                         </div>
                                         <h2 class="fs-title text-center">النشاط الرياضي</h2>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-12">
                                                 <label class="float-right">{{__('front/patient.sport_activities')}}</label>
-                                                <select class="form-control" name="allergenic_foods" id="allergenic_foods" required>
+                                                <select class="form-control" name="allergenic_foods" id="allergenic_foods" >
 {{--                                                    <option value="" disabled selected>هل لديك أطعمة معينه تسبب الحساسية؟</option>--}}
                                                     <option value="1.2">خامل 1.2 : لا تمارين - اعمال مكتبية  </option>
                                                     <option value="1.375"> نشاط خفيف 1.375 : 20 دقيقع رياضه خفيفة / نمارين , 1-3 ايام بالاسبوع مثل المشي ,ركوب الدراجه أو الجري </option>
@@ -432,93 +434,96 @@
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.favorite_meals')}}</label>
-                                                <input type="text"  class="form-control" name="favorite_meals">
+                                                <input type="text"  class="form-control" name="favorite_meals" >
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.unfavorite_meals')}}</label>
-                                                <input type="text" class="form-control" name="unfavorite_meals">
+                                                <input type="text" class="form-control" name="unfavorite_meals" >
                                             </div>
                                         </div>
                                         <h2 class="fs-title text-center">الأطعمة المفضلة والغير مفضلة</h2>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.carbohydrates')}}</label>
-                                                <input type="text"  class="form-control" name="carbohydrates_favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="carbohydrates_unFavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="carbohydrates_favorite" placeholder="المفضلة" >
+                                                <input type="text"  class="form-control" name="carbohydrates_unFavorite" placeholder="الغير مفضلة" >
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.vegetables')}}</label>
-                                                <input type="text"  class="form-control" name="vegetables_favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="vegetables_unFavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="vegetables_favorite" placeholder="المفضلة" >
+                                                <input type="text"  class="form-control" name="vegetables_unFavorite" placeholder="الغير مفضلة" >
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.fruits')}}</label>
-                                                <input type="text"  class="form-control" name="fruits_favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="fruits_unFavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="fruits_favorite" placeholder="المفضلة" >
+                                                <input type="text"  class="form-control" name="fruits_unFavorite" placeholder="الغير مفضلة" >
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.dairy_products')}}</label>
-                                                <input type="text"  class="form-control" name="dairy_products_favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="dairy_products_unFavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="dairy_products_favorite" placeholder="المفضلة" >
+                                                <input type="text"  class="form-control" name="dairy_products_unFavorite" placeholder="الغير مفضلة" >
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex pt-3">
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.meat')}}</label>
-                                                <input type="text"  class="form-control" name="meat_favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="meat_unFavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="meat_favorite" placeholder="المفضلة" >
+                                                <input type="text"  class="form-control" name="meat_unFavorite" placeholder="الغير مفضلة" >
                                             </div>
                                             <div class="form-group col-6">
                                                 <label class="float-right">{{__('front/patient.fats')}}</label>
-                                                <input type="text"  class="form-control" name="fats_favorite" placeholder="المفضلة">
-                                                <input type="text"  class="form-control" name="fats_unFavorite" placeholder="الغير مفضلة">
+                                                <input type="text"  class="form-control" name="fats_favorite" placeholder="المفضلة" >
+                                                <input type="text"  class="form-control" name="fats_unFavorite" placeholder="الغير مفضلة" >
                                             </div>
                                         </div>
                                         <h2 class="fs-title text-center">الأسئلة العامة</h2>
                                         <div class="d-flex pt-3">
                                             <div class="form-group col-12">
                                                 <label class="float-right">{{__('front/patient.health_goal')}}</label>
-                                                <textarea class="form-control" name="health_goal"></textarea>
+                                                <textarea class="form-control" name="health_goal" ></textarea>
                                             </div>
                                         </div>
                                         <div class="d-flex pt-3">
                                             <div class="form-group col-12">
                                                 <label class="float-right">{{__('front/patient.motivation')}}</label>
-                                                <textarea class="form-control" name="motivation"></textarea>
+                                                <textarea class="form-control" name="motivation" ></textarea>
                                             </div>
                                         </div>
                                         <div class="d-flex pt-3">
                                             <div class="form-group col-12">
                                                 <label class="float-right">{{__('front/patient.confidence')}}</label>
-                                                <textarea class="form-control" name="confidence"></textarea>
+                                                <textarea class="form-control" name="confidence" ></textarea>
                                             </div>
                                         </div>
                                         <div class="d-flex pt-3">
                                             <div class="form-group col-12">
                                                 <label class="float-right">{{__('front/patient.nutritionists_number_worked_with_before')}}</label>
-                                                <textarea class="form-control" name="nutritionists_number_worked_with_before"></textarea>
+                                                <textarea class="form-control" name="nutritionists_number_worked_with_before" ></textarea>
                                             </div>
                                         </div>
                                         <div class="d-flex pt-3">
                                             <div class="form-group col-12">
                                                 <label class="float-right">{{__('front/patient.lost_weight_without_planning_or_knowing_reasons')}}</label>
-                                                <textarea class="form-control" name="lost_weight_without_planning_or_knowing_reasons"></textarea>
+                                                <textarea class="form-control" name="lost_weight_without_planning_or_knowing_reasons" ></textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="{{__('front/global.previous')}}" />
-                                    <input type="button" name="next" class="next action-button" value="{{__('front/global.next')}}" />
-                                </fieldset>
+{{--                                    <input type="button" name="previous" class="previous action-button-previous" value="{{__('front/global.previous')}}" />--}}
+{{--                                    <input type="button" name="next" class="next action-button" value="{{__('front/global.next')}}" />--}}
+                                        <button type="submit" class="action-button">{{__('front/global.confirm')}}</button>
+                                    </fieldset>
+                                </div>
 
-                                <fieldset>
+                                <div class="" id="doctor-form">
+                                    <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">معلومات الإخصائي</h2>
                                         <div class="d-flex pt-3">
                                             <div class="form-group col-6 " >
                                                 <label class="float-right">{{__('front/doctor.country')}}</label>
-                                                <input type="text" class="form-control" name="country">
+                                                <input type="text" class="form-control" name="country" >
                                             </div>
                                             <div class="form-group col-6 " >
                                                 <label class="float-right">{{__('front/doctor.city')}}</label>
@@ -528,7 +533,7 @@
                                         <div class="d-flex pt-3">
                                             <div class="form-group col-12">
                                                 <label class="float-right">{{__('front/doctor.doctor_type')}}</label>
-                                                <select class="form-control" name="doctor_type" id="doctor_type" required>
+                                                <select class="form-control" name="doctor_type" id="doctor_type" >
                                                     <option value="" disabled selected>{{__('front/doctor.doctor_type')}}</option>
                                                     <option value="Follow up of patients"> متابعه مرضي</option>
                                                     <option value="Trainer">تدريب اخصائي  </option>
@@ -546,7 +551,7 @@
                                             <div class="d-flex pt-3">
                                                 <div class="form-group col-12 " >
                                                     <label class="float-right">{{__('front/doctor.intrests')}}</label>
-                                                    <select class="form-control" name="intrests" id="intrests" required multiple="multiple">
+                                                    <select class="form-control" name="intrests" id="intrests"  multiple="multiple">
                                                         <option value="" disabled selected>{{__('front/doctor.doctor_type')}}</option>
                                                         <option value="التغذيه الأنبوبيه">التغذيه الأنبوبيه</option>
                                                         <option value="التغذيه الوريديه">التغذيه الوريديه</option>
@@ -563,7 +568,7 @@
                                             <div class="d-flex pt-3">
                                                 <div class="form-group col-6" >
                                                     <label class="float-right">{{__('front/doctor.communication_way')}}</label>
-                                                    <select class="form-control" name="communication_way" id="communication_way" required>
+                                                    <select class="form-control" name="communication_way" id="communication_way" >
                                                         <option value="" disabled selected>{{__('front/doctor.communication_way')}}</option>
                                                         <option value="Private">شخصي</option>
                                                         <option value="Group">مجموعات الدعم</option>
@@ -572,7 +577,7 @@
                                                 </div>
                                                 <div class="form-group col-6 " >
                                                     <label class="float-right">{{__('front/doctor.accept_promotions')}}</label>
-                                                    <select class="form-control" name="accept_promotions" id="accept_promotions" required>
+                                                    <select class="form-control" name="accept_promotions" id="accept_promotions" >
                                                         <option value="" disabled selected>{{__('front/doctor.accept_promotions')}}</option>
                                                         <option value="Yes">نعم</option>
                                                         <option value="No">لا</option>
@@ -615,20 +620,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-{{--                                            <div class="d-flex pt-3 col-12">--}}
-{{--                                                <div class="form-group col-4" >--}}
-{{--                                                    <label class="float-right">{{__('front/doctor.classification_certificate')}}</label>--}}
-{{--                                                    <input type="file" class="upload" name="classification_certificate">--}}
-{{--                                                </div>--}}
-{{--                                                <div class="form-group col-4 " >--}}
-{{--                                                    <label class="float-right">{{__('front/doctor.bank_statements_certificate')}}</label>--}}
-{{--                                                    <input type="file" class="upload" name="bank_statements_certificate">--}}
-{{--                                                </div>--}}
-{{--                                                <div class="form-group col-4 " >--}}
-{{--                                                    <label class="float-right">{{__('front/doctor.university_qualification')}}</label>--}}
-{{--                                                    <input type="file" class="upload" name="university_qualification">--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
                                         </div>
                                         <div class="d-none" id="trainer">
                                             <div class="d-flex pt-3">
@@ -640,7 +631,7 @@
                                             <div class="d-flex pt-3">
                                                 <div class="form-group col-12 " >
                                                     <label class="float-right">{{__('front/doctor.intrests')}}</label>
-                                                    <select class="form-control" name="intrests" id="intrests" required multiple="multiple">
+                                                    <select class="form-control" name="intrests" id="intrests"  multiple="multiple">
                                                         <option value="" disabled selected>{{__('front/doctor.doctor_type')}}</option>
                                                         <option value="التغذيه الأنبوبيه">التغذيه الأنبوبيه</option>
                                                         <option value="التغذيه الوريديه">التغذيه الوريديه</option>
@@ -753,23 +744,26 @@
                                         </div>
 
                                     </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="{{__('front/global.previous')}}" />
-                                    <input type="submit" name="make_payment" class="next action-button" value="{{__('front/global.confirm')}}" />
+{{--                                    <input type="button" name="previous" class="previous action-button-previous" value="{{__('front/global.previous')}}" />--}}
+{{--                                    <input type="submit" name="make_payment" class="next action-button" value="{{__('front/global.confirm')}}" />--}}
+                                    <button type="submit" class="action-button">{{__('front/global.confirm')}}</button>
                                 </fieldset>
+                                </div>
 
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
-                                        </div> <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-7 text-center">
-                                                <h5>You Have Successfully Signed Up</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
+{{--                                <fieldset>--}}
+{{--                                    <div class="form-card">--}}
+{{--                                        <h2 class="fs-title text-center">Success !</h2> <br><br>--}}
+{{--                                        <div class="row justify-content-center">--}}
+{{--                                            <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>--}}
+{{--                                        </div> <br><br>--}}
+{{--                                        <div class="row justify-content-center">--}}
+{{--                                            <div class="col-7 text-center">--}}
+{{--                                                <h5>You Have Successfully Signed Up</h5>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </fieldset>--}}
+
                             </form>
                         </div>
                     </div>
@@ -783,6 +777,64 @@
     <!-- Profile Settings JS -->
     <script src="{{asset('front/assets/js/profile-settings.js')}}"></script>
     <script>
+
+        $('#add-user-form').validate({
+            errorPlacement: function (error, element) {
+                console.log('error')
+                console.log(error)
+                console.log(element)
+                console.log(element.attr("id"))
+
+                $(element)
+                    .closest("form")
+                    .find("label[for='error-" + element.attr("id") + "']")
+                    .append(error);
+            },
+            errorElement: "span",
+            rules: {
+                user_type: {
+                    required: true,
+                },
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                },
+                phone: {
+                    required: true,
+                },
+                photo: {
+                    required: true,
+                },
+                birthdate: {
+                    required: true,
+                },
+            },
+
+            submitHandler: function (form) {
+                // $("#add-category").addClass('loading')
+
+                dashboardRequest.post('{{ route('register') }}', $("#add-user-form").serialize(), function (response) {
+                    // $("#add-category").removeClass('loading')
+                    $("#add-user-form .errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
+                    animateCSS('#add-user.errorMessage', 'bounceIn');
+                    if (response.status){
+                        setTimeout(function () {
+                            // animateCSS('#add-category .errorMessage', 'flipOutX').then(() => $("#add-category .errorMessage").html(''));
+                            window.location.reload();
+                        }, 5000)
+                    }
+
+                })
+            }
+
+        });
+
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -868,6 +920,31 @@
 
             }
         );
+        $('#type').on('change', function() {
+                var test = [];
+                $.each($('#type :selected'), function(){
+                    test.push($(this).val());
+                    if($(this).val() == 'Patient') {
+                        $('#patient').removeClass('d-none');
+                        $('#patient-form').removeClass('d-none');
+                    }
+                    else {
+                        $('#patient').addClass('d-none');
+                        $('#patient-form').addClass('d-none');
+                    }
+                    if($(this).val() == 'Doctor') {
+                        $('#doctor').removeClass('d-none');
+                        $('#doctor-form').removeClass('d-none');
+                    }
+                    else {
+                        $('#doctor').addClass('d-none');
+                        $('#doctor-form').addClass('d-none');
+                    }
+                })
+
+            }
+        );
+
 
         $(document).ready(function(){
 

@@ -35,4 +35,8 @@ class HomeController extends Controller
             });
         return view('front.search', compact('doctors'));
     }
+    public function index()
+    {
+        return view('front.doctor.doctor-dashboard');
+    }
 }
