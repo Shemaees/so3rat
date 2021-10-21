@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('style')
     <!-- Select2 CSS -->
-{{--    <link rel="stylesheet" href="{{asset('front/assets/plugins/select2/css/select2.min.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{asset('assets/front/plugins/select2/css/select2.min.css')}}">--}}
     <style>
         .doc-details{
             display: flex!important;
@@ -139,7 +139,7 @@
                                 <div class="doctor-widget">
                                     <div class="doctor-img col-3">
                                         <a href="#">
-                                            <img src="{{asset('front/assets/img/doctors/doctor-thumb-01.jpg')}}" class="img-fluid" alt="User Image">
+                                            <img src="{{asset('assets/front/img/doctors/doctor-thumb-01.jpg')}}" class="img-fluid" alt="User Image">
                                         </a>
                                     </div>
                                 <div class="col-9">
@@ -225,16 +225,16 @@
 
 @section('scripts')
     <!-- Sticky Sidebar JS -->
-    <script src="{{asset('front/assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
-    <script src="{{asset('front/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
+    <script src="{{asset('assets/front/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
+    <script src="{{asset('assets/front/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
 
     <!-- Select2 JS -->
-{{--            <script src="{{asset('front/assets/plugins/select2/js/select2.min.js')}}"></script>--}}
+{{--            <script src="{{asset('assets/front/plugins/select2/js/select2.min.js')}}"></script>--}}
 
     <!-- Datetimepicker JS -->
-    <script src="{{asset('front/assets/js/moment.min.js')}}"></script>
-    <script src="{{asset('front/assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+    <script src="{{asset('assets/front/js/moment.min.js')}}"></script>
+    <script src="{{asset('assets/front/js/bootstrap-datetimepicker.min.js')}}"></script>
 
     <!-- Fancybox JS -->
-    <script src="{{asset('front/assets/plugins/fancybox/jquery.fancybox.min.js')}}"></script>
+    <script src="{{asset('assets/front/plugins/fancybox/jquery.fancybox.min.js')}}"></script>
 @endsection

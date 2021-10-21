@@ -7,7 +7,7 @@
                     <!-- Footer Widget -->
                     <div class="footer-widget footer-about d-flex" style="display: flex!important;flex-direction: column;align-items: flex-start;">
                         <div class="footer-logo">
-                            <img src="{{asset('front/assets/img/footer-logo.png')}}" alt="logo">
+                            <img src="{{asset('assets/front/img/footer-logo.png')}}" alt="logo">
                         </div>
                         <div class="footer-about-content">
 {{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>--}}

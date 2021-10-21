@@ -32,7 +32,7 @@
                             <div class="widget-profile pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>Dr. Darren Elder</h3>
@@ -128,7 +128,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Richard Wilson</a></h3>
@@ -158,7 +158,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient1.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient1.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}" >Charlene Reed </a></h3>
@@ -188,7 +188,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient2.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient2.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Travis Trimble</a></h3>
@@ -220,7 +220,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient3.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient3.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Carl Kelly</a></h3>
@@ -250,7 +250,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient4.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient4.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Michelle Fairfax</a></h3>
@@ -280,7 +280,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient5.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient5.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Gina Moore</a></h3>
@@ -310,7 +310,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient6.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient6.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Elsie Gilley</a></h3>
@@ -340,7 +340,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient7.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient7.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Joan Gardner</a></h3>
@@ -370,7 +370,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient8.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient8.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Daniel Griffing</a></h3>
@@ -400,7 +400,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient9.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient9.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Walter Roberson</a></h3>
@@ -430,7 +430,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient10.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient10.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Robert Rhodes</a></h3>
@@ -460,7 +460,7 @@
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
                                     <a href="{{route('patient-profile')}}" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/patients/patient11.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/patients/patient11.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3><a href="{{route('patient-profile')}}">Harry Williams</a></h3>

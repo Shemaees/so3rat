@@ -9,30 +9,32 @@
                 <div class="login-header">
                     <h3 class="text-center">{{ __('Login') }} </h3>
                 </div>
+                @include('dashboard.includes.alerts.errors')
+                @include('dashboard.includes.alerts.success')
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group form-focus">
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" type="email" class="form-control @error('email') error @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         <label class="focus-label">{{ __('E-Mail Address') }}</label>
 
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
 
                     </div>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <div class="form-group form-focus">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        <input id="password" type="password" class="form-control @error('password') error @enderror" name="password" required autocomplete="current-password">
                         <label class="focus-label">{{ __('Password') }}</label>
 
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
 
                     </div>
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <div class="text-right">
                         <a class="forgot-link" href="">Forgot Password ?</a>
                     </div>
@@ -43,10 +45,16 @@
                     </div>
                     <div class="row form-row social-login">
                         <div class="col-6">
-                            <a href="#" class="btn btn-facebook btn-block"><i class="fab fa-facebook-f mr-1"></i> Login</a>
+                            <a href="#" class="btn btn-facebook btn-block">
+                                Login
+                                <i class="fab fa-facebook-f mr-1"></i>
+                            </a>
                         </div>
                         <div class="col-6">
-                            <a href="#" class="btn btn-google btn-block"><i class="fab fa-google mr-1"></i> Login</a>
+                            <a href="#" class="btn btn-google btn-block">
+                                Login
+                                <i class="fab fa-google mr-1"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="text-center dont-have">Don’t have an account? <a href="{{route('register')}}">Register</a></div>

@@ -32,7 +32,7 @@
                             <div class="widget-profile pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>Dr. Darren Elder</h3>
@@ -144,7 +144,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Richard Wilson <span>#PT0016</span></a>
                                                     </h2>
@@ -169,7 +169,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient1.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient1.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Charlene Reed <span>#PT0001</span></a>
                                                     </h2>
@@ -194,7 +194,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient2.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient2.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Travis Trimble <span>#PT0002</span></a>
                                                     </h2>
@@ -219,7 +219,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient3.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient3.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Carl Kelly <span>#PT0003</span></a>
                                                     </h2>
@@ -244,7 +244,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient4.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient4.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Michelle Fairfax <span>#PT0004</span></a>
                                                     </h2>
@@ -269,7 +269,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient5.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient5.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Gina Moore <span>#PT0005</span></a>
                                                     </h2>
@@ -294,7 +294,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient6.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient6.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Elsie Gilley <span>#PT0006</span></a>
                                                     </h2>
@@ -319,7 +319,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient7.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient7.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Joan Gardner <span>#PT0007</span></a>
                                                     </h2>
@@ -344,7 +344,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient8.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient8.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Daniel Griffing <span>#PT0008</span></a>
                                                     </h2>
@@ -369,7 +369,7 @@
                                                 <td>
                                                     <h2 class="table-avatar">
                                                         <a href="patient-profile.html" class="avatar avatar-sm mr-2">
-                                                            <img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient9.jpg')}}" alt="User Image">
+                                                            <img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient9.jpg')}}" alt="User Image">
                                                         </a>
                                                         <a href="patient-profile.html">Walter Roberson <span>#PT0009</span></a>
                                                     </h2>

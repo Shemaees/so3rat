@@ -2,7 +2,7 @@
     <div class="widget-profile pro-widget-content">
         <div class="profile-info-widget">
             <a href="#" class="booking-doc-img">
-                <img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
             </a>
             <div class="profile-det-info">
                 <h3>Dr. Darren Elder</h3>

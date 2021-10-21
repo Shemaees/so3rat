@@ -39,7 +39,7 @@
                                 <div class="doc-info-left">
                                     <div class="doctor-img">
                                         <a href="doctor-profile.html">
-                                            <img src="{{asset('front/assets/img/doctors/doctor-thumb-01.jpg')}}"
+                                            <img src="{{asset('assets/front/img/doctors/doctor-thumb-01.jpg')}}"
                                                  class="img-fluid" alt="User Image">
                                         </a>
                                     </div>
@@ -47,7 +47,7 @@
                                         <h4 class="doc-name"><a href="doctor-profile.html">Dr. Ruby Perrin</a></h4>
                                         <p class="doc-speciality">MDS - Periodontology and Oral Implantology, BDS</p>
                                         <h5 class="doc-department"><img
-                                                src="{{asset('front/assets/img/specialities/specialities-05.png')}}"
+                                                src="{{asset('assets/front/img/specialities/specialities-05.png')}}"
                                                 class="img-fluid" alt="Speciality">Dentist</h5>
                                         <div class="rating">
                                             <i class="fas fa-star filled"></i>
@@ -64,28 +64,28 @@
                                                 <li>
                                                     <a href="assets/img/features/feature-01.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-01.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-01.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-02.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-02.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-02.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-03.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-03.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-03.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-04.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-04.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-04.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
@@ -125,7 +125,7 @@
                                 <div class="doc-info-left">
                                     <div class="doctor-img">
                                         <a href="doctor-profile.html">
-                                            <img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}"
+                                            <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}"
                                                  class="img-fluid" alt="User Image">
                                         </a>
                                     </div>
@@ -133,7 +133,7 @@
                                         <h4 class="doc-name"><a href="doctor-profile.html">Dr. Darren Elder</a></h4>
                                         <p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
                                         <h5 class="doc-department"><img
-                                                src="{{asset('front/assets/img/specialities/specialities-05.png')}}"
+                                                src="{{asset('assets/front/img/specialities/specialities-05.png')}}"
                                                 class="img-fluid" alt="Speciality">Dentist</h5>
                                         <div class="rating">
                                             <i class="fas fa-star filled"></i>
@@ -150,28 +150,28 @@
                                                 <li>
                                                     <a href="assets/img/features/feature-01.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-01.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-01.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-02.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-02.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-02.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-03.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-03.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-03.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-04.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-04.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-04.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
@@ -211,7 +211,7 @@
                                 <div class="doc-info-left">
                                     <div class="doctor-img">
                                         <a href="doctor-profile.html">
-                                            <img src="{{asset('front/assets/img/doctors/doctor-thumb-03.jpg')}}"
+                                            <img src="{{asset('assets/front/img/doctors/doctor-thumb-03.jpg')}}"
                                                  class="img-fluid" alt="User Image">
                                         </a>
                                     </div>
@@ -219,7 +219,7 @@
                                         <h4 class="doc-name"><a href="doctor-profile.html">Dr. Deborah Angel</a></h4>
                                         <p class="doc-speciality">MBBS, MD - General Medicine, DNB - Cardiology</p>
                                         <p class="doc-department"><img
-                                                src="{{asset('front/assets/img/specialities/specialities-04.png')}}"
+                                                src="{{asset('assets/front/img/specialities/specialities-04.png')}}"
                                                 class="img-fluid" alt="Speciality">Cardiology</p>
                                         <div class="rating">
                                             <i class="fas fa-star filled"></i>
@@ -236,28 +236,28 @@
                                                 <li>
                                                     <a href="assets/img/features/feature-01.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-01.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-01.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-02.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-02.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-02.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-03.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-03.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-03.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-04.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-04.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-04.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
@@ -297,7 +297,7 @@
                                 <div class="doc-info-left">
                                     <div class="doctor-img">
                                         <a href="doctor-profile.html">
-                                            <img src="{{asset('front/assets/img/doctors/doctor-thumb-04.jpg')}}"
+                                            <img src="{{asset('assets/front/img/doctors/doctor-thumb-04.jpg')}}"
                                                  class="img-fluid" alt="User Image">
                                         </a>
                                     </div>
@@ -305,7 +305,7 @@
                                         <h4 class="doc-name"><a href="doctor-profile.html">Dr. Sofia Brient</a></h4>
                                         <p class="doc-speciality">MBBS, MS - General Surgery, MCh - Urology</p>
                                         <p class="doc-department"><img
-                                                src="{{asset('front/assets/img/specialities/specialities-01.png')}}"
+                                                src="{{asset('assets/front/img/specialities/specialities-01.png')}}"
                                                 class="img-fluid" alt="Speciality">Urology</p>
                                         <div class="rating">
                                             <i class="fas fa-star filled"></i>
@@ -322,28 +322,28 @@
                                                 <li>
                                                     <a href="assets/img/features/feature-01.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-01.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-01.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-02.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-02.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-02.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-03.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-03.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-03.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-04.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-04.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-04.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
@@ -383,7 +383,7 @@
                                 <div class="doc-info-left">
                                     <div class="doctor-img">
                                         <a href="doctor-profile.html">
-                                            <img src="{{asset('front/assets/img/doctors/doctor-thumb-05.jpg')}}"
+                                            <img src="{{asset('assets/front/img/doctors/doctor-thumb-05.jpg')}}"
                                                  class="img-fluid" alt="User Image">
                                         </a>
                                     </div>
@@ -392,7 +392,7 @@
                                         </h4>
                                         <p class="doc-speciality">MS - Orthopaedics, MBBS, M.Ch - Orthopaedics</p>
                                         <p class="doc-department"><img
-                                                src="{{asset('front/assets/img/specialities/specialities-03.png')}}"
+                                                src="{{asset('assets/front/img/specialities/specialities-03.png')}}"
                                                 class="img-fluid" alt="Speciality">Orthopaedics</p>
                                         <div class="rating">
                                             <i class="fas fa-star filled"></i>
@@ -409,28 +409,28 @@
                                                 <li>
                                                     <a href="assets/img/features/feature-01.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-01.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-01.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-02.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-02.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-02.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-03.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-03.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-03.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="assets/img/features/feature-04.jpg"
                                                        data-fancybox="gallery">
-                                                        <img src="{{asset('front/assets/img/features/feature-04.jpg')}}"
+                                                        <img src="{{asset('assets/front/img/features/feature-04.jpg')}}"
                                                              alt="Feature">
                                                     </a>
                                                 </li>

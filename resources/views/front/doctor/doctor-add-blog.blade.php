@@ -32,7 +32,7 @@
                             <div class="widget-profile pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>Dr. Darren Elder</h3>
@@ -232,17 +232,17 @@
                                                         <ul class="upload-wrap">
                                                             <li>
                                                                 <div class=" upload-images">
-                                                                    <img alt="Blog Image" src="{{asset('front/assets/img/img-01.jpg')}}">
+                                                                    <img alt="Blog Image" src="{{asset('assets/front/img/img-01.jpg')}}">
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div class=" upload-images">
-                                                                    <img alt="Blog Image" src="{{asset('front/assets/img/img-02.jpg')}}">
+                                                                    <img alt="Blog Image" src="{{asset('assets/front/img/img-02.jpg')}}">
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div class=" upload-images">
-                                                                    <img alt="Blog Image" src="{{asset('front/assets/img/img-03.jpg')}}">
+                                                                    <img alt="Blog Image" src="{{asset('assets/front/img/img-03.jpg')}}">
                                                                 </div>
                                                             </li>
                                                         </ul>

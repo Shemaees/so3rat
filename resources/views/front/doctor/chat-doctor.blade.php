@@ -30,7 +30,7 @@
                                     <a href="javascript:void(0);" class="media">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-away">
-                                                <img src="{{asset('front/assets/img/patients/patient.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                                     <a href="javascript:void(0);" class="media read-chat active">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-online">
-                                                <img src="{{asset('front/assets/img/patients/patient1.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient1.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -65,7 +65,7 @@
                                     <a href="javascript:void(0);" class="media">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-away">
-                                                <img src="{{asset('front/assets/img/patients/patient2.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient2.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                                     <a href="javascript:void(0);" class="media read-chat">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-online">
-                                                <img src="{{asset('front/assets/img/patients/patient3.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient3.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                     <a href="javascript:void(0);" class="media read-chat">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-offline">
-                                                <img src="{{asset('front/assets/img/patients/patient4.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient4.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@
                                     <a href="javascript:void(0);" class="media read-chat">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-online">
-                                                <img src="{{asset('front/assets/img/patients/patient5.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient5.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -136,7 +136,7 @@
                                     <a href="javascript:void(0);" class="media read-chat">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-away">
-                                                <img src="{{asset('front/assets/img/patients/patient6.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient6.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -155,7 +155,7 @@
                                     <a href="javascript:void(0);" class="media read-chat">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-offline">
-                                                <img src="{{asset('front/assets/img/patients/patient7.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient7.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -172,7 +172,7 @@
                                     <a href="javascript:void(0);" class="media read-chat">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-online">
-                                                <img src="{{asset('front/assets/img/patients/patient8.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient8.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -191,7 +191,7 @@
                                     <a href="javascript:void(0);" class="media read-chat">
                                         <div class="media-img-wrap">
                                             <div class="avatar avatar-away">
-                                                <img src="{{asset('front/assets/img/patients/patient9.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient9.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
@@ -219,7 +219,7 @@
                                 <div class="media">
                                     <div class="media-img-wrap">
                                         <div class="avatar avatar-online">
-                                            <img src="{{asset('front/assets/img/patients/patient.jpg')}}"
+                                            <img src="{{asset('assets/front/img/patients/patient.jpg')}}"
                                                  alt="User Image" class="avatar-img rounded-circle">
                                         </div>
                                     </div>
@@ -261,7 +261,7 @@
                                         </li>
                                         <li class="media received">
                                             <div class="avatar">
-                                                <img src="{{asset('front/assets/img/patients/patient1.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient1.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                             <div class="media-body">
@@ -294,7 +294,7 @@
                                                     <div>
                                                         <div class="chat-msg-attachments">
                                                             <div class="chat-attachment">
-                                                                <img src="{{asset('front/assets/img/img-02.jpg')}}"
+                                                                <img src="{{asset('assets/front/img/img-02.jpg')}}"
                                                                      alt="Attachment">
                                                                 <div class="chat-attach-caption">placeholder.jpg</div>
                                                                 <a href="#" class="chat-attach-download">
@@ -302,7 +302,7 @@
                                                                 </a>
                                                             </div>
                                                             <div class="chat-attachment">
-                                                                <img src="{{asset('front/assets/img/img-03.jpg')}}"
+                                                                <img src="{{asset('assets/front/img/img-03.jpg')}}"
                                                                      alt="Attachment">
                                                                 <div class="chat-attach-caption">placeholder.jpg</div>
                                                                 <a href="#" class="chat-attach-download">
@@ -352,7 +352,7 @@
                                                     <div>
                                                         <div class="chat-msg-attachments">
                                                             <div class="chat-attachment">
-                                                                <img src="{{asset('front/assets/img/img-04.jpg')}}"
+                                                                <img src="{{asset('assets/front/img/img-04.jpg')}}"
                                                                      alt="Attachment">
                                                                 <div class="chat-attach-caption">placeholder.jpg</div>
                                                                 <a href="#" class="chat-attach-download">
@@ -373,7 +373,7 @@
                                         </li>
                                         <li class="media received">
                                             <div class="avatar">
-                                                <img src="{{asset('front/assets/img/patients/patient.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                             <div class="media-body">
@@ -396,7 +396,7 @@
                                         <li class="chat-date">Today</li>
                                         <li class="media received">
                                             <div class="avatar">
-                                                <img src="{{asset('front/assets/img/patients/patient.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                             <div class="media-body">
@@ -443,7 +443,7 @@
                                         </li>
                                         <li class="media received">
                                             <div class="avatar">
-                                                <img src="{{asset('front/assets/img/patients/patient.jpg')}}"
+                                                <img src="{{asset('assets/front/img/patients/patient.jpg')}}"
                                                      alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                             <div class="media-body">
@@ -500,7 +500,7 @@
                         <div class="call-wrapper">
                             <div class="call-inner">
                                 <div class="call-user">
-                                    <img alt="User Image" src="{{asset('front/assets/img/patients/patient.jpg')}}"
+                                    <img alt="User Image" src="{{asset('assets/front/img/patients/patient.jpg')}}"
                                          class="call-avatar">
                                     <h4>Richard Wilson</h4>
                                     <span>Connecting...</span>
@@ -533,7 +533,7 @@
                         <div class="call-wrapper">
                             <div class="call-inner">
                                 <div class="call-user">
-                                    <img class="call-avatar" src="{{asset('front/assets/img/patients/patient.jpg')}}"
+                                    <img class="call-avatar" src="{{asset('assets/front/img/patients/patient.jpg')}}"
                                          alt="User Image">
                                     <h4>Richard Wilson</h4>
                                     <span>Calling ...</span>

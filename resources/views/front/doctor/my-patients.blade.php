@@ -51,7 +51,7 @@
                                         <div class="pro-widget-content">
                                             <div class="profile-info-widget">
                                                 <a href="{{route('patient-profile')}}" class="booking-doc-img ">
-                                                    <img src="{{asset('front/assets/img/patients/patient.jpg')}}" alt="User Image">
+                                                    <img src="{{asset('assets/front/img/patients/patient.jpg')}}" alt="User Image">
                                                 </a>
                                                 <div class="profile-det-info">
                                                     <h3><a href="{{route('patient-profile')}}" style="color: #007bff">Richard Wilson</a></h3>

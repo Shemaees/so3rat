@@ -55,7 +55,7 @@
                                             <div class="dash-widget dct-border-rht" style="direction: ltr;">
                                                 <div class="circle-bar circle-bar1">
                                                     <div class="circle-graph1" data-percent="75">
-                                                        <img src="{{asset('front/assets/img/icon-01.png')}}" class="img-fluid" alt="patient">
+                                                        <img src="{{asset('assets/front/img/icon-01.png')}}" class="img-fluid" alt="patient">
                                                     </div>
                                                 </div>
                                                 <div class="dash-widget-info">
@@ -70,7 +70,7 @@
                                             <div class="dash-widget dct-border-rht" style="direction: ltr;">
                                                 <div class="circle-bar circle-bar2">
                                                     <div class="circle-graph2" data-percent="65">
-                                                        <img src="{{asset('front/assets/img/icon-02.png')}}" class="img-fluid" alt="Patient">
+                                                        <img src="{{asset('assets/front/img/icon-02.png')}}" class="img-fluid" alt="Patient">
                                                     </div>
                                                 </div>
                                                 <div class="dash-widget-info">
@@ -85,7 +85,7 @@
                                             <div class="dash-widget " style="direction: ltr;">
                                                 <div class="circle-bar circle-bar3">
                                                     <div class="circle-graph3" data-percent="50">
-                                                        <img src="{{asset('front/assets/img/icon-03.png')}}" class="img-fluid" alt="Patient">
+                                                        <img src="{{asset('assets/front/img/icon-03.png')}}" class="img-fluid" alt="Patient">
                                                     </div>
                                                 </div>
                                                 <div class="dash-widget-info">
@@ -139,7 +139,7 @@
                                                             <tr>
                                                                 <td>
                                                                     <h2 class="table-avatar">
-                                                                        <a href="{{route('patient-profile')}}   " class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient.jpg')}}" alt="User Image"></a>
+                                                                        <a href="{{route('patient-profile')}}   " class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient.jpg')}}" alt="User Image"></a>
                                                                         <a href="{{route('patient-profile')}}">Richard Wilson <span>#PT0016</span></a>
                                                                     </h2>
                                                                 </td>
@@ -193,7 +193,7 @@
                                                             <tr>
                                                                 <td>
                                                                     <h2 class="table-avatar">
-                                                                        <a href="{{route('patient-profile')}}l" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{asset('front/assets/img/patients/patient6.jpg')}}" alt="User Image"></a>
+                                                                        <a href="{{route('patient-profile')}}l" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{asset('assets/front/img/patients/patient6.jpg')}}" alt="User Image"></a>
                                                                         <a href="{{route('patient-profile')}}">Elsie Gilley <span>#PT0006</span></a>
                                                                     </h2>
                                                                 </td>
@@ -244,6 +244,6 @@
 
 
     <!-- Circle Progress JS -->
-    <script src="{{asset('front/assets/js/circle-progress.min.js')}}"></script>
+    <script src="{{asset('assets/front/js/circle-progress.min.js')}}"></script>
 
     @endsection

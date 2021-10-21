@@ -32,7 +32,7 @@
                             <div class="widget-profile pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>Dr. Darren Elder</h3>
@@ -230,11 +230,11 @@
                                         </div>
                                         <div class="upload-wrap">
                                             <div class="upload-images">
-                                                <img src="{{asset('front/assets/img/features/feature-01.jpg')}}" alt="Upload Image">
+                                                <img src="{{asset('assets/front/img/features/feature-01.jpg')}}" alt="Upload Image">
                                                 <a href="javascript:void(0);" class="btn btn-icon btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
                                             </div>
                                             <div class="upload-images">
-                                                <img src="{{asset('front/assets/img/features/feature-02.jpg')}}" alt="Upload Image">
+                                                <img src="{{asset('assets/front/img/features/feature-02.jpg')}}" alt="Upload Image">
                                                 <a href="javascript:void(0);" class="btn btn-icon btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
                                             </div>
                                         </div>

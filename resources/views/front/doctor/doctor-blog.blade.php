@@ -32,7 +32,7 @@
                             <div class="widget-profile pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>Dr. Darren Elder</h3>
@@ -147,13 +147,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-01.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-01.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-01.jpg')}}" alt="Post Author"> <span>Dr. Ruby Perrin</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-01.jpg')}}" alt="Post Author"> <span>Dr. Ruby Perrin</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 4 Dec 2019</li>
@@ -175,13 +175,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-02.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-02.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="Post Author"> <span>Dr. Darren Elder</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="Post Author"> <span>Dr. Darren Elder</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 3 Dec 2019</li>
@@ -203,13 +203,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-03.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-03.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-03.jpg')}}" alt="Post Author"> <span>Dr. Deborah Angel</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-03.jpg')}}" alt="Post Author"> <span>Dr. Deborah Angel</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 3 Dec 2019</li>
@@ -231,13 +231,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-04.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-04.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-04.jpg')}}" alt="Post Author"> <span>Dr. Sofia Brient</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-04.jpg')}}" alt="Post Author"> <span>Dr. Sofia Brient</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 2 Dec 2019</li>
@@ -259,13 +259,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-05.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-05.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-05.jpg')}}" alt="Post Author"> <span>Dr. Marvin Campbell</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-05.jpg')}}" alt="Post Author"> <span>Dr. Marvin Campbell</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 1 Dec 2019</li>
@@ -287,13 +287,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-06.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-06.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-06.jpg')}}" alt="Post Author"> <span>Dr. Katharine Berthold</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-06.jpg')}}" alt="Post Author"> <span>Dr. Katharine Berthold</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 30 Nov 2019</li>
@@ -315,13 +315,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-07.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-07.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-07.jpg')}}" alt="Post Author"> <span>Dr. Linda Tobin</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-07.jpg')}}" alt="Post Author"> <span>Dr. Linda Tobin</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 28 Nov 2019</li>
@@ -343,13 +343,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-08.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-08.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-08.jpg')}}" alt="Post Author"> <span>Dr. Paul Richard </span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-08.jpg')}}" alt="Post Author"> <span>Dr. Paul Richard </span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 25 Nov 2019</li>
@@ -371,13 +371,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-09.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-09.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-09.jpg')}}" alt="Post Author"> <span>Dr. John Gibbs</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-09.jpg')}}" alt="Post Author"> <span>Dr. John Gibbs</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 24 Nov 2019</li>
@@ -399,13 +399,13 @@
                                     <!-- Blog Post -->
                                     <div class="blog grid-blog">
                                         <div class="blog-image">
-                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('front/assets/img/blog/blog-10.jpg')}}" alt="Post Image"></a>
+                                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('assets/front/img/blog/blog-10.jpg')}}" alt="Post Image"></a>
                                         </div>
                                         <div class="blog-content">
                                             <ul class="entry-meta meta-item">
                                                 <li>
                                                     <div class="post-author">
-                                                        <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-10.jpg')}}" alt="Post Author"> <span>Dr. Olga Barlow</span></a>
+                                                        <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-10.jpg')}}" alt="Post Author"> <span>Dr. Olga Barlow</span></a>
                                                     </div>
                                                 </li>
                                                 <li><i class="far fa-clock"></i> 23 Nov 2019</li>

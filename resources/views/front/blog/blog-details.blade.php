@@ -29,7 +29,7 @@
                         <div class="blog-view">
                             <div class="blog blog-single-post">
                                 <div class="blog-image">
-                                    <a href="javascript:void(0);"><img alt="" src="{{asset('front/assets/img/blog/blog-01.jpg')}}" class="img-fluid"></a>
+                                    <a href="javascript:void(0);"><img alt="" src="{{asset('assets/front/img/blog/blog-01.jpg')}}" class="img-fluid"></a>
                                 </div>
                                 <h3 class="blog-title">Doccure – Making your clinic painless visit?</h3>
                                 <div class="blog-info clearfix">
@@ -37,7 +37,7 @@
                                         <ul>
                                             <li>
                                                 <div class="post-author">
-                                                    <a href="doctor-profile.html"><img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="Post Author"> <span>Dr. Darren Elder</span></a>
+                                                    <a href="doctor-profile.html"><img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="Post Author"> <span>Dr. Darren Elder</span></a>
                                                 </div>
                                             </li>
                                             <li><i class="far fa-calendar"></i>4 Dec 2019</li>
@@ -83,7 +83,7 @@
                                     <div class="about-author">
                                         <div class="about-author-img">
                                             <div class="author-img-wrap">
-                                                <a href="doctor-profile.html"><img class="img-fluid rounded-circle" alt="" src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}"></a>
+                                                <a href="doctor-profile.html"><img class="img-fluid rounded-circle" alt="" src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}"></a>
                                             </div>
                                         </div>
                                         <div class="author-details">
@@ -102,7 +102,7 @@
                                         <li>
                                             <div class="comment">
                                                 <div class="comment-author">
-                                                    <img class="avatar" alt="" src="{{asset('front/assets/img/patients/patient4.jpg')}}">
+                                                    <img class="avatar" alt="" src="{{asset('assets/front/img/patients/patient4.jpg')}}">
                                                 </div>
                                                 <div class="comment-block">
                                                     <span class="comment-by">
@@ -120,7 +120,7 @@
                                                 <li>
                                                     <div class="comment">
                                                         <div class="comment-author">
-                                                            <img class="avatar" alt="" src="{{asset('front/assets/img/patients/patient5.jpg')}}">
+                                                            <img class="avatar" alt="" src="{{asset('assets/front/img/patients/patient5.jpg')}}">
                                                         </div>
                                                         <div class="comment-block">
                                                             <span class="comment-by">
@@ -137,7 +137,7 @@
                                                 <li>
                                                     <div class="comment">
                                                         <div class="comment-author">
-                                                            <img class="avatar" alt="" src="{{asset('front/assets/img/patients/patient6.jpg')}}">
+                                                            <img class="avatar" alt="" src="{{asset('assets/front/img/patients/patient6.jpg')}}">
                                                         </div>
                                                         <div class="comment-block">
                                                             <span class="comment-by">
@@ -156,7 +156,7 @@
                                         <li>
                                             <div class="comment">
                                                 <div class="comment-author">
-                                                    <img class="avatar" alt="" src="{{asset('front/assets/img/patients/patient6.jpg')}}">
+                                                    <img class="avatar" alt="" src="{{asset('assets/front/img/patients/patient6.jpg')}}">
                                                 </div>
                                                 <div class="comment-block">
                                                     <span class="comment-by">
@@ -170,7 +170,7 @@
                                         <li>
                                             <div class="comment">
                                                 <div class="comment-author">
-                                                    <img class="avatar" alt="" src="{{asset('front/assets/img/patients/patient7.jpg')}}">
+                                                    <img class="avatar" alt="" src="{{asset('assets/front/img/patients/patient7.jpg')}}">
                                                 </div>
                                                 <div class="comment-block">
                                                     <span class="comment-by">
@@ -244,7 +244,7 @@
                                     <li>
                                         <div class="post-thumb">
                                             <a href="blog-details.html">
-                                                <img class="img-fluid" src="{{asset('front/assets/img/blog/blog-thumb-01.jpg')}}" alt="">
+                                                <img class="img-fluid" src="{{asset('assets/front/img/blog/blog-thumb-01.jpg')}}" alt="">
                                             </a>
                                         </div>
                                         <div class="post-info">
@@ -257,7 +257,7 @@
                                     <li>
                                         <div class="post-thumb">
                                             <a href="blog-details.html">
-                                                <img class="img-fluid" src="{{asset('front/assets/img/blog/blog-thumb-02.jpg')}}" alt="">
+                                                <img class="img-fluid" src="{{asset('assets/front/img/blog/blog-thumb-02.jpg')}}" alt="">
                                             </a>
                                         </div>
                                         <div class="post-info">
@@ -270,7 +270,7 @@
                                     <li>
                                         <div class="post-thumb">
                                             <a href="blog-details.html">
-                                                <img class="img-fluid" src="{{asset('front/assets/img/blog/blog-thumb-03.jpg')}}" alt="">
+                                                <img class="img-fluid" src="{{asset('assets/front/img/blog/blog-thumb-03.jpg')}}" alt="">
                                             </a>
                                         </div>
                                         <div class="post-info">
@@ -283,7 +283,7 @@
                                     <li>
                                         <div class="post-thumb">
                                             <a href="blog-details.html">
-                                                <img class="img-fluid" src="{{asset('front/assets/img/blog/blog-thumb-04.jpg')}}" alt="">
+                                                <img class="img-fluid" src="{{asset('assets/front/img/blog/blog-thumb-04.jpg')}}" alt="">
                                             </a>
                                         </div>
                                         <div class="post-info">
@@ -296,7 +296,7 @@
                                     <li>
                                         <div class="post-thumb">
                                             <a href="blog-details.html">
-                                                <img class="img-fluid" src="{{asset('front/assets/img/blog/blog-thumb-05.jpg')}}" alt="">
+                                                <img class="img-fluid" src="{{asset('assets/front/img/blog/blog-thumb-05.jpg')}}" alt="">
                                             </a>
                                         </div>
                                         <div class="post-info">

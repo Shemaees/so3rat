@@ -9,13 +9,13 @@
                         </span>
             </a>
             <a href="{{route('home')}}" class="navbar-brand logo">
-                <img src="{{asset('front/assets/img/logo.png')}}" class="img-fluid" alt="Logo">
+                <img src="{{asset('assets/front/img/logo.png')}}" class="img-fluid" alt="Logo">
             </a>
         </div>
         <div class="main-menu-wrapper">
             <div class="menu-header">
                 <a href="{{route('home')}}" class="menu-logo">
-                    <img src="{{asset('front/assets/img/logo.png')}}" class="img-fluid" alt="Logo">
+                    <img src="{{asset('assets/front/img/logo.png')}}" class="img-fluid" alt="Logo">
                 </a>
                 <a id="menu_close" class="menu-close" href="javascript:void(0);"> <i class="fas fa-times"></i>
                 </a>
@@ -73,7 +73,7 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <span class="user-img">
-                        <img class="rounded-circle" src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" width="31" alt="Darren Elder">
+                        <img class="rounded-circle" src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" width="31" alt="Darren Elder">
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-left"><a class="dropdown-item" href="{{route('doctor-dashboard')}}">

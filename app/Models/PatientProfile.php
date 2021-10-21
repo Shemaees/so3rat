@@ -11,6 +11,7 @@ class PatientProfile extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -23,7 +24,9 @@ class PatientProfile extends Model
         'history',
         'usual_medicines',
         'allergenic_foods',
-        'about_wieght',
+        'highest_weight',
+        'lowest_weight',
+        'usual_weight',
         'meals_number',
         'meals_order',
         'average_sleeping_hours',

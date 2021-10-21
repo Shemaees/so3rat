@@ -39,7 +39,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-01.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-01.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -89,7 +89,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-02.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-02.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -139,7 +139,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-03.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-03.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -189,7 +189,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-04.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-04.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -239,7 +239,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-05.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-05.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -288,7 +288,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-06.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-06.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -337,7 +337,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-07.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-07.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -386,7 +386,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-08.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-08.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -435,7 +435,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-09.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-09.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -484,7 +484,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-10.jpg')}}g">
+                                             src="{{asset('assets/front/img/doctors/doctor-10.jpg')}}g">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -533,7 +533,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-11.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-11.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -582,7 +582,7 @@
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
                                         <img class="img-fluid" alt="User Image"
-                                             src="{{asset('front/assets/img/doctors/doctor-12.jpg')}}">
+                                             src="{{asset('assets/front/img/doctors/doctor-12.jpg')}}">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>

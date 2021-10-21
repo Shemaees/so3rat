@@ -788,7 +788,7 @@
                         <div class="call-wrapper">
                             <div class="call-inner">
                                 <div class="call-user">
-                                    <img class="call-avatar" src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                    <img class="call-avatar" src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                     <h4>Dr. Darren Elder</h4>
                                     <span>Calling ...</span>
                                 </div>

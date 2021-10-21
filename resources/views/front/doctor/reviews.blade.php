@@ -32,7 +32,7 @@
                             <div class="widget-profile pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                        <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
                                         <h3>Dr. Darren Elder</h3>
@@ -129,7 +129,7 @@
                                 <!-- Comment List -->
                                 <li>
                                     <div class="comment">
-                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('front/assets/img/patients/patient.jpg')}}">
+                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('assets/front/img/patients/patient.jpg')}}">
                                         <div class="comment-body">
                                             <div class="meta-data">
                                                 <span class="comment-author">Richard Wilson</span>
@@ -169,7 +169,7 @@
                                         <!-- Comment Reply List -->
                                         <li>
                                             <div class="comment">
-                                                <img class="avatar rounded-circle" alt="User Image" src="{{asset('front/assets/img/doctors/doctor-thumb-02.jpg')}}">
+                                                <img class="avatar rounded-circle" alt="User Image" src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}">
                                                 <div class="comment-body">
                                                     <div class="meta-data">
                                                         <span class="comment-author">Dr. Darren Elder</span>
@@ -197,7 +197,7 @@
                                 <!-- Comment List -->
                                 <li>
                                     <div class="comment">
-                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('front/assets/img/patients/patient2.jpg')}}">
+                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('assets/front/img/patients/patient2.jpg')}}">
                                         <div class="comment-body">
                                             <div class="meta-data">
                                                 <span class="comment-author">Travis Trimble</span>
@@ -235,7 +235,7 @@
                                 <!-- Comment List -->
                                 <li>
                                     <div class="comment">
-                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('front/assets/img/patients/patient3.jpg')}}">
+                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('assets/front/img/patients/patient3.jpg')}}">
                                         <div class="comment-body">
                                             <div class="meta-data">
                                                 <span class="comment-author">Carl Kelly</span>
@@ -273,7 +273,7 @@
                                 <!-- Comment List -->
                                 <li>
                                     <div class="comment">
-                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('front/assets/img/patients/patient4.jpg')}}">
+                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('assets/front/img/patients/patient4.jpg')}}">
                                         <div class="comment-body">
                                             <div class="meta-data">
                                                 <span class="comment-author">Michelle Fairfax</span>
@@ -311,7 +311,7 @@
                                 <!-- Comment List -->
                                 <li>
                                     <div class="comment">
-                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('front/assets/img/patients/patient5.jpg')}}">
+                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('assets/front/img/patients/patient5.jpg')}}">
                                         <div class="comment-body">
                                             <div class="meta-data">
                                                 <span class="comment-author">Gina Moore</span>
@@ -349,7 +349,7 @@
                                 <!-- Comment List -->
                                 <li>
                                     <div class="comment">
-                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('front/assets/img/patients/patient9.jpg')}}">
+                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('assets/front/img/patients/patient9.jpg')}}">
                                         <div class="comment-body">
                                             <div class="meta-data">
                                                 <span class="comment-author">Walter Roberson</span>
@@ -387,7 +387,7 @@
                                 <!-- Comment List -->
                                 <li>
                                     <div class="comment">
-                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('front/assets/img/patients/patient8.jpg')}}">
+                                        <img class="avatar rounded-circle" alt="User Image" src="{{asset('assets/front/img/patients/patient8.jpg')}}">
                                         <div class="comment-body">
                                             <div class="meta-data">
                                                 <span class="comment-author">Daniel Griffing</span>

@@ -39,4 +39,14 @@ class HomeController extends Controller
     {
         return view('front.doctor.doctor-dashboard');
     }
+
+    public function doctorProfileComplete()
+    {
+        return view('front.patient.complete');
+    }
+
+    public function doctorProfileCompleteStore(Request $request)
+    {
+        return view('front.patient.complete');
+    }
 }

@@ -19,6 +19,8 @@
         'confirm'                       => 'تأكيد',
         'view'                          => 'رؤية',
         'accept'                        => 'قبول',
-        'cancel'                        => 'رفض'
+        'cancel'                        => 'رفض',
+        'favorite'                      => 'المفضلة',
+        'unfavorite'                    => 'الغير مفضلة',
 
     ];

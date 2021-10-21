@@ -86,9 +86,9 @@
      * @param        $folder_name
      * @param string $input_name
      *
-     * @return string[]
+     * @return string
      */
-    function FileImage($file, $folder_name, string $input_name='image'): array
+    function FileImage($file, $folder_name, string $input_name='image'): string
     {
         $path='/' . $folder_name . '/';
         if (!file_exists(public_path() . $path)) {
@@ -98,7 +98,7 @@
         //        File::makeDirectory(public_path() . $path.'thumbnail', $mode = 0777, true, true);
         //    }
         //file new name
-        $namefile=$folder_name . '_' . rand(0000, 9999) . '_' . time();
+        $nameFile=str_replace('/', '_', $folder_name) . '_' . rand(0000, 9999) . '_' . time();
         //file extension
         $ext=$file->getClientOriginalExtension();
         //file old name
@@ -108,16 +108,16 @@
         //get the mime type of the file
         //    $mimtype = $file->getMimeType();
         //making the new name with extension
-        $mastername=$namefile . '.' . $ext;
+        $masterName=$nameFile . '.' . $ext;
         //    list($width, $height, $type, $attr) = getimagesize($_FILES[$input_name]['tmp_name']);
         //    $width_per=round(($width*10)/100);
         //    $height_per=round(($height*10)/100);
-        $file->move(public_path() . $path, $mastername);
+        $file->move(public_path() . $path, $masterName);
         //    Image::make(public_path() . $path  . $mastername, array(
         //        'width' => $width_per,
         //        'height' => $height_per,
         //    ))->save(public_path() . $path . 'thumbnail/thumbnail_' . $mastername);
-        return ['img'=>$mastername, 'img_dir'=>$path];
+        return $path.$masterName;
     }
 
     /**
