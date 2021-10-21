@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2021 at 03:56 AM
+-- Generation Time: Oct 21, 2021 at 04:13 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -66,6 +66,22 @@ CREATE TABLE `doctor_communications` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `doctor_patient_requests`
+--
+
+CREATE TABLE `doctor_patient_requests` (
+  `id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `patient_id` int(11) NOT NULL,
+  `status` enum('Pending','Accepted','Rejected') NOT NULL DEFAULT 'Pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `doctor_profiles`
 --
 
@@ -82,13 +98,14 @@ CREATE TABLE `doctor_profiles` (
   `communication_types` text DEFAULT NULL,
   `communication_way` enum('Private','Group','Both') DEFAULT NULL,
   `accept_promotions` enum('Yes','No') DEFAULT NULL,
-  `Follow-up fee` float DEFAULT NULL,
+  `follow_up_fee` float DEFAULT NULL,
   `training_fee` float DEFAULT NULL,
   `classification_certificate` longtext DEFAULT NULL,
   `bank_statements_certificate` longtext DEFAULT NULL,
   `university_qualification` longtext DEFAULT NULL,
   `experience_certificate` longtext DEFAULT NULL,
-  `specialty_certificate` longtext DEFAULT NULL
+  `specialty_certificate` longtext DEFAULT NULL,
+  `training_program` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -179,11 +196,13 @@ CREATE TABLE `patient_profiles` (
   `user_id` bigint(20) NOT NULL,
   `length` float DEFAULT NULL,
   `weight` float DEFAULT NULL,
+  `highest_weight` float DEFAULT NULL,
+  `lowest_weight` float DEFAULT NULL,
+  `usual_weight` float DEFAULT NULL,
   `qualification` longtext DEFAULT NULL,
   `history` longtext DEFAULT NULL,
   `usual_medicines` text DEFAULT NULL,
   `allergenic_foods` text DEFAULT NULL,
-  `about_wieght` text DEFAULT NULL,
   `meals_number` int(11) DEFAULT NULL,
   `meals_order` varchar(255) DEFAULT NULL,
   `average_sleeping_hours` int(11) DEFAULT NULL,
@@ -191,18 +210,31 @@ CREATE TABLE `patient_profiles` (
   `sport_activities` enum('1.2','1.375','1.55','1.725') DEFAULT NULL,
   `favorite_meals` varchar(255) DEFAULT NULL,
   `unfavorite_meals` varchar(255) DEFAULT NULL,
-  `carbohydrates` enum('Favorite','Unfavorite') DEFAULT NULL,
-  `vegetables` enum('Favorite','Unfavorite') DEFAULT NULL,
-  `fruits` enum('Favorite','Unfavorite') DEFAULT NULL,
-  `dairy_products` enum('Favorite','Unfavorite') DEFAULT NULL,
-  `meat` enum('Favorite','Unfavorite') DEFAULT NULL,
-  `fats` enum('Favorite','Unfavorite') DEFAULT NULL,
+  `carbohydrates_favorite` text DEFAULT NULL,
+  `carbohydrates_unFavorite` text DEFAULT NULL,
+  `vegetables_favorite` text DEFAULT NULL,
+  `vegetables_unFavorite` text DEFAULT NULL,
+  `fruits_favorite` text DEFAULT NULL,
+  `fruits_unFavorite` text DEFAULT NULL,
+  `dairy_products_favorite` text DEFAULT NULL,
+  `dairy_products_unFavorite` text DEFAULT NULL,
+  `meat_favorite` text DEFAULT NULL,
+  `meat_unFavorite` text DEFAULT NULL,
+  `fats_favorite` text DEFAULT NULL,
+  `fats_unFavorite` text DEFAULT NULL,
   `health_goal` varchar(255) DEFAULT NULL,
   `motivation` varchar(255) DEFAULT NULL,
   `confidence` varchar(255) DEFAULT NULL,
   `nutritionists_number_worked_with_before` int(11) DEFAULT NULL,
   `lost_weight_without_planning_or_knowing_reasons` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `patient_profiles`
+--
+
+INSERT INTO `patient_profiles` (`id`, `user_id`, `length`, `weight`, `highest_weight`, `lowest_weight`, `usual_weight`, `qualification`, `history`, `usual_medicines`, `allergenic_foods`, `meals_number`, `meals_order`, `average_sleeping_hours`, `cups_of_water_daily`, `sport_activities`, `favorite_meals`, `unfavorite_meals`, `carbohydrates_favorite`, `carbohydrates_unFavorite`, `vegetables_favorite`, `vegetables_unFavorite`, `fruits_favorite`, `fruits_unFavorite`, `dairy_products_favorite`, `dairy_products_unFavorite`, `meat_favorite`, `meat_unFavorite`, `fats_favorite`, `fats_unFavorite`, `health_goal`, `motivation`, `confidence`, `nutritionists_number_worked_with_before`, `lost_weight_without_planning_or_knowing_reasons`) VALUES
+(1, 2, 41, 65, 50, 74, 65, NULL, '[\"\\u0627\\u0633\\u0647\\u0627\\u0644\",\"\\u0627\\u0645\\u0633\\u0627\\u0643\",\"\\u0642\\u064a\\u0621\",\"\\u0635\\u0639\\u0648\\u0628\\u0629 \\u0628\\u0627\\u0644\\u0645\\u0636\\u063a\",\"\\u0635\\u0639\\u0648\\u0628\\u0629 \\u0628\\u0627\\u0644\\u0628\\u0644\\u0639\",\"no_data\",\"other\"]', 'Eos facilis voluptat', 'Corporis ea enim exc', 2, 'Corrupti minus quas', 3, 183, '1.725', 'Qui lorem sint id a', 'Omnis aut mollitia t', 'Et in velit labore a', 'Omnis debitis autem', 'Aute sequi esse et', 'Magna culpa enim ame', 'Quia laudantium eiu', 'Irure error pariatur', 'Neque sed rerum enim', 'Non pariatur Optio', 'Vero sunt natus sin', 'Voluptas quo id qui', 'Non soluta quo conse', 'Ducimus fugiat omn', 'Ut atque et ad elige', 'Unde voluptates porr', 'Est ut officia qui', 144, 1);
 
 -- --------------------------------------------------------
 
@@ -519,11 +551,19 @@ CREATE TABLE `users` (
   `email_verified_at` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `birthdate` datetime DEFAULT NULL,
   `gender` enum('Male','Female') DEFAULT NULL,
+  `photo` text DEFAULT NULL,
   `status` enum('Active','Blocked','Wating for admin confirm') DEFAULT 'Wating for admin confirm',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user_type`, `name`, `email`, `password`, `phone`, `remember_token`, `email_verified_at`, `birthdate`, `gender`, `photo`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(2, 'Patient', 'Mahmoud Shemaes', 'mahmoudshemaees@gmail.com', '$2y$10$3IVpJVOFhyHM6wrmQEODYeNNP5lV/0ZqnPoWL1TNttwu9KG/wLqPq', '+201011700774', NULL, NULL, NULL, 'Male', '/images/users/Mahmoud Shemaes/images_users_Mahmoud Shemaes_7558_1634264521.jpg', 'Active', '2021-10-15 00:22:01', '2021-10-16 20:40:41', NULL);
 
 --
 -- Indexes for dumped tables
@@ -540,6 +580,12 @@ ALTER TABLE `admins`
 -- Indexes for table `doctor_communications`
 --
 ALTER TABLE `doctor_communications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doctor_patient_requests`
+--
+ALTER TABLE `doctor_patient_requests`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -627,10 +673,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `doctor_patient_requests`
+--
+ALTER TABLE `doctor_patient_requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `patient_profiles`
+--
+ALTER TABLE `patient_profiles`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -648,7 +706,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
