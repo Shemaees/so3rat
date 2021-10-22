@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Doctor;
 
+use Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class HomeController extends Controller
 {
@@ -42,11 +45,37 @@ class HomeController extends Controller
 
     public function doctorProfileComplete()
     {
-        return view('front.patient.complete');
+        return view('front.doctor.complete');
     }
 
     public function doctorProfileCompleteStore(Request $request)
     {
-        return view('front.patient.complete');
+        return view('front.doctor.complete');
+    }
+
+    public function role()
+    {
+        $role       = Role::create(['name' => 'Doctor']);
+        $permission = Permission::create(['name' => 'Follow Up']);
+        $role->givePermissionTo($permission);
+        $permission->assignRole($role);
+        return true;
+    }
+
+    public function getRole()
+    {
+        $user = Auth::user();
+        //$user->removeRole('Patient');
+        //$user->removeRole('Doctor');
+
+        $user->assignRole('Doctor');
+        $user->syncPermissions(['Follow Up']);
+
+        //$user->revokePermissionTo('edit articles');
+        //dd($user->hasRole('Doctor'));
+        //dd($user->can('Follow Up'));
+        //dd($user->hasRole('Patient'));
+
+        return true;
     }
 }
