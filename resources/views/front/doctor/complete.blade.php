@@ -22,10 +22,10 @@
                                 </div>
 
                                 <!-- Register Form -->
-                                <form id="complete-form" action="{{ route('complete_patient_profile', auth()->id()) }}"
+                                <form id="complete-form" action="{{ route('complete_doctor_profile', auth()->id()) }}"
                                       method="post">
                                     @csrf
-                                    <h2 class="fs-title text-center">{{__('front/patient.info')}}</h2>
+                                    <h2 class="fs-title text-center">{{__('front/doctor.info')}}</h2>
                                     <div class="row form-row">
                                         <div class="col-6">
                                             <div class="form-group form-focus">

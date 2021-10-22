@@ -20,21 +20,30 @@
                 <a id="menu_close" class="menu-close" href="javascript:void(0);"> <i class="fas fa-times"></i>
                 </a>
             </div>
+            @php
+                $user = Auth::user();
+            @endphp
             <ul class="main-nav">
                 <li class="has-submenu active">
                     <a href="{{route('home')}}">{{__('front/global.home')}}</a>
-{{--                    <ul class="submenu">--}}
-{{--                        <li class="active"><a href="{{route('index')}}">الرئيسيه</a></li>--}}
-{{--                        <li><a href="{{route('index')}}">Home 1</a></li>--}}
-{{--                        <li><a href="{{route('index-2')}}">Home 2</a></li>--}}
-{{--                        <li><a href="{{route('index-3')}}">Home slider 1</a></li>--}}
-{{--                        <li><a href="{{route('index-slide')}}">Home slider 2</a></li>--}}
-{{--                    </ul>--}}
+                    {{--                    <ul class="submenu">--}}
+                    {{--                        <li class="active"><a href="{{route('index')}}">الرئيسيه</a></li>--}}
+                    {{--                        <li><a href="{{route('index')}}">Home 1</a></li>--}}
+                    {{--                        <li><a href="{{route('index-2')}}">Home 2</a></li>--}}
+                    {{--                        <li><a href="{{route('index-3')}}">Home slider 1</a></li>--}}
+                    {{--                        <li><a href="{{route('index-slide')}}">Home slider 2</a></li>--}}
+                    {{--                    </ul>--}}
                 </li>
                 <li class="has-submenu"> <a href="#"> لقاءات</a>
                     <ul class="submenu">
+                        @if($user->hasRole('Doctor'))
                         <li><a href="{{route('doctor-dashboard')}}">Doctor Dashboard</a></li>
+                        @if (@$user->profile && in_array( @$user->profile->doctor_type , ['Trainer', 'Follow up of patients']))
                         <li><a href="{{route('appointments')}}">Appointments</a></li>
+                            
+                        @endif
+
+                        @endif
                         <li><a href="{{route('schedule-timing')}}s">Schedule Timing</a></li>
                         <li><a href="{{route('my-patients')}}">Patients List</a></li>
                         <li><a href="{{route('patient-profile')}}">Patients Profile</a></li>
