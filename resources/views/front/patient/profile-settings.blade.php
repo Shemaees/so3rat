@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    @include('front.includes.header')
         <!-- Breadcrumb -->
         <div class="breadcrumb-bar">
             <div class="container-fluid">

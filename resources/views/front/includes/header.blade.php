@@ -36,24 +36,24 @@
                 </li>
                 <li class="has-submenu"> <a href="#"> لقاءات</a>
                     <ul class="submenu">
-                        @if($user->hasRole('Doctor'))
+                        @if($user && $user->hasRole('Doctor'))
                         <li><a href="{{route('doctor-dashboard')}}">Doctor Dashboard</a></li>
+                        <li><a href="{{route('doctor-profile-settings')}}">Profile Settings</a></li>
                         @if (@$user->profile && in_array( @$user->profile->doctor_type , ['Trainer', 'Follow up of patients']))
                         <li><a href="{{route('appointments')}}">Appointments</a></li>
-                            
-                        @endif
-
+                        <li><a href="{{route('patient-profile')}}">Patients Profile</a></li>
                         @endif
                         <li><a href="{{route('schedule-timing')}}s">Schedule Timing</a></li>
                         <li><a href="{{route('my-patients')}}">Patients List</a></li>
-                        <li><a href="{{route('patient-profile')}}">Patients Profile</a></li>
-                        <li><a href="{{route('chat-doctor')}}">Chat</a></li>
                         <li><a href="{{route('invoices')}}">Invoices</a></li>
-                        <li><a href="{{route('doctor-profile-settings')}}">Profile Settings</a></li>
                         <li><a href="{{route('reviews')}}">Reviews</a></li>
+                        @else
                         <li><a href="{{route('doctor-register')}}">Doctor Register</a></li>
+                        @endif
+                        <li><a href="{{route('chat-doctor')}}">Chat</a></li>
                     </ul>
                 </li>
+
                 <li class="has-submenu mr-4"> <a href="#">من نحن</a>
                     <ul class="submenu">
                         <li class="has-submenu"> <a href="#">Doctors</a>
@@ -63,16 +63,25 @@
                                 <li><a href="{{route('map-list')}}">Map List</a>
                                 </li>
                             </ul>
+
                         <li><a href="{{route('search')}}">Search Doctor</a></li>
                         <li><a href="{{route('doctor-profile')}}">Doctor Profile</a></li>
+                        @if($user)
                         <li><a href="{{route('booking')}}">Booking</a></li>
                         <li><a href="{{route('checkout')}}">Checkout</a></li>
                         <li><a href="{{route('booking-success')}}">Booking Success</a></li>
+                        @if( $user->hasRole('Doctor') && @$user->profile && in_array( @$user->profile->doctor_type , ['Trainer', 'Follow up of patients']) )
                         <li><a href="{{route('patient-dashboard')}}">Patient Dashboard</a></li>
+                        @endif
+                        
+                        @if( $user->hasRole('Patient'))
                         <li><a href="{{route('favourites')}}">Favourites</a></li>
-                        <li><a href="{{route('chat')}}">Chat</a></li>
+                        @endif
+                        
                         <li><a href="{{route('profile-settings')}}">Profile Settings</a></li>
                         <li><a href="{{route('change-password')}}">Change Password</a></li>
+                        @endif
+                        <li><a href="{{route('chat')}}">Chat</a></li>
                     </ul>
                 </li>
             </ul>

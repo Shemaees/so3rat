@@ -32,13 +32,13 @@
                             <div class="widget-profile pro-widget-content">
                                 <div class="profile-info-widget">
                                     <a href="#" class="booking-doc-img">
-                                        <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                        <img src="{{ (@$user->photo) ? url(@$user->photo) : asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
-                                        <h3>Dr. Darren Elder</h3>
+                                        <h3>{{ $user->name }}</h3>
 
                                         <div class="patient-details">
-                                            <h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+                                            <h5 class="mb-0"> {{ (@$user->profile->about) ? @$user->profile->about : 'BDS, MDS - Oral & Maxillofacial Surgery' }} </h5>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                                         <div class="form-group">
                                             <div class="change-avatar">
                                                 <div class="profile-img">
-                                                    <img src="{{('assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                                    <img src="{{asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
                                                 </div>
                                                 <div class="upload-img">
                                                     <div class="change-photo-btn">
@@ -146,47 +146,36 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Username <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" readonly>
+                                            <input type="text" class="form-control" readonly value="{{ $user->name }}" name="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Email <span class="text-danger">*</span></label>
-                                            <input type="email" class="form-control" readonly>
+                                            <input type="email" class="form-control" readonly  value="{{ $user->email }}" name="email">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>First Name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Last Name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
+                                   
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" value="{{ $user->phone }}" name="phone">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Gender</label>
-                                            <select class="form-control select">
+                                            <select class="form-control select" name="gender">
 													<option>Select</option>
-													<option>Male</option>
-													<option>Female</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
 												</select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-0">
                                             <label>Date of Birth</label>
-                                            <input type="text" class="form-control">
+                                            <input type="date" class="form-control text-right" name="birthdate">
                                         </div>
                                     </div>
                                 </div>
@@ -200,7 +189,7 @@
                                 <h4 class="card-title">About Me</h4>
                                 <div class="form-group mb-0">
                                     <label>Biography</label>
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" rows="5" name="about" ></textarea>
                                 </div>
                             </div>
                         </div>
