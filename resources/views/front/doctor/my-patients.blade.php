@@ -9,7 +9,6 @@
     </style>
 @endsection
 @section('content')
-    @include('front.includes.header')
 
 
     <!-- Breadcrumb -->

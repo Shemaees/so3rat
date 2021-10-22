@@ -49,8 +49,7 @@ Route::group(['middleware' => 'XSS'], function ()
         Route::view('doctor-change-password'    , 'front.doctor.doctor-change-password')->name('doctor-change-password');
         Route::view('doctor-pending'            , 'front.doctor.doctor-pending')->name('doctor-pending');
         Route::view('doctor-profile'            , 'front.doctor.doctor-profile')->name('doctor-profile');
-        Route::view('doctor-profile-settings'   , 'front.doctor.doctor-profile-settings')->name('doctor-profile-settings');
-        Route::view('doctor-register'           , 'front.doctor.doctor-register')->name('doctor-register');
+        Route::get('doctor-profile-settings'   , 'Doctor\ProfileController@doctorProfileSettings')->name('doctor-profile-settings');
         //Route::view('doctor-dashboard'        , 'front.doctor.doctor-dashboard')->name('doctor-dashboard');
         Route::view('appointments'              , 'front.doctor.appointments')->name('appointments');
         Route::view('schedule-timings'          , 'front.doctor.schedule-timings')->name('schedule-timing');
@@ -61,13 +60,13 @@ Route::group(['middleware' => 'XSS'], function ()
         Route::view('reviews'                   , 'front.doctor.reviews')->name('reviews');
         Route::view('booking'                   , 'front.booking.booking')->name('booking');
         Route::view('booking-success'           , 'front.booking.booking-success')->name('booking-success');
-    
-    
+        
+        
         Route::view('change-password'           , 'front.auth.change-password')->name('change-password');
         //Route::view('login'                   , 'front.auth.login')->name('login');
         //Route::view('register'                , 'front.auth.register')->name('register');
         Route::view('forget-password'                           , 'front.auth.forget-password')->name('forget-password');
-    
+        
         Route::view('chat'                      , 'front.patient.chat')->name('chat');
         Route::view('checkout'                  , 'front.patient.checkout')->name('checkout');
         Route::view('doctor-profile'            , 'front.patient.doctor-profile')->name('doctor-profile');
@@ -77,6 +76,7 @@ Route::group(['middleware' => 'XSS'], function ()
         Route::view('patient-dashboard'         , 'front.patient.patient-dashboard')->name('patient-dashboard');
         Route::view('patient-profile'           , 'front.patient.patient-profile')->name('patient-profile');
     });
+    Route::view('doctor/doctor-register'           , 'front.doctor.doctor-register')->name('doctor-register');
 
     Route::get('/role'                           , 'doctor\HomeController@role');
     Route::get('/getRole'                        , 'doctor\HomeController@getRole');

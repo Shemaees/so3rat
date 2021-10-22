@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    @include('front.includes.header')
     <!-- Page Content -->
     <div class="content">
         <div class="container-fluid">
