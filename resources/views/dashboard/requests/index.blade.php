@@ -21,7 +21,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('dashboard.home')}}">
-                                        {{__('global.home')}}
+                                        {{__('front/global.home')}}
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
@@ -39,7 +39,7 @@
                             id="btnGroupDrop1" type="button" data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
-                            {{__('global.actions')}}</button>
+                            {{__('front/global.actions')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             {{--                            <form--}}
                             {{--                                action=""--}}
@@ -60,7 +60,7 @@
                                data-toggle="modal"
                                data-target="#add-subscription">
                                 <i class="ft-plus"></i>
-                                {{__('global.add')}}
+                                {{__('front/global.add')}}
                             </a>
 
                         </div>
@@ -102,22 +102,22 @@
 
                                                     </th>
                                                     <th>
-                                                        {{__('user.name')}}
+                                                        {{__('dashboard/subscription.patient_name')}}
                                                     </th>
                                                     <th>
                                                         {{__('dashboard/subscription.name')}}
                                                     </th>
                                                     <th>
-                                                        {{__('dashboard/order.visit_at')}}
+                                                        {{__('dashboard/subscription.visit_at')}}
                                                     </th>
                                                     <th>
-                                                        {{__('global.status')}}
+                                                        {{__('dashboard/subscription.status')}}
                                                     </th>
-                                                    <th>
+                                                    {{-- <th>
                                                         {{__('user.request_date')}}
-                                                    </th>
+                                                    </th> --}}
                                                     <th>
-                                                        {{__('global.actions')}}
+                                                        {{__('front/global.actions')}}
                                                     </th>
                                                 </tr>
                                                 </thead>
@@ -128,30 +128,26 @@
 
                                                         </td>
                                                         <td>
-                                                            @foreach($users as $user)
-                                                                @if($request->user_id == $user->id)
-                                                                    {{__($user->name)}}
-                                                                @endif
-                                                            @endforeach
+
+                                                                    {{__($request->patient->name)}}
+
                                                         </td>
                                                         <td>
-                                                            @foreach($subscriptions as $subscription)
-                                                                @if($request->subscription_id == $subscription->id)
-                                                                    {{__($subscription->name)}}
-                                                                @endif
-                                                            @endforeach
+
+                                                                    {{__($request->doctor->name)}}
+
                                                         </td>
-                                                        <td> {{$request->visited_at}} </td>
+                                                        <td> {{$request->created_at->format('Y-m-d')}} </td>
                                                         <td>
-                                                            @if($request->user_request == '1' )
+                                                            @if($request->status == 'Accepted' )
                                                                 <span
-                                                                    class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                                    class="badge badge-default badge-success pt-1 pb-1"> {{__('dashboard/subscription.active')}}</span>
                                                             @else
                                                                 <span
-                                                                    class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                                    class="badge badge-default badge-danger pt-1 pb-1"> {{__('dashboard/subscription.non_active')}}</span>
                                                             @endif
                                                         </td>
-                                                        <td>{{$request->user_request_date}}</td>
+                                                        {{-- <td>{{$request->user_request_date}}</td> --}}
                                                         <td>
                                                             <div class="btn-group mr-1 mb-1">
                                                                 <button type="button"
@@ -164,17 +160,17 @@
                                                                     <a href="{{route('dashboard.requests.show',$request->id)}}"
                                                                        class="dropdown-item">
                                                                         <i class="ft-eye"></i>
-                                                                        {{__('global.show')}}
+                                                                        {{__('front/global.show')}}
                                                                     </a>
                                                                     <a href="{{route('dashboard.requests.change_status',$request->id)}}"
                                                                        class="dropdown-item"
                                                                        onclick="return confirm('{{__('dashboard/user.request_change_status')}}');">
-                                                                        @if($request->user_request == 0)
+                                                                        @if($request->status == 'Pending')
                                                                             <i class="ft-lock primary"></i>
-                                                                            {{__('global.activate')}}
+                                                                            {{__('front/global.activate')}}
                                                                         @else
                                                                             <i class="ft-unlock primary"></i>
-                                                                            {{__('global.deactivate')}}
+                                                                            {{__('front/global.deactivate')}}
                                                                         @endif
                                                                     </a>
                                                                 </div>
@@ -187,7 +183,7 @@
                                                             <button type="text"
                                                                     class="btn btn-lg btn-block btn-outline-danger mb-2"
                                                                     id="type-error">
-                                                                {{__('global.no_data')}}
+                                                                {{__('front/global.no_data')}}
                                                             </button>
                                                         </div>
                                                     </tr>

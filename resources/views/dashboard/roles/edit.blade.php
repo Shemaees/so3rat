@@ -45,7 +45,7 @@
                                 @include('dashboard.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form action="{{ route("dashboard.role.update" , $role->id) }}" method="POST"
+                                        <form action="{{ route("dashboard.role.update",$role->id) }}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
                                             @method('PATCH')

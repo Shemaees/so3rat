@@ -33,8 +33,8 @@
             try {
                 $permission=new Permission();
                 $permission->name=$request->name;
-                $permission->group=$request->group;
-                $permission->description=$request->description;
+                // $permission->group=$request->group;
+                // $permission->description=$request->description;
                 $permission->guard_name='dashboard';
 
                 if ($permission->save()) {

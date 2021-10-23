@@ -21,18 +21,31 @@
 
         public function index()
         {
-            $activeUsers = User::where('status','1')->paginate(15);
+            $activeUsers = User::where([['status','Active'],['user_type','!=','patient']])->paginate(15);
             return view('dashboard.users.index',compact('activeUsers'));
+        }
+        public function index_patient()
+        {
+            $activeUsers = User::where([['status','Active'],['user_type','patient']])->paginate(15);
+            return view('dashboard.patient.index',compact('activeUsers'));
         }
 
         public function nonActive(){
-            $nonActiveUsers = User::where('status','0')->paginate(15);
+            $nonActiveUsers = User::where([['status','Wating for admin confirm'],['user_type','!=','patient']])->paginate(15);
             return view('dashboard.users.non-active',compact('nonActiveUsers'));
+        }
+        public function nonActive_patient(){
+            $nonActiveUsers = User::where([['status','Wating for admin confirm'],['user_type','patient']])->paginate(15);
+            return view('dashboard.patient.non-active',compact('nonActiveUsers'));
         }
 
         public function blocked(){
-            $blockedUsers = User::where('status','2')->paginate(15);
+            $blockedUsers = User::where([['status','Blocked'],['user_type','!=','patient']])->paginate(15);
             return view('dashboard.users.blocked',compact('blockedUsers'));
+        }
+        public function blocked_patient(){
+            $blockedUsers = User::where([['status','Blocked'],['user_type','patient']])->paginate(15);
+            return view('dashboard.patient.blocked',compact('blockedUsers'));
         }
 
 
@@ -43,9 +56,15 @@
          *
          * @return Application|Factory|View
          */
-        public function show(User $user)
+        public function show( $user)
         {
+            $user=User::find($user);
             return view('dashboard.users.show',compact('user'));
+        }
+        public function show_patient( $user)
+        {
+            $user=User::find($user);
+            return view('dashboard.patient.show',compact('user'));
         }
 
 
@@ -95,13 +114,13 @@
         {
 
         }
-        public function changeStatus(User $user)
+        public function changeStatus( $user)
         {
+
             try {
-                $status=$user->status == 0 ? 1 : 0;
-
+                $user=User::find($user);
+                $status=$user->status == 'Active' ? 'Wating for admin confirm' : 'Active';
                 $user->update(['status'=>$status]);
-
                 notify()->success(__('dashboard/user.status_changed'));
                 return redirect()->route('dashboard.users.index')->with(['success'=>__('dashboard/user.status_changed')]);
 
@@ -112,10 +131,11 @@
             }
         }
 
-        public function statusBlock(User $user)
+        public function statusBlock($user)
         {
             try {
-                $status=$user->status == 1 ? 2 : 1;
+                $user=User::find($user);
+                $status=$user->status == 'Active' ? 'Blocked' : 'Active';
 
                 $user->update(['status'=>$status]);
 

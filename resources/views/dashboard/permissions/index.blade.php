@@ -136,24 +136,24 @@
                 </div>
                 <form id="add-permission-form">
                     <div class="modal-body">
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="group">{{ __('dashboard/permission.group') }}</label>
                             <input type="text" class="form-control" id="group" name="group"
                                    placeholder="{{ __('dashboard/permission.group') }}">
                             <label for="error-group"></label>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="name">{{ __('dashboard/permission.name') }}</label>
                             <input type="text" class="form-control" id="name" name="name"
                                    placeholder="{{ __('dashboard/permission.name') }}">
                             <label for="error-name"></label>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="description">{{ __('dashboard/permission.description') }}</label>
                             <textarea class="form-control" id="description" name="description" rows="3"
                                       placeholder="{{ __('dashboard/permission.name') }}"></textarea>
                             <label for="error-description"></label>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="errorMessage"></div>
                     <div class="modal-footer">

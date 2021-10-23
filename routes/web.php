@@ -50,6 +50,7 @@ Route::group(['middleware' => 'XSS'], function ()
         Route::view('doctor-pending'            , 'front.doctor.doctor-pending')->name('doctor-pending');
         Route::view('doctor-profile'            , 'front.doctor.doctor-profile')->name('doctor-profile');
         Route::get('doctor-profile-settings'   , 'Doctor\ProfileController@doctorProfileSettings')->name('doctor-profile-settings');
+        Route::post('doctor-profile-update'   , 'Doctor\ProfileController@doctorProfileUpdate')->name('doctor-profile-update');
         //Route::view('doctor-dashboard'        , 'front.doctor.doctor-dashboard')->name('doctor-dashboard');
         Route::view('appointments'              , 'front.doctor.appointments')->name('appointments');
         Route::view('schedule-timings'          , 'front.doctor.schedule-timings')->name('schedule-timing');

@@ -21,11 +21,11 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('dashboard.home')}}">
-                                        {{__('global.home')}}
+                                        {{__('front/global.home')}}
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{__('user.title')}}
+                                    {{__('dashboard/user.title')}}
                                 </li>
                             </ol>
                         </div>
@@ -67,13 +67,13 @@
                                                 <th width="10">
                                                 </th>
                                                 <th>
-                                                    {{__('user.name')}}
+                                                    {{__('dashboard/user.name')}}
                                                 </th>
                                                 <th>
-                                                    {{__('user.email')}}
+                                                    {{__('dashboard/user.email')}}
                                                 </th>
                                                 <th>
-                                                    {{__('global.actions')}}
+                                                    {{__('front/global.actions')}}
                                                 </th>
                                             </tr>
                                             </thead>
@@ -99,15 +99,15 @@
                                                             </button>
                                                             <div class="dropdown-menu">
 
-                                                                <a href="{{route('dashboard.users.statusBlock',$blocked_user-> id)}}"
+                                                                <a href="{{route('dashboard.users.statusBlock',$blocked_user->id)}}"
                                                                    class="dropdown-item"
-                                                                   onclick="return confirm('{{__('user.blocked')}}');">
+                                                                   onclick="return confirm('{{__('dashboard/user.blocked')}}');">
                                                                     <i class="ft-slash primary"></i>
-                                                                    {{__('global.unblock')}}</a>
-                                                                <a href="{{route('dashboard.users.show',$blocked_user-> id)}}"
+                                                                    {{__('front/global.unblock')}}</a>
+                                                                <a href="{{route('dashboard.users.show',$blocked_user->id)}}"
                                                                    class="dropdown-item">
                                                                     <i class="ft-eye primary"></i>
-                                                                    {{__('global.show')}}
+                                                                    {{__('front/global.show')}}
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -119,7 +119,7 @@
                                                         <button type="text"
                                                                 class="btn btn-lg btn-block btn-outline-danger mb-2"
                                                                 id="type-error">
-                                                            {{__('global.no_data')}}
+                                                            {{__('front/global.no_data')}}
                                                         </button>
                                                     </div>
                                                 </tr>

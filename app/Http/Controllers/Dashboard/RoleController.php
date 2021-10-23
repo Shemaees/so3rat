@@ -38,6 +38,7 @@
         public function store(StoreRolesRequest $request)
         {
             try {
+
                 $role=new Role();
                 $role->name=$request->name;
                 //            $role->group = $request->group;
@@ -64,8 +65,9 @@
          *
          * @return Application|Factory|\Illuminate\Contracts\View\View
          */
-        public function edit(Role $role)
+        public function edit( $role)
         {
+            $role=Role::find($role);
             $permissions=Permission::get();
 
             return view('dashboard.roles.edit', compact('role', 'permissions'));
@@ -79,16 +81,17 @@
          *
          * @return RedirectResponse
          */
-        public function update(UpdateRolesRequest $request, Role $role)
+        public function update(UpdateRolesRequest $request, $role)
         {
-
+            $role=Role::find($role);
              $role->update($request->except('permission'));
 
             try {
                 if ($role->update()) {
-//                    $permissions = $request->input('permission') ? $request->input('permission') : [];
-//                    $role->syncPermissions($permissions);
-                    $role->permissions()->attach((array)$request->permissions);
+                  
+                    //      $permissions = $request->input('permission') ? $request->input('permission') : [];
+                            //                    $role->syncPermissions($permissions);
+                    $role->permissions()->attach((array)$request->permission);
 
                     return redirect()->route('dashboard.roles.index')
                         ->with(['success'=>__('global.success_save')]);
@@ -103,8 +106,9 @@
             }
         }
 
-        public function show(Role $role)
+        public function show( $role)
         {
+            $role=Role::find($role);
             $permissions = Permission::all();
             $permissionGroups=Permission::all()->groupBy('group');
             $rolePermissions=$role->permissions()->get();

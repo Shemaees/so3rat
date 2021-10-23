@@ -25,19 +25,14 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{__('dashboard/user.title')}}
+                                    {{__('dashboard/patient.title')}}
                                 </li>
                             </ol>
                         </div>
                     </div>
                 </div>
-                {{--                <button type="button" class="mr-3 ml-auto btn btn-outline-info btn-sm-width box-shadow-3 mb-1 "--}}
-                {{--                        data-toggle="modal"--}}
-                {{--                        data-target="#add-user">--}}
-                {{--                    {{ __('global.add') }}--}}
-                {{--                    <i class="ft-plus icon-left"></i>--}}
-                {{--                </button>--}}
             </div>
+            {{--            non active users--}}
             <div class="content-body">
                 <!-- DOM - jQuery events table -->
                 <section id="dom">
@@ -46,7 +41,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">
-                                        {{__('dashboard/user.active')}}
+                                        {{__('dashboard/patient.non_active')}}
                                     </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
@@ -72,10 +67,10 @@
                                                 <th width="10">
                                                 </th>
                                                 <th>
-                                                    {{__('dashboard/user.name')}}
+                                                    {{__('dashboard/patient.name')}}
                                                 </th>
                                                 <th>
-                                                    {{__('dashboard/user.email')}}
+                                                    {{__('dashboard/patient.email')}}
                                                 </th>
                                                 <th>
                                                     {{__('front/global.actions')}}
@@ -83,16 +78,16 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @forelse($activeUsers as $active_user)
-                                                <tr data-entry-id="{{ $active_user->id }}">
+                                            @forelse($nonActiveUsers as $non_active_user)
+                                                <tr data-entry-id="{{ $non_active_user->id }}">
                                                     <td>
 
                                                     </td>
                                                     <td>
-                                                        {{ $active_user->name ?? '' }}
+                                                        {{ $non_active_user->name ?? '' }}
                                                     </td>
                                                     <td>
-                                                        {{ $active_user->email ?? '' }}
+                                                        {{ $non_active_user->email ?? '' }}
                                                     </td>
                                                     <td>
                                                         <div class="btn-group mr-1 mb-1">
@@ -104,24 +99,18 @@
                                                             </button>
                                                             <div class="dropdown-menu">
 
-                                                                <a href="{{route('dashboard.users.change_status',$active_user->id)}}"
+                                                                <a href="{{route('dashboard.users.change_status',$non_active_user-> id)}}"
                                                                    class="dropdown-item"
-                                                                   onclick="return confirm('{{__('user.change_status')}}');">
+                                                                   onclick="return confirm('{{__('dashboard/patient.change_status')}}');">
                                                                     <i class="ft-unlock primary"></i>
-                                                                    {{__('front/global.deactivate')}}
-                                                                </a>
-                                                                <a href="{{route('dashboard.users.show',$active_user->id)}}"
+                                                                    {{__('front/global.activate')}}</a>
+                                                                <a href="{{route('dashboard.users.show_patient',$non_active_user-> id)}}"
                                                                    class="dropdown-item">
-                                                                    <i class="ft-eye "></i>
+                                                                    <i class="ft-eye primary"></i>
                                                                     {{__('front/global.show')}}
                                                                 </a>
-                                                                <a href="{{route('dashboard.users.statusBlock',$active_user-> id)}}"
-                                                                   class="dropdown-item">
-                                                                    <i class="ft-slash primary"></i>
-                                                                    {{__('front/global.block')}}
-                                                                </a>
                                                                 {{--                                                                <form--}}
-                                                                {{--                                                                    action="{{ route('dashboard.users.delete', $active_user->id) }}"--}}
+                                                                {{--                                                                    action="{{ route('dashboard.users.delete', $non_active_user->id) }}"--}}
                                                                 {{--                                                                    method="POST"--}}
                                                                 {{--                                                                    onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
                                                                 {{--                                                                    style="display: inline-block;">--}}
@@ -143,16 +132,19 @@
                                                         <button type="text"
                                                                 class="btn btn-lg btn-block btn-outline-danger mb-2"
                                                                 id="type-error">
-                                                            No Data
+                                                            {{__('front/global.no_data')}}
                                                         </button>
                                                     </div>
                                                 </tr>
                                             @endforelse
                                             </tbody>
+                                            <tfoot>
+                                            {{--                                            {{ $users->links() }}--}}
+                                            </tfoot>
                                         </table>
-                                        {{--Pagination--}}
+                                        {{--                                        Pagination--}}
                                         <div class="d-flex justify-content-center">
-                                            {{ $activeUsers->links('vendor.pagination.bootstrap-4') }}
+                                            {{ $nonActiveUsers->links('vendor.pagination.bootstrap-4') }}
                                         </div>
                                     </div>
                                 </div>
@@ -161,6 +153,8 @@
                     </div>
                 </section>
             </div>
+
+
         </div>
     </div>
 
