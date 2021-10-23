@@ -29,6 +29,8 @@ Route::group(['middleware' => 'XSS'], function () {
     Route::group(['namespace' => 'Dashboard','prefix' => 'Permission', 'middleware' => 'auth:admins'], function () {
         Route::get('/Permission', [App\Http\Controllers\Dashboard\PermissionController::class, 'index'])->name('dashboard.permissions.index');
         Route::post('/Permission', [App\Http\Controllers\Dashboard\PermissionController::class, 'store'])->name('dashboard.permissions.add');
+        Route::get('/deletePermission/{permission}', [App\Http\Controllers\Dashboard\PermissionController::class, 'destroy'])->name('dashboard.permissions.delete');
+        Route::post('/updatePermission', [App\Http\Controllers\Dashboard\PermissionController::class, 'update'])->name('dashboard.permissions.update');
         Route::get('/roles', [App\Http\Controllers\Dashboard\RoleController::class, 'index'])->name('dashboard.roles.index');
         Route::get('/show/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'show'])->name('dashboard.roles.show');
         Route::get('/edit/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'edit'])->name('dashboard.role.edit');

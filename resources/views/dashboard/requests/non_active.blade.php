@@ -21,7 +21,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('dashboard.home')}}">
-                                        {{__('front/global.home')}}
+                                        {{__('dashboard/subscription.home')}}
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
@@ -39,7 +39,7 @@
                             id="btnGroupDrop1" type="button" data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
-                            {{__('front/global.actions')}}</button>
+                            {{__('dashboard/subscription.add')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             {{--                            <form--}}
                             {{--                                action=""--}}
@@ -60,7 +60,7 @@
                                data-toggle="modal"
                                data-target="#add-subscription">
                                 <i class="ft-plus"></i>
-                                {{__('front/global.add')}}
+                                {{__('dashboard/subscription.newRequest')}}
                             </a>
 
                         </div>

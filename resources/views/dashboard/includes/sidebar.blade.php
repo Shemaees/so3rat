@@ -131,7 +131,7 @@
             <a href="{{route('dashboard.roles.index')}}" class="nav-link ">
             <i class="fa-fw fas fa-briefcase nav-icon">
             </i>
-            {{__('dashboard/role.title')}}
+            {{__('dashboard/permission.role_title')}}
             </a>
             </li>
 
