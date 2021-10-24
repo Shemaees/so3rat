@@ -9,11 +9,11 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('dashboard.home')}}">
-                                        {{__('global.home')}}
+                                        {{__('front/global.home')}}
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{__('user.title')}}
+                                    {{__('dashboard/user.title')}}
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                             id="btnGroupDrop1" type="button" data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
-                            {{__('global.actions')}}</button>
+                            {{__('front/global.actions')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             {{--                            <form--}}
                             {{--                                action="{{ route('dashboard.users.delete', $user->id) }}"--}}
@@ -68,7 +68,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title" id="basic-layout-form">
-                                        {{__('user.show')}}
+                                        {{__('front/global.show')}}
                                     </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
@@ -96,36 +96,36 @@
                                                                     <table class="table table-borderless  mb-0">
                                                                         <tbody>
                                                                         <tr>
-                                                                            <td>{{__('user.name')}}:</td>
+                                                                            <td>{{__('dashboard/user.name')}}:</td>
                                                                             <td>{{$user->name}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('user.email')}}:</td>
+                                                                            <td>{{__('dashboard/user.email')}}:</td>
                                                                             <td>{{$user->email}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('user.phone')}}:</td>
+                                                                            <td>{{__('dashboard/user.phone')}}:</td>
                                                                             <td>{{$user->phone}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('user.address')}}:</td>
+                                                                            <td>{{__('dashboard/user.address')}}:</td>
                                                                             <td>{{$user->address}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('user.status')}}:</td>
-                                                                            @if($user->status == '1' )
+                                                                            <td>{{__('dashboard/user.status')}}:</td>
+                                                                            @if($user->status == 'Active' )
                                                                                 <td><span
-                                                                                        class="badge badge-default badge-success pt-1 pb-1"> {{__('global.active')}}</span>
+                                                                                        class="badge badge-default badge-success pt-1 pb-1"> {{__('dashboard/user.active')}}</span>
                                                                                 </td>
 
-                                                                            @elseif($user->status == '2')
+                                                                            @elseif($user->status == 'Blocked')
                                                                                 <td><span
-                                                                                        class="badge badge-default badge-warning pt-1 pb-1"> {{__('global.block')}}</span>
+                                                                                        class="badge badge-default badge-warning pt-1 pb-1"> {{__('front/global.block')}}</span>
                                                                                 </td>
 
                                                                             @else
                                                                                 <td><span
-                                                                                        class="badge badge-default badge-danger pt-1 pb-1"> {{__('global.non_active')}}</span>
+                                                                                        class="badge badge-default badge-danger pt-1 pb-1"> {{__('dashboard/user.non_active')}}</span>
                                                                                 </td>
                                                                             @endif
                                                                         </tr>

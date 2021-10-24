@@ -25,7 +25,7 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{__('dashboard/user.title')}}
+                                    {{__('dashboard/patient.title')}}
                                 </li>
                             </ol>
                         </div>
@@ -46,7 +46,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">
-                                        {{__('dashboard/user.active')}}
+                                        {{__('dashboard/patient.active')}}
                                     </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
@@ -72,10 +72,10 @@
                                                 <th width="10">
                                                 </th>
                                                 <th>
-                                                    {{__('dashboard/user.name')}}
+                                                    {{__('dashboard/patient.name')}}
                                                 </th>
                                                 <th>
-                                                    {{__('dashboard/user.email')}}
+                                                    {{__('dashboard/patient.email')}}
                                                 </th>
                                                 <th>
                                                     {{__('front/global.actions')}}
@@ -106,16 +106,16 @@
 
                                                                 <a href="{{route('dashboard.users.change_status',$active_user->id)}}"
                                                                    class="dropdown-item"
-                                                                   onclick="return confirm('{{__('user.change_status')}}');">
+                                                                   onclick="return confirm('{{__('dashboard/patient.change_status')}}');">
                                                                     <i class="ft-unlock primary"></i>
                                                                     {{__('front/global.deactivate')}}
                                                                 </a>
-                                                                <a href="{{route('dashboard.users.show',$active_user->id)}}"
+                                                                <a href="{{route('dashboard.users.show_patient',$active_user->id)}}"
                                                                    class="dropdown-item">
                                                                     <i class="ft-eye "></i>
                                                                     {{__('front/global.show')}}
                                                                 </a>
-                                                                <a href="{{route('dashboard.users.statusBlock',$active_user-> id)}}"
+                                                                <a href="{{route('dashboard.users.statusBlock',$active_user->id)}}"
                                                                    class="dropdown-item">
                                                                     <i class="ft-slash primary"></i>
                                                                     {{__('front/global.block')}}

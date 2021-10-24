@@ -21,11 +21,11 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('dashboard.home')}}">
-                                        {{__('global.home')}}
+                                        {{__('front/global.home')}}
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{__('user.title')}}
+                                    {{__('dashboard/user.title')}}
                                 </li>
                             </ol>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">
-                                        {{__('user.non_active')}}
+                                        {{__('dashboard/user.non_active')}}
                                     </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
@@ -67,13 +67,13 @@
                                                 <th width="10">
                                                 </th>
                                                 <th>
-                                                    {{__('user.name')}}
+                                                    {{__('dashboard/user.name')}}
                                                 </th>
                                                 <th>
-                                                    {{__('user.email')}}
+                                                    {{__('dashboard/user.email')}}
                                                 </th>
                                                 <th>
-                                                    {{__('global.actions')}}
+                                                    {{__('front/global.actions')}}
                                                 </th>
                                             </tr>
                                             </thead>
@@ -101,9 +101,9 @@
 
                                                                 <a href="{{route('dashboard.users.change_status',$non_active_user-> id)}}"
                                                                    class="dropdown-item"
-                                                                   onclick="return confirm('{{__('user.change_status')}}');">
+                                                                   onclick="return confirm('{{__('dashboard/user.change_status')}}');">
                                                                     <i class="ft-unlock primary"></i>
-                                                                    {{__('global.activate')}}</a>
+                                                                    {{__('front/global.activate')}}</a>
                                                                 <a href="{{route('dashboard.users.show',$non_active_user-> id)}}"
                                                                    class="dropdown-item">
                                                                     <i class="ft-eye primary"></i>
@@ -132,7 +132,7 @@
                                                         <button type="text"
                                                                 class="btn btn-lg btn-block btn-outline-danger mb-2"
                                                                 id="type-error">
-                                                            {{__('global.no_data')}}
+                                                            {{__('front/global.no_data')}}
                                                         </button>
                                                     </div>
                                                 </tr>

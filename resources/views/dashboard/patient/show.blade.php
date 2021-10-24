@@ -13,7 +13,7 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{__('dashboard/subscription.title')}}
+                                    {{__('dashboard/patient.title')}}
                                 </li>
                             </ol>
                         </div>
@@ -30,7 +30,7 @@
                             {{__('front/global.actions')}}</button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             {{--                            <form--}}
-                            {{--                                action="{{ route('dashboard.requests.delete', $request->id) }}"--}}
+                            {{--                                action="{{ route('dashboard.users.delete', $user->id) }}"--}}
                             {{--                                method="POST"--}}
                             {{--                                onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
                             {{--                                style="display: inline-block;">--}}
@@ -42,17 +42,19 @@
                             {{--                                    {{__('global.delete')}}--}}
                             {{--                                </a>--}}
                             {{--                            </form>--}}
-                            <a href="{{route('dashboard.requests.change_status',$request->id)}}"
-                               class="dropdown-item"
-                               onclick="return confirm('{{__('dashboard/user.request_change_status')}}');">
-                                @if($request->status == 'Pending')
-                                    <i class="ft-lock primary"></i>
-                                    {{__('front/global.activate')}}
-                                @else
-                                    <i class="ft-unlock primary"></i>
-                                    {{__('front/global.deactivate')}}
-                                @endif
-                            </a>
+                            {{--                            <form--}}
+                            {{--                                action="{{ route('dashboard.users.force', $user->id) }}"--}}
+                            {{--                                method="POST"--}}
+                            {{--                                onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
+                            {{--                                style="display: inline-block;">--}}
+                            {{--                                @csrf--}}
+                            {{--                                <input type="hidden" name="_method" value="DELETE">--}}
+                            {{--                                <a href="#" class="dropdown-item"--}}
+                            {{--                                   onclick="$(this).parent().submit()">--}}
+                            {{--                                    <i class="ft-trash-2"></i>--}}
+                            {{--                                    {{__('global.force_delete')}}--}}
+                            {{--                                </a>--}}
+                            {{--                            </form>--}}
 
                         </div>
                     </div>
@@ -66,7 +68,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title" id="basic-layout-form">
-                                        {{__('dashboard/subscription.request_show')}}
+                                        {{__('dashboard/patient.show')}}
                                     </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
@@ -94,41 +96,38 @@
                                                                     <table class="table table-borderless  mb-0">
                                                                         <tbody>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.patient_name')}}:</td>
-                                                                            <td>
-
-                                                                                        {{__($request->patient->name)}}
-
-                                                                            </td>
+                                                                            <td>{{__('dashboard/patient.name')}}:</td>
+                                                                            <td>{{$user->name}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.name')}}:
-                                                                            </td>
-                                                                            <td>
-
-                                                                                        {{__($request->doctor->name)}}
-
-                                                                            </td>
+                                                                            <td>{{__('dashboard/patient.email')}}:</td>
+                                                                            <td>{{$user->email}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.visit_at')}}:</td>
-                                                                            <td>{{$request->created_at->format('Y-m-d')}}</td>
+                                                                            <td>{{__('dashboard/patient.phone')}}:</td>
+                                                                            <td>{{$user->phone}}</td>
                                                                         </tr>
-                                                                        {{-- <tr>
-                                                                            <td>{{__('user.request_date')}}}:</td>
-                                                                            <td>{{$request->user_request_date}}}</td>
-                                                                        </tr> --}}
                                                                         <tr>
-                                                                            <td>{{__('dashboard/subscription.status')}}:</td>
-                                                                            <td>
-                                                                                @if($request->status == 'Accepted' )
-                                                                                    <span
-                                                                                        class="badge badge-default badge-success pt-1 pb-1"> {{__('dashboard/subscription.active')}}</span>
-                                                                                @else
-                                                                                    <span
-                                                                                        class="badge badge-default badge-danger pt-1 pb-1"> {{__('dashboard/subscription.non_active')}}</span>
-                                                                                @endif
-                                                                            </td>
+                                                                            <td>{{__('dashboard/patient.address')}}:</td>
+                                                                            <td>{{$user->address}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>{{__('dashboard/patient.status')}}:</td>
+                                                                            @if($user->status == 'Active' )
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-success pt-1 pb-1"> {{__('dashboard/patient.active')}}</span>
+                                                                                </td>
+
+                                                                            @elseif($user->status == 'Blocked')
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-warning pt-1 pb-1"> {{__('dashboard/patient.block')}}</span>
+                                                                                </td>
+
+                                                                            @else
+                                                                                <td><span
+                                                                                        class="badge badge-default badge-danger pt-1 pb-1"> {{__('dashboard/patient.non_active')}}</span>
+                                                                                </td>
+                                                                            @endif
                                                                         </tr>
                                                                         </tbody>
                                                                     </table>
@@ -174,4 +173,3 @@
 @endsection
 
 
-R

@@ -80,4 +80,17 @@ class User extends Authenticatable
     {
         return $query->where('type', 'Patient');
     }
+    public function channels()
+    {
+        return $this->hasMany(communication_channel::class,'user_id');
+    }
+
+    public function communications()
+    {
+        return $this->hasMany(doctor_communication::class,'doctor_id');
+    }
+    public function interests()
+    {
+        return $this->hasMany(interest::class,'user_id');
+    }
 }

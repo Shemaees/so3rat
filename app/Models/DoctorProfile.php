@@ -16,6 +16,8 @@ class DoctorProfile extends Model
      *
      * @var string[]
      */
+    public $timestamps = false;
+
     protected $fillable = [
         'doctor_type',
         'country',

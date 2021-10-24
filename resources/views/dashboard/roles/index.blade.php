@@ -21,7 +21,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a href="{{route('dashboard.home')}}">
-                                        {{__('global.home')}}
+                                        {{__('dashboard/role.home')}}
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
@@ -39,14 +39,15 @@
                             id="btnGroupDrop1" type="button" data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"><i class="ft-settings icon-left"></i>
-                            {{__('global.actions')}}</button>
+                            {{__('dashboard/role.actions')}}
+                        </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <a href=""
                                class="dropdown-item"
                                data-toggle="modal"
                                data-target="#add-role">
                                 <i class="ft-plus"></i>
-                                {{__('global.add')}}
+                                {{__('dashboard/role.add')}}
                             </a>
 
                         </div>
@@ -95,7 +96,7 @@
                                                         {{__('dashboard/role.role_permission')}}
                                                     </th>
                                                     <th>
-                                                        {{__('global.actions')}}
+                                                        {{__('dashboard/role.actions')}}
                                                     </th>
                                                 </tr>
                                                 </thead>
@@ -125,12 +126,12 @@
                                                                     <a href="{{route('dashboard.roles.show',$role->id)}}"
                                                                        class="dropdown-item">
                                                                         <i class="ft-eye"></i>
-                                                                        {{__('global.show')}}
+                                                                        {{__('front/global.show')}}
                                                                     </a>
                                                                     <form
                                                                         action="{{ route('dashboard.role.delete', $role->id) }}"
                                                                         method="POST"
-                                                                        onsubmit="return confirm('{{ __('global.areYouSure') }}');"
+                                                                        onsubmit="return confirm('{{ __('front/global.areYouSure') }}');"
                                                                         style="display: inline-block;">
                                                                         @csrf
                                                                         <input type="hidden" name="_method"
@@ -138,7 +139,7 @@
                                                                         <a href="#" class="dropdown-item"
                                                                            onclick="$(this).parent().submit()">
                                                                             <i class="ft-trash-2"></i>
-                                                                            {{__('global.delete')}}
+                                                                            {{__('front/global.delete')}}
                                                                         </a>
                                                                     </form>
                                                                 </div>
@@ -151,7 +152,7 @@
                                                             <button type="text"
                                                                     class="btn btn-lg btn-block btn-outline-danger mb-2"
                                                                     id="type-error">
-                                                                {{__('global.no_data')}}
+                                                                {{__('front/global.no_data')}}
                                                             </button>
                                                         </div>
                                                     </tr>
@@ -197,10 +198,10 @@
                             <label for="permissions">{{ __('dashboard/role.role_permission') }}</label>
                             <div class="pb-2">
                                 <span class="btn btn-info btn-sm" id="selectAll" onclick="selectAll()">
-                                    {{__('global.select_all')}}
+                                    {{__('front/global.select_all')}}
                                 </span>
                                 <span class="btn btn-info btn-sm" onclick="deselectAll()">
-                                    {{__('global.deselect_all')}}
+                                    {{__('front/global.deselect_all')}}
                                 </span>
                             </div>
                             <div class="card-content collapse show">
@@ -257,11 +258,11 @@
                         <button type="button" class="btn btn-warning mr-1"
                                 data-dismiss="modal">
                             <i class="ft-x"></i>
-                            {{__('global.close')}}
+                            {{__('front/global.close')}}
                         </button>
                         <button type="submit" class="btn btn-primary">
                             <i class="la la-check-square-o"></i>
-                            {{__('global.save')}}
+                            {{__('front/global.save')}}
                         </button>
                     </div>
                 </form>
@@ -362,9 +363,9 @@
 
 
         {{--        $(function () {--}}
-        {{--            let excelButtonTrans = '{{ __('global.datatables.excel') }}'--}}
-        {{--            let pdfButtonTrans = '{{ __('global.datatables.pdf') }}'--}}
-        {{--            let printButtonTrans = '{{ __('global.datatables.print') }}'--}}
+        {{--            let excelButtonTrans = '{{ __('front/global.datatables.excel') }}'--}}
+        {{--            let pdfButtonTrans = '{{ __('front/global.datatables.pdf') }}'--}}
+        {{--            let printButtonTrans = '{{ __('front/global.datatables.print') }}'--}}
 
         {{--            let languages = {--}}
         {{--                'en': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/English.json',--}}
@@ -425,7 +426,7 @@
         {{--        });--}}
         {{--        $(function () {--}}
         {{--            let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)--}}
-        {{--            let addButtonTrans = '{{__('global.add')}}'--}}
+        {{--            let addButtonTrans = '{{__('front/global.add')}}'--}}
         {{--            let addButton = {--}}
         {{--                text: addButtonTrans,--}}
 
@@ -436,7 +437,7 @@
         {{--            }--}}
         {{--            dtButtons.push(addButton)--}}
 
-        {{--            let deleteButtonTrans = '{{__('global.datatables.delete')}}'--}}
+        {{--            let deleteButtonTrans = '{{__('front/global.datatables.delete')}}'--}}
         {{--            let deleteButton = {--}}
         {{--                text: deleteButtonTrans,--}}
         {{--                url: "{{ route('role.mass_destroy') }}",--}}
@@ -447,12 +448,12 @@
         {{--                    });--}}
 
         {{--                    if (ids.length === 0) {--}}
-        {{--                        alert('{{ __('global.datatables.zero_selected') }}')--}}
+        {{--                        alert('{{ __('front/global.datatables.zero_selected') }}')--}}
 
         {{--                        return--}}
         {{--                    }--}}
 
-        {{--                    if (confirm(' {{__('global.areYouSure')}} ')) {--}}
+        {{--                    if (confirm(' {{__('front/global.areYouSure')}} ')) {--}}
         {{--                        $.ajax({--}}
         {{--                            headers: {--}}
         {{--                                'x-csrf-token': $('input[name="_token"]').attr('content')--}}

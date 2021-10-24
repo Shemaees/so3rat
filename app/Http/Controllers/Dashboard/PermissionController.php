@@ -17,7 +17,7 @@
     {
         public function index()
         {
-            $permissionGroups=Permission::all()->groupBy('group');
+            $permissionGroups=Permission::all()->groupBy('guard_name');
             return view('dashboard.permissions.index', compact('permissionGroups'));
         }
 
@@ -30,20 +30,19 @@
          */
         public function store(Request $request): JsonResponse
         {
-            try {
-                $permission=new Permission();
-                $permission->name=$request->name;
-                $permission->group=$request->group;
-                $permission->description=$request->description;
-                $permission->guard_name='dashboard';
-
+            try 
+            {
+                $permission             =   new Permission();
+                $permission->name       =   $request->name;
+                $permission->guard_name =   $request->guard_name;
                 if ($permission->save()) {
                     return $this->returnJsonResponse(__('global.success_save'));
                 }
                 else {
                     return $this->returnJsonResponse(__('global.error_save'), [], FALSE, 213);
                 }
-            } catch (Exception $e) {
+            } 
+            catch (Exception $e) {
                 return $this->returnJsonResponse(__('global.data_error'), [], FALSE, 215);
             }
         }
@@ -56,14 +55,12 @@
          *
          * @return JsonResponse
          */
-        public function update(UpdatePermissionsRequest $request, Permission $permission): JsonResponse
+        public function update(UpdatePermissionsRequest $request): JsonResponse
         {
             try {
-                $permission=new Permission();
-                $permission->name=$request->name;
-                $permission->group=$request->group;
-                $permission->description=$request->description;
-                $permission->guard_name='dashboard';
+                $permission             =Permission::find($request->id);
+                $permission->name       =$request->name;
+                $permission->guard_name =$request->guard_name;
 
                 if ($permission->save()) {
                     return $this->returnJsonResponse(__('global.success_save'));
@@ -86,9 +83,9 @@
          */
         public function destroy(Permission $permission)
         {
-            $permission->delete();
+            @$permission->delete();
 
-            return redirect()->route('permission.index');
+            return redirect()->route('dashboard.permissions.index');
         }
 
         public function massDestroy(Request $request): Response

@@ -23,7 +23,7 @@
                             <form class="form-horizontal form-simple" action="{{route('dashboard.login')}}"
                                   method="post"
                                   novalidate>
-                                @csrf
+                                {{ csrf_field() }}
                                 <fieldset class="form-group position-relative has-icon-left mb-0">
                                     <input type="text" name="email" class="form-control form-control-lg input-lg"
                                            value="{{old('email')}}" id="email" placeholder="أدخل البريد الالكتروني ">
