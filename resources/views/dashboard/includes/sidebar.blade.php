@@ -119,22 +119,23 @@
             إداره الصلاحيات
             </a>
             <ul class="nav-dropdown-items">
-            <li class="nav-item {{request()->routeIs('dashboard.permissions.*') ? 'active' : ''}}">
-            <a href="{{ route('dashboard.permissions.index') }}" class="nav-link ">
-            <i class="fa-fw fas fa-unlock-alt nav-icon">
 
-            </i>
-            {{__('dashboard/permission.title')}}
-            </a>
-            </li>
             <li class="nav-item {{request()->routeIs('dashboard.roles.*') ? 'active' : ''}}">
-            <a href="{{route('dashboard.roles.index')}}" class="nav-link ">
-            <i class="fa-fw fas fa-briefcase nav-icon">
-            </i>
-            {{__('dashboard/permission.role_title')}}
-            </a>
+                <a href="{{route('dashboard.roles.index')}}" class="nav-link ">
+                    <i class="fa-fw fas fa-briefcase nav-icon"></i>
+                    {{__('dashboard/role.title')}}
+                </a>
             </li>
 
+
+            <li class="nav-item {{request()->routeIs('dashboard.permissions.*') ? 'active' : ''}}">
+                <a href="{{ route('dashboard.permissions.index') }}" class="nav-link ">
+                    <i class="fa-fw fas fa-unlock-alt nav-icon"></i>
+                    {{__('dashboard/permission.title')}}
+                </a>
+            </li>
+
+            
 
 
 

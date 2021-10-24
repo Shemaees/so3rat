@@ -25,33 +25,17 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{__('dashboard/role.title')}}
+                                    {{__('dashboard/user.title')}}
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    {{__('dashboard/user.roles')}}
                                 </li>
                             </ol>
                         </div>
                     </div>
                 </div>
                 <div class="content-header-right col-md-6 col-12">
-                    <div class="btn-group float-md-right" role="group"
-                         aria-label="Button group with nested dropdown">
-                        <button
-                            class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2 mb-1"
-                            id="btnGroupDrop1" type="button" data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"><i class="ft-settings icon-left"></i>
-                            {{__('dashboard/role.actions')}}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a href=""
-                               class="dropdown-item"
-                               data-toggle="modal"
-                               data-target="#add-role">
-                                <i class="ft-plus"></i>
-                                {{__('dashboard/role.add')}}
-                            </a>
-
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
 
@@ -63,7 +47,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{__('dashboard/role.title')}}</h4>
+                                    <h4 class="card-title">{{__('dashboard/user.roles')}}</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -85,6 +69,9 @@
                                             <table
                                                 class=" table table-bordered table-striped table-hover datatable datatable-Role">
                                                 <thead>
+                                                    <tr>
+                                                        <th colspan="5" class="text-center"> {{ __('dashboard/role.title') }} </th>
+                                                    </tr>
                                                 <tr>
                                                     <th width="10">
 
@@ -122,33 +109,7 @@
                                                         </td>
                                                         <td>
                                                             <div class="btn-group mr-1 mb-1">
-                                                                <button type="button"
-                                                                        class="btn btn-primary dropdown-toggle btn-sm"
-                                                                        data-toggle="dropdown"
-                                                                        aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="ft-settings"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a href="{{route('dashboard.roles.show',$role->id)}}"
-                                                                       class="dropdown-item">
-                                                                        <i class="ft-eye"></i>
-                                                                        {{__('dashboard/role.show')}}
-                                                                    </a>
-                                                                    <form
-                                                                        action="{{ route('dashboard.role.delete', $role->id) }}"
-                                                                        method="POST"
-                                                                        onsubmit="return confirm('{{ __('dashboard/role.areYouSure') }}');"
-                                                                        style="display: inline-block;">
-                                                                        @csrf
-                                                                        <input type="hidden" name="_method"
-                                                                               value="DELETE">
-                                                                        <a href="#" class="dropdown-item"
-                                                                           onclick="$(this).parent().submit()">
-                                                                            <i class="ft-trash-2"></i>
-                                                                            {{__('dashboard/role.delete')}}
-                                                                        </a>
-                                                                    </form>
-                                                                </div>
+                                                                revoke
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -167,7 +128,6 @@
                                             </table>
                                             {{--Pagination--}}
                                             <div class="d-flex justify-content-center">
-                                                {{ $roles->links('vendor.pagination.bootstrap-4') }}
                                             </div>
                                         </div>
 
@@ -215,42 +175,7 @@
                                     <div id="accordionWrap5" role="tablist" aria-multiselectable="true">
                                         <div class="card collapse-icon accordion-icon-rotate">
                                             <div class="row">
-                                                @forelse($permissionGroups as $group => $permissions)
-                                                    <div class="col-md-6">
-                                                        <div id="heading51" class="card-header border-success mt-1">
-                                                            <a data-toggle="collapse"
-                                                               data-parent="#{{ toSlug($group) }}"
-                                                               href="#accordion-{{ toSlug($group) }}"
-                                                               aria-expanded="true"
-                                                               aria-controls="accordion-{{ toSlug($group) }}"
-                                                               class="card-title lead success">
-                                                                {{ $group }}
-                                                            </a>
-                                                        </div>
-                                                        <div id="accordion-{{ toSlug($group) }}" role="tabpanel"
-                                                             aria-labelledby="heading-{{ toSlug($group) }}"
-                                                             class="card-collapse collapse show"
-                                                             aria-expanded="true">
-                                                            <div class="card-content">
-                                                                <div class="card-body">
-                                                                    <ul>
-                                                                        @forelse($permissions as $permission)
-                                                                            {{--                                                                            <li>{{ $permission->name }}</li>--}}
-                                                                            <label><input type="checkbox"
-                                                                                          name="permissions[]"
-                                                                                          id="permissions"
-                                                                                          value="{{$permission->id}}">
-                                                                                {{$permission->name}}</label>
-                                                                        @empty
-
-                                                                        @endforelse
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @empty
-                                                @endforelse
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -368,121 +293,6 @@
         });
 
 
-        {{--        $(function () {--}}
-        {{--            let excelButtonTrans = '{{ __('dashboard/role.datatables.excel') }}'--}}
-        {{--            let pdfButtonTrans = '{{ __('dashboard/role.datatables.pdf') }}'--}}
-        {{--            let printButtonTrans = '{{ __('dashboard/role.datatables.print') }}'--}}
-
-        {{--            let languages = {--}}
-        {{--                'en': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/English.json',--}}
-        {{--                'ar': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Arabic.json',--}}
-        {{--            };--}}
-
-        {{--            $.extend(true, $.fn.dataTable.Buttons.defaults.dom.button, {className: 'btn'})--}}
-        {{--            $.extend(true, $.fn.dataTable.defaults, {--}}
-        {{--                language: {--}}
-        {{--                    url: languages['{{ app()->getLocale() }}']--}}
-        {{--                },--}}
-        {{--                columnDefs: [{--}}
-        {{--                    orderable: false,--}}
-        {{--                    className: 'select-checkbox',--}}
-        {{--                    targets: 0--}}
-        {{--                }, {--}}
-        {{--                    orderable: false,--}}
-        {{--                    searchable: false,--}}
-        {{--                    targets: -1--}}
-        {{--                }],--}}
-        {{--                select: {--}}
-        {{--                    style: 'multi+shift',--}}
-        {{--                    selector: 'td:first-child'--}}
-        {{--                },--}}
-        {{--                order: [],--}}
-        {{--                scrollX: true,--}}
-        {{--                pageLength: 10,--}}
-        {{--                dom: 'lBfrtip<"actions">',--}}
-        {{--                buttons: [--}}
-        {{--                    {--}}
-        {{--                        extend: 'excel',--}}
-        {{--                        className: 'btn btn-outline-success btn-sm-width box-shadow-3 mb-1',--}}
-        {{--                        text: excelButtonTrans,--}}
-        {{--                        exportOptions: {--}}
-        {{--                            columns: ':visible'--}}
-        {{--                        }--}}
-        {{--                    },--}}
-        {{--                    {--}}
-        {{--                        extend: 'pdf',--}}
-        {{--                        className: 'btn btn-outline-success btn-sm-width box-shadow-3 mb-1',--}}
-        {{--                        text: pdfButtonTrans,--}}
-        {{--                        exportOptions: {--}}
-        {{--                            columns: ':visible'--}}
-        {{--                        }--}}
-        {{--                    },--}}
-        {{--                    {--}}
-        {{--                        extend: 'print',--}}
-        {{--                        className: 'btn btn-outline-success btn-sm-width box-shadow-3 mb-1',--}}
-        {{--                        text: printButtonTrans,--}}
-        {{--                        exportOptions: {--}}
-        {{--                            columns: ':visible'--}}
-        {{--                        }--}}
-        {{--                    }--}}
-        {{--                ]--}}
-        {{--            });--}}
-
-        {{--            $.fn.dataTable.ext.classes.sPageButton = '';--}}
-        {{--        });--}}
-        {{--        $(function () {--}}
-        {{--            let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)--}}
-        {{--            let addButtonTrans = '{{__('dashboard/role.add')}}'--}}
-        {{--            let addButton = {--}}
-        {{--                text: addButtonTrans,--}}
-
-        {{--                className: 'btn btn-outline-info btn-sm-width box-shadow-3 mb-1',--}}
-        {{--                action: function () {--}}
-        {{--                    window.location = "{{ route('role.create') }}"--}}
-        {{--                }--}}
-        {{--            }--}}
-        {{--            dtButtons.push(addButton)--}}
-
-        {{--            let deleteButtonTrans = '{{__('dashboard/role.datatables.delete')}}'--}}
-        {{--            let deleteButton = {--}}
-        {{--                text: deleteButtonTrans,--}}
-        {{--                url: "{{ route('role.mass_destroy') }}",--}}
-        {{--                className: 'btn btn-outline-danger btn-sm-width box-shadow-3 mb-1',--}}
-        {{--                action: function (e, dt, node, config) {--}}
-        {{--                    var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {--}}
-        {{--                        return $(entry).data('entry-id')--}}
-        {{--                    });--}}
-
-        {{--                    if (ids.length === 0) {--}}
-        {{--                        alert('{{ __('dashboard/role.datatables.zero_selected') }}')--}}
-
-        {{--                        return--}}
-        {{--                    }--}}
-
-        {{--                    if (confirm(' {{__('dashboard/role.areYouSure')}} ')) {--}}
-        {{--                        $.ajax({--}}
-        {{--                            headers: {--}}
-        {{--                                'x-csrf-token': $('input[name="_token"]').attr('content')--}}
-        {{--                            },--}}
-        {{--                            method: 'POST',--}}
-        {{--                            url: config.url,--}}
-        {{--                            data: { ids: ids, _method: 'DELETE', _token:'{{csrf_token()}}' }})--}}
-        {{--                            .done(function () { location.reload() })--}}
-        {{--                    }--}}
-        {{--                }--}}
-        {{--            }--}}
-        {{--            dtButtons.push(deleteButton)--}}
-
-        {{--            $.extend(true, $.fn.dataTable.defaults, {--}}
-        {{--                order: [[ 1, 'desc' ]],--}}
-        {{--                pageLength: 10,--}}
-        {{--            });--}}
-        {{--            $('.datatable-Role:not(.ajaxTable)').DataTable({ buttons: dtButtons })--}}
-        {{--            $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){--}}
-        {{--                $($.fn.dataTable.tables(true)).DataTable()--}}
-        {{--                    .columns.adjust();--}}
-        {{--            });--}}
-        {{--        })--}}
 
     </script>
 @endsection

@@ -6,33 +6,7 @@
     {{--    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/buttons.bootstrap4.min.css') }}" rel="stylesheet"/>--}}
     {{--    <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}" rel="stylesheet"/>--}}
 
-    <style>
-        .privileges-ul
-        {
-            background-color: #f5f5f5;
-            border-radius: 2px;
-            font-size: 16px;
-            font-weight: 600;
-            color: black;
-        }
-        .privileges-ul li , .privileges-ul>.row
-        {
-            margin-bottom:1px;
-            background-color: #f0f0f0;
-        }
-        a.btn.btn-info
-        {
-            height: 35px;
-        }
-        .ft-delete{
-            color:brown;
-            font-size:15px;
-        }
-        .ft-edit{
-            color:green;
-            font-size:15px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('assets/dashboard/css/roles.css') }}">
 @endsection
 
 @section('content')
@@ -183,8 +157,13 @@
                         </div>
                         <div class="form-group">
                             <label for="guard_name">Guard Name</label>
-                            <input type="text" class="form-control" id="guard_name" name="guard_name"
-                                   placeholder="Ex. web">
+                            <select class="form-control" id="guard_name" name="guard_name">
+                                <option value="web">web</option>
+                                <option value="dashboard">dashboard</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" id="guard_name" name="guard_name"
+                                   placeholder="Ex. web"> -->
+
                             <label for="error-guard_name"></label>
                         </div> 
                     </div>
@@ -205,7 +184,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="myModalLabel35"> {{ __('dashboard/permission.add_new') }}</h3>
+                    <h3 class="modal-title" id="myModalLabel35"> {{ __('dashboard/permission.editPermission') }}</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -222,8 +201,12 @@
                         </div>
                         <div class="form-group">
                             <label for="guard_name">Guard Name</label>
-                            <input type="text" class="form-control" id="guard_name2" name="guard_name"
-                                   placeholder="Ex. web">
+                            <select class="form-control" id="guard_name2" name="guard_name">
+                                <option value="web">web</option>
+                                <option value="dashboard">dashboard</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" id="guard_name2" name="guard_name"
+                                   placeholder="Ex. web"> -->
                             <label for="error-guard_name"></label>
                         </div> 
                     </div>
@@ -333,7 +316,7 @@
         {
             $('#id').val(idd);
             $('#name2').val(name);
-            $('#guard_name2').val(guard_name);
+            $('#guard_name2').val(guard_name).trigger('change');
         }
     </script>
 @endsection

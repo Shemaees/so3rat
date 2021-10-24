@@ -83,40 +83,40 @@
          */
         public function update(UpdateRolesRequest $request, $role)
         {
+            $role = ($role) ? $role : $request->id;
             $role=Role::find($role);
-             $role->update($request->except('permission'));
+            $role->update($request->except(['permission','id']));
 
             try {
                 if ($role->update()) {
                   
-                    //      $permissions = $request->input('permission') ? $request->input('permission') : [];
-                            //                    $role->syncPermissions($permissions);
-                    $role->permissions()->attach((array)$request->permission);
-
+                    return $this->returnJsonResponse(__('global.success_save'));
+                    
                     return redirect()->route('dashboard.roles.index')
-                        ->with(['success'=>__('global.success_save')]);
+                    ->with(['success'=>__('global.success_save')]);
                 }
                 else {
+                    return $this->returnJsonResponse(__('global.error_save'), [], FALSE, 213);
+
                     notify()->error(__('global.error_save'));
                      return redirect()->back()->with(['error'=>__('global.error_save')]);                }
 
             }
-            catch (Exception $e) {
+            catch (Exception $e) 
+            {
+                return $this->returnJsonResponse(__('global.data_error'), [], FALSE, 215);
                 return $e;
             }
         }
 
         public function show( $role)
         {
-            $role=Role::find($role);
-            $permissions = Permission::all();
-            $permissionGroups=Permission::all()->groupBy('group');
-            $rolePermissions=$role->permissions()->get();
-//            $differenceArray1 = array_diff($permissions, $rolePermissions);
-//            $differenceArray2 = array_diff($rolePermissions, $permissions);
-//            dd($permissions,$rolePermissions);
+            $role               =   Role::find($role);
+            //$permissions      =   $role->permissions;
+            //$permissionGroups =   Permission::all()->groupBy('group');
+            $rolePermissions    =   $role->permissions;
 
-            return view('dashboard.roles.show', compact('rolePermissions', 'permissionGroups', 'role'));
+            return view('dashboard.roles.show', compact('rolePermissions', 'role'));
         }
 
 

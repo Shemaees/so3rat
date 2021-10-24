@@ -14,6 +14,7 @@ Route::group(['middleware' => 'XSS'], function () {
     });
     Route::group(['namespace' => 'Dashboard', 'middleware' => 'auth:admins'], function () {
         Route::get('/users', [App\Http\Controllers\Dashboard\UserController::class, 'index'])->name('dashboard.users.index');
+        Route::get('/users/permissions/{user}', [App\Http\Controllers\Dashboard\UserController::class, 'permissions'])->name('dashboard.users.permissions');
         Route::get('/non-active', [App\Http\Controllers\Dashboard\UserController::class, 'nonActive'])->name('dashboard.users.non-active');
         Route::get('/blocked', [App\Http\Controllers\Dashboard\UserController::class, 'blocked'])->name('dashboard.users.blocked');
         Route::get('/change_status/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'changeStatus'])->name('dashboard.users.change_status');
@@ -27,17 +28,21 @@ Route::group(['middleware' => 'XSS'], function () {
         Route::get('/show_patient/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'show_patient'])->name('dashboard.users.show_patient');
         });
     Route::group(['namespace' => 'Dashboard','prefix' => 'Permission', 'middleware' => 'auth:admins'], function () {
-        Route::get('/Permission', [App\Http\Controllers\Dashboard\PermissionController::class, 'index'])->name('dashboard.permissions.index');
-        Route::post('/Permission', [App\Http\Controllers\Dashboard\PermissionController::class, 'store'])->name('dashboard.permissions.add');
-        Route::get('/deletePermission/{permission}', [App\Http\Controllers\Dashboard\PermissionController::class, 'destroy'])->name('dashboard.permissions.delete');
-        Route::post('/updatePermission', [App\Http\Controllers\Dashboard\PermissionController::class, 'update'])->name('dashboard.permissions.update');
+        Route::get('/show', [App\Http\Controllers\Dashboard\PermissionController::class, 'index'])->name('dashboard.permissions.index');
+        Route::post('/save', [App\Http\Controllers\Dashboard\PermissionController::class, 'store'])->name('dashboard.permissions.add');
+        Route::get('/delete/{permission}', [App\Http\Controllers\Dashboard\PermissionController::class, 'destroy'])->name('dashboard.permissions.delete');
+        Route::post('/update', [App\Http\Controllers\Dashboard\PermissionController::class, 'update'])->name('dashboard.permissions.update');
+        
+    });
+    Route::group(['namespace' => 'Dashboard','prefix' => 'roles', 'middleware' => 'auth:admins'], function () {
         Route::get('/roles', [App\Http\Controllers\Dashboard\RoleController::class, 'index'])->name('dashboard.roles.index');
         Route::get('/show/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'show'])->name('dashboard.roles.show');
         Route::get('/edit/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'edit'])->name('dashboard.role.edit');
         Route::post('/delete/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'destroy'])->name('dashboard.role.delete');
         Route::post('/add', [App\Http\Controllers\Dashboard\RoleController::class, 'store'])->name('dashboard.roles.add');
-        Route::patch('/update/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'update'])->name('dashboard.role.update');
-        });
+        Route::post('/update/{role}', [App\Http\Controllers\Dashboard\RoleController::class, 'update'])->name('dashboard.role.update');
+    });
+
     Route::group(['namespace' => 'Dashboard', 'middleware' => 'auth:admins'], function () {
         Route::get('/requests', [App\Http\Controllers\Dashboard\PatientRequestsController::class, 'index'])->name('dashboard.requests.index');
         Route::get('/requests-non-active', [App\Http\Controllers\Dashboard\PatientRequestsController::class, 'nonActive'])->name('dashboard.requests.non-active');

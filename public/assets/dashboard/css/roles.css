@@ -1,0 +1,36 @@
+.privileges-ul {
+    background-color: #f5f5f5;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.privileges-ul li,
+.privileges-ul>.row {
+    margin-bottom: 1px;
+    background-color: #f0f0f0;
+}
+
+a.btn.btn-info {
+    height: 35px;
+}
+
+.ft-delete {
+    color: brown;
+    font-size: 15px;
+}
+
+.ft-edit {
+    color: green;
+    font-size: 15px;
+}
+
+.edit_role {
+    position: absolute;
+    top: 40%;
+    left: 27%;
+    margin-top: -8px;
+    font-family: 'feather';
+    content: '\e99d';
+}

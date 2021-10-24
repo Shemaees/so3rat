@@ -8,6 +8,8 @@
           rel="stylesheet"/>
     <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
           rel="stylesheet"/>
+    <link href="{{ asset('assets/front/css/style.css') }}"
+          rel="stylesheet"/>
 
 @endsection
 
@@ -95,46 +97,33 @@
                                                         {{ $active_user->email ?? '' }}
                                                     </td>
                                                     <td>
-                                                        <div class="btn-group mr-1 mb-1">
-                                                            <button type="button"
-                                                                    class="btn btn-primary dropdown-toggle btn-sm"
-                                                                    data-toggle="dropdown"
-                                                                    aria-haspopup="true" aria-expanded="false">
-                                                                <i class="ft-settings"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu">
-
-                                                                <a href="{{route('dashboard.users.change_status',$active_user->id)}}"
-                                                                   class="dropdown-item"
-                                                                   onclick="return confirm('{{__('user.change_status')}}');">
-                                                                    <i class="ft-unlock primary"></i>
-                                                                    {{__('front/global.deactivate')}}
-                                                                </a>
-                                                                <a href="{{route('dashboard.users.show',$active_user->id)}}"
-                                                                   class="dropdown-item">
-                                                                    <i class="ft-eye "></i>
-                                                                    {{__('front/global.show')}}
-                                                                </a>
-                                                                <a href="{{route('dashboard.users.statusBlock',$active_user-> id)}}"
-                                                                   class="dropdown-item">
-                                                                    <i class="ft-slash primary"></i>
-                                                                    {{__('front/global.block')}}
-                                                                </a>
-                                                                {{--                                                                <form--}}
-                                                                {{--                                                                    action="{{ route('dashboard.users.delete', $active_user->id) }}"--}}
-                                                                {{--                                                                    method="POST"--}}
-                                                                {{--                                                                    onsubmit="return confirm('{{ __('global.areYouSure') }}');"--}}
-                                                                {{--                                                                    style="display: inline-block;">--}}
-                                                                {{--                                                                    @csrf--}}
-                                                                {{--                                                                    <input type="hidden" name="_method" value="DELETE">--}}
-                                                                {{--                                                                    <a href="#" class="dropdown-item"--}}
-                                                                {{--                                                                       onclick="$(this).parent().submit()">--}}
-                                                                {{--                                                                        <i class="ft-trash-2"></i>--}}
-                                                                {{--                                                                        {{__('global.delete')}}--}}
-                                                                {{--                                                                    </a>--}}
-                                                                {{--                                                                </form>--}}
-                                                            </div>
+                                                        <div class="table-action">
+                                                           
+                                                            <a href="{{route('dashboard.users.change_status',$active_user->id)}}"
+                                                                class="btn btn-sm bg-info-light"
+                                                                onclick="return confirm('{{__('user.change_status')}}');">
+                                                                <i class="ft-unlock primary"></i>
+                                                                {{__('front/global.deactivate')}}
+                                                            </a>
+                                                            <a href="{{route('dashboard.users.show',$active_user->id)}}"
+                                                                class="btn btn-sm bg-info-light">
+                                                                <i class="ft-eye "></i>
+                                                                {{__('front/global.show')}}
+                                                            </a>
+                                                            <a href="{{route('dashboard.users.statusBlock',$active_user-> id)}}"
+                                                                class="btn btn-sm bg-info-light brown"
+                                                                onclick="return confirm('{{ __('front/global.block') }}')">
+                                                                <i class="ft-slash primary"></i>
+                                                                {{__('front/global.block')}}
+                                                            </a>
+                                                            
+                                                            <a href="#"
+                                                                    class="btn btn-primary  btn-sm">
+                                                                    <i class="ft-settings"></i>
+                                                            </a>
                                                         </div>
+
+                                                        
                                                     </td>
                                                 </tr>
                                             @empty

@@ -48,6 +48,13 @@
             return view('dashboard.patient.blocked',compact('blockedUsers'));
         }
 
+        public function permissions(User $user)
+        {
+            $roles        = $user->roles;
+            //dd($user , $roles);
+            return view('dashboard.users.permissions',compact('roles'));
+        }
+
 
         /**
          * Display the specified resource.
