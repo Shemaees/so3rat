@@ -51,8 +51,9 @@
         public function permissions(User $user)
         {
             $roles        = $user->roles;
-            //dd($user , $roles);
-            return view('dashboard.users.permissions',compact('roles'));
+            $permissions  = $user->permissions;
+            //dd($permissions->first()->roles , $roles->pluck('id')->toArray() );
+            return view('dashboard.users.permissions',compact('roles' , 'permissions'));
         }
 
 

@@ -130,7 +130,6 @@
          */
         public function destroy(Role $role)
         {
-
             $role->delete();
 
             return redirect()->route('dashboard.roles.index');

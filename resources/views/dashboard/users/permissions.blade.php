@@ -45,9 +45,10 @@
                 <section id="dom">
                     <div class="row">
                         <div class="col-12">
+                            
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{__('dashboard/user.roles')}}</h4>
+                                    <h4 class="card-title">{{__('dashboard/user.Roles')}}</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -83,9 +84,6 @@
                                                         {{__('dashboard/role.type')}}
                                                     </th>
                                                     <th>
-                                                        {{__('dashboard/role.role_permission')}}
-                                                    </th>
-                                                    <th>
                                                         {{__('dashboard/role.actions')}}
                                                     </th>
                                                 </tr>
@@ -101,11 +99,6 @@
                                                         </td>
                                                         <td>
                                                             {{ $role->guard_name ?? '' }}
-                                                        </td>
-                                                        <td>
-                                                            @foreach($role->permissions()->pluck('name') as $permission)
-                                                                <span class="badge badge-info">{{ $permission }}</span>
-                                                            @endforeach
                                                         </td>
                                                         <td>
                                                             <div class="btn-group mr-1 mb-1">
@@ -134,6 +127,93 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">{{__('dashboard/user.Permissions')}}</h4>
+                                    <a class="heading-elements-toggle"><i
+                                            class="la la-ellipsis-v font-medium-3"></i></a>
+                                    <div class="heading-elements">
+                                        <ul class="list-inline mb-0">
+                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                @include('dashboard.includes.alerts.success')
+                                @include('dashboard.includes.alerts.errors')
+
+                                <div class="card-content collapse show">
+                                    <div class="card-body card-dashboard">
+                                        <div class="">
+                                            <table
+                                                class=" table table-bordered table-striped table-hover datatable datatable-Role">
+                                                <thead>
+                                                   
+                                                <tr>
+                                                    <th width="10">
+
+                                                    </th>
+                                                    <th>
+                                                        {{__('dashboard/role.name')}}
+                                                    </th>
+                                                    <th>
+                                                        {{__('dashboard/role.type')}} - Guard
+                                                    </th>
+                                                    <th>
+                                                        {{__('dashboard/role.Role')}}
+                                                    </th>
+                                                    <th>
+                                                        {{__('dashboard/role.actions')}}
+                                                    </th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @forelse($permissions as $key => $permission)
+                                                    <tr data-entry-id="{{ $permission->id}}">
+                                                        <td>
+
+                                                        </td>
+                                                        <td>
+                                                            {{ $permission->name ?? '' }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $permission->guard_name ?? '' }}
+                                                        </td>
+                                                        <td>
+                                                            {{ @$permission->role ?? '' }}
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn-group mr-1 mb-1">
+                                                                revoke
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @empty
+                                                    <tr>
+                                                        <div class="row mr-2 ml-2">
+                                                            <button type="text"
+                                                                    class="btn btn-lg btn-block btn-outline-danger mb-2"
+                                                                    id="type-error">
+                                                                {{__('dashboard/role.no_data')}}
+                                                            </button>
+                                                        </div>
+                                                    </tr>
+                                                @endforelse
+                                                </tbody>
+                                            </table>
+                                            {{--Pagination--}}
+                                            <div class="d-flex justify-content-center">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>

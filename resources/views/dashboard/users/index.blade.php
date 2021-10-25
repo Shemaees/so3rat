@@ -101,7 +101,7 @@
                                                            
                                                             <a href="{{route('dashboard.users.change_status',$active_user->id)}}"
                                                                 class="btn btn-sm bg-info-light"
-                                                                onclick="return confirm('{{__('user.change_status')}}');">
+                                                                onclick="return confirm('{{__('dashboard/user.change_status')}}');">
                                                                 <i class="ft-unlock primary"></i>
                                                                 {{__('front/global.deactivate')}}
                                                             </a>
@@ -117,7 +117,7 @@
                                                                 {{__('front/global.block')}}
                                                             </a>
                                                             
-                                                            <a href="#"
+                                                            <a href="{{ route('dashboard.users.permissions',$active_user->id) }}"
                                                                     class="btn btn-primary  btn-sm">
                                                                     <i class="ft-settings"></i>
                                                             </a>

@@ -18,7 +18,7 @@ Route::group(['middleware' => 'XSS'], function () {
         Route::get('/non-active', [App\Http\Controllers\Dashboard\UserController::class, 'nonActive'])->name('dashboard.users.non-active');
         Route::get('/blocked', [App\Http\Controllers\Dashboard\UserController::class, 'blocked'])->name('dashboard.users.blocked');
         Route::get('/change_status/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'changeStatus'])->name('dashboard.users.change_status');
-        Route::get('/show/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'show'])->name('dashboard.users.show');
+        Route::get('/users/show/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'show'])->name('dashboard.users.show');
         Route::get('/statusBlock/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'statusBlock'])->name('dashboard.users.statusBlock');
         });
     Route::group(['namespace' => 'Dashboard','prefix' => 'patient', 'middleware' => 'auth:admins'], function () {

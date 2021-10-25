@@ -17,6 +17,7 @@ return
         'add'                               => 'إضافة جديد',
         'actions'                           => 'التحكم',
         'role_permission'                   => 'الصلاحية',
+        'role_permissions'                   => 'الصلاحيات',
         'edit'                              => 'تعديل',
         'editrole'                              => 'تعديل القسم',
         'delete'                              => 'حذف',
@@ -27,6 +28,9 @@ return
         'deselect_all'                              => 'إلغاء التحديد',
         'save'                              => 'حفظ',
         'close'                              => 'إلغاء',
+        'no_data'                              => 'لا يوجد بيانات',
+        'types'                              => 'الأنواع',
+        'Role'                              => 'القسم',
 
 
 
