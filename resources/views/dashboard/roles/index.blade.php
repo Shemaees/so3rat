@@ -130,18 +130,11 @@
                                                                 {{__('front/global.show')}}
                                                             </a>
 
-                                                            <form action="{{ route('dashboard.role.delete', $role->id) }}"  method="POST"
-                                                                onsubmit="return confirm('{{ __('dashboard/role.areYouSure') }}');" style="display: inline-block;">
-                                                                @csrf
-
-                                                                <input type="hidden" name="_method"
-                                                                        value="DELETE">
-                                                                <a href="#" class="btn btn-sm bg-info-light" onclick="$(this).parent().submit();">
-                                                                    <i class="ft-trash-2"></i>
-                                                                    {{__('dashboard/role.delete')}}
-                                                                </a>
-                                                            </form>
-                                                                
+                                                            <a href="{{ route('dashboard.role.delete', $role->id) }}" class="btn btn-sm bg-info-light" 
+                                                                onclick="return confirm('{{ __('dashboard/role.areYouSure') }}');">
+                                                                <i class="ft-trash-2"></i>
+                                                                {{__('dashboard/role.delete')}}
+                                                            </a>
 
                                                             </div>
                                                         </td>

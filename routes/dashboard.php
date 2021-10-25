@@ -35,10 +35,10 @@ Route::group(['middleware' => 'XSS'], function () {
         
     });
     Route::group(['namespace' => 'Dashboard','prefix' => 'roles', 'middleware' => 'auth:admins'], function () {
-        Route::get('/roles', [App\Http\Controllers\Dashboard\RoleController::class, 'index'])->name('dashboard.roles.index');
+        Route::get('/', [App\Http\Controllers\Dashboard\RoleController::class, 'index'])->name('dashboard.roles.index');
         Route::get('/show/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'show'])->name('dashboard.roles.show');
         Route::get('/edit/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'edit'])->name('dashboard.role.edit');
-        Route::post('/delete/{id}', [App\Http\Controllers\Dashboard\RoleController::class, 'destroy'])->name('dashboard.role.delete');
+        Route::get('/destroy/{role}', [App\Http\Controllers\Dashboard\RoleController::class, 'destroy'])->name('dashboard.role.delete');
         Route::post('/add', [App\Http\Controllers\Dashboard\RoleController::class, 'store'])->name('dashboard.roles.add');
         Route::post('/update/{role}', [App\Http\Controllers\Dashboard\RoleController::class, 'update'])->name('dashboard.role.update');
     });
