@@ -8,7 +8,7 @@
           rel="stylesheet"/>
     <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
           rel="stylesheet"/>
-
+    <link href="{{ asset('assets/front/css/style.css') }}" rel="stylesheet"/>
 @endsection
 
 @section('content')
@@ -71,7 +71,12 @@
                                                 class=" table table-bordered table-striped table-hover datatable datatable-Role">
                                                 <thead>
                                                     <tr>
-                                                        <th colspan="5" class="text-center"> {{ __('dashboard/role.title') }} </th>
+                                                        <th colspan="5" class="text-center"> {{ __('dashboard/role.title') }} 
+                                                            <button type="button" class="btn btn-outline-info btn-sm box-shadow-3 m-0 float-left btn-success white"
+                                                                style="left: 3%;position: absolute;" data-toggle="modal" data-target="#add-role" onclick="addRole(1)" >
+                                                                <i class="ft-plus"></i>
+                                                            </button>
+                                                        </th>
                                                     </tr>
                                                 <tr>
                                                     <th width="10">
@@ -81,7 +86,7 @@
                                                         {{__('dashboard/role.name')}}
                                                     </th>
                                                     <th>
-                                                        {{__('dashboard/role.type')}}
+                                                        {{__('dashboard/role.type')}}  - Guard
                                                     </th>
                                                     <th>
                                                         {{__('dashboard/role.actions')}}
@@ -102,7 +107,12 @@
                                                         </td>
                                                         <td>
                                                             <div class="btn-group mr-1 mb-1">
-                                                                revoke
+                                                                <a href="{{route('dashboard.users.roles.revoke',[$user->id , $role->id ])}}"
+                                                                    class="btn btn-sm bg-warning"
+                                                                    onclick="return confirm('{{__('dashboard/user.revokeCheck')}}');">
+                                                                    <i class="ft-unlock primary"></i>
+                                                                    {{__('dashboard/user.revoke')}}
+                                                                </a>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -152,10 +162,18 @@
                                             <table
                                                 class=" table table-bordered table-striped table-hover datatable datatable-Role">
                                                 <thead>
-                                                   
+                                                   <tr>
+                                                       <th colspan="4" class="text-center">
+                                                            {{ __('dashboard/permission.title') }} 
+                                                            <button type="button" class="btn btn-outline-info btn-sm box-shadow-3 m-0 float-left btn-success white"
+                                                                style="left: 3%;position: absolute;" data-toggle="modal" data-target="#add-role" onclick="addRole(2)">
+                                                                <i class="ft-plus"></i>
+                                                            </button>
+                                                       </th>
+                                                   </tr>
                                                 <tr>
                                                     <th width="10">
-
+                                                    #
                                                     </th>
                                                     <th>
                                                         {{__('dashboard/role.name')}}
@@ -163,9 +181,7 @@
                                                     <th>
                                                         {{__('dashboard/role.type')}} - Guard
                                                     </th>
-                                                    <th>
-                                                        {{__('dashboard/role.Role')}}
-                                                    </th>
+                                                    
                                                     <th>
                                                         {{__('dashboard/role.actions')}}
                                                     </th>
@@ -184,11 +200,13 @@
                                                             {{ $permission->guard_name ?? '' }}
                                                         </td>
                                                         <td>
-                                                            {{ @$permission->role ?? '' }}
-                                                        </td>
-                                                        <td>
                                                             <div class="btn-group mr-1 mb-1">
-                                                                revoke
+                                                                <a href="{{route('dashboard.users.permissions.revoke',[$user->id , $permission->id ])}}"
+                                                                    class="btn btn-sm bg-warning"
+                                                                    onclick="return confirm('{{__('dashboard/user.revokeCheck')}}');">
+                                                                    <i class="ft-unlock primary"></i>
+                                                                    {{__('dashboard/user.revoke')}}
+                                                                </a>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -231,56 +249,38 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="add-role-form">
+                <form id="add-role-form" action="{{ route('dashboard.users.roles.assign') }}" method="post">
+                    {{csrf_field() }}
                     <div class="modal-body">
-
+                        <input type="hidden" name="user_id" value="{{ $user->id }}" id="user_id">
                         <div class="form-group">
-                            <label for="name">{{ __('dashboard/role.name') }}</label>
-                            <input type="text" class="form-control" id="name" name="name"
-                                   placeholder="{{ __('dashboard/role.name') }}">
+                            <label for="name">{{ __('dashboard/role.Role') }}</label>
+                            <select name="role_id" id="role_id" class="form-control select2">
+                                @foreach ($allRoles->whereNotIn('id',$user->roles->pluck('id')->toArray()) as $rol )
+                                    <option value="{{ $rol->id }}">{{ $rol->guard_name .' - '. $rol->name }}</option>
+                                @endforeach
+                            </select>
                             <label for="error-name"></label>
-                        </div>
-                        <div class="form-group">
-                            <label for="permissions">{{ __('dashboard/role.role_permission') }}</label>
-                            <div class="pb-2">
-                                <span class="btn btn-info btn-sm" id="selectAll" onclick="selectAll()">
-                                    {{__('dashboard/role.select_all')}}
-                                </span>
-                                <span class="btn btn-info btn-sm" onclick="deselectAll()">
-                                    {{__('dashboard/role.deselect_all')}}
-                                </span>
-                            </div>
-                            <div class="card-content collapse show">
-                                <div class="card-body card-dashboard">
-                                    <div id="accordionWrap5" role="tablist" aria-multiselectable="true">
-                                        <div class="card collapse-icon accordion-icon-rotate">
-                                            <div class="row">
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <label for="error-description"></label>
                         </div>
                     </div>
                     <div class="errorMessage"></div>
                     <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="la la-check-square-o"></i>
+                            {{__('dashboard/role.save')}}
+                        </button>
                         <button type="button" class="btn btn-warning mr-1"
                                 data-dismiss="modal">
                             <i class="ft-x"></i>
                             {{__('dashboard/role.close')}}
                         </button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="la la-check-square-o"></i>
-                            {{__('dashboard/role.save')}}
-                        </button>
+                        
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
+    
 @endsection
 
 @section('vendor')
@@ -300,6 +300,7 @@
 
     <script>
 
+        //$('#role_id').select2();
         // function selectAll() {
         //     $("#permissions > option").prop("selected", true);
         //     $("#permissions").trigger("change");
@@ -332,45 +333,33 @@
             $("#permissions").trigger("change");
         }
 
-        $('#add-role-form').validate({
-            errorPlacement: function (error, element) {
-                console.log('error')
-                console.log(error)
-                console.log(element)
-                console.log(element.attr("id"))
+        var roles_select = '';
+        var perms_select = '';
+        @foreach ($allRoles->whereNotIn('id',$user->roles->pluck('id')->toArray()) as $rol )
+            roles_select = roles_select+'<option value="{{ $rol->id }}">{{ $rol->guard_name }} - {{ $rol->name }}</option>';
+        @endforeach
 
-                $(element)
-                    .closest("form")
-                    .find("label[for='error-" + element.attr("id") + "']")
-                    .append(error);
-            },
-            errorElement: "span",
-            rules: {
-                name: {
-                    required: true,
-                },
-                permissions: {
-                    required: true,
-                }
+        @foreach ($allPermissions->whereNotIn('id',$user->permissions->pluck('id')->toArray()) as $rol )
+            perms_select = perms_select+'<option value="{{ $rol->id }}">{{ $rol->guard_name }} - {{ $rol->name }}</option>';
+        @endforeach
+        //console.log(perms_select , roles_select);
+      function addRole(typ)
+      {
+          var url ="{{ route('dashboard.users.roles.assign') }}";
 
-            },
-            submitHandler: function (form) {
-                $("#add-role").addClass('loading')
+          if(typ == 2)//permission
+          {
+            $('#role_id').html(perms_select);
+            url ="{{ route('dashboard.users.permissions.assign') }}";
+          }
+          else 
+          {
+            $('#role_id').html(roles_select);
+          }
+          //console.log(perms_select , roles_select);
 
-                dashboardRequest.post('{{ route('dashboard.roles.add') }}', $("#add-role-form").serialize(), function (response) {
-                    $("#add-role").removeClass('loading')
-                    $("#add-role-form .errorMessage").html(response.status ? dashboardRequest.getSuccessMessageHtml(response.message) : dashboardRequest.getErrorMessageHtml(response.message));
-                    animateCSS('#add-role .errorMessage', 'bounceIn');
-                    if (response.status) {
-                        setTimeout(function () {
-                            animateCSS('#add-role .errorMessage', 'flipOutX').then(() => $("#add-role .errorMessage").html(''));
-                            window.location.reload();
-                        }, 5000)
-                    }
-
-                })
-            }
-        });
+          $('#add-role-form').attr('action' , url);
+      }
 
 
 

@@ -15,6 +15,12 @@ Route::group(['middleware' => 'XSS'], function () {
     Route::group(['namespace' => 'Dashboard', 'middleware' => 'auth:admins'], function () {
         Route::get('/users', [App\Http\Controllers\Dashboard\UserController::class, 'index'])->name('dashboard.users.index');
         Route::get('/users/permissions/{user}', [App\Http\Controllers\Dashboard\UserController::class, 'permissions'])->name('dashboard.users.permissions');
+        Route::get('/roles/revoke/{user}/{role}', [App\Http\Controllers\Dashboard\UserController::class, 'revokeRole'])->name('dashboard.users.roles.revoke');
+        Route::get('/permissions/revoke/{user}/{Permission}', [App\Http\Controllers\Dashboard\UserController::class, 'revokePermission'])->name('dashboard.users.permissions.revoke');
+        
+        Route::post('users/roles/assign', [App\Http\Controllers\Dashboard\UserController::class, 'assignRole'])->name('dashboard.users.roles.assign');
+        Route::post('users/permissions/assign', [App\Http\Controllers\Dashboard\UserController::class, 'assignPermission'])->name('dashboard.users.permissions.assign');
+
         Route::get('/non-active', [App\Http\Controllers\Dashboard\UserController::class, 'nonActive'])->name('dashboard.users.non-active');
         Route::get('/blocked', [App\Http\Controllers\Dashboard\UserController::class, 'blocked'])->name('dashboard.users.blocked');
         Route::get('/change_status/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'changeStatus'])->name('dashboard.users.change_status');
@@ -26,7 +32,7 @@ Route::group(['middleware' => 'XSS'], function () {
         Route::get('/non-active', [App\Http\Controllers\Dashboard\UserController::class, 'nonActive_patient'])->name('dashboard.users.non-active_patient');
         Route::get('/blocked', [App\Http\Controllers\Dashboard\UserController::class, 'blocked_patient'])->name('dashboard.users.blocked_patient');
         Route::get('/show_patient/{id}', [App\Http\Controllers\Dashboard\UserController::class, 'show_patient'])->name('dashboard.users.show_patient');
-        });
+    });
     Route::group(['namespace' => 'Dashboard','prefix' => 'Permission', 'middleware' => 'auth:admins'], function () {
         Route::get('/show', [App\Http\Controllers\Dashboard\PermissionController::class, 'index'])->name('dashboard.permissions.index');
         Route::post('/save', [App\Http\Controllers\Dashboard\PermissionController::class, 'store'])->name('dashboard.permissions.add');
