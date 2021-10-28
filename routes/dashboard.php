@@ -54,6 +54,16 @@ Route::group(['middleware' => 'XSS'], function () {
         Route::get('/requests-non-active', [App\Http\Controllers\Dashboard\PatientRequestsController::class, 'nonActive'])->name('dashboard.requests.non-active');
         Route::get('/request_change_status/{id}', [App\Http\Controllers\Dashboard\PatientRequestsController::class, 'changeStatus'])->name('dashboard.requests.change_status');
         Route::get('/request_show/{id}', [App\Http\Controllers\Dashboard\PatientRequestsController::class, 'show'])->name('dashboard.requests.show');
+        
+        Route::group(['prefix' => 'training-requests', 'middleware' => 'auth:admins'], function () 
+        {
+            Route::get('/'                                              , [App\Http\Controllers\Dashboard\TrainingRequestsController::class, 'index'])->name('dashboard.trainingRequests.index');
+            Route::get('/rejected'                                      , [App\Http\Controllers\Dashboard\TrainingRequestsController::class, 'rejected'])->name('dashboard.trainingRequests.non-active');
+            Route::get('/request_change_status/{request_id}/{status}'   , [App\Http\Controllers\Dashboard\TrainingRequestsController::class, 'changeStatus'])->name('dashboard.trainingRequests.change_status');
+            Route::get('/request_show/{id}'                             , [App\Http\Controllers\Dashboard\TrainingRequestsController::class, 'show'])->name('dashboard.trainingRequests.show');
         });
+
+    });
+
 
 });
