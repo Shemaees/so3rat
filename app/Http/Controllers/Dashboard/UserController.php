@@ -55,7 +55,6 @@
             $permissions    = $user->permissions;
             $allRoles       = Role::where('guard_name','web')->get();
             $allPermissions = permission::where('guard_name','web')->get();
-            //dd($allRoles , $allPermissions );
             return view('dashboard.users.permissions',compact('roles' , 'permissions','user','allRoles' ,'allPermissions'));
         }
 
@@ -177,9 +176,17 @@
 
         public function revokePermission(User $user , Permission $Permission)
         {
-            //$user->syncPermissions(['Follow Up']);
             if($user && $Permission && $user->can($Permission->name))
             {
+                $permission_roles        = $Permission->roles;
+                foreach ($permission_roles as $key => $role) 
+                {
+                    $user_other_permissions = $user->permissions->whereNotIn('id',$role->permissions->pluck('id')->toArray())->where('id' , '!=' , 3)->count();
+                    if($user->hasRole($role->name))
+                    {
+                        $user->removeRole($role->name);
+                    }
+                }
                 $user->revokePermissionTo($Permission->name);
                 return back()->with('status', 'تم سحب الصلاحية ');
             }
@@ -194,6 +201,11 @@
             {
                 if(@$user->assignRole($role))
                 {
+                    foreach ($role->permissions as $key => $permission) 
+                    {
+                        $user->syncPermissions($permission->name);
+                    }
+                    
                     return back()->with('status', 'تم منح الصلاحية ');
                 }
             }
