@@ -8,7 +8,8 @@
           rel="stylesheet"/>
     <link href="{{ asset('assets/dashboard/vendors/css/tables/datatable/select.dataTables.min.css') }}"
           rel="stylesheet"/>
-
+          <link href="{{ asset('assets/front/css/style.css') }}"
+          rel="stylesheet"/>
 @endsection
 
 @section('content')
@@ -25,7 +26,7 @@
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    {{__('dashboard/user.PatientRequests')}}
+                                    {{__('front/request.TrainingRequests')}}
                                 </li>
                             </ol>
                         </div>
@@ -61,7 +62,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{__('dashboard/user.ACPatientRequests')}}</h4>
+                                    <h4 class="card-title">{{__('front/request.TrainingRequests')}}</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -85,79 +86,69 @@
                                                 <thead>
                                                 <tr>
                                                     <th width="10">
-
+                                                        ID
                                                     </th>
                                                     <th>
-                                                        {{__('dashboard/subscription.patient_name')}}
+                                                        {{__('front/request.Trainee')}} ( {{__('front/request.Owner')}} )
                                                     </th>
                                                     <th>
-                                                        {{__('dashboard/subscription.name')}}
+                                                        {{__('front/request.Trainer')}}
                                                     </th>
                                                     <th>
-                                                        {{__('dashboard/subscription.visit_at')}}
+                                                        {{__('front/request.Cost')}}
                                                     </th>
                                                     <th>
-                                                        {{__('dashboard/subscription.status')}}
+                                                        {{__('front/request.requested_at')}}
                                                     </th>
-                                                    {{-- <th>
-                                                        {{__('user.request_date')}}
-                                                    </th> --}}
+                                                    <th>
+                                                        {{__('front/request.Status')}}
+                                                    </th>
                                                     <th>
                                                         {{__('front/global.actions')}}
                                                     </th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @forelse($userRequests as $request)
+                                                @forelse($userRequests as $r=> $request)
                                                     <tr>
+                                                        <td>{{ $request->id }}</td>
                                                         <td>
-
+                                                            {{ __(@$request->trainee->name) }}
                                                         </td>
                                                         <td>
-
-                                                                    {{__($request->patient->name)}}
-
+                                                            {{ __(@$request->trainer->name) }}
                                                         </td>
                                                         <td>
-
-                                                                    {{__($request->doctor->name)}}
-
+                                                            {{ __(@$request->cost) }} {{__('front/request.SR')}}
                                                         </td>
                                                         <td> {{$request->created_at->format('Y-m-d')}} </td>
                                                         <td>
-                                                            @if($request->status == 'Accepted' )
-                                                                <span
-                                                                    class="badge badge-default badge-success pt-1 pb-1"> {{__('dashboard/subscription.active')}}</span>
-                                                            @else
-                                                                <span
-                                                                    class="badge badge-default badge-danger pt-1 pb-1"> {{__('dashboard/subscription.non_active')}}</span>
+                                                            @if($request->status == 'Accepted' || $request->status == 'Pending' )
+                                                                <span class="badge badge-default badge-success p-1 pb-1 bg-info-light "> {{__('front/request.'.$request->status)}}</span>
+                                                                @else
+                                                                <span class="badge badge-default badge-danger  p-1 pb-1 bg-danger-light"> {{__('front/request.'.$request->status)}}</span>
                                                             @endif
                                                         </td>
-                                                        {{-- <td>{{$request->user_request_date}}</td> --}}
                                                         <td>
-                                                            <div class="btn-group mr-1 mb-1">
+                                                            <div class="btn-group mr-1 mb-1 w-100">
                                                                 <button type="button"
-                                                                        class="btn btn-primary dropdown-toggle btn-sm"
+                                                                        class="btn btn-primary dropdown-toggle btn-sm w-100"
                                                                         data-toggle="dropdown"
                                                                         aria-haspopup="true" aria-expanded="false">
                                                                     <i class="ft-settings"></i>
                                                                 </button>
                                                                 <div class="dropdown-menu">
-                                                                    <a href="{{route('dashboard.requests.show',$request->id)}}"
-                                                                       class="dropdown-item">
-                                                                        <i class="ft-eye"></i>
-                                                                        {{__('front/global.show')}}
+                                                                    <a href="{{route('dashboard.trainingRequests.change_status',[$request->id , 'Accepted'])}}"
+                                                                       class="dropdown-item" {{ ($request->status == 'Accepted') ? 'disabled' : '' }} >
+                                                                        <i class="ft-check"></i>
+                                                                        {{__('front/request.Accept')}}
                                                                     </a>
-                                                                    <a href="{{route('dashboard.requests.change_status',$request->id)}}"
-                                                                       class="dropdown-item"
+
+                                                                    <a href="{{route('dashboard.trainingRequests.change_status',[$request->id , 'Rejected'])}}"
+                                                                       class="dropdown-item" {{ ($request->status == 'Rejected') ? 'disabled' : '' }}
                                                                        onclick="return confirm('{{__('dashboard/user.request_change_status')}}');">
-                                                                        @if($request->status == 'Pending')
-                                                                            <i class="ft-lock primary"></i>
-                                                                            {{__('front/global.activate')}}
-                                                                        @else
-                                                                            <i class="ft-unlock primary"></i>
-                                                                            {{__('front/global.deactivate')}}
-                                                                        @endif
+                                                                       <i class="ft-x"></i>
+                                                                       {{__('front/request.Reject')}}
                                                                     </a>
                                                                 </div>
                                                             </div>

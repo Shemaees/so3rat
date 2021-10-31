@@ -93,6 +93,9 @@
                                                         {{__('dashboard/role.name')}}
                                                     </th>
                                                     <th>
+                                                        {{__('dashboard/role.type')}}
+                                                    </th>
+                                                    <th>
                                                         {{__('dashboard/role.role_permission')}}
                                                     </th>
                                                     <th>
@@ -110,39 +113,29 @@
                                                             {{ $role->name ?? '' }}
                                                         </td>
                                                         <td>
+                                                            {{ $role->guard_name ?? '' }}
+                                                        </td>
+                                                        <td>
                                                             @foreach($role->permissions()->pluck('name') as $permission)
                                                                 <span class="badge badge-info">{{ $permission }}</span>
                                                             @endforeach
                                                         </td>
                                                         <td>
                                                             <div class="btn-group mr-1 mb-1">
-                                                                <button type="button"
-                                                                        class="btn btn-primary dropdown-toggle btn-sm"
-                                                                        data-toggle="dropdown"
-                                                                        aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="ft-settings"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu">
-                                                                    <a href="{{route('dashboard.roles.show',$role->id)}}"
-                                                                       class="dropdown-item">
-                                                                        <i class="ft-eye"></i>
-                                                                        {{__('front/global.show')}}
-                                                                    </a>
-                                                                    <form
-                                                                        action="{{ route('dashboard.role.delete', $role->id) }}"
-                                                                        method="POST"
-                                                                        onsubmit="return confirm('{{ __('front/global.areYouSure') }}');"
-                                                                        style="display: inline-block;">
-                                                                        @csrf
-                                                                        <input type="hidden" name="_method"
-                                                                               value="DELETE">
-                                                                        <a href="#" class="dropdown-item"
-                                                                           onclick="$(this).parent().submit()">
-                                                                            <i class="ft-trash-2"></i>
-                                                                            {{__('front/global.delete')}}
-                                                                        </a>
-                                                                    </form>
-                                                                </div>
+
+                                                           
+                                                            <a href="{{route('dashboard.roles.show',$role->id)}}"
+                                                                class="btn btn-sm bg-info-light">
+                                                                <i class="ft-eye "></i>
+                                                                {{__('front/global.show')}}
+                                                            </a>
+
+                                                            <a href="{{ route('dashboard.role.delete', $role->id) }}" class="btn btn-sm bg-info-light" 
+                                                                onclick="return confirm('{{ __('dashboard/role.areYouSure') }}');">
+                                                                <i class="ft-trash-2"></i>
+                                                                {{__('dashboard/role.delete')}}
+                                                            </a>
+
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -152,7 +145,7 @@
                                                             <button type="text"
                                                                     class="btn btn-lg btn-block btn-outline-danger mb-2"
                                                                     id="type-error">
-                                                                {{__('front/global.no_data')}}
+                                                                {{__('dashboard/role.no_data')}}
                                                             </button>
                                                         </div>
                                                     </tr>
@@ -198,10 +191,10 @@
                             <label for="permissions">{{ __('dashboard/role.role_permission') }}</label>
                             <div class="pb-2">
                                 <span class="btn btn-info btn-sm" id="selectAll" onclick="selectAll()">
-                                    {{__('front/global.select_all')}}
+                                    {{__('dashboard/role.select_all')}}
                                 </span>
                                 <span class="btn btn-info btn-sm" onclick="deselectAll()">
-                                    {{__('front/global.deselect_all')}}
+                                    {{__('dashboard/role.deselect_all')}}
                                 </span>
                             </div>
                             <div class="card-content collapse show">
@@ -258,11 +251,11 @@
                         <button type="button" class="btn btn-warning mr-1"
                                 data-dismiss="modal">
                             <i class="ft-x"></i>
-                            {{__('front/global.close')}}
+                            {{__('dashboard/role.close')}}
                         </button>
                         <button type="submit" class="btn btn-primary">
                             <i class="la la-check-square-o"></i>
-                            {{__('front/global.save')}}
+                            {{__('dashboard/role.save')}}
                         </button>
                     </div>
                 </form>
@@ -363,9 +356,9 @@
 
 
         {{--        $(function () {--}}
-        {{--            let excelButtonTrans = '{{ __('front/global.datatables.excel') }}'--}}
-        {{--            let pdfButtonTrans = '{{ __('front/global.datatables.pdf') }}'--}}
-        {{--            let printButtonTrans = '{{ __('front/global.datatables.print') }}'--}}
+        {{--            let excelButtonTrans = '{{ __('dashboard/role.datatables.excel') }}'--}}
+        {{--            let pdfButtonTrans = '{{ __('dashboard/role.datatables.pdf') }}'--}}
+        {{--            let printButtonTrans = '{{ __('dashboard/role.datatables.print') }}'--}}
 
         {{--            let languages = {--}}
         {{--                'en': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/English.json',--}}
@@ -426,7 +419,7 @@
         {{--        });--}}
         {{--        $(function () {--}}
         {{--            let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)--}}
-        {{--            let addButtonTrans = '{{__('front/global.add')}}'--}}
+        {{--            let addButtonTrans = '{{__('dashboard/role.add')}}'--}}
         {{--            let addButton = {--}}
         {{--                text: addButtonTrans,--}}
 
@@ -437,7 +430,7 @@
         {{--            }--}}
         {{--            dtButtons.push(addButton)--}}
 
-        {{--            let deleteButtonTrans = '{{__('front/global.datatables.delete')}}'--}}
+        {{--            let deleteButtonTrans = '{{__('dashboard/role.datatables.delete')}}'--}}
         {{--            let deleteButton = {--}}
         {{--                text: deleteButtonTrans,--}}
         {{--                url: "{{ route('role.mass_destroy') }}",--}}
@@ -448,12 +441,12 @@
         {{--                    });--}}
 
         {{--                    if (ids.length === 0) {--}}
-        {{--                        alert('{{ __('front/global.datatables.zero_selected') }}')--}}
+        {{--                        alert('{{ __('dashboard/role.datatables.zero_selected') }}')--}}
 
         {{--                        return--}}
         {{--                    }--}}
 
-        {{--                    if (confirm(' {{__('front/global.areYouSure')}} ')) {--}}
+        {{--                    if (confirm(' {{__('dashboard/role.areYouSure')}} ')) {--}}
         {{--                        $.ajax({--}}
         {{--                            headers: {--}}
         {{--                                'x-csrf-token': $('input[name="_token"]').attr('content')--}}

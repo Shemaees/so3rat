@@ -15,7 +15,8 @@
     use Illuminate\Http\Request;
     use Illuminate\Http\Response;
     use Illuminate\Support\Facades\Validator;
-
+    use Spatie\Permission\Models\Permission;
+    use Spatie\Permission\Models\Role;
     class UserController extends Controller
     {
 
@@ -46,6 +47,15 @@
         public function blocked_patient(){
             $blockedUsers = User::where([['status','Blocked'],['user_type','patient']])->paginate(15);
             return view('dashboard.patient.blocked',compact('blockedUsers'));
+        }
+
+        public function permissions(User $user)
+        {
+            $roles          = $user->roles;
+            $permissions    = $user->permissions;
+            $allRoles       = Role::where('guard_name','web')->get();
+            $allPermissions = permission::where('guard_name','web')->get();
+            return view('dashboard.users.permissions',compact('roles' , 'permissions','user','allRoles' ,'allPermissions'));
         }
 
 
@@ -149,6 +159,71 @@
             }
         }
 
+        public function revokeRole(User $user , Role $role)
+        {
+            //$user->assignRole('Doctor');
+            if($user && $role && $user->hasRole($role->name))
+            {
+                foreach ($role->permissions as $key => $permission) 
+                {
+                    $user->revokePermissionTo($permission->name);
+                }
+                $user->removeRole($role->name);
+                return back()->with('status', 'تم سحب الصلاحية ');
+            }
+            return back()->with('error', 'حدث خطأ !');
+        }
+
+        public function revokePermission(User $user , Permission $Permission)
+        {
+            if($user && $Permission && $user->can($Permission->name))
+            {
+                $permission_roles        = $Permission->roles;
+                foreach ($permission_roles as $key => $role) 
+                {
+                    $user_other_permissions = $user->permissions->whereNotIn('id',$role->permissions->pluck('id')->toArray())->where('id' , '!=' , 3)->count();
+                    if($user->hasRole($role->name))
+                    {
+                        $user->removeRole($role->name);
+                    }
+                }
+                $user->revokePermissionTo($Permission->name);
+                return back()->with('status', 'تم سحب الصلاحية ');
+            }
+            return back()->with('error', 'حدث خطأ !');
+        }
+
+        public function assignRole(Request $request)
+        {
+            $user = User::find($request->user_id);
+            $role = Role::find($request->role_id);
+            if($user && $role &&  $role->guard_name == 'web')
+            {
+                if(@$user->assignRole($role))
+                {
+                    foreach ($role->permissions as $key => $permission) 
+                    {
+                        $user->syncPermissions($permission->name);
+                    }
+                    
+                    return back()->with('status', 'تم منح الصلاحية ');
+                }
+            }
+            return back()->with('error', 'حدث خطأ !');
+        }
+
+        public function assignPermission(Request $request)
+        {
+            $user = User::find($request->user_id);
+            $Permission = Permission::find($request->role_id);
+            //$user->syncPermissions(['Follow Up']);
+            if($user && $Permission && $Permission->guard_name == 'web')
+            {
+                $user->syncPermissions($Permission->name);
+                return back()->with('status', 'تم منح الصلاحية ');
+            }
+            return back()->with('error', 'حدث خطأ !');
+        }
 
 
     }

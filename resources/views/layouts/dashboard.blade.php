@@ -83,6 +83,18 @@
             text-align: center;
             font-size: 15pt;
         }
+        .navbar-semi-light .navbar-header2 , .header-navbar .navbar-wrapper{
+            background: #249680 !important;
+        }
+        .navbar-semi-light .navbar-header {
+            background: #24967c;
+            color: white !important;
+        }
+        .navbar-semi-light .navbar-header ul li a h3 {
+            background: #24967c;
+            color: white !important;
+            font-weight: bold !important;
+        }
     </style>
 </head>
 <body

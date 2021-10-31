@@ -3,7 +3,7 @@ return
     [
         'home'                             => 'الرئيسية',
         'title'                             => 'الصلاحيات',
-        'role_title'                        => 'التخصصات',
+        'role_title'                        => 'الأقسام',
         'active'                            => 'نشط',
         'status'                            => 'الحاله',
         'show'                              => 'اظهار',
@@ -18,6 +18,7 @@ return
         'add'                             => 'إضافة جديد',
         'add_new'                             => 'إضافة صلاحية جديدة',
         'Do you want to delete this Permission !'                             => 'هل تريد حذف الصلاحية !',
-
+        'editPermission'                             => 'تعديل الصلاحية',
+        
 
     ];

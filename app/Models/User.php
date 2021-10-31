@@ -89,8 +89,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(doctor_communication::class,'doctor_id');
     }
-    public function interests()
+    public function patientRequests()
     {
-        return $this->hasMany(interest::class,'user_id');
+        return $this->hasMany(DoctorPatientRequest::class,'doctor_id');
+    }
+    public function trainingRequests()
+    {
+        return $this->hasMany(trainingRequest::class,'trainer_id');
+    }
+    public function traineeRequests()
+    {
+        return $this->hasMany(trainingRequest::class,'trainee_id');
     }
 }

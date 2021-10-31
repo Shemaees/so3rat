@@ -68,11 +68,15 @@ class HomeController extends Controller
         //$user->removeRole('Patient');
         //$user->removeRole('Doctor');
 
+        //$role       = Role::where('name' , 'Doctor')->first();
+        //$permission = Permission::create(['name' => 'Follow Up2']);
+        //$role->givePermissionTo($permission);
+
         $user->assignRole('Doctor');
+        dd($user->can('Follow Up2'));
         $user->syncPermissions(['Follow Up']);
 
         //$user->revokePermissionTo('edit articles');
-        //dd($user->hasRole('Doctor'));
         //dd($user->can('Follow Up'));
         //dd($user->hasRole('Patient'));
 
