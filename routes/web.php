@@ -12,31 +12,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'XSS'], function () 
+Route::group(['middleware' => 'XSS']                    , function ()
 {
     Auth::routes();
 
-    Route::get('/'                  , [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::group(['middleware' => 'auth:web']   , function () 
+    Route::get('/'                                      , [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::group(['middleware' => 'auth:web']           , function ()
     {
+        Route::get('doctor-patient-profile/{id}'        , [App\Http\Controllers\Patient\HomeController::class, 'doctor_patient_profile'] )->name('doctor-patient-profile');
+        Route::get('booking/{id}'                       , [App\Http\Controllers\Patient\HomeController::class, 'booking'])->name('booking');
+        Route::get('savebooking/{id}'                   , [App\Http\Controllers\Patient\HomeController::class, 'savebooking'])->name('savebooking');
+        Route::view('booking-success'                   ,    'front.booking.booking-success')->name('booking-success');
+        Route::get('patient_dashboard'                  ,     [App\Http\Controllers\Patient\HomeController::class,'patient_dashboard'])->name('patient_dashboard');
 
-        Route::group(['prefix' => 'patients']   , function () 
+        Route::group(['prefix' => 'patients']           , function ()
         {
             Route::get('{patient}/profile/complete'     , [App\Http\Controllers\Patient\HomeController::class, 'patientProfileComplete'])->name('complete_patient_profile');
             Route::post('{patient}/profile/complete'    , [App\Http\Controllers\Patient\HomeController::class, 'patientProfileCompleteStore'])->name('complete_patient_profile');
-
         });
 
-        Route::group(['prefix' => 'doctors']     , function () 
+        Route::group(['prefix' => 'doctors']            , function ()
         {
             Route::get('{doctor}/profile/complete'      , [App\Http\Controllers\Doctor\HomeController::class, 'doctorProfileComplete'])->name('complete_doctor_profile');
             Route::post('{doctor}/profile/complete'     , [App\Http\Controllers\Doctor\HomeController::class, 'doctorProfileCompleteStore'])->name('complete_doctor_profile');
         });
-        //    Route::post('logout', [App\Http\Controllers\Dashboard\LoginController::class, 'logout'])->name('dashboard.logout');
-        //    Route::get('/', [App\Http\Controllers\Dashboard\DashboardController::class, 'index'])->name('dashboard.home');
     });
-    
-    Route::group(['prefix' => 'doctor' , 'middleware' => ['auth:web' , 'UserRoles:Doctor' ]], function () 
+
+    Route::group(['prefix' => 'doctor'          , 'middleware' => ['auth:web' , 'UserRoles:Doctor' ]], function ()
     {
         Route::get('/dashboard'                 , 'HomeController@index')->name('doctor-dashboard');
 
@@ -52,40 +54,43 @@ Route::group(['middleware' => 'XSS'], function ()
         Route::get('doctor-profile-settings'   , 'Doctor\ProfileController@doctorProfileSettings')->name('doctor-profile-settings');
         Route::post('doctor-profile-update'   , 'Doctor\ProfileController@doctorProfileUpdate')->name('doctor-profile-update');
         //Route::view('doctor-dashboard'        , 'front.doctor.doctor-dashboard')->name('doctor-dashboard');
-        Route::view('appointments'              , 'front.doctor.appointments')->name('appointments');
+        Route::get('appointments'              , 'Doctor\AppointmentsController@show')->name('appointments');
         Route::view('schedule-timings'          , 'front.doctor.schedule-timings')->name('schedule-timing');
-        Route::view('my-patients'               , 'front.doctor.my-patients')->name('my-patients');
+        Route::get('my-patients'               , 'doctor\HomeController@my_patients')->name('my-patients');
         Route::view('chat-doctor'               , 'front.doctor.chat-doctor')->name('chat-doctor');
         Route::view('invoices'                  , 'front.invoices.invoices')->name('invoices');
         Route::view('invoices-view'             , 'front.invoices.invoice-view')->name('invoice-view');
         Route::view('reviews'                   , 'front.doctor.reviews')->name('reviews');
-        Route::view('booking'                   , 'front.booking.booking')->name('booking');
-        Route::view('booking-success'           , 'front.booking.booking-success')->name('booking-success');
-        
-        
         Route::view('change-password'           , 'front.auth.change-password')->name('change-password');
-        //Route::view('login'                   , 'front.auth.login')->name('login');
-        //Route::view('register'                , 'front.auth.register')->name('register');
-        Route::view('forget-password'                           , 'front.auth.forget-password')->name('forget-password');
-        
+        Route::view('forget-password'           , 'front.auth.forget-password')->name('forget-password');
         Route::view('chat'                      , 'front.patient.chat')->name('chat');
         Route::view('checkout'                  , 'front.patient.checkout')->name('checkout');
-        Route::view('doctor-profile'            , 'front.patient.doctor-profile')->name('doctor-profile');
         Route::view('favourites'                , 'front.patient.favourites')->name('favourites');
         Route::view('map-grid'                  , 'front.map.map-grid')->name('map-grid');
         Route::view('map-list'                  , 'front.map.map-list')->name('map-list');
-        Route::view('patient-dashboard'         , 'front.patient.patient-dashboard')->name('patient-dashboard');
+        Route::get('patient-dashboard'          , 'doctor\HomeController@patient_dashboard')->name('patient-dashboard');
         Route::view('patient-profile'           , 'front.patient.patient-profile')->name('patient-profile');
+
+        Route::group(['prefix'                  => 'training-requests'], function ()
+        {
+            Route::get('/'                                              , 'doctor\TrainingRequestsController@index')        ->name('doctor.trainingRequests.index');
+            Route::get('/rejected'                                      , 'doctor\TrainingRequestsController@rejected')     ->name('doctor.trainingRequests.non-active');
+            Route::get('/request_change_status/{request_id}/{status}'   , 'doctor\TrainingRequestsController@changeStatus') ->name('doctor.trainingRequests.change_status');
+            Route::get('/request_show/{id}'                             , 'doctor\TrainingRequestsController@show')         ->name('doctor.trainingRequests.show');
+        });
+
     });
+
     Route::view('doctor/doctor-register'           , 'front.doctor.doctor-register')->name('doctor-register');
 
     Route::get('/role'                           , 'doctor\HomeController@role');
     Route::get('/getRole'                        , 'doctor\HomeController@getRole');
-   
+
 
     //Route::view('/'                           , 'front.index-3')->name('home');
     //Route::view('home'                        , 'front.index-3')->name('home');
-    Route::view('search'                        , 'front.patient.search')->name('search');
+    // Route::view('search'                        , 'front.patient.search')->name('search');
+    Route::get('search'                        , 'HomeController@search')->name('search');
     Route::view('profile-settings'              , 'front.patient.profile-settings')->name('profile-settings');
     Route::view('cart'                          , 'front.pharmacy.cart')->name('cart');
     Route::view('payment-success'               , 'front.pharmacy.payment-success')->name('payment-success');

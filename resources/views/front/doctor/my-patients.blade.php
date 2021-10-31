@@ -45,19 +45,23 @@
 
                         <div class="row row-grid">
                             <div class="col-md-6 col-lg-4 col-xl-3">
+                                @foreach ($requests as $item)
+
+
                                 <div class="card widget-profile pat-widget-profile">
                                     <div class="card-body">
+
                                         <div class="pro-widget-content">
                                             <div class="profile-info-widget">
                                                 <a href="{{route('patient-profile')}}" class="booking-doc-img ">
-                                                    <img src="{{asset('assets/front/img/patients/patient.jpg')}}" alt="User Image">
+                                                    <img src="{{asset($item->patient->photo)}}" alt="User Image">
                                                 </a>
                                                 <div class="profile-det-info">
-                                                    <h3><a href="{{route('patient-profile')}}" style="color: #007bff">Richard Wilson</a></h3>
+                                                    <h3><a href="{{route('patient-profile')}}" style="color: #007bff">{{$item->patient->name}}</a></h3>
 
                                                     <div class="patient-details">
-                                                        <h5><b>الرقم:</b> 0016</h5>
-                                                        <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> العاشر , مصر</h5>
+                                                        <h5><b>الرقم:</b> {{$item->patient->id}}</h5>
+                                                        {{-- <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> العاشر , {{$item->patient->patientProfile->}}</h5> --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,18 +71,25 @@
                                                 <div>
                                                     <li class="float-right">
                                                         <span> {{__('front/patient.phone')}} : </span>
-                                                        <span>+1 952 001 8563</span>
+                                                        <span>{{$item->patient->phone}}</span>
                                                     </li>
                                                 </div>
                                                 <div>
                                                     <li class="float-right">
                                                         <span>{{__('front/patient.age')}} :</span>
-                                                        <span>38 Years, Male</span>
+                                                        <span>{{date_diff(new \DateTime($item->patient->birthdate), new \DateTime())->format("%y Years")}},</span>
+
                                                     </li>
                                                 </div>
                                                 <div>
                                                     <li class="float-right">
                                                         <span>{{__('front/patient.gender')}} :</span>
+                                                        <span>{{$item->patient->gender}}</span>
+                                                    </li>
+                                                </div>
+                                                <div>
+                                                    <li class="float-right">
+                                                        <span>{{__('front/patient.Blood_type')}} :</span>
                                                         <span>AB+</span>
                                                     </li>
                                                 </div>
@@ -86,6 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
 

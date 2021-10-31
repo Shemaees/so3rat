@@ -23,65 +23,54 @@
             @php
                 $user = Auth::user();
             @endphp
-            <ul class="main-nav">
+            <ul class="main-nav text-right">
                 <li class="has-submenu active">
                     <a href="{{route('home')}}">{{__('front/global.home')}}</a>
-                    {{--                    <ul class="submenu">--}}
-                    {{--                        <li class="active"><a href="{{route('index')}}">الرئيسيه</a></li>--}}
-                    {{--                        <li><a href="{{route('index')}}">Home 1</a></li>--}}
-                    {{--                        <li><a href="{{route('index-2')}}">Home 2</a></li>--}}
-                    {{--                        <li><a href="{{route('index-3')}}">Home slider 1</a></li>--}}
-                    {{--                        <li><a href="{{route('index-slide')}}">Home slider 2</a></li>--}}
-                    {{--                    </ul>--}}
                 </li>
-                <li class="has-submenu"> <a href="#"> لقاءات</a>
+                <li class="has-submenu"> <a href="#"> {{ __('front/global.Encounters') }}</a>
                     <ul class="submenu">
-                        @if($user && $user->hasRole('Doctor'))
-                        <li><a href="{{route('doctor-dashboard')}}">Doctor Dashboard</a></li>
-                        <li><a href="{{route('doctor-profile-settings')}}">Profile Settings</a></li>
-                        @if (@$user->profile && in_array( @$user->profile->doctor_type , ['Trainer', 'Follow up of patients']))
-                        <li><a href="{{route('appointments')}}">Appointments</a></li>
-                        <li><a href="{{route('patient-profile')}}">Patients Profile</a></li>
+                        @if($user && $user->user_type == 'Doctor')
+                        <li><a href="{{route('doctor-profile-settings')}}">{{__('front/global.DoctorDashboard')}}</a></li>
+                        <li><a href="{{route('doctor-profile-settings')}}">{{__('front/global.ProfileSettings')}}</a></li>
+                        @if (@$user->profile && $user->profile->doctor_type != 'Trainee')
+                        <li><a href="{{route('appointments')}}">{{__('front/global.Appointments')}}</a></li>
+                        <li><a href="{{route('patient-profile')}}">{{__('front/global.PatientsProfile')}}</a></li>
                         @endif
-                        <li><a href="{{route('schedule-timing')}}s">Schedule Timing</a></li>
-                        <li><a href="{{route('my-patients')}}">Patients List</a></li>
-                        <li><a href="{{route('invoices')}}">Invoices</a></li>
-                        <li><a href="{{route('reviews')}}">Reviews</a></li>
+                        <li><a href="{{route('schedule-timing')}}s">{{__('front/global.ScheduleTiming')}}</a></li>
+                        <li><a href="{{route('my-patients')}}">{{__('front/global.PatientsList')}}</a></li>
+                        <li><a href="{{route('invoices')}}">{{__('front/global.Invoices')}}</a></li>
+                        <li><a href="{{route('reviews')}}">{{__('front/global.Reviews')}}</a></li>
                         @else
-                        <li><a href="{{route('doctor-register')}}">Doctor Register</a></li>
+                        <li><a href="{{route('doctor-register')}}">{{__('front/global.DoctorRegister')}}</a></li>
                         @endif
-                        <li><a href="{{route('chat-doctor')}}">Chat</a></li>
+                        <li><a href="{{route('chat-doctor')}}">{{__('front/global.Chat')}}</a></li>
                     </ul>
                 </li>
 
-                <li class="has-submenu mr-4"> <a href="#">من نحن</a>
+                <li class="has-submenu mr-4"> <a href="#">{{ __('front/global.whoAreWe') }}</a>
                     <ul class="submenu">
-                        <li class="has-submenu"> <a href="#">Doctors</a>
+                        <li class="has-submenu"> <a href="#" class="mr-3 ml-3">{{__('front/global.Doctors')}}</a>
                             <ul class="submenu">
-                                <li><a href="{{route('map-grid')}}">Map Grid</a>
+                                <li><a href="{{route('map-grid')}}">{{__('front/global.MapGrid')}}</a>
                                 </li>
-                                <li><a href="{{route('map-list')}}">Map List</a>
+                                <li><a href="{{route('map-list')}}">{{__('front/global.MapList')}}</a>
                                 </li>
                             </ul>
 
-                        <li><a href="{{route('search')}}">Search Doctor</a></li>
-                        <li><a href="{{route('doctor-profile')}}">Doctor Profile</a></li>
+                        <li><a href="{{route('search')}}">{{__('front/global.SearchDoctor')}}</a></li>
+                        <li><a href="{{route('doctor-profile')}}">{{__('front/global.DoctorProfile')}}</a></li>
                         @if($user)
-                        <li><a href="{{route('booking')}}">Booking</a></li>
-                        <li><a href="{{route('checkout')}}">Checkout</a></li>
-                        <li><a href="{{route('booking-success')}}">Booking Success</a></li>
-                        @if( $user->hasRole('Doctor') && @$user->profile && in_array( @$user->profile->doctor_type , ['Trainer', 'Follow up of patients']) )
-                        <li><a href="{{route('patient-dashboard')}}">Patient Dashboard</a></li>
-                        @endif
+                        <li><a href="{{route('checkout')}}">{{__('front/global.Checkout')}}</a></li>
+                        <li><a href="{{route('booking-success')}}">{{__('front/global.BookingSuccess')}}</a></li>
                         
-                        @if( $user->hasRole('Patient'))
-                        <li><a href="{{route('favourites')}}">Favourites</a></li>
+                        @if( $user->user_type=='Patient')
+                        <li><a href="{{route('patient-dashboard')}}">{{__('front/global.PatientDashboard')}}</a></li>
+                        <li><a href="{{route('favourites')}}">{{__('front/global.Favourites')}}</a></li>
+                        <li><a href="{{route('profile-settings')}}">{{__('front/global.ProfileSettings')}}</a></li>
                         @endif
-                        
-                        <li><a href="{{route('profile-settings')}}">Profile Settings</a></li>
-                        <li><a href="{{route('change-password')}}">Change Password</a></li>
+
+                        <li><a href="{{route('change-password')}}">{{__('front/global.ChangePassword')}}</a></li>
                         @endif
-                        <li><a href="{{route('chat')}}">Chat</a></li>
                     </ul>
                 </li>
             </ul>

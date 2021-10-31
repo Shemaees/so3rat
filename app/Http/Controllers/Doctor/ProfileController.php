@@ -27,7 +27,7 @@ class ProfileController extends Controller
 
     public function doctorProfileUpdate(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         $user  = Auth::user();
         if(!$user || !$user->hasRole('Doctor'))
         {
@@ -35,10 +35,10 @@ class ProfileController extends Controller
         }
 
 
-        $image_name = '';
-        $classification_certificate = '';
-        $bank_statements_certificate = '';
-        $university_qualification = '';
+        $image_name                     = '';
+        $classification_certificate     = '';
+        $bank_statements_certificate    = '';
+        $university_qualification       = '';
 
         $profile = $user->profile;
         if(!$profile)
@@ -46,7 +46,7 @@ class ProfileController extends Controller
             $profile = new DoctorProfile();
         }
 
-        
+
         if($request->photo)
         {
             $image_name     =   'images/users/'.time().'_userP.'.$request->photo->getClientOriginalExtension();
@@ -70,37 +70,37 @@ class ProfileController extends Controller
             $profile->university_qualification    =   FileImage($request->file('photo'), $university_qualification);
         }
 
-        $user->phone = $request->phone;
-        $user->gender = $request->gender;
-        $user->birthdate = $request->birthdate;
+        $user->phone    = $request->phone;
+        $user->gender   = $request->gender;
+        $user->birthdate= $request->birthdate;
         $user->save();
         //dD($request->follow_up_fee);
-       
-        $profile->user_id                 =   $user->id;
+
+        $profile->user_id                     =   $user->id;
         $profile->doctor_type                 =   $request->doctor_type;
         $profile->country                     =   $request->country;
         $profile->city                        =   $request->city;
         $profile->qualification               =   $request->qualification;
         $profile->about                       =   $request->about;
         $profile->medical_license_number      =   $request->medical_license_number;
-        $profile->communication_way           =   ($request->doctor_type == 'Doctor') ? $request->communication_way : null;
-        $profile->accept_promotions           =   ($request->doctor_type == 'Doctor') ? $request->accept_promotions : null;
+        $profile->communication_way           =   ($request->doctor_type == 'Follow up of patients') ? $request->communication_way : null;
+        $profile->accept_promotions           =   ($request->doctor_type == 'Follow up of patients') ? $request->accept_promotions : null;
         $profile->follow_up_fee               =   ($request->follow_up_fee) ? $request->follow_up_fee : null;
-        $profile->training_fee                =   $request->training_fee;
+        $profile->training_fee                =   ($request->training_fee) ?  $request->training_fee: null;
         $profile->training_program            =   $request->training_program;
         $profile->classification_certificate  =   $request->classification_certificate;
         $profile->bank_statements_certificate =   $request->bank_statements_certificate;
         $profile->university_qualification    =   $request->university_qualification;
         $profile->experience_certificate      =   $request->experience_certificate;
         $profile->specialty_certificate       =   $request->specialty_certificate;
-        
+
         $profile->save();
 
         @$user->channels()->delete();
         @$user->communications()->delete();
 
         //doctor_channels
-        if($request->doctor_type == 'Doctor' && $request->channel_type && is_array($request->channel_type))
+        if($request->doctor_type == 'Follow up of patients' && $request->channel_type && is_array($request->channel_type))
         {
             for($i=0 ; $i < count($request->channel_type) ; $i++)
             {
@@ -118,7 +118,7 @@ class ProfileController extends Controller
         }
 
         //doctor_communication
-        if($request->doctor_type == 'Doctor' && $request->day && is_array($request->day))
+        if($request->doctor_type == 'Follow up of patients' && $request->day && is_array($request->day))
         {
             for($i=0 ; $i < count($request->day) ; $i++)
             {
@@ -137,10 +137,10 @@ class ProfileController extends Controller
         }
 
         //doctor intrests
-        if($request->doctor_type != 'Trainee' && $request->intrests && is_array($request->intrests))
+        if($request->doctor_type != 'Trainee' && $request->interests && is_array($request->interests))
         {
             $interests =[];
-            foreach ($request->intrests as $key => $value) 
+            foreach ($request->interests as $key => $value)
             {
                 $interests[] = new interest([
                     'name'  => $value
@@ -150,10 +150,10 @@ class ProfileController extends Controller
             {
                 $user->interests()->saveMany($interests);
             }
-            
+
         }
 
-        
+
         return back()->with(['success'=>__('global.success_save')]);
 
     }

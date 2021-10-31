@@ -43,6 +43,8 @@ class HomeController extends Controller
                         ->orWhere('intrests', 'like', $request->intrests.'%');
                 });
             });
-        return view('front.search', compact('doctors'));
+            $doctors=$doctors->with('doctorProfile','channels','communications','interests')->get();
+            // dd($doctors);
+        return view('front.patient.search', compact('doctors'));
     }
 }

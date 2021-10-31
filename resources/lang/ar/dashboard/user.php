@@ -22,6 +22,8 @@ return
         'Permissions'                       => 'الصلاحيات',
         'revokeCheck'                       => 'هل تريد سحب الصلاحية !!',
         'revoke'                            => 'سحب الصلاحية',
-
+        'request_change_status'                            => 'هل تريد رفض الطلب',
+        
+        ''                            => '',
 
     ];

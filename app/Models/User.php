@@ -73,18 +73,17 @@ class User extends Authenticatable
 
     public function scopeDoctor($query)
     {
-        return $query->where('type', 'Doctor');
+        return $query->where('user_type', 'Doctor');
     }
 
     public function scopePatient($query)
     {
-        return $query->where('type', 'Patient');
+        return $query->where('user_type', 'Patient');
     }
     public function channels()
     {
         return $this->hasMany(communication_channel::class,'user_id');
     }
-
     public function communications()
     {
         return $this->hasMany(doctor_communication::class,'doctor_id');
@@ -100,5 +99,9 @@ class User extends Authenticatable
     public function traineeRequests()
     {
         return $this->hasMany(trainingRequest::class,'trainee_id');
+    }
+    public function interests()
+    {
+        return $this->hasMany(interest::class,'user_id');
     }
 }

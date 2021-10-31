@@ -64,68 +64,68 @@
                                         <li>
                                             <a href="{{route('doctor-dashboard')}}">
                                                 <i class="fas fa-columns"></i>
-                                                <span>Dashboard</span>
+                                                <span>{{ __('front/global.Dashboard')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="appointments.html">
                                                 <i class="fas fa-calendar-check"></i>
-                                                <span>Appointments</span>
+                                                <span>{{ __('front/global.Appointments')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="my-patients.html">
                                                 <i class="fas fa-user-injured"></i>
-                                                <span>My Patients</span>
+                                                <span>{{ __('front/global.MyPatients')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="schedule-timings.html">
                                                 <i class="fas fa-hourglass-start"></i>
-                                                <span>Schedule Timings</span>
+                                                <span>{{ __('front/global.ScheduleTimings')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="invoices.html">
                                                 <i class="fas fa-file-invoice"></i>
-                                                <span>Invoices</span>
+                                                <span>{{ __('front/global.Invoices')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="reviews.html">
                                                 <i class="fas fa-star"></i>
-                                                <span>Reviews</span>
+                                                <span>{{ __('front/global.Reviews')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="chat-doctor.html">
                                                 <i class="fas fa-comments"></i>
-                                                <span>Message</span>
+                                                <span>{{ __('front/global.Messages')}}</span>
                                                 <small class="unread-msg">23</small>
                                             </a>
                                         </li>
                                         <li class="active">
                                             <a href="{{route('doctor-profile-settings')}}">
                                                 <i class="fas fa-user-cog"></i>
-                                                <span>Profile Settings</span>
+                                                <span>{{ __('front/global.ProfileSettings')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="social-media.html">
                                                 <i class="fas fa-share-alt"></i>
-                                                <span>Social Media</span>
+                                                <span>{{ __('front/global.SocialMedia')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="doctor-change-password.html">
                                                 <i class="fas fa-lock"></i>
-                                                <span>Change Password</span>
+                                                <span>{{ __('front/global.ChangePassword')}}</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="home.html">
                                                 <i class="fas fa-sign-out-alt"></i>
-                                                <span>Logout</span>
+                                                <span>{{ __('front/global.Logout')}}</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -147,12 +147,12 @@
                                             <div class="form-group">
                                                 <div class="change-avatar">
                                                     <div class="profile-img">
-                                                        <img src="{{ (@$user->photo) ? url(@$user->photo) : asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image">
+                                                        <img src="{{ (@$user->photo) ? url(@$user->photo) : asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image" id="profileImg_1" onclick="uploade(1)" >
                                                     </div>
                                                     <div class="upload-img mr-5">
                                                         <div class="change-photo-btn">
                                                             <span><i class="fa fa-upload"></i> Upload Photo</span>
-                                                            <input type="file" class="upload" name="photo">
+                                                            <input type="file" class="upload" name="photo" id="file_1" onchange="imageUploaded(this , 1)" >
                                                         </div>
                                                         <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
                                                     </div>
@@ -243,21 +243,21 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Degree <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" required value="{{ @$user->profile->qualification }}" name="qualification" id="qualification" placeholder="Qualification">
+                                                    <input type="text" class="form-control"  value="{{ @$user->profile->qualification }}" name="qualification" id="qualification" placeholder="Qualification">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Specialization <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" required value="{{ @$user->profile->specialty_certificate }}" name="specialty_certificate" id="specialty_certificate" placeholder="specialty_certificate">
+                                                    <input type="text" class="form-control" value="{{ @$user->profile->specialty_certificate }}" name="specialty_certificate" id="specialty_certificate" placeholder="specialty_certificate">
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Scientific facility <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" required value="{{ @$user->profile->university }}" name="university" id="university" placeholder="university"  >
+                                                    <input type="text" class="form-control"  value="{{ @$user->profile->university }}" name="university" id="university" placeholder="university"  >
                                                 </div>
                                             </div>
                                         </div>
@@ -278,10 +278,10 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="follow_up_fee">Monthly Service Fee</label>
-                                                    <input type="number" class="form-control" placeholder="Monthly Service Fee" step="0.01" name="follow_up_fee" id="follow_up_fee" required >
+                                                    <input type="number" class="form-control" placeholder="Monthly Service Fee" step="0.01" name="follow_up_fee" id="follow_up_fee" value="{{ @$user->profile->follow_up_fee }}"  {{ ( $doctor_type == 'Follow up of patients') ? 'required' : '' }}  >
                                                 </div>
                                             </div>
-
+                                            
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="accept_promotions"><h3>Do you accept a discount code</h3></label>
@@ -290,12 +290,14 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6" id="training_fee-div"  style="{{($doctor_type != 'Trainer') ? 'display:none;' : '' }} ">
+                                        <div class="col-md-6" id="training_fee-div"  style="{{($doctor_type == 'Trainee') ? 'display:none;' : '' }} ">
                                             <div class="form-group">
                                                 <label for="training_fee">Training Fee</label>
-                                                <input type="number" class="form-control" placeholder="Training Fee" step="0.01" name="training_fee" id="training_fee" required >
+                                                <input type="number" class="form-control" placeholder="Training Fee" step="0.01" name="training_fee" id="training_fee" value="{{ @$user->profile->training_fee }}"  {{ ( $doctor_type != 'Trainee') ? 'required' : '' }} >
                                             </div>
                                         </div>
+
+                                        
                                         
                                     </div>
                                 </div>
@@ -309,50 +311,52 @@
                                             <!-- About Me -->
                                             <div class="form-group mb-0">
                                                 <label>About Me</label>
-                                                <textarea class="form-control" rows="5" name="about" id="about" ></textarea>
+                                                <textarea class="form-control" rows="5" name="about" id="about" >{{ @$user->profile->about }}</textarea>
                                             </div>
                                             <!-- /About Me -->
                                         </div>
                                         
-                                        
+                                        @php
+                                        $interrests = $user->interests->pluck('name')->toArray();
+                                        @endphp
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Interests</label>
                                                 <select class="form-control select2" name="interests[]" id="interests" multiple>
-                                                    <option disabled selected>Select</option>
+                                                    <option disabled>Select</option>
                                                     
-                                                    <option value="التغذية الانبوبية "> التغذية الانبوبية  </option>
-                                                    <option value="التغذية الوريدية"> التغذية الوريدية </option>
-                                                    <option value="عملية التقييم الغذائي"> عملية التقييم الغذائي </option>
-                                                    <option value="الامراض الاستقلابية"> الامراض الاستقلابية </option>
-                                                    <option value="سمنة أطفال "> سمنة أطفال  </option>
-                                                    <option value="نحافة أطفال "> نحافة أطفال  </option>
-                                                    <option value="سكري أطفال "> سكري أطفال  </option>
-                                                    <option value="سمنة بالغين "> سمنة بالغين  </option>
-                                                    <option value="نحافة بالغين"> نحافة بالغين </option>
-                                                    <option value="سكري بالغين"> سكري بالغين </option>
-                                                    <option value="تغذية الرياضين "> تغذية الرياضين  </option>
-                                                    <option value="تغذية الحوامل"> تغذية الحوامل </option>
-                                                    <option value="تغذية المكممين"> تغذية المكممين </option>
-                                                    <option value="تغذية الأورام "> تغذية الأورام  </option>
-                                                    <option value="الكلى "> الكلى  </option>
-                                                    <option value="امراض الدم "> امراض الدم  </option>
-                                                    <option value="تغذية المسنين"> تغذية المسنين </option>
-                                                    <option value="الانيميا "> الانيميا  </option>
-                                                    <option value="امراض القلب"> امراض القلب </option>
-                                                    <option value="التغذية في زراعة الأعضاء"> التغذية في زراعة الأعضاء </option>
-                                                    <option value="التغذية في الامراض الصدرية"> التغذية في الامراض الصدرية </option>
-                                                    <option value="امراض الجهاز الهضمي مثل (القلون العصبي)"> امراض الجهاز الهضمي مثل (القلون العصبي) </option>
-                                                    <option value="التغذية في الحالات النفسية مثل الاكتئاب ,,,"> التغذية في الحالات النفسية مثل الاكتئاب ,,, </option>
-                                                    <option value="التغذية في حالات الحوامل "> التغذية في حالات الحوامل  </option>
-                                                    <option value="التغذية في الرضع والأطفال "> التغذية في الرضع والأطفال  </option>
-                                                    <option value="عدم تحمل اللاكتوز "> عدم تحمل اللاكتوز  </option>
-                                                    <option value="حالات السيلياك "> حالات السيلياك  </option>
-                                                    <option value="برنامج الحمية الكيتونية"> برنامج الحمية الكيتونية </option>
-                                                    <option value="تغذية الحالات الحرجة"> تغذية الحالات الحرجة </option>
-                                                    <option value="تغذية الحالات الحرجة للأطفال"> تغذية الحالات الحرجة للأطفال </option>
-                                                    <option value="تغذية الحالات الحرجة للخدج"> تغذية الحالات الحرجة للخدج </option>
-                                                    <option value="التغذية في حالات الحروق"> التغذية في حالات الحروق </option>
+                                                    <option {{ (in_array('التغذية الانبوبية' , $interrests) ? 'selected' : '' ) }} value="التغذية الانبوبية "> التغذية الانبوبية  </option>
+                                                    <option {{ (in_array('التغذية الوريدية' , $interrests) ? 'selected' : '' ) }} value="التغذية الوريدية"> التغذية الوريدية </option>
+                                                    <option {{ (in_array('عملية التقييم الغذائي' , $interrests) ? 'selected' : '' ) }} value="عملية التقييم الغذائي"> عملية التقييم الغذائي </option>
+                                                    <option {{ (in_array('الامراض الاستقلابية' , $interrests) ? 'selected' : '' ) }} value="الامراض الاستقلابية"> الامراض الاستقلابية </option>
+                                                    <option {{ (in_array('سمنة أطفال ' , $interrests) ? 'selected' : '' ) }} value="سمنة أطفال "> سمنة أطفال  </option>
+                                                    <option {{ (in_array('نحافة أطفال ' , $interrests) ? 'selected' : '' ) }} value="نحافة أطفال "> نحافة أطفال  </option>
+                                                    <option {{ (in_array('سكري أطفال ' , $interrests) ? 'selected' : '' ) }} value="سكري أطفال "> سكري أطفال  </option>
+                                                    <option {{ (in_array('سمنة بالغين ' , $interrests) ? 'selected' : '' ) }} value="سمنة بالغين "> سمنة بالغين  </option>
+                                                    <option {{ (in_array('نحافة بالغين' , $interrests) ? 'selected' : '' ) }} value="نحافة بالغين"> نحافة بالغين </option>
+                                                    <option {{ (in_array('سكري بالغين' , $interrests) ? 'selected' : '' ) }} value="سكري بالغين"> سكري بالغين </option>
+                                                    <option {{ (in_array('تغذية الرياضين ' , $interrests) ? 'selected' : '' ) }} value="تغذية الرياضين "> تغذية الرياضين  </option>
+                                                    <option {{ (in_array('تغذية الحوامل' , $interrests) ? 'selected' : '' ) }} value="تغذية الحوامل"> تغذية الحوامل </option>
+                                                    <option {{ (in_array('تغذية المكممين' , $interrests) ? 'selected' : '' ) }} value="تغذية المكممين"> تغذية المكممين </option>
+                                                    <option {{ (in_array('تغذية الأورام ' , $interrests) ? 'selected' : '' ) }} value="تغذية الأورام "> تغذية الأورام  </option>
+                                                    <option {{ (in_array('الكلى ' , $interrests) ? 'selected' : '' ) }} value="الكلى "> الكلى  </option>
+                                                    <option {{ (in_array('امراض الدم ' , $interrests) ? 'selected' : '' ) }} value="امراض الدم "> امراض الدم  </option>
+                                                    <option {{ (in_array('تغذية المسنين' , $interrests) ? 'selected' : '' ) }} value="تغذية المسنين"> تغذية المسنين </option>
+                                                    <option {{ (in_array('الانيميا ' , $interrests) ? 'selected' : '' ) }} value="الانيميا "> الانيميا  </option>
+                                                    <option {{ (in_array('امراض القلب' , $interrests) ? 'selected' : '' ) }} value="امراض القلب"> امراض القلب </option>
+                                                    <option {{ (in_array('التغذية في زراعة الأعضاء' , $interrests) ? 'selected' : '' ) }} value="التغذية في زراعة الأعضاء"> التغذية في زراعة الأعضاء </option>
+                                                    <option {{ (in_array('التغذية في الامراض الصدرية' , $interrests) ? 'selected' : '' ) }} value="التغذية في الامراض الصدرية"> التغذية في الامراض الصدرية </option>
+                                                    <option {{ (in_array('امراض الجهاز الهضمي مثل (القلون العصبي)' , $interrests) ? 'selected' : '' ) }} value="امراض الجهاز الهضمي مثل (القلون العصبي)"> امراض الجهاز الهضمي مثل (القلون العصبي) </option>
+                                                    <option {{ (in_array('التغذية في الحالات النفسية مثل الاكتئاب ,,,' , $interrests) ? 'selected' : '' ) }} value="التغذية في الحالات النفسية مثل الاكتئاب ,,,"> التغذية في الحالات النفسية مثل الاكتئاب ,,, </option>
+                                                    <option {{ (in_array('التغذية في حالات الحوامل ' , $interrests) ? 'selected' : '' ) }} value="التغذية في حالات الحوامل "> التغذية في حالات الحوامل  </option>
+                                                    <option {{ (in_array('التغذية في الرضع والأطفال ' , $interrests) ? 'selected' : '' ) }} value="التغذية في الرضع والأطفال "> التغذية في الرضع والأطفال  </option>
+                                                    <option {{ (in_array('عدم تحمل اللاكتوز ' , $interrests) ? 'selected' : '' ) }} value="عدم تحمل اللاكتوز "> عدم تحمل اللاكتوز  </option>
+                                                    <option {{ (in_array('حالات السيلياك ' , $interrests) ? 'selected' : '' ) }} value="حالات السيلياك "> حالات السيلياك  </option>
+                                                    <option {{ (in_array('برنامج الحمية الكيتونية' , $interrests) ? 'selected' : '' ) }} value="برنامج الحمية الكيتونية"> برنامج الحمية الكيتونية </option>
+                                                    <option {{ (in_array('تغذية الحالات الحرجة' , $interrests) ? 'selected' : '' ) }} value="تغذية الحالات الحرجة"> تغذية الحالات الحرجة </option>
+                                                    <option {{ (in_array('تغذية الحالات الحرجة للأطفال' , $interrests) ? 'selected' : '' ) }} value="تغذية الحالات الحرجة للأطفال"> تغذية الحالات الحرجة للأطفال </option>
+                                                    <option {{ (in_array('تغذية الحالات الحرجة للخدج' , $interrests) ? 'selected' : '' ) }} value="تغذية الحالات الحرجة للخدج"> تغذية الحالات الحرجة للخدج </option>
+                                                    <option {{ (in_array('التغذية في حالات الحروق' , $interrests) ? 'selected' : '' ) }} value="التغذية في حالات الحروق"> التغذية في حالات الحروق </option>
             
                                                 </select>
                                             </div>
@@ -369,7 +373,7 @@
                                         <div class="col-12 mb-3">
                                             <div class="form-group mb-0">
                                                 <label>Training Program</label>
-                                                <textarea class="form-control" rows="5" name="training_program" id="training_program" placeholder="نبذة عن النظام المتبع" ></textarea>
+                                                <textarea class="form-control" rows="5" name="training_program" id="training_program" placeholder="نبذة عن النظام المتبع" >{{ @$user->profile->training_program }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -664,9 +668,49 @@
             }
         );
 
-        function addChannel()
+        function uploade(ii)
         {
-            
+            $('#file_1').click();
         }
+
+        function imageUploaded(input , ii)
+        {
+            var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+            var oInput = input;
+            if (oInput.type == "file") {
+                var sFileName = oInput.value;
+                if (sFileName.length > 0) {
+                    var blnValid = false;
+                    for (var j = 0; j < _validFileExtensions.length; j++) {
+                        var sCurExtension = _validFileExtensions[j];
+                        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                            blnValid = true;
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+                                reader.onload = function(e) {
+                                    $('#profileImg_' + ii).attr('src', e.target.result);
+                                };
+                                reader.readAsDataURL(input.files[0]);
+                            } else {
+                                removeUpload();
+                            }
+                            break;
+                        }
+                    }
+                    if (!blnValid) {
+                        var err = $('#image_err_msg').val()
+                        alert(err);
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        function removeUpload() {
+            var default_src = "{{ asset('assets/front/img/doctors/doctor-thumb-02.jpg') }}";
+            $('#profileImg').attr('src', default_src);
+        }
+
     </script>
     @endsection

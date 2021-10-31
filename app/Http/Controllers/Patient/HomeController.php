@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Patient;
 
 use App\Http\Controllers\Controller;
+use App\Models\DoctorPatientRequest;
 use App\Models\PatientProfile;
 use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -41,6 +43,36 @@ class HomeController extends Controller
     public function patientProfileComplete()
     {
         return view('front.patient.complete');
+    }
+    public function patient_dashboard()
+    {
+        $requests=DoctorPatientRequest::with('doctor.doctorProfile')->where('patient_id',Auth::user()->id)->get();
+        // dd($requests);
+        return view('front.patient.patient-dashboard',compact('requests'));
+    }
+    public function doctor_patient_profile($id)
+    {
+
+        return view('front.patient.doctor-profile');
+    }
+    public function booking($id)
+    {
+        $user=User::with('doctorProfile')->find($id);
+        return view('front.booking.booking',compact('user'));
+    }
+    public function savebooking($id)
+    {
+        try {
+            $doctor_patient_requests=new DoctorPatientRequest();
+            $doctor_patient_requests->doctor_id=$id;
+            $doctor_patient_requests->patient_id=Auth::user()->id;
+            $doctor_patient_requests->save();
+            return redirect()->route('booking-success');
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
     }
 
     public function patientProfileCompleteStore(Request $request): RedirectResponse
