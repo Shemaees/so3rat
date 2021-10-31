@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class HomeController extends Controller
+class AppointmentsController extends Controller
 {
     /**
      * Show the application dashboard.
@@ -19,29 +19,11 @@ class HomeController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function search(Request $request): Renderable
+
+    public function show()
     {
-        $doctors = User::doctor()->active()
-            ->when($request->gender, function ($q) use ($request) {
-                return $q->where('gender', $request->gender);
-            })->when($request->country, function ($q) use ($request) {
-                return $q->whereRelation('doctorProfile', 'country', $request->country);
-            })->when($request->city, function ($q) use ($request) {
-                return $q->whereRelation('doctorProfile', 'city', $request->city);
-            })->when($request->country, function ($q) use ($request) {
-                return $q->whereRelation('doctorProfile', 'country', $request->country);
-            })->when($request->intrests, function ($q) use ($request) {
-                return $q->whereHas('doctorProfile', function ($q) use ($request) {
-                    return $q->where('intrests', 'like', '%'.$request->intrests.'%')
-                        ->orWhere('intrests', 'like', '%'.$request->intrests)
-                        ->orWhere('intrests', 'like', $request->intrests.'%');
-                });
-            });
-        return view('front.search', compact('doctors'));
-    }
-    public function index()
-    {
-        return view('front.doctor.doctor-dashboard');
+        $requests=DoctorPatientRequest::with('patient')->where('doctor_id',Auth::user()->id)->where('status','Pending')->get();
+        return view('front.doctor.appointments',compact('requests'));
     }
 
     public function doctorProfileComplete()
@@ -50,7 +32,7 @@ class HomeController extends Controller
     }
     public function my_patients()
     {
-        $requests=DoctorPatientRequest::with('patient.patientProfile')->where('doctor_id',Auth::user()->id)->get()->unique('patient_id');
+        $requests=DoctorPatientRequest::with('patient')->where('doctor_id',Auth::user()->id)->get()->unique('patient_id');
         return view('front.doctor.my-patients',compact('requests'));
     }
 

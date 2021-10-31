@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+
 
         <!-- Breadcrumb -->
         <div class="breadcrumb-bar">
@@ -31,10 +31,10 @@
                             <div class="card-body">
                                 <div class="booking-doc-info">
                                     <a href="doctor-profile.html" class="booking-doc-img">
-                                        <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+                                        <img src="{{asset(@$user->photo)}}" alt="User Image">
                                     </a>
                                     <div class="booking-info">
-                                        <h4>>Dr. Darren Elder</h4>
+                                        <h4>>{{$user->name}}</h4>
                                         <div class="rating">
                                             <i class="fas fa-star filled"></i>
                                             <i class="fas fa-star filled"></i>
@@ -43,7 +43,7 @@
                                             <i class="fas fa-star"></i>
                                             <span class="d-inline-block average-rating">35</span>
                                         </div>
-                                        <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</p>
+                                        <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> {{$user->doctorProfile->city}}, {{$user->doctorProfile->country}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +218,7 @@
 
                         <!-- Submit Section -->
                         <div class="submit-section proceed-btn text-right">
-                            <a href="checkout.html" class="btn btn-primary submit-btn">Proceed to Pay</a>
+                            <a href="{{route('savebooking',[$user->id])}}" class="btn btn-primary submit-btn">Proceed to Pay</a>
                         </div>
                         <!-- /Submit Section -->
 
