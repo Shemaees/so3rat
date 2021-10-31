@@ -8,6 +8,7 @@
     use Illuminate\Http\Request;
     use Illuminate\Http\Response;
     use Illuminate\Routing\Controller;
+    use Auth;
 
     class TrainingRequestsController extends Controller
     {
@@ -18,7 +19,9 @@
          */
         public function index()
         {
-            $userRequests = trainingRequest::with('trainer','trainee')->paginate(15);//where('status' , '!=','Rejected')->
+            $userRequests = trainingRequest::where('trainer_id' , Auth::id())
+            ->orWhere('trainee_id' , Auth::id())
+            ->with('trainer','trainee')->paginate(15);//where('status' , '!=','Rejected')->
             return view('front.doctor.trainingRequests.index',compact('userRequests'));
         }
 

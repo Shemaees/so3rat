@@ -55,6 +55,7 @@ Route::group(['middleware' => 'XSS']                    , function ()
         Route::post('doctor-profile-update'   , 'Doctor\ProfileController@doctorProfileUpdate')->name('doctor-profile-update');
         //Route::view('doctor-dashboard'        , 'front.doctor.doctor-dashboard')->name('doctor-dashboard');
         Route::get('appointments'              , 'Doctor\AppointmentsController@show')->name('appointments');
+        Route::get('appointments/{id}/{staues}'         , 'Doctor\AppointmentsController@change_status')->name('appointments-status');
         Route::view('schedule-timings'          , 'front.doctor.schedule-timings')->name('schedule-timing');
         Route::get('my-patients'               , 'doctor\HomeController@my_patients')->name('my-patients');
         Route::view('chat-doctor'               , 'front.doctor.chat-doctor')->name('chat-doctor');

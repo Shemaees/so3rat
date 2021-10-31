@@ -57,10 +57,10 @@
                                         data-target="#appt_details">
                                         <i class="far fa-eye"></i> View
                                     </a>
-                                    <a href="javascript:void(0);" class="btn btn-sm bg-success-light">
+                                    <a href="{{route('appointments-status',[$item->id,'Accepted'])}}" class="btn btn-sm bg-success-light">
                                         <i class="fas fa-check"></i> Accept
                                     </a>
-                                    <a href="javascript:void(0);" class="btn btn-sm bg-danger-light">
+                                    <a href="{{route('appointments-status',[$item->id,'Rejected'])}}" class="btn btn-sm bg-danger-light">
                                         <i class="fas fa-times"></i> Cancel
                                     </a>
                                 </div>

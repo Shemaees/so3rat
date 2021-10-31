@@ -16,6 +16,9 @@
             width: 20px;
             height: 20px;
         }
+        a.nav-link.nav-dropdown-toggle.active {
+            background-color: #ebeaea;
+        }
     </style>
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
@@ -76,6 +79,15 @@
                                                 <span>{{ __('front/global.Appointments')}}</span>
                                             </a>
                                         </li>
+
+                                        <li class="nav-item {{ request()->routeIs('doctor.trainingRequests.index') ? 'active' : '' }} ">
+                                            <a class="nav-link  nav-dropdown-toggle  " 
+                                                href="{{ route('doctor.trainingRequests.index') }}">
+                                                <i class="fa-fw fas fa-users nav-icon ml-2 mr-2"></i>
+                                                {{ __('front/request.title') }}
+                                            </a>
+                                        </li>
+                                        
                                         <li>
                                             <a href="my-patients.html">
                                                 <i class="fas fa-user-injured"></i>

@@ -1,6 +1,6 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @extends('layouts.doctorDashboard')
-@section('col-7')
+@section('col-7') 
     <style>
         .select2>span{
             width: 100%;
