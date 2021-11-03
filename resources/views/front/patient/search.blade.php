@@ -15,10 +15,37 @@
             align-items: flex-start;
         }
 
+        .green {
+            color: #1c937c;
+            font-weight: bold;
+        }
+
+        .days-table {
+            border: 1px solid #1c937c;
+            border-radius: 5% !important;
+        }
+
+        .days-table td {
+            padding: 2px;
+        }
+
+        .days-table thead tr th {
+            background-color: #1c937c;
+            color: white;
+        }
+
+        a.green-div {
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #1c937c;
+            color: white;
+            padding: 2px;
+        }
     </style>
 @endsection
 @section('content')
-
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
         <div class="container-fluid">
@@ -28,7 +55,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('front/global.home') }}</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ __('front/global.search') }}</li>
+                            <li class="breadcrumb-item active" aria-current="page"> {{ __('front/global.search') }} </li>
                         </ol>
                     </nav>
                     <h2 class="breadcrumb-title float-right pr-5">نتائج البحث</h2>
@@ -37,7 +64,7 @@
                     <div class="sort-by">
                         <span class="sort-title">Sort by</span>
                         <span class="sortby-fliter">
-                            <select class="select2-selection__rendered">
+                            <select class=" form-control pt-0 pb-0 select2-selection__rendered">
                                 <option>اختر</option>
                                 <option class="sorting">الأكثر تقييما</option>
                                 <option class="sorting">الأقل سعرا</option>
@@ -137,100 +164,173 @@
                 <div class="col-md-12 col-lg-8 col-xl-9">
 
                     <!-- Doctor Widget -->
-                    <div class="card">
-                        <div class="card-body">
-                            @foreach ($doctors as $doctor)
-                                <div class="doctor-widget">
+                    @foreach ($doctors as $doctor)
+                        @php
+                            $profile = $doctor->profile;
+                        @endphp
+                        <div class="card search-d-card">
+                            <div class="card-body" style=" padding-top:10px; overflow: hidden; ">
+
+                                <div class="doctor-widget row w-100 p-1">
+
                                     <div class="doctor-img col-3">
                                         <a href="#">
-                                            <img src="{{ asset($doctor->photo) }}"
-                                                class="img-fluid" alt="User Image">
+                                            <img src="{{ asset($doctor->photo) }}" class="img-fluid"
+                                                alt="User Image">
                                         </a>
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <h4 class="doc-name float-right">الأسم: {{$doctor->name}}</h4>
-                                            </div>
-                                            <div class="col-4">
-                                                <h4 class="doc-name float-right">الدولة:{{$doctor->doctorProfile->country}}</h4>
-                                            </div>
-                                            <div class="col-4">
-                                                <h4 class="doc-name float-right">المدينة:{{$doctor->doctorProfile->city}}</h4>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <h4 class="doc-name float-right">رقم مقيم:{{$doctor->doctorProfile->medical_license_number}}</h4>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-7 d-flex doc-details">
-                                                <div class="d-flex">
-                                                    <h4 class="doc-name float-right">المؤهل:</h4>
-                                                    <p>Test data</p>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <h4 class="doc-name  float-right">البكاليوريوس:</h4>
-                                                    <p>Test data</p>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <h4 class="doc-name  float-right">الماجيستير:</h4>
-                                                    <p>Test data</p>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <h4 class="doc-name float-right">الدكتوراه:</h4>
-                                                    <p>Test data</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-5 doc-details">
-                                                <div class="d-flex">
-                                                    <h4 class="doc-name float-right">طريقه التواصل:</h4>
-                                                    <p>{{$doctor->doctorProfile->communication_way}}</p>
-                                                </div>
-                                                <div class="d-flex">
-                                                    <h4 class="doc-name float-right">قنوات التواصل:</h4>
-                                                    @foreach ($doctor->channels as $channel)
-                                                    <p>{{$channel->channel_type}} {{$channel->link}}</p><br>
-                                                    @endforeach
 
-                                                </div>
-                                                <div class="d-flex">
-                                                    <h4 class="doc-name float-right">ايام التواصل:</h4>
-                                                    @foreach ($doctor->communications->pluck('day') as $communication)
-                                                    <p>{{$communication}}</p>
-                                                    @endforeach
-                                                </div>
-                                                <div class="d-flex">
-                                                    <h4 class="doc-name float-right">اوقات التواصل:</h4>
-                                                    <p>Test data</p>
-                                                </div>
+                                        <h5 class="mt-4 text-bold green">
+                                            {{ @$profile->country . ' - ' . @$profile->city }}</h5>
+
+                                        <div class="rating"> <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span class="d-inline-block average-rating">(4)</span>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <div class="col-md-6 p-0 pl-1"><small>تعليقات 2347</small></div>
+                                            <div class="col-md-6 p-0 pr-1"><small>اشتراكات 2245</small></div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-5">
+                                        <div class="row mb-2">
+                                            <div class="col-12">
+                                                <h3 class="doc-name float-right green"> <b> {{ $doctor->name }} </b></h3>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <h4 class="float-right"> الاهتمامات</h4>
-                                                @foreach ($doctor->interests as $interest)
-                                                {{$interest->name}}
-                                                @endforeach
+                                                <h4 class="doc-name float-right green"> المؤهل </h4>
                                             </div>
                                         </div>
-                                        <div class="clinic-booking">
 
-                                            <a class="view-pro-btn " href="{{ route('doctor-patient-profile',[$doctor->id]) }}">الملف
-                                                الشخصي</a>
-                                            <a class="apt-btn " href="{{ route('booking',[$doctor->id]) }}">اشتراك</a>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <small class="float-right "> البكالريوس من جامعة
+                                                    {{ @$profile->qualification ? @$profile->qualification : '.........' }}
+                                                </small>
+                                            </div>
                                         </div>
+
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <small class="float-right "> الماجستير من جامعة
+                                                    {{ @$profile->specialty_certificate ? @$profile->specialty_certificate : '..........' }}
+                                                </small>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <small class="float-right "> الدكتوراه من جامعة
+                                                    {{ @$profile->university_qualification ? @$profile->university_qualification : '............' }}
+                                                </small>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <h4 class="doc-name float-right green w-100 "> الإهتمامات </h4>
+                                                @forelse ($doctor->interests->take(3) as $interrest)
+                                                    <h5>{{ $interrest->name }}</h5>
+                                                @empty
+                                                    <h5 class="w-100">لا يوجد</h5>
+                                                @endforelse
+                                            </div>
+                                        </div>
+
+                                        <div class="row w-100">
+                                            <div class="col-md-6">
+                                                <span class="green">طريقة التواصل</span>
+                                                <div class="social-icon ">
+                                                    <ul class="pr-1" style="list-style: none;">
+                                                        <li class="d-inline ">
+                                                            <a href="#" target="_blank" class="green"><i
+                                                                    class="fa fa-user"></i></a>
+                                                        </li>
+
+                                                        <li class="d-inline mr-3">
+                                                            <a href="#" target="_blank" class="green"><i
+                                                                    class="fa fa-users"></i> </a>
+                                                        </li>
+
+                                                        <li class="d-inline mr-3">
+                                                            <a href="#" target="_blank" class="green"><i
+                                                                    class="fa fa-users"></i> </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="green">قنوات التواصل</span>
+                                                <div class="social-icon ">
+                                                    <ul class="pr-1" style="list-style: none;">
+                                                        <li class="d-inline ">
+                                                            <a href="#" target="_blank" class="green"><i
+                                                                    class="fab fa-instagram"></i></a>
+                                                        </li>
+
+                                                        <li class="d-inline mr-3">
+                                                            <a href="#" target="_blank" class="green"><i
+                                                                    class="fab fa-twitter"></i> </a>
+                                                        </li>
+
+                                                        <li class="d-inline mr-3">
+                                                            <a href="#" target="_blank" class="green"><i
+                                                                    class="fab fa-facebook-f"></i> </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-4 p-0">
+                                        <table class="days-table w-100 text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2">أيام التواصل</th>
+                                                    <th colspan="2">أوقات التواصل</th>
+                                                </tr>
+                                                <tr>
+                                                    <th> من</th>
+                                                    <th> إلي</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($doctor->communications as $communication)
+                                                    <tr>
+                                                        <td>{{ $communication->day }}</td>
+                                                        <td>{{ $communication->start_at }}</td>
+                                                        <td>{{ $communication->end_at }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
 
                                 </div>
-                            @endforeach
 
+                                <div class="row">
+                                    <a class="apt-btn col-12 green-div "
+                                        href="{{ route('booking', [$doctor->id]) }}">اشتراك</a>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                     <!-- /Doctor Widget -->
                 </div>
             </div>
+
 
         </div>
 

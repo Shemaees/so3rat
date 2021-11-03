@@ -24,28 +24,14 @@
                 $user = Auth::user();
             @endphp
             <ul class="main-nav text-right">
+
                 <li class="has-submenu active">
                     <a href="{{route('home')}}">{{__('front/global.home')}}</a>
                 </li>
-                <li class="has-submenu"> <a href="#"> {{ __('front/global.Encounters') }}</a>
-                    <ul class="submenu">
-                        @if($user && $user->user_type == 'Doctor')
-                        <li><a href="{{route('doctor-profile-settings')}}">{{__('front/global.DoctorDashboard')}}</a></li>
-                        <li><a href="{{route('doctor-profile-settings')}}">{{__('front/global.ProfileSettings')}}</a></li>
-                        @if (@$user->profile && $user->profile->doctor_type != 'Trainee')
-                        <li><a href="{{route('appointments')}}">{{__('front/global.Appointments')}}</a></li>
-                        <li><a href="{{route('patient-profile')}}">{{__('front/global.PatientsProfile')}}</a></li>
-                        @endif
-                        <li><a href="{{route('schedule-timing')}}s">{{__('front/global.ScheduleTiming')}}</a></li>
-                        <li><a href="{{route('my-patients')}}">{{__('front/global.PatientsList')}}</a></li>
-                        <li><a href="{{route('invoices')}}">{{__('front/global.Invoices')}}</a></li>
-                        <li><a href="{{route('reviews')}}">{{__('front/global.Reviews')}}</a></li>
-                        @else
-                        <li><a href="{{route('doctor-register')}}">{{__('front/global.DoctorRegister')}}</a></li>
-                        @endif
-                        <li><a href="{{route('chat-doctor')}}">{{__('front/global.Chat')}}</a></li>
-                    </ul>
+
+                <li class="has-submenu"> <a href="{{route('meetings')}}"> {{ __('front/global.Meetings') }}</a>
                 </li>
+
 
                 <li class="has-submenu mr-4"> <a href="#">{{ __('front/global.whoAreWe') }}</a>
                     <ul class="submenu">
@@ -58,21 +44,36 @@
                             </ul>
 
                         <li><a href="{{route('search')}}">{{__('front/global.SearchDoctor')}}</a></li>
-                        <li><a href="{{route('doctor-profile')}}">{{__('front/global.DoctorProfile')}}</a></li>
                         @if($user)
                         <li><a href="{{route('checkout')}}">{{__('front/global.Checkout')}}</a></li>
-                        <li><a href="{{route('booking-success')}}">{{__('front/global.BookingSuccess')}}</a></li>
-                        
+                        {{-- <li><a href="{{route('booking-success')}}">{{__('front/global.BookingSuccess')}}</a></li> --}}
+
                         @if( $user->user_type=='Patient')
-                        <li><a href="{{route('patient-dashboard')}}">{{__('front/global.PatientDashboard')}}</a></li>
+                        <li><a href="{{route('patient_dashboard')}}">{{__('front/global.PatientDashboard')}}</a></li>
                         <li><a href="{{route('favourites')}}">{{__('front/global.Favourites')}}</a></li>
                         <li><a href="{{route('profile-settings')}}">{{__('front/global.ProfileSettings')}}</a></li>
+                        <li><a href="{{route('chat')}}">{{__('front/global.Chat')}}</a></li>
                         @endif
-
                         <li><a href="{{route('change-password')}}">{{__('front/global.ChangePassword')}}</a></li>
                         @endif
+                        <li><a href="{{route('reviews')}}">{{__('front/global.Reviews')}}</a></li>
+
+                        @if($user && $user->user_type == 'Doctor')
+
+                        <li><a href="{{route('doctor-profile')}}">{{__('front/global.DoctorProfile')}}</a></li>
+                        <li><a href="{{route('schedule-timing')}}s">{{__('front/global.ScheduleTiming')}}</a></li>
+                        <li><a href="{{route('my-patients')}}">{{__('front/global.PatientsList')}}</a></li>
+                        <li><a href="{{route('invoices')}}">{{__('front/global.Invoices')}}</a></li>
+                        <li><a href="{{route('chat-doctor')}}">{{__('front/global.Chat')}}</a></li>
+                        @elseif(!$user)
+                        <li><a href="{{route('register')}}">{{__('front/global.Register')}}</a></li>
+                        <!-- <li><a href="{{route('doctor-register')}}">{{__('front/global.DoctorRegister')}}</a></li> -->
+                        @endif
+
                     </ul>
                 </li>
+
+                <li class="has-submenu mr-4"> <a href="{{route('contactus')}}"> اتصل بنا</a></li>
             </ul>
         </div>
         @if(auth()->user())
@@ -101,9 +102,7 @@
                 </li>
             </ul>
         @else
-            {{--            <li class="login-link">--}}
-            {{--                <a href="{{route('login')}}">تسجيل الدخول / تسجيل</a>--}}
-            {{--            </li>--}}
+
             <ul class="nav header-navbar-rht">
                 <li class="nav-item contact-item">
                     <div class="header-contact-img"> <i class="far fa-hospital"></i>

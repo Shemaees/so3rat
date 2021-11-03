@@ -14,6 +14,7 @@ class DoctorPatientRequest extends Model
         'doctor_id',
         'patient_id',
         'status',
+        'Follow_Up',
 
     ];
     public function doctor(): BelongsTo

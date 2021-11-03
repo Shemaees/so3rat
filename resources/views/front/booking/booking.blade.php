@@ -48,21 +48,30 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 col-sm-4 col-md-6">
-                                <h4 class="mb-1">11 November 2019</h4>
-                                <p class="text-muted">Monday</p>
-                            </div>
-                            <div class="col-12 col-sm-8 col-md-6 text-sm-right">
-                                <div class="bookingrange btn btn-white btn-sm mb-3">
-                                    <i class="far fa-calendar-alt mr-2"></i>
-                                    <span></span>
-                                    <i class="fas fa-chevron-down ml-2"></i>
+                        <form action="{{route('savebooking')}}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-12 col-sm-4 col-md-6">
+                                    <h4 class="mb-1">11 November 2019</h4>
+                                    <p class="text-muted">Monday</p>
+                                </div>
+                                <div class="col-12 col-sm-8 col-md-6 text-sm-right">
+                                    <div class="bookingrange btn btn-white btn-sm mb-3">
+                                        <i class="far fa-calendar-alt mr-2"></i>
+                                        <span></span>
+                                        <i class="fas fa-chevron-down ml-2"></i>
+                                        <input type="datetime-local" name="follow_up" >
+                                        <input type="hidden" name="doctor_id" value="{{$user->id}}">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="submit-section proceed-btn text-right">
+                                <button type="submit" class="btn btn-primary submit-btn">Proceed to Pay</button>
+                            </div>
+                        </form>
+
                         <!-- Schedule Widget -->
-                        <div class="card booking-schedule schedule-widget">
+                        {{-- <div class="card booking-schedule schedule-widget">
 
                             <!-- Schedule Header -->
                             <div class="schedule-header">
@@ -213,13 +222,13 @@
                             </div>
                             <!-- /Schedule Content -->
 
-                        </div>
+                        </div> --}}
                         <!-- /Schedule Widget -->
 
                         <!-- Submit Section -->
-                        <div class="submit-section proceed-btn text-right">
+                        {{-- <div class="submit-section proceed-btn text-right">
                             <a href="{{route('savebooking',[$user->id])}}" class="btn btn-primary submit-btn">Proceed to Pay</a>
-                        </div>
+                        </div> --}}
                         <!-- /Submit Section -->
 
                     </div>

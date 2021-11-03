@@ -49,9 +49,9 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if ($user->profile == null)
+        if (!$user->profile || @$user->profile->completePercentage < 70 )
         {
-            return $user->user_type == 'Patient' ? redirect()->route('complete_patient_profile', $user->id) : redirect()->route('doctor-profile-settings', $user->id);
+            return $user->user_type == 'Patient' ? redirect()->route('complete_patient_profile', $user->id) : redirect()->route('complete_doctor_profile', $user->id);
         }
         else if ($user->status == 'Wating for admin confirm')
         {

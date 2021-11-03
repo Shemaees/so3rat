@@ -47,29 +47,42 @@ class HomeController extends Controller
     public function patient_dashboard()
     {
         $requests=DoctorPatientRequest::with('doctor.doctorProfile')->where('patient_id',Auth::user()->id)->get();
-        // dd($requests);
         return view('front.patient.patient-dashboard',compact('requests'));
     }
     public function doctor_patient_profile($id)
     {
-
-        return view('front.patient.doctor-profile');
+        $doctor=User::with('interests','doctorProfile','communications')->find($id);
+        // dd($doctor);
+        return view('front.patient.doctor-profile',compact('doctor'));
     }
     public function booking($id)
     {
         $user=User::with('doctorProfile')->find($id);
         return view('front.booking.booking',compact('user'));
     }
-    public function savebooking($id)
+    public function bookingsuccess($id)
     {
+        if ($id) {
+            $booking=DoctorPatientRequest::with('doctor')->find($id);
+            return view('front.booking.booking-success',compact('booking'));
+        }else{
+            return back();
+        }
+
+    }
+    public function savebooking(Request $request)
+    {
+
         try {
             $doctor_patient_requests=new DoctorPatientRequest();
-            $doctor_patient_requests->doctor_id=$id;
+            $doctor_patient_requests->doctor_id=$request->doctor_id;
+            $doctor_patient_requests->Follow_Up=$request->follow_up;
             $doctor_patient_requests->patient_id=Auth::user()->id;
             $doctor_patient_requests->save();
-            return redirect()->route('booking-success');
+            return redirect()->route('booking-success',[$doctor_patient_requests->id]);
 
         } catch (\Throwable $th) {
+            dd($th);
             //throw $th;
         }
 
@@ -85,9 +98,19 @@ class HomeController extends Controller
                 )
             );
         }
+        // dd($request->all());
+        $user=auth()->user();
+        $user->gender=$request->gender;
+        $user->birthdate=$request->birthdate;
+        $user->save();
         $profile = new PatientProfile();
         $profile->user_id = auth()->id();
         $profile->length = $request->length;
+        $profile->blood_group = $request->blood_group;
+        $profile->country = $request->country;
+        $profile->city = $request->city;
+        $profile->address = $request->address;
+        $profile->zip_code = $request->zip;
         $profile->weight = $request->weight;
         $profile->highest_weight = $request->highest_weight;
         $profile->lowest_weight = $request->lowest_weight;

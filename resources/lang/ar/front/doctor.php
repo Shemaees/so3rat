@@ -21,5 +21,7 @@ return
         'specialty_certificate'             => 'شهادة التخصص',
         'training_program'                  => 'البرنامج التدريبي',
         'profile'                           => 'الملف الشخصي',
+        'phone'                             => 'الهاتف',
+        'TrainingCost'                      => 'تكلفة التدريب',
 
     ];

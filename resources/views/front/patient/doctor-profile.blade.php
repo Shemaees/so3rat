@@ -1,18 +1,68 @@
+
 @extends('layouts.app')
+@section('style')
+<!-- Select2 CSS -->
+    {{-- <link rel="stylesheet" href="{{asset('assets/front/plugins/select2/css/select2.min.css')}}"> --}}
+    <style>
+        .doc-details {
+            display: flex !important;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .filter-widget {
+            display: flex !important;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .green {
+            color: #1c937c;
+            font-weight: bold;
+        }
+
+        .days-table {
+            border: 1px solid #1c937c;
+            border-radius: 5% !important;
+        }
+
+        .days-table td {
+            padding: 2px;
+        }
+
+        .days-table thead tr th {
+            background-color: #1c937c;
+            color: white;
+        }
+
+        a.green-div {
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #1c937c;
+            color: white;
+            padding: 2px;
+        }
+        .aboutMe {
+            margin-top: 12px;
+            border: 1px solid #e0e1e0;
+            background-color: #fafafa;
+            min-height: 160px;
+            border-radius: 6px;
+            padding: 1%;
+            box-shadow: 1px 1px 0  2px #FAFAFD;
+        }
+    </style>
+@endsection
 @section('content')
-    
         <!-- Breadcrumb -->
         <div class="breadcrumb-bar">
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-md-12 col-12">
-                        <nav aria-label="breadcrumb" class="page-breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="home.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Doctor Profile</li>
-                            </ol>
-                        </nav>
-                        <h2 class="breadcrumb-title">Doctor Profile</h2>
+
+                        <h2 class="breadcrumb-title">الملف التعريفي للطبيب</h2>
                     </div>
                 </div>
             </div>
@@ -26,85 +76,170 @@
                 <!-- Doctor Widget -->
                 <div class="card">
                     <div class="card-body">
-                        <div class="doctor-widget">
 
-                            <div class="doc-info-right">
-                                <div class="clini-infos">
-                                    <ul>
-                                        <li><i class="far fa-thumbs-up"></i> 99%</li>
-                                        <li><i class="far fa-comment"></i> 35 Feedback</li>
-                                        <li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
-                                        <li><i class="far fa-money-bill-alt"></i> $100 per hour </li>
-                                    </ul>
-                                </div>
-                                <div class="doctor-action">
-                                    <a href="javascript:void(0)" class="btn btn-white fav-btn">
-                                        <i class="far fa-bookmark"></i>
-                                    </a>
-                                    <a href="chat.html" class="btn btn-white msg-btn">
-                                        <i class="far fa-comment-alt"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
-                                        <i class="fas fa-phone"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#video_call">
-                                        <i class="fas fa-video"></i>
-                                    </a>
-                                </div>
-                                <div class="clinic-booking">
-                                    <a class="apt-btn" href="booking.html">Book Appointment</a>
+                            @php
+                            $profile = $doctor->doctorProfile;
+                            @endphp
+                            <div class="card search-d-card">
+                                <div class="card-body" style=" padding-top:10px; overflow: hidden; ">
+
+                                    <div class="doctor-widget row w-100 p-1">
+
+                                        <div class="doctor-img col-3">
+                                            <a href="#">
+                                                <img src="{{ asset($doctor->photo) }}" class="img-fluid"
+                                                    alt="User Image">
+                                            </a>
+
+                                            <h5 class="mt-4 text-bold green">
+                                                {{ @$profile->country . ' - ' . @$profile->city }}</h5>
+
+                                            <div class="rating"> <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star filled"></i>
+                                                <i class="fas fa-star"></i>
+                                                <span class="d-inline-block average-rating">(4)</span>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="col-md-6 p-0 pl-1"><small>تعليقات 2347</small></div>
+                                                <div class="col-md-6 p-0 pr-1"><small>اشتراكات 2245</small></div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-5">
+                                            <div class="row mb-2">
+                                                <div class="col-12">
+                                                    <h3 class="doc-name float-right green"> <b> {{ $doctor->name }} </b></h3>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h4 class="doc-name float-right green"> المؤهل </h4>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <small class="float-right "> البكالريوس من جامعة
+                                                        {{ @$profile->qualification ? @$profile->qualification : '.........' }}
+                                                    </small>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <small class="float-right "> الماجستير من جامعة
+                                                        {{ @$profile->specialty_certificate ? @$profile->specialty_certificate : '..........' }}
+                                                    </small>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <small class="float-right "> الدكتوراه من جامعة
+                                                        {{ @$profile->university_qualification ? @$profile->university_qualification : '............' }}
+                                                    </small>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-12">
+                                                    <h4 class="doc-name float-right green w-100 "> الإهتمامات </h4>
+                                                    @forelse ($doctor->interests->take(3) as $interrest)
+                                                        <h5>{{ $interrest->name }}</h5>
+                                                    @empty
+                                                        <h5 class="w-100">لا يوجد</h5>
+                                                    @endforelse
+                                                </div>
+                                            </div>
+
+                                            <div class="row w-100">
+                                                <div class="col-md-6">
+                                                    <span class="green">طريقة التواصل</span>
+                                                    <div class="social-icon ">
+                                                        <ul class="pr-1" style="list-style: none;">
+                                                            <li class="d-inline ">
+                                                                <a href="#" target="_blank" class="green"><i
+                                                                        class="fa fa-user"></i></a>
+                                                            </li>
+
+                                                            <li class="d-inline mr-3">
+                                                                <a href="#" target="_blank" class="green"><i
+                                                                        class="fa fa-users"></i> </a>
+                                                            </li>
+
+                                                            <li class="d-inline mr-3">
+                                                                <a href="#" target="_blank" class="green"><i
+                                                                        class="fa fa-users"></i> </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <span class="green">قنوات التواصل</span>
+                                                    <div class="social-icon ">
+                                                        <ul class="pr-1" style="list-style: none;">
+                                                            <li class="d-inline ">
+                                                                <a href="#" target="_blank" class="green"><i
+                                                                        class="fab fa-instagram"></i></a>
+                                                            </li>
+
+                                                            <li class="d-inline mr-3">
+                                                                <a href="#" target="_blank" class="green"><i
+                                                                        class="fab fa-twitter"></i> </a>
+                                                            </li>
+
+                                                            <li class="d-inline mr-3">
+                                                                <a href="#" target="_blank" class="green"><i
+                                                                        class="fab fa-facebook-f"></i> </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-4 p-0">
+                                            <table class="days-table w-100 text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2">أيام التواصل</th>
+                                                        <th colspan="2">أوقات التواصل</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th> من</th>
+                                                        <th> إلي</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($doctor->communications as $communication)
+                                                        <tr>
+                                                            <td>{{ $communication->day }}</td>
+                                                            <td>{{ $communication->start_at }}</td>
+                                                            <td>{{ $communication->end_at }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <a class="apt-btn col-12 green-div "
+                                            href="{{ route('booking', [$doctor->id]) }}">اشتراك</a>
+                                    </div>
+
                                 </div>
                             </div>
-                            <div class="doc-info-left">
 
-                                <div class="doc-info-cont">
-                                    <h4 class="doc-name">Dr. Darren Elder</h4>
-                                    <p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
-                                    <p class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</p>
-                                    <div class="rating">
-                                        <i class="fas fa-star filled"></i>
-                                        <i class="fas fa-star filled"></i>
-                                        <i class="fas fa-star filled"></i>
-                                        <i class="fas fa-star filled"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span class="d-inline-block average-rating">(35)</span>
-                                    </div>
-                                    <div class="clinic-details">
-                                        <p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA - <a href="javascript:void(0);">Get Directions</a></p>
-                                        <ul class="clinic-gallery">
-                                            <li>
-                                                <a href="assets/img/features/feature-01.jpg" data-fancybox="gallery">
-                                                    <img src="assets/img/features/feature-01.jpg" alt="Feature">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="assets/img/features/feature-02.jpg" data-fancybox="gallery">
-                                                    <img src="assets/img/features/feature-02.jpg" alt="Feature Image">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="assets/img/features/feature-03.jpg" data-fancybox="gallery">
-                                                    <img src="assets/img/features/feature-03.jpg" alt="Feature">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="assets/img/features/feature-04.jpg" data-fancybox="gallery">
-                                                    <img src="assets/img/features/feature-04.jpg" alt="Feature">
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="clinic-services">
-                                        <span>Dental Fillings</span>
-                                        <span>Teeth Whitneing</span>
-                                    </div>
-                                </div>
-                                <div class="doctor-img">
-                                    <img src="assets/img/doctors/doctor-thumb-02.jpg" class="img-fluid" alt="User Image">
-                                </div>
-                            </div>
 
-                        </div>
                     </div>
                 </div>
                 <!-- /Doctor Widget -->
@@ -117,14 +252,14 @@
                         <nav class="user-tabs mb-4">
                             <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#doc_overview" data-toggle="tab">Overview</a>
+                                    <a class="nav-link active" href="#doc_overview" data-toggle="tab">نظرة عامة</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#doc_reviews" data-toggle="tab">Reviews</a>
+                                    <a class="nav-link" href="#doc_reviews" data-toggle="tab">التقييم</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#doc_business_hours" data-toggle="tab">Business Hours</a>
+                                    <a class="nav-link" href="#doc_business_hours" data-toggle="tab">آليات التواصل</a>
                                 </li>
                             </ul>
                         </nav>
@@ -136,170 +271,65 @@
                             <!-- Overview Content -->
                             <div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
                                 <div class="row">
-                                    <div class="col-md-12 col-lg-9">
-
-                                        <!-- About Details -->
-                                        <div class="widget about-widget">
-                                            <h4 class="widget-title">About Me</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                                mollit anim id est laborum.</p>
+                                    <div class="col-12 text-right">
+                                        <span class="green">نبذة عني <i class="fa fa-edit"></i></span>
+                                        <div class="aboutMe">
+                                            {{ @$doctor->profile->about }}
                                         </div>
-                                        <!-- /About Details -->
+                                    </div>
+                                </div>
 
-                                        <!-- Education Details -->
-                                        <div class="widget education-widget">
-                                            <h4 class="widget-title">Education</h4>
-                                            <div class="experience-box">
-                                                <ul class="experience-list">
-                                                    <li>
-                                                        <div class="experience-user">
-                                                            <div class="before-circle"></div>
-                                                        </div>
-                                                        <div class="experience-content">
-                                                            <div class="timeline-content">
-                                                                <a href="#/" class="name">American Dental Medical University</a>
-                                                                <div>BDS</div>
-                                                                <span class="time">1998 - 2003</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="experience-user">
-                                                            <div class="before-circle"></div>
-                                                        </div>
-                                                        <div class="experience-content">
-                                                            <div class="timeline-content">
-                                                                <a href="#/" class="name">American Dental Medical University</a>
-                                                                <div>MDS</div>
-                                                                <span class="time">2003 - 2005</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- /Education Details -->
+                                <br>
+                                <b class="green mt-3 mr-3">الشهادات العلمية</b>
+                                <br>
+                                <hr>
+                                <div class="row mt-3">
+                                    <div class="col-12">
+                                        <small class="text-right " dir="rtl"> البكالريوس من جامعة
+                                            {{ @$profile->qualification ? @$profile->qualification : '' }}
+                                        </small>
+                                    </div>
+                                </div>
 
-                                        <!-- Experience Details -->
-                                        <div class="widget experience-widget">
-                                            <h4 class="widget-title">Work & Experience</h4>
-                                            <div class="experience-box">
-                                                <ul class="experience-list">
-                                                    <li>
-                                                        <div class="experience-user">
-                                                            <div class="before-circle"></div>
-                                                        </div>
-                                                        <div class="experience-content">
-                                                            <div class="timeline-content">
-                                                                <a href="#/" class="name">Glowing Smiles Family Dental Clinic</a>
-                                                                <span class="time">2010 - Present (5 years)</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="experience-user">
-                                                            <div class="before-circle"></div>
-                                                        </div>
-                                                        <div class="experience-content">
-                                                            <div class="timeline-content">
-                                                                <a href="#/" class="name">Comfort Care Dental Clinic</a>
-                                                                <span class="time">2007 - 2010 (3 years)</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="experience-user">
-                                                            <div class="before-circle"></div>
-                                                        </div>
-                                                        <div class="experience-content">
-                                                            <div class="timeline-content">
-                                                                <a href="#/" class="name">Dream Smile Dental Practice</a>
-                                                                <span class="time">2005 - 2007 (2 years)</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- /Experience Details -->
 
-                                        <!-- Awards Details -->
-                                        <div class="widget awards-widget">
-                                            <h4 class="widget-title">Awards</h4>
-                                            <div class="experience-box">
-                                                <ul class="experience-list">
-                                                    <li>
-                                                        <div class="experience-user">
-                                                            <div class="before-circle"></div>
-                                                        </div>
-                                                        <div class="experience-content">
-                                                            <div class="timeline-content">
-                                                                <p class="exp-year">July 2019</p>
-                                                                <h4 class="exp-title">Humanitarian Award</h4>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="experience-user">
-                                                            <div class="before-circle"></div>
-                                                        </div>
-                                                        <div class="experience-content">
-                                                            <div class="timeline-content">
-                                                                <p class="exp-year">March 2011</p>
-                                                                <h4 class="exp-title">Certificate for International Volunteer Service</h4>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="experience-user">
-                                                            <div class="before-circle"></div>
-                                                        </div>
-                                                        <div class="experience-content">
-                                                            <div class="timeline-content">
-                                                                <p class="exp-year">May 2008</p>
-                                                                <h4 class="exp-title">The Dental Professional of The Year Award</h4>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- /Awards Details -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <small class="float-right "> الماجستير من جامعة
+                                            {{ @$profile->specialty_certificate ? @$profile->specialty_certificate : '' }}
+                                        </small>
+                                    </div>
+                                </div>
 
-                                        <!-- Services List -->
-                                        <div class="service-list">
-                                            <h4>Services</h4>
-                                            <ul class="clearfix">
-                                                <li>Tooth cleaning </li>
-                                                <li>Root Canal Therapy</li>
-                                                <li>Implants</li>
-                                                <li>Composite Bonding</li>
-                                                <li>Fissure Sealants</li>
-                                                <li>Surgical Extractions</li>
-                                            </ul>
-                                        </div>
-                                        <!-- /Services List -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <small class="float-right "> الدكتوراه من جامعة
+                                            {{ @$profile->university_qualification ? @$profile->university_qualification : '' }}
+                                        </small>
+                                    </div>
+                                </div>
 
-                                        <!-- Specializations List -->
-                                        <div class="service-list">
-                                            <h4>Specializations</h4>
-                                            <ul class="clearfix">
-                                                <li>Children Care</li>
-                                                <li>Dental Care</li>
-                                                <li>Oral and Maxillofacial Surgery </li>
-                                                <li>Orthodontist</li>
-                                                <li>Periodontist</li>
-                                                <li>Prosthodontics</li>
-                                            </ul>
-                                        </div>
-                                        <!-- /Specializations List -->
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <span class="green ">رقم رخصتي الطبية  </span>
+                                        <br>
+                                        {{ @$doctor->profile->medical_license_number }}
 
                                     </div>
                                 </div>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <span class="green">نبذة عن برنامج الرعاية التغذوية<i class="fa fa-edit"></i></span>
+                                        <div class="aboutMe">
+                                            ...
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <!-- /Overview Content -->
 
@@ -473,197 +503,9 @@
                             <div role="tabpanel" id="doc_reviews" class="tab-pane fade">
 
                                 <!-- Review Listing -->
-                                <div class="widget review-listing">
-                                    <ul class="comments-list">
-
-                                        <!-- Comment List -->
-                                        <li>
-                                            <div class="comment">
-                                                <img class="avatar avatar-sm rounded-circle" alt="User Image" src="assets/img/patients/patient.jpg">
-                                                <div class="comment-body">
-                                                    <div class="meta-data">
-                                                        <span class="comment-author">Richard Wilson</span>
-                                                        <span class="comment-date">Reviewed 2 Days ago</span>
-                                                        <div class="review-count rating">
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                    </div>
-                                                    <p class="recommended"><i class="far fa-thumbs-up"></i> I recommend the doctor</p>
-                                                    <p class="comment-content">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Curabitur non nulla sit amet nisl tempus
-                                                    </p>
-                                                    <div class="comment-reply">
-                                                        <a class="comment-btn" href="#">
-                                                            <i class="fas fa-reply"></i> Reply
-                                                        </a>
-                                                        <p class="recommend-btn">
-                                                            <span>Recommend?</span>
-                                                            <a href="#" class="like-btn">
-                                                                <i class="far fa-thumbs-up"></i> Yes
-                                                            </a>
-                                                            <a href="#" class="dislike-btn">
-                                                                <i class="far fa-thumbs-down"></i> No
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Comment Reply -->
-                                            <ul class="comments-reply">
-                                                <li>
-                                                    <div class="comment">
-                                                        <img class="avatar avatar-sm rounded-circle" alt="User Image" src="assets/img/patients/patient1.jpg">
-                                                        <div class="comment-body">
-                                                            <div class="meta-data">
-                                                                <span class="comment-author">Charlene Reed</span>
-                                                                <span class="comment-date">Reviewed 3 Days ago</span>
-                                                                <div class="review-count rating">
-                                                                    <i class="fas fa-star filled"></i>
-                                                                    <i class="fas fa-star filled"></i>
-                                                                    <i class="fas fa-star filled"></i>
-                                                                    <i class="fas fa-star filled"></i>
-                                                                    <i class="fas fa-star"></i>
-                                                                </div>
-                                                            </div>
-                                                            <p class="comment-content">
-                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Curabitur non nulla sit amet nisl tempus
-                                                            </p>
-                                                            <div class="comment-reply">
-                                                                <a class="comment-btn" href="#">
-                                                                    <i class="fas fa-reply"></i> Reply
-                                                                </a>
-                                                                <p class="recommend-btn">
-                                                                    <span>Recommend?</span>
-                                                                    <a href="#" class="like-btn">
-                                                                        <i class="far fa-thumbs-up"></i> Yes
-                                                                    </a>
-                                                                    <a href="#" class="dislike-btn">
-                                                                        <i class="far fa-thumbs-down"></i> No
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <!-- /Comment Reply -->
-
-                                        </li>
-                                        <!-- /Comment List -->
-
-                                        <!-- Comment List -->
-                                        <li>
-                                            <div class="comment">
-                                                <img class="avatar avatar-sm rounded-circle" alt="User Image" src="assets/img/patients/patient2.jpg">
-                                                <div class="comment-body">
-                                                    <div class="meta-data">
-                                                        <span class="comment-author">Travis Trimble</span>
-                                                        <span class="comment-date">Reviewed 4 Days ago</span>
-                                                        <div class="review-count rating">
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star filled"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                    </div>
-                                                    <p class="comment-content">
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Curabitur non nulla sit amet nisl tempus
-                                                    </p>
-                                                    <div class="comment-reply">
-                                                        <a class="comment-btn" href="#">
-                                                            <i class="fas fa-reply"></i> Reply
-                                                        </a>
-                                                        <p class="recommend-btn">
-                                                            <span>Recommend?</span>
-                                                            <a href="#" class="like-btn">
-                                                                <i class="far fa-thumbs-up"></i> Yes
-                                                            </a>
-                                                            <a href="#" class="dislike-btn">
-                                                                <i class="far fa-thumbs-down"></i> No
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <!-- /Comment List -->
-
-                                    </ul>
-
-                                    <!-- Show All -->
-                                    <div class="all-feedback text-center">
-                                        <a href="#" class="btn btn-primary btn-sm">
-												Show all feedback <strong>(167)</strong>
-											</a>
+                                <div class="col-12 text-center">
+                                        جاري العمل عليها
                                     </div>
-                                    <!-- /Show All -->
-
-                                </div>
-                                <!-- /Review Listing -->
-
-                                <!-- Write Review -->
-                                <div class="write-review">
-                                    <h4>Write a review for <strong>Dr. Darren Elder</strong></h4>
-
-                                    <!-- Write Review Form -->
-                                    <form>
-                                        <div class="form-group">
-                                            <label>Review</label>
-                                            <div class="star-rating">
-                                                <input id="star-5" type="radio" name="rating" value="star-5">
-                                                <label for="star-5" title="5 stars">
-														<i class="active fa fa-star"></i>
-													</label>
-                                                <input id="star-4" type="radio" name="rating" value="star-4">
-                                                <label for="star-4" title="4 stars">
-														<i class="active fa fa-star"></i>
-													</label>
-                                                <input id="star-3" type="radio" name="rating" value="star-3">
-                                                <label for="star-3" title="3 stars">
-														<i class="active fa fa-star"></i>
-													</label>
-                                                <input id="star-2" type="radio" name="rating" value="star-2">
-                                                <label for="star-2" title="2 stars">
-														<i class="active fa fa-star"></i>
-													</label>
-                                                <input id="star-1" type="radio" name="rating" value="star-1">
-                                                <label for="star-1" title="1 star">
-														<i class="active fa fa-star"></i>
-													</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Title of your review</label>
-                                            <input class="form-control" type="text" placeholder="If you could say it in one sentence, what would you say?">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Your review</label>
-                                            <textarea id="review_desc" maxlength="100" class="form-control"></textarea>
-
-                                            <div class="d-flex justify-content-between mt-3"><small class="text-muted"><span id="chars">100</span> characters remaining</small></div>
-                                        </div>
-                                        <hr>
-                                        <div class="form-group">
-                                            <div class="terms-accept">
-                                                <div class="custom-checkbox">
-                                                    <input type="checkbox" id="terms_accept">
-                                                    <label for="terms_accept">I have read and accept <a href="#">Terms &amp; Conditions</a></label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="submit-section">
-                                            <button type="submit" class="btn btn-primary submit-btn">Add Review</button>
-                                        </div>
-                                    </form>
-                                    <!-- /Write Review Form -->
-
-                                </div>
                                 <!-- /Write Review -->
 
                             </div>
@@ -672,13 +514,37 @@
                             <!-- Business Hours Content -->
                             <div role="tabpanel" id="doc_business_hours" class="tab-pane fade">
                                 <div class="row">
-                                    <div class="col-md-6 offset-md-3">
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-6">
 
                                         <!-- Business Hours Widget -->
                                         <div class="widget business-widget">
-                                            <div class="widget-content">
-                                                <div class="listing-hours">
-                                                    <div class="listing-day current">
+                                            <div class="widget-content text-center">
+
+                                                    <div class="p-0">
+                                                        <table class="days-table w-100 text-center" style="border-radius: 20px;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th rowspan="2">أيام التواصل</th>
+                                                                    <th colspan="2">أوقات التواصل</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th> من</th>
+                                                                    <th> إلي</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($doctor->communications as $communication)
+                                                                    <tr>
+                                                                        <td>{{ $communication->day }}</td>
+                                                                        <td>{{ $communication->start_at }}</td>
+                                                                        <td>{{ $communication->end_at }}</td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    {{-- <div class="listing-day current">
                                                         <div class="day">Today <span>5 Nov 2019</span></div>
                                                         <div class="time-items">
                                                             <span class="open-status"><span class="badge bg-success-light">Open Now</span></span>
@@ -726,8 +592,8 @@
                                                         <div class="time-items">
                                                             <span class="time"><span class="badge bg-danger-light">Closed</span></span>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </div> --}}
+
                                             </div>
                                         </div>
                                         <!-- /Business Hours Widget -->

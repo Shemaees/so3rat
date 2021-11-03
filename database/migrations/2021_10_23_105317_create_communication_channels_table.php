@@ -14,7 +14,7 @@ class CreateCommunicationChannelsTable extends Migration
     public function up()
     {
         Schema::create('communication_channels', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('channel_type')->nullable();
             $table->text('link')->nullable();

@@ -106,6 +106,7 @@ body {
     font-size: 0.9375rem;
     height: 100%;
     overflow-x: hidden;
+    text-align: right;
 }
 
 * {
@@ -2665,7 +2666,7 @@ html.menu-opened body {
 }
 
 .footer .footer-widget .footer-logo {
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 .footer .footer-widget .footer-about-content p {
@@ -2687,7 +2688,7 @@ html.menu-opened body {
 
 .footer .footer-menu ul li a {
     color: #fff;
-    font-size: 15px;
+    font-size: 14px;
     padding-right: 20px;
     position: relative;
     transition: all 0.4s ease 0s;
@@ -2697,16 +2698,6 @@ html.menu-opened body {
     color: #fff;
     letter-spacing: 0.5px;
     padding-left: 30px;
-}
-
-.footer .footer-menu ul li a::before {
-    content: "\f100";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    right: 0;
-    margin-left: 5px;
-    position: absolute;
-    top: 0;
 }
 
 .footer-contact-info {
@@ -2993,7 +2984,7 @@ html.menu-opened body {
 
 .banner-wrapper {
     margin: 0 auto;
-    max-width: 800px;
+    /* max-width: 800px; */
     width: 100%;
 }
 
@@ -3055,6 +3046,8 @@ html.menu-opened body {
     -ms-flex: 0 0 46px;
     flex: 0 0 46px;
     height: 35px;
+    background-color: #09dca4;
+    color: white;
 }
 
 .search-box .search-btn span {
@@ -3118,7 +3111,7 @@ html.menu-opened body {
 
 .banner-wrapper {
     margin: 0 auto;
-    max-width: 850px;
+    /* max-width: 850px; */
     width: 100%;
 }
 
@@ -3144,7 +3137,7 @@ html.menu-opened body {
     position: relative;
     z-index: 1;
     border-radius: 10px;
-    max-width: 410px;
+    /* max-width: 410px; */
     margin: auto;
 }
 
@@ -3173,13 +3166,13 @@ html.menu-opened body {
 
 .search-box-3 {
     background: #249680;
-    padding: 40px 20px;
+    padding: 22px 20px;
     border-radius: 10px;
-    margin-top: -50px;
-    position: absolute;
+    margin-top: 20px;
+    /* position: absolute; */
     right: 0;
     left: 0;
-    width: 75%;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -3814,7 +3807,7 @@ html.menu-opened body {
 }
 
 .search-box1 .search-info .form-control {
-    background: #fff  no-repeat 10px center;
+    background: #fff no-repeat 10px center;
 }
 
 .search-box1 .search-btn {
@@ -3845,7 +3838,7 @@ html.menu-opened body {
 
 .banner-wrapper2 {
     margin: 0 auto;
-    max-width: 680px;
+    /* max-width: 680px; */
     width: 100%;
 }
 
@@ -5241,7 +5234,8 @@ html.menu-opened body {
     text-align: center;
 }
 
-.success-cont i {
+.success-cont i,
+.warning-cont i {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -9761,6 +9755,42 @@ ul.benifits-col li i {
         margin-bottom: 10px;
     }
 }
-.carousel-inner {
+
+.carousel-caption {
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: right !important;
+}
+
+.footer-about-content {
     text-align: right;
+    color: white;
+}
+
+.social-icon {
+    margin-top: 15px;
+}
+
+.footer .social-icon ul li {
+    margin-right: 60%;
+}
+
+.form-focus .form-control {
+    height: 30px;
+    padding: 7px 12px 6px;
+}
+
+.form-check-label {
+    margin-bottom: 1px !important;
+    margin: 0px 18px;
+}
+
+.search-d-card {
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
 }

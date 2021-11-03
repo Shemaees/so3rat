@@ -39,11 +39,11 @@
                             <!-- Appointment List -->
                             <div class="appointment-list">
                                 <div class="profile-info-widget">
-                                    <a href="{{ route('patient-profile') }}" class="booking-doc-img">
+                                    <a href="{{ route('patient-profile',[$item->patient->id]) }}" class="booking-doc-img">
                                         <img src="{{ asset(@$item->patient->photo) }}" alt="User Image">
                                     </a>
                                     <div class="profile-det-info">
-                                        <h3><a href="{{ route('patient-profile') }}">{{$item->patient->name}}</a></h3>
+                                        <h3><a href="{{ route('patient-profile',[$item->patient->id]) }}">{{$item->patient->name}}</a></h3>
                                         <div class="patient-details">
                                             <h5><i class="far fa-clock"></i> {{$item->created_at}}</h5>
                                             <h5><i class="fas fa-map-marker-alt"></i> Newyork, United States</h5>

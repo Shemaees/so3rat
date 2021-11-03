@@ -25,6 +25,13 @@ class AppointmentsController extends Controller
         $requests=DoctorPatientRequest::with('patient')->where('doctor_id',Auth::user()->id)->where('status','Pending')->get();
         return view('front.doctor.appointments',compact('requests'));
     }
+    public function patient_profile($id)
+    {
+        $user=User::with('doctorProfile')->find($id);
+        $requests=DoctorPatientRequest::with('doctor.doctorProfile')->where([['patient_id',$id],['doctor_id',Auth::user()->id]])->get();
+
+         return view('front.patient.patient-profile',compact('requests','user'));
+    }
 
     public function change_status($id,$status)
     {
@@ -33,8 +40,11 @@ class AppointmentsController extends Controller
        {
            $requeststaues->update(['status'=>$status]);
            notify()->success(__('dashboard/requests.status_changed'));
+           if ($status=='confirmed') {
+            return redirect()->route('booking-success');
+           }
            return back()->with(['success'=>__('dashboard/requests.status_changed')]);
        }
     }
-   
+
 }

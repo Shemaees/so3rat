@@ -28,6 +28,7 @@ class User extends Authenticatable
         'birthdate',
         'gender',
         'status',
+        'category_id',
     ];
 
     /**
@@ -84,6 +85,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(communication_channel::class,'user_id');
     }
+    public function favourites()
+    {
+        return $this->hasMany(favourites::class,'patient_id');
+    }
     public function communications()
     {
         return $this->hasMany(doctor_communication::class,'doctor_id');
@@ -103,5 +108,22 @@ class User extends Authenticatable
     public function interests()
     {
         return $this->hasMany(interest::class,'user_id');
+    }
+
+    public function hasRequestTo($trainer_id , $status ='')
+    {
+        $count =  $this->traineeRequests->where('trainer_id' , $trainer_id );
+        if($status)
+        {
+            if(is_array($status))
+            {
+                $count = $count->whereIn('status' , $status);
+            }
+            else
+            {
+                $count = $count->where('status' , $status);
+            }
+        }
+        return $count->count();
     }
 }

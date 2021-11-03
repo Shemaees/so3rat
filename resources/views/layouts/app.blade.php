@@ -67,8 +67,12 @@
     <body>
     <!-- Main Wrapper -->
         <div class="main-wrapper">
-            
+
             @include('front.includes.header')
+
+            @if(!request()->routeIs('home') && !isset($no_hdr) )
+                @include('layouts.search')
+            @endif
 
             @yield('content')
 

@@ -1,12 +1,12 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @extends('layouts.doctorDashboard')
-@section('col-7') 
+@section('col-7')
     <form action="{{ route('doctor-profile-update') }}" method="post" method="post"  enctype="multipart/form-data" role="form"  >
         {{ csrf_field() }}
-        <!-- Basic Information -->
+        <!-- بيانات الطبيب -->
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Basic Information</h4>
+                <h4 class="card-title">بيانات الطبيب</h4>
                 <div class="row form-row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="upload-img mr-5">
                                     <div class="change-photo-btn">
-                                        <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                        <span><i class="fa fa-upload"></i>  صورة شخصية</span>
                                         <input type="file" class="upload" name="photo" id="file_1" onchange="imageUploaded(this , 1)" >
                                     </div>
                                     <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
@@ -26,17 +26,17 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Username <span class="text-danger">*</span></label>
+                            <label>الإسم <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" readonly value="{{ $user->name }}" name="name">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Email <span class="text-danger">*</span></label>
+                            <label>البريد الإلكتروني <span class="text-danger">*</span></label>
                             <input type="email" class="form-control" readonly  value="{{ $user->email }}" name="email">
                         </div>
                     </div>
-                
+
 
                     <div class="col-md-6">
                         <label for="error-password_confirmation"></label>
@@ -55,35 +55,35 @@
                         <label for="error-phone"></label>
                         <div class="errorMessage"></div>
                     </div>
-                        
+
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Gender</label>
+                            <label>النوع</label>
                             <select class="form-control select" name="gender">
-                                <option disabled>Select</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                <option disabled>إختر</option>
+                                <option value="Male">ذكر</option>
+                                <option value="Female">أنثي</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group mb-0">
-                            <label>Country</label>
+                            <label>الدولة</label>
                             <input type="text" class="form-control text-right" value="{{ @$user->profile->country }}" name="country" placeholder="Country" >
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group mb-0">
-                            <label>City</label>
+                            <label>المدينة</label>
                             <input type="text" class="form-control text-right" value="{{ @$user->profile->city }}" name="city" placeholder="City" >
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group mb-0">
-                            <label>Date of Birth</label>
+                            <label>تاريخ الميلاد</label>
                             <input type="date" class="form-control text-right" value="{{ date_create($user->birthdate)->format('Y-m-d') }}" name="birthdate">
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div id="Doctor-div" style="{{($doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
 
                         <div class="col-md-4">
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="Doctor-div-2" style="{{($doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -146,7 +146,7 @@
                                 <input type="number" class="form-control" placeholder="Monthly Service Fee" step="0.01" name="follow_up_fee" id="follow_up_fee" value="{{ @$user->profile->follow_up_fee }}"  {{ ( $doctor_type == 'Follow up of patients') ? 'required' : '' }}  >
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="accept_promotions"><h3>Do you accept a discount code</h3></label>
@@ -162,12 +162,12 @@
                         </div>
                     </div>
 
-                    
-                    
+
+
                 </div>
             </div>
         </div>
-        <!-- /Basic Information -->
+        <!-- /بيانات الطبيب -->
 
         <div class="card" id="trainer-div" style="{{($doctor_type != 'Trainer' && $doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
             <div class="card-body">
@@ -180,7 +180,7 @@
                         </div>
                         <!-- /About Me -->
                     </div>
-                    
+
                     @php
                     $interrests = $user->interests->pluck('name')->toArray();
                     @endphp
@@ -189,7 +189,7 @@
                             <label>Interests</label>
                             <select class="form-control select2" name="interests[]" id="interests" multiple>
                                 <option disabled>Select</option>
-                                
+
                                 <option {{ (in_array('التغذية الانبوبية' , $interrests) ? 'selected' : '' ) }} value="التغذية الانبوبية "> التغذية الانبوبية  </option>
                                 <option {{ (in_array('التغذية الوريدية' , $interrests) ? 'selected' : '' ) }} value="التغذية الوريدية"> التغذية الوريدية </option>
                                 <option {{ (in_array('عملية التقييم الغذائي' , $interrests) ? 'selected' : '' ) }} value="عملية التقييم الغذائي"> عملية التقييم الغذائي </option>
@@ -234,7 +234,7 @@
                         </div>
                     </div>
 
-                    
+
                     <div class="col-12 mb-3">
                         <div class="form-group mb-0">
                             <label>Training Program</label>
@@ -395,7 +395,7 @@
                         <div class="col-md-1 pt-4 text-center">
                             <a href="javascript:void(0);" onclick="this.parentElement.parentElement.remove()" class="del-channel"><i class="fas fa-times"></i></a>
                         </div>
-                    
+
                     </div>
                 </div>
 
@@ -408,7 +408,7 @@
         </div>
         <!-- /communication-times-div -->
 
-    
+
         <!-- attachments	 -->
         <div class="card services-card" id="attachments" style="{{($doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
             <div class="card-body">
@@ -444,8 +444,8 @@
         </div>
         <!-- /attachments -->
 
-        <div class="submit-section submit-btn-bottom">
-            <button type="submit" class="btn btn-primary submit-btn">Save Changes</button>
+        <div class="submit-section submit-btn-bottom text-center">
+            <button type="submit" class="btn btn-primary submit-btn">حفظ التعديلات</button>
         </div>
     </form>
     @endsection

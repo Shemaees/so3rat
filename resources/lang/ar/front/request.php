@@ -22,6 +22,14 @@ return
         'Reject'                       =>   'رفض',
         'Cost'                         =>   'التكلفة',
         'SR'                           =>   'ر.س',
+        'ShowAll'                      =>   'عرض الكل',
+        'ShowMyRequests'               =>   'عرض طلباتي',
+        'SendTrainingRequest'          =>   'إرسال طلب تدريب',
+        'request_send'                 =>   'تم إرسال الطلب بنجاح',
+        'request_failed'               =>   'عفواً لم يتم إرسال الطلب',
+        'BackMyRequests'               =>   'العودة للطلبات',
+        'RequestPending'               =>   'الطلب قيد الانتظار',
+        ''                             =>   '',
        
         ''                             =>   '',
     ];

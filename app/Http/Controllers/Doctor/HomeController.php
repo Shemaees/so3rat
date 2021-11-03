@@ -46,7 +46,9 @@ class HomeController extends Controller
 
     public function doctorProfileComplete()
     {
-        return view('front.doctor.complete');
+        $user = Auth::user();
+
+        return view('front.doctor.complete' , compact('user'));
     }
     public function my_patients()
     {

@@ -27,6 +27,7 @@
                                     @csrf
                                     <h2 class="fs-title text-center">{{__('front/patient.info')}}</h2>
                                     <div class="row form-row">
+
                                         <div class="col-6">
                                             <div class="form-group form-focus">
                                                 <input type="number" step="0.01" id="length"
@@ -44,6 +45,7 @@
                                             </span>
                                             @enderror
                                         </div>
+
                                         <div class="col-6">
                                             <div class="form-group form-focus">
                                                 <input type="number" step="0.01" id="weight"
@@ -61,6 +63,105 @@
                                             </span>
                                             @enderror
                                         </div>
+                                        <div class="col-4">
+                                            <div class="form-group form-focus">
+                                                <select class="form-control "
+                                                        name="blood_group" id="blood_group" required>
+                                                        <option >A-</option>
+														<option >A+</option>
+														<option >B-</option>
+														<option >B+</option>
+														<option >AB-</option>
+														<option >AB+</option>
+														<option >O-</option>
+														<option >O+</option>
+                                                </select>
+                                                <label for="length" class="focus-label">
+                                                    فصيله الدم
+                                                </label>
+                                            </div>
+                                            <label for="error-length"></label>
+                                            @error('length')
+                                            <span class="error" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group form-focus">
+                                                <select class="form-control "
+                                                        name="gender" id="gender" required>
+                                                        <option >Male</option>
+														<option >Female</option>
+
+                                                </select>
+                                                <label for="length" class="focus-label">
+                                                    النوع
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-group form-focus">
+                                                <input type="date" id="birthdate" name="birthdate"
+                                                       class="form-control floating "
+                                                        required
+                                                       >
+                                                <label for="length" class="focus-label">
+                                                    تاريخ الميلاد
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group form-focus">
+                                                <input type="text" id="country" name="country"
+                                                       class="form-control floating "
+                                                        required
+                                                       >
+                                                <label for="length" class="focus-label">
+                                                    الدوله
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group form-focus">
+                                                <input type="text" id="" name="city"
+                                                       class="form-control floating "
+                                                        required
+                                                       >
+                                                <label for="length" class="focus-label">
+                                                    المدينه
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group form-focus">
+                                                <input type="text" id="" name="address"
+                                                       class="form-control floating "
+                                                        required
+                                                       >
+                                                <label for="length" class="focus-label">
+                                                    العنوان
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group form-focus">
+                                                <input type="text" id="" name="zip"
+                                                       class="form-control floating "
+                                                        required
+                                                       >
+                                                <label for="length" class="focus-label">
+                                                    الكود البريدي
+                                                </label>
+                                            </div>
+
+                                        </div>
+
                                         <div class="col-4">
                                             <div class="form-group form-focus">
                                                 <input type="number" step="0.01" id="highest_weight"

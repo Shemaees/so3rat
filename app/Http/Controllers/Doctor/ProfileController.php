@@ -25,6 +25,15 @@ class ProfileController extends Controller
         }
     }
 
+    public function doctorDasboard()
+    {
+        $user  = Auth::user();
+        if($user && $user->user_type == 'Doctor')
+        {
+            return view('front.doctor.doctor-dashboard-main' , compact('user'));
+        }
+    }
+
     public function doctorProfileUpdate(Request $request)
     {
         // dd($request->all());
@@ -129,6 +138,7 @@ class ProfileController extends Controller
                 {
                     $channels[]      = doctor_communication::create([
                         'doctor_id'     => $user->id,
+                        'day'            => $day,
                         'start_at'      => $start,
                         'end_at'        => $end,
                     ]);

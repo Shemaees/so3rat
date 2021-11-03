@@ -14,7 +14,7 @@ class CreateTrainingRequestsTable extends Migration
     public function up()
     {
         Schema::create('training_requests', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->bigInteger('trainee_id');
             $table->bigInteger('trainer_id');
             $table->double('cost' , 8,2)->default(0);

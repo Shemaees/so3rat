@@ -1,6 +1,6 @@
-@extends('layouts.userLogin')
+@extends('layouts.app')
 @section('content')
-    
+   
         <!-- Page Content -->
         <div class="content">
             <div class="container-fluid">

@@ -32,7 +32,7 @@
                                     <div class="row">
                                         <div class="col-10"><h4 class="card-title text-right">{{__('front/request.TrainingRequests')}}</h4></div>
                                         <div class="col-2">
-                                            <button data-toggle="modal" data-target="#addNew" ><i class="fa fa-plus"></i></button>
+                                            <a href="{{route('doctor.trainingRequests.add')}}" class="btn btn-primary" ><i class="fa fa-plus"></i></a>
                                         </div>
                                     </div>
                                     

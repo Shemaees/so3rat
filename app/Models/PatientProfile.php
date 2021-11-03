@@ -49,6 +49,11 @@ class PatientProfile extends Model
         'health_goal',
         'motivation',
         'confidence',
+        'blood_group',
+        'country',
+        'city',
+        'zip_code',
+        'address',
         'nutritionists_number_worked_with_before',
         'lost_weight_without_planning_or_knowing_reasons',
     ];
@@ -56,5 +61,21 @@ class PatientProfile extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getCompletePercentageAttribute()
+    {
+        $percentage = 0;
+        $fillables = $this->fillable;
+        $count = ($fillables) ? count($fillables) : .001;
+        $step = 100 /  $count;
+        foreach ($fillables as $f => $fillable)
+        {
+            if($this->$fillable)
+            {
+                $percentage += $step;
+            }
+        }
+        return $percentage;
     }
 }

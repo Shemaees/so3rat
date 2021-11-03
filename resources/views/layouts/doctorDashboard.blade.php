@@ -19,6 +19,10 @@
         a.nav-link.nav-dropdown-toggle.active {
             background-color: #ebeaea;
         }
+        .content {
+            min-height: 200px;
+            padding: 0px 0 0;
+        }
     </style>
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
@@ -28,10 +32,10 @@
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">{{__('front/global.home')}}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{__('front/global.dashboard')}}</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{__('front/global.Dashboard')}}</li>
                         </ol>
                     </nav>
-                    <h2 class="breadcrumb-title">{{ (isset($page_title)) ? $page_title : __('front/global.dashboard') }}</h2>
+                    <h2 class="breadcrumb-title">{{ (isset($page_title)) ? $page_title : __('front/global.Dashboard') }}</h2>
                 </div>
             </div>
         </div>
@@ -43,7 +47,7 @@
         @endphp
         <!-- Page Content -->
         <div class="content">
-            <div class="container-fluid">
+            <div class="container-fluid pr-0" >
 
                 <div class="row">
                     <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
@@ -80,14 +84,14 @@
                                             </a>
                                         </li>
 
-                                        <li class="nav-item {{ request()->routeIs('doctor.trainingRequests.index') ? 'active' : '' }} ">
-                                            <a class="nav-link  nav-dropdown-toggle  " 
+                                        <li class="nav-item {{ request()->routeIs('doctor.trainingRequests.index') || isset($trainingRequests)  ? 'active' : '' }} ">
+                                            <a class="nav-link  nav-dropdown-toggle  "
                                                 href="{{ route('doctor.trainingRequests.index') }}">
                                                 <i class="fa-fw fas fa-users nav-icon ml-2 mr-2"></i>
                                                 {{ __('front/request.title') }}
                                             </a>
                                         </li>
-                                        
+
                                         <li>
                                             <a href="my-patients.html">
                                                 <i class="fas fa-user-injured"></i>
@@ -119,7 +123,7 @@
                                                 <small class="unread-msg">23</small>
                                             </a>
                                         </li>
-                                        <li class="active">
+                                        <li class="{{ request()->routeIs('doctor-profile-settings') ? 'active' : '' }} ">
                                             <a href="{{route('doctor-profile-settings')}}">
                                                 <i class="fas fa-user-cog"></i>
                                                 <span>{{ __('front/global.ProfileSettings')}}</span>

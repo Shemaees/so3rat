@@ -1,836 +1,579 @@
-@extends('layouts.userLogin')
-@section('styles')
-    <link href=" {{ asset('assets/front/plugins/select2/css/select2.min.css') }}" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="{{ asset('assets/front/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css') }}">
-@endsection
+@extends('layouts.app')
 @section('content')
-    <!-- Page Content -->
-    <div class="content">
-        <div class="container-fluid">
 
-            <div class="row">
-                <div class="col-md-12 offset-md-2">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-                    <!-- Register Content -->
-                    <div class="account-content">
-                        <div class="row align-items-center justify-content-center">
 
-                            <div class="col-md-12 col-lg-10 login-right">
-                                <div class="login-header text-center">
-                                    <h3>اكمال بيانات الحساب</h3>
+<form action="{{ route('doctor-profile-update') }}" method="post" method="post"  enctype="multipart/form-data" role="form"  >
+    {{ csrf_field() }}
+    <!-- بيانات الطبيب -->
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">بيانات الطبيب</h4>
+            <div class="row form-row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="change-avatar">
+                            <div class="profile-img">
+                                <img src="{{ (@$user->photo) ? url(@$user->photo) : asset('assets/front/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image" id="profileImg_1" onclick="uploade(1)" >
+                            </div>
+                            <div class="upload-img mr-5">
+                                <div class="change-photo-btn">
+                                    <span><i class="fa fa-upload"></i> صورة شخصية</span>
+                                    <input type="file" class="upload" name="photo" id="file_1" onchange="imageUploaded(this , 1)" >
                                 </div>
-
-                                <!-- Register Form -->
-                                <form id="complete-form" action="{{ route('complete_doctor_profile', auth()->id()) }}"
-                                      method="post">
-                                    @csrf
-                                    <h2 class="fs-title text-center">{{__('front/doctor.info')}}</h2>
-                                    <div class="row form-row">
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <input type="number" step="0.01" id="length"
-                                                       class="form-control floating @error('length') error @enderror"
-                                                       value="{{ old('length') }}" required autocomplete="length"
-                                                       autofocus name="length" min="25.00">
-                                                <label for="length" class="focus-label">
-                                                    الطول(سم)
-                                                </label>
-                                            </div>
-                                            <label for="error-length"></label>
-                                            @error('length')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <input type="number" step="0.01" id="weight"
-                                                       class="form-control floating @error('length') error @enderror"
-                                                       value="{{ old('weight') }}" required autocomplete="weight"
-                                                       autofocus name="weight" min="25.00">
-                                                <label for="weight" class="focus-label">
-                                                    الوزن(كجم)
-                                                </label>
-                                            </div>
-                                            <label for="error-weight"></label>
-                                            @error('weight')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group form-focus">
-                                                <input type="number" step="0.01" id="highest_weight"
-                                                       class="form-control floating @error('highest_weight') error @enderror"
-                                                       value="{{ old('highest_weight') }}" required
-                                                       autocomplete="highest_weight" autofocus name="highest_weight"
-                                                       min="25.00">
-                                                <label for="highest_weight" class="focus-label">
-                                                    اعلي وزن حصلت عليه؟ (كجم)
-                                                </label>
-                                            </div>
-                                            <label for="error-highest_weight"></label>
-                                            @error('highest_weight')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group form-focus">
-                                                <input type="number" step="0.01" id="lowest_weight"
-                                                       class="form-control floating @error('lowest_weight') error @enderror"
-                                                       value="{{ old('lowest_weight') }}" required
-                                                       autocomplete="lowest_weight" autofocus name="lowest_weight"
-                                                       min="25.00">
-                                                <label for="lowest_weight" class="focus-label">
-                                                    اقل وزن حصلت عليه؟ (كجم)
-                                                </label>
-                                            </div>
-                                            <label for="error-lowest_weight"></label>
-                                            @error('lowest_weight')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="form-group form-focus">
-                                                <input type="number" step="0.01" id="usual_weight"
-                                                       class="form-control floating @error('usual_weight') error @enderror"
-                                                       value="{{ old('usual_weight') }}" required
-                                                       autocomplete="usual_weight" autofocus name="usual_weight"
-                                                       min="25.00">
-                                                <label for="usual_weight" class="focus-label">
-                                                    الوزن المعتاد؟ (كجم)
-                                                </label>
-                                            </div>
-                                            <label for="error-usual_weight"></label>
-                                            @error('usual_weight')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <select class="form-control  @error('usual_medicines') error @enderror"
-                                                        name="usual_medicines" id="usual_medicines" required>
-                                                    <option value="" disabled selected></option>
-                                                    <option value="yes">نعم</option>
-                                                    <option value="no"> لا</option>
-                                                </select>
-                                                <label for="usual_medicines" class="focus-label">
-                                                    هل يتم تناول اي نوع من الأدويه؟
-                                                </label>
-                                            </div>
-                                            <div class="form-group form-focus d-none" id="usual_medicines_other-field">
-                                                <textarea type="text" id="usual_medicines_other"
-                                                          name="usual_medicines_other"
-                                                          class="form-control "></textarea>
-                                                <label for="usual_medicines_other" class="focus-label">ما هي الأدوية
-                                                    الأخرى؟</label>
-                                            </div>
-                                            <label for="error-usual_medicines"></label>
-                                            @error('usual_medicines')
-                                            <span class="error" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <select class="form-control  @error('allergenic_foods') error @enderror"
-                                                        name="allergenic_foods" id="allergenic_foods" required>
-                                                    <option value="" disabled selected></option>
-                                                    <option value="yes">نعم</option>
-                                                    <option value="no"> لا</option>
-                                                </select>
-                                                <label for="allergenic_foods" class="focus-label">
-                                                    هل لديك أطعمة معينه تسبب الحساسية؟
-                                                </label>
-                                            </div>
-                                            <div class="form-group form-focus d-none" id="allergenic_foods-field">
-                                                <textarea type="text" id="allergenic_foods_selected"
-                                                          name="allergenic_foods_selected"
-                                                          class="form-control "></textarea>
-                                                <label for="allergenic_foods_selected" class="focus-label">ما هي هذه
-                                                    الأطعمة؟</label>
-                                            </div>
-                                            <label for="error-allergenic_foods"></label>
-                                            @error('allergenic_foods')
-                                            <span class="error" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <select class="form-control  @error('history') error @enderror"
-                                                        name="history[]" id="history" required multiple>
-                                                    <option value="ارتفاع ضغط الدم">ارتفاع ضغط الدم</option>
-                                                    <option value="امراض السكري"> امراض السكري</option>
-                                                    <option value="السمنة"> السمنة</option>
-                                                    <option value="اسهال"> اسهال</option>
-                                                    <option value="امساك"> امساك</option>
-                                                    <option value="قيء"> قيء</option>
-                                                    <option value="غثيان">غثيان</option>
-                                                    <option value="صعوبة بالمضغ "> صعوبة بالمضغ</option>
-                                                    <option value="صعوبة بالبلع"> صعوبة بالبلع</option>
-                                                    <option value="no_data"> لا يوجد</option>
-                                                    <option value="other"> اخري</option>
-                                                </select>
-                                                <label for="history"
-                                                       class="focus-label">{{__('front/patient.history')}}</label>
-                                            </div>
-                                            <label for="error-history"></label>
-                                            @error('history')
-                                            <span class="error" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus d-none" id="history_other-field">
-                                                <textarea type="text" id="history_other" name="history_other"
-                                                          class="form-control"></textarea>
-                                                <label for="history_other" class="focus-label">ما هي الأمراض
-                                                    الأخرى؟</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <h2 class="fs-title text-center">نمط الحياه</h2>
-                                    <div class="row form-row">
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <input type="number" step="0.01" id="meals_number"
-                                                       class="form-control floating @error('meals_number') error @enderror"
-                                                       value="{{ old('meals_number') }}" required
-                                                       autocomplete="meals_number" autofocus name="meals_number" min="1"
-                                                       max="10">
-                                                <label for="meals_number" class="focus-label">
-                                                    {{ __('front/patient.meals_number') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-meals_number"></label>
-                                            @error('meals_number')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <input type="text" id="meals_order"
-                                                       class="form-control floating @error('meals_order') error @enderror"
-                                                       value="{{ old('meals_order') }}" required
-                                                       autocomplete="meals_order" autofocus name="meals_order">
-                                                <label for="meals_order" class="focus-label">
-                                                    {{ __('front/patient.meals_order') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-meals_order"></label>
-                                            @error('meals_order')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <input type="number" step="0.01" id="average_sleeping_hours"
-                                                       class="form-control floating @error('average_sleeping_hours') error @enderror"
-                                                       value="{{ old('average_sleeping_hours') }}" required
-                                                       autocomplete="average_sleeping_hours" autofocus
-                                                       name="average_sleeping_hours" min="1.00" max="18.00`">
-                                                <label for="meals_number" class="focus-label">
-                                                    {{ __('front/patient.average_sleeping_hours') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-average_sleeping_hours"></label>
-                                            @error('average_sleeping_hours')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <input type="number" step="0.01" id="cups_of_water_daily"
-                                                       class="form-control floating @error('cups_of_water_daily') error @enderror"
-                                                       value="{{ old('cups_of_water_daily') }}" required
-                                                       autocomplete="cups_of_water_daily" autofocus
-                                                       name="cups_of_water_daily" min="1.00" max="200.00`">
-                                                <label for="cups_of_water_daily" class="focus-label">
-                                                    {{ __('front/patient.cups_of_water_daily') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-cups_of_water_daily"></label>
-                                            @error('cups_of_water_daily')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <h2 class="fs-title text-center">النشاط الرياضي</h2>
-                                    <div class="row form-row">
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <select class="form-control  @error('sport_activities') error @enderror"
-                                                        name="sport_activities" id="sport_activities" required>
-                                                    <option value="1.2">خامل 1.2 : لا تمارين - اعمال مكتبية</option>
-                                                    <option value="1.375"> نشاط خفيف 1.375 : 20 دقيقع رياضه خفيفة /
-                                                        نمارين , 1-3 ايام بالاسبوع مثل المشي ,ركوب الدراجه أو الجري
-                                                    </option>
-                                                    <option value="1.55">نشاط متوسط 1.55 : 30-60 دقيقة رياضة متوسطة /
-                                                        تمارين , 3-5 ايام بالأسبوع
-                                                    </option>
-                                                    <option value="1.725">نشاط عالي 1.725 : 60 دقيقة رياضه عنيفة /
-                                                        تمارين , 5-7 ايام بالأسبوع
-                                                    </option>
-                                                </select>
-                                                <label for="sport_activities"
-                                                       class="focus-label">{{__('front/patient.sport_activities')}}</label>
-                                            </div>
-                                            <label for="error-sport_activities"></label>
-                                            @error('sport_activities')
-                                            <span class="error" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <h2 class="fs-title text-center">العادات الغذائية</h2>
-                                    <div class="row form-row">
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <textarea id="favorite_meals"
-                                                          class="form-control floating @error('favorite_meals') error @enderror"
-                                                          required autofocus
-                                                          name="favorite_meals">{{ old('favorite_meals') }}</textarea>
-                                                <label for="favorite_meals" class="focus-label">
-                                                    {{ __('front/global.favorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-favorite_meals"></label>
-                                            @error('favorite_meals')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="unfavorite_meals"
-                                                      class="form-control floating @error('unfavorite_meals') error @enderror"
-                                                      required autofocus
-                                                      name="unfavorite_meals">{{ old('unfavorite_meals') }}</textarea>
-                                                <label for="unfavorite_meals" class="focus-label">
-                                                    {{ __('front/global.unfavorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-unfavorite_meals"></label>
-                                            @error('unfavorite_meals')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <h2 class="fs-title text-center">الأطعمة المفضلة والغير مفضلة</h2>
-                                    <div class="row form-row">
-                                        <label class="col-12 float-right">{{__('front/patient.carbohydrates')}}</label>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="carbohydrates_favorite"
-                                                      class="form-control floating @error('carbohydrates_favorite') error @enderror"
-                                                      autofocus
-                                                      name="carbohydrates_favorite">{{ old('carbohydrates_favorite') }}</textarea>
-                                                <label for="carbohydrates_favorite" class="focus-label">
-                                                    {{ __('front/global.favorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-carbohydrates_favorite"></label>
-                                            @error('carbohydrates_favorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                    <textarea id="carbohydrates_unFavorite"
-                                                              class="form-control floating @error('carbohydrates_unFavorite') error @enderror"
-                                                              autofocus
-                                                              name="carbohydrates_unFavorite">{{ old('carbohydrates_unFavorite') }}</textarea>
-                                                <label for="carbohydrates_unFavorite" class="focus-label">
-                                                    {{ __('front/global.unfavorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-carbohydrates_unFavorite"></label>
-                                            @error('carbohydrates_unFavorite')
-                                            <span class="error" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                        <label class="col-12 float-right">{{__('front/patient.vegetables')}}</label>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="vegetables_favorite"
-                                                      class="form-control floating @error('vegetables_favorite') error @enderror"
-                                                      autofocus
-                                                      name="vegetables_favorite">{{ old('vegetables_favorite') }}</textarea>
-                                                <label for="vegetables_favorite" class="focus-label">
-                                                    {{ __('front/global.favorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-vegetables_favorite"></label>
-                                            @error('vegetables_favorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="vegetables_unFavorite"
-                                                      class="form-control floating @error('vegetables_unFavorite') error @enderror"
-                                                      autofocus
-                                                      name="vegetables_unFavorite">{{ old('vegetables_unFavorite') }}</textarea>
-                                                <label for="vegetables_unFavorite" class="focus-label">
-                                                    {{ __('front/global.unfavorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-vegetables_unFavorite"></label>
-                                            @error('vegetables_unFavorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <label class="col-12 float-right">{{__('front/patient.fruits')}}</label>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="fruits_favorite"
-                                                      class="form-control floating @error('fruits_favorite') error @enderror"
-                                                      autofocus
-                                                      name="fruits_favorite">{{ old('fruits_favorite') }}</textarea>
-                                                <label for="fruits_favorite" class="focus-label">
-                                                    {{ __('front/global.favorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-fruits_favorite"></label>
-                                            @error('fruits_favorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="fruits_unFavorite"
-                                                      class="form-control floating @error('fruits_unFavorite') error @enderror"
-                                                      autofocus
-                                                      name="fruits_unFavorite">{{ old('fruits_unFavorite') }}</textarea>
-                                                <label for="fruits_unFavorite" class="focus-label">
-                                                    {{ __('front/global.unfavorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-fruits_unFavorite"></label>
-                                            @error('fruits_unFavorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <label class="col-12 float-right">{{__('front/patient.dairy_products')}}</label>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="dairy_products_favorite"
-                                                      class="form-control floating @error('dairy_products_favorite') error @enderror"
-                                                      autofocus
-                                                      name="dairy_products_favorite">{{ old('dairy_products_favorite') }}</textarea>
-                                                <label for="dairy_products_favorite" class="focus-label">
-                                                    {{ __('front/global.favorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-dairy_products_favorite"></label>
-                                            @error('dairy_products_favorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="dairy_products_unFavorite"
-                                                      class="form-control floating @error('dairy_products_unFavorite') error @enderror"
-                                                      autofocus
-                                                      name="dairy_products_unFavorite">{{ old('dairy_products_unFavorite') }}</textarea>
-                                                <label for="dairy_products_unFavorite" class="focus-label">
-                                                    {{ __('front/global.unfavorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-dairy_products_unFavorite"></label>
-                                            @error('dairy_products_unFavorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <label class="col-12 float-right">{{__('front/patient.meat')}}</label>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="meat_favorite"
-                                                      class="form-control floating @error('meat_favorite') error @enderror"
-                                                      autofocus
-                                                      name="meat_favorite">{{ old('meat_favorite') }}</textarea>
-                                                <label for="meat_favorite" class="focus-label">
-                                                    {{ __('front/global.favorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-meat_favorite"></label>
-                                            @error('meat_favorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="meat_unFavorite"
-                                                      class="form-control floating @error('meat_unFavorite') error @enderror"
-                                                      autofocus
-                                                      name="meat_unFavorite">{{ old('meat_unFavorite') }}</textarea>
-                                                <label for="meat_unFavorite" class="focus-label">
-                                                    {{ __('front/global.unfavorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-meat_unFavorite"></label>
-                                            @error('meat_unFavorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <label class="col-12 float-right">{{__('front/patient.fats')}}</label>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="fats_favorite"
-                                                      class="form-control floating @error('fats_favorite') error @enderror"
-                                                      autofocus
-                                                      name="fats_favorite">{{ old('fats_favorite') }}</textarea>
-                                                <label for="fats_favorite" class="focus-label">
-                                                    {{ __('front/global.favorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-fats_favorite"></label>
-                                            @error('fats_favorite')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="fats_unFavorite"
-                                                      class="form-control floating @error('fats_unFavorite') error @enderror"
-                                                      autofocus
-                                                      name="fats_unFavorite">{{ old('fats_unFavorite') }}</textarea>
-                                                <label for="fats_unFavorite" class="focus-label">
-                                                    {{ __('front/global.unfavorite') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-fats_unFavorite"></label>
-                                            @error('fats_unFavorite')
-                                            <span class="error" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <h2 class="fs-title text-center">الأسئلة العامة</h2>
-                                    <div class="form-row">
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="health_goal"
-                                                      class="form-control floating @error('health_goal') error @enderror"
-                                                      autofocus name="health_goal">{{ old('health_goal') }}</textarea>
-                                                <label for="health_goal" class="focus-label">
-                                                    {{ __('front/patient.health_goal') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-health_goal"></label>
-                                            @error('health_goal')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="motivation"
-                                                      class="form-control floating @error('motivation') error @enderror"
-                                                      autofocus name="motivation">{{ old('motivation') }}</textarea>
-                                                <label for="motivation" class="focus-label">
-                                                    {{ __('front/patient.motivation') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-motivation"></label>
-                                            @error('motivation')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                            <textarea id="confidence"
-                                                      class="form-control floating @error('confidence') error @enderror"
-                                                      autofocus name="confidence">{{ old('confidence') }}</textarea>
-                                                <label for="confidence" class="focus-label">
-                                                    {{ __('front/patient.confidence') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-confidence"></label>
-                                            @error('confidence')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <input type="number" id="nutritionists_number_worked_with_before"
-                                                       class="form-control floating @error('nutritionists_number_worked_with_before') error @enderror"
-                                                       value="{{ old('nutritionists_number_worked_with_before') }}" required autocomplete="length"
-                                                       autofocus name="nutritionists_number_worked_with_before" min="0">
-                                                <label for="nutritionists_number_worked_with_before"
-                                                       class="focus-label">
-                                                    {{ __('front/patient.nutritionists_number_worked_with_before') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-nutritionists_number_worked_with_before"></label>
-                                            @error('nutritionists_number_worked_with_before')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group form-focus">
-                                                <select class="form-control  @error('lost_weight_without_planning_or_knowing_reasons') error @enderror"
-                                                        name="lost_weight_without_planning_or_knowing_reasons" id="lost_weight_without_planning_or_knowing_reasons" required>
-                                                    <option value="" disabled selected></option>
-                                                    <option value="1">نعم</option>
-                                                    <option value="0"> لا</option>
-                                                </select>
-                                                <label for="lost_weight_without_planning_or_knowing_reasons"
-                                                       class="focus-label">
-                                                    {{ __('front/patient.lost_weight_without_planning_or_knowing_reasons') }}
-                                                </label>
-                                            </div>
-                                            <label for="error-lost_weight_without_planning_or_knowing_reasons"></label>
-                                            @error('lost_weight_without_planning_or_knowing_reasons')
-                                            <span class="error" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="errorMessage"></div>
-                                    <button class="btn btn-primary btn-block btn-lg login-btn" type="submit">
-                                        تحديث البيانات
-                                    </button>
-                                </form>
-                                <!-- /Register Form -->
-
+                                <small class="form-text text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
                             </div>
                         </div>
                     </div>
-                    <!-- /Register Content -->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>الإسم <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" readonly value="{{ $user->name }}" name="name">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>البريد الإلكتروني <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" readonly  value="{{ $user->email }}" name="email">
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <label for="error-password_confirmation"></label>
+                    <div class="form-group form-focus">
+                        <input  name="phone" id="phone" type="tel" value="{{ $user->phone }}" required
+                                autocomplete="phone" autofocus class="form-control floating @error('phone') error @enderror">
+                        <label for="phone" class="focus-label">رقم التليفون</label>
+                        <span id="valid-msg" class="hide">✓ Valid</span>
+                        <span id="error-msg" class="hide"></span>
+                    </div>
+                    @error('phone')
+                        <span class="error" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <label for="error-phone"></label>
+                    <div class="errorMessage"></div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>النوع</label>
+                        <select class="form-control select" name="gender">
+                            <option disabled>Select</option>
+                            <option value="Male">ذكر</option>
+                            <option value="Female">إنثي</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group mb-0">
+                        <label>الدولة</label>
+                        <input type="text" class="form-control text-right" value="{{ @$user->profile->country }}" name="country" placeholder="Country" >
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group mb-0">
+                        <label>المدينة</label>
+                        <input type="text" class="form-control text-right" value="{{ @$user->profile->city }}" name="city" placeholder="City" >
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group mb-0">
+                        <label>تاريخ الميلاد</label>
+                        <input type="date" class="form-control text-right" value="{{ date_create($user->birthdate)->format('Y-m-d') }}" name="birthdate">
+                    </div>
+                </div>
+                    @php
+                        $doctor_type = @$user->profile->doctor_type;
+                    @endphp
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Type of service provided</label>
+                        <select class="form-control select" name="doctor_type" onchange="changeDocType(this.value)">
+                            <option disabled>Select</option>
+                            <option value="Trainee"  {{ ($doctor_type == 'Trainee') ? 'selected' : '' }} >Trainee</option>
+                            <option value="Trainer" {{ ($doctor_type == 'Trainer') ? 'selected' : '' }} >Trainer</option>
+                            <option value="Follow up of patients" {{ ($doctor_type == 'Follow up of patients') ? 'selected' : '' }} >Follow up</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="Doctor-div" style="{{($doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Degree <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control"  value="{{ @$user->profile->qualification }}" name="qualification" id="qualification" placeholder="Qualification">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Specialization <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" value="{{ @$user->profile->specialty_certificate }}" name="specialty_certificate" id="specialty_certificate" placeholder="specialty_certificate">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Scientific facility <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control"  value="{{ @$user->profile->university }}" name="university" id="university" placeholder="university"  >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Doctor-div-2" style="{{($doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>communication method</label>
+                            <select class="form-control select" name="communication_way">
+                                <option >Select</option>
+                                <option value="Private"  {{ (@$user->profile->communication_way == 'Private') ? 'selected' : '' }} >Private</option>
+                                <option value="Group"  {{ (@$user->profile->communication_way == 'Group') ? 'selected' : '' }} >Group</option>
+                                <option value="Both"  {{ (@$user->profile->communication_way == 'Both') ? 'selected' : '' }} >Both</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="follow_up_fee">Monthly Service Fee</label>
+                            <input type="number" class="form-control" placeholder="Monthly Service Fee" step="0.01" name="follow_up_fee" id="follow_up_fee" value="{{ @$user->profile->follow_up_fee }}"  {{ ( $doctor_type == 'Follow up of patients') ? 'required' : '' }}  >
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="accept_promotions"><h3>Do you accept a discount code</h3></label>
+                            <input type="checkbox" class="" name="accept_promotions" id="accept_promotions"  >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" id="training_fee-div"  style="{{($doctor_type == 'Trainee') ? 'display:none;' : '' }} ">
+                    <div class="form-group">
+                        <label for="training_fee">Training Fee</label>
+                        <input type="number" class="form-control" placeholder="Training Fee" step="0.01" name="training_fee" id="training_fee" value="{{ @$user->profile->training_fee }}"  {{ ( $doctor_type != 'Trainee') ? 'required' : '' }} >
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- /بيانات الطبيب -->
+
+    <div class="card" id="trainer-div" style="{{($doctor_type != 'Trainer' && $doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <!-- About Me -->
+                    <div class="form-group mb-0">
+                        <label>About Me</label>
+                        <textarea class="form-control" rows="5" name="about" id="about" >{{ @$user->profile->about }}</textarea>
+                    </div>
+                    <!-- /About Me -->
+                </div>
+
+                @php
+                $interrests = $user->interests->pluck('name')->toArray();
+                @endphp
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Interests</label>
+                        <select class="form-control select2" name="interests[]" id="interests" multiple>
+                            <option disabled>Select</option>
+
+                            <option {{ (in_array('التغذية الانبوبية' , $interrests) ? 'selected' : '' ) }} value="التغذية الانبوبية "> التغذية الانبوبية  </option>
+                            <option {{ (in_array('التغذية الوريدية' , $interrests) ? 'selected' : '' ) }} value="التغذية الوريدية"> التغذية الوريدية </option>
+                            <option {{ (in_array('عملية التقييم الغذائي' , $interrests) ? 'selected' : '' ) }} value="عملية التقييم الغذائي"> عملية التقييم الغذائي </option>
+                            <option {{ (in_array('الامراض الاستقلابية' , $interrests) ? 'selected' : '' ) }} value="الامراض الاستقلابية"> الامراض الاستقلابية </option>
+                            <option {{ (in_array('سمنة أطفال ' , $interrests) ? 'selected' : '' ) }} value="سمنة أطفال "> سمنة أطفال  </option>
+                            <option {{ (in_array('نحافة أطفال ' , $interrests) ? 'selected' : '' ) }} value="نحافة أطفال "> نحافة أطفال  </option>
+                            <option {{ (in_array('سكري أطفال ' , $interrests) ? 'selected' : '' ) }} value="سكري أطفال "> سكري أطفال  </option>
+                            <option {{ (in_array('سمنة بالغين ' , $interrests) ? 'selected' : '' ) }} value="سمنة بالغين "> سمنة بالغين  </option>
+                            <option {{ (in_array('نحافة بالغين' , $interrests) ? 'selected' : '' ) }} value="نحافة بالغين"> نحافة بالغين </option>
+                            <option {{ (in_array('سكري بالغين' , $interrests) ? 'selected' : '' ) }} value="سكري بالغين"> سكري بالغين </option>
+                            <option {{ (in_array('تغذية الرياضين ' , $interrests) ? 'selected' : '' ) }} value="تغذية الرياضين "> تغذية الرياضين  </option>
+                            <option {{ (in_array('تغذية الحوامل' , $interrests) ? 'selected' : '' ) }} value="تغذية الحوامل"> تغذية الحوامل </option>
+                            <option {{ (in_array('تغذية المكممين' , $interrests) ? 'selected' : '' ) }} value="تغذية المكممين"> تغذية المكممين </option>
+                            <option {{ (in_array('تغذية الأورام ' , $interrests) ? 'selected' : '' ) }} value="تغذية الأورام "> تغذية الأورام  </option>
+                            <option {{ (in_array('الكلى ' , $interrests) ? 'selected' : '' ) }} value="الكلى "> الكلى  </option>
+                            <option {{ (in_array('امراض الدم ' , $interrests) ? 'selected' : '' ) }} value="امراض الدم "> امراض الدم  </option>
+                            <option {{ (in_array('تغذية المسنين' , $interrests) ? 'selected' : '' ) }} value="تغذية المسنين"> تغذية المسنين </option>
+                            <option {{ (in_array('الانيميا ' , $interrests) ? 'selected' : '' ) }} value="الانيميا "> الانيميا  </option>
+                            <option {{ (in_array('امراض القلب' , $interrests) ? 'selected' : '' ) }} value="امراض القلب"> امراض القلب </option>
+                            <option {{ (in_array('التغذية في زراعة الأعضاء' , $interrests) ? 'selected' : '' ) }} value="التغذية في زراعة الأعضاء"> التغذية في زراعة الأعضاء </option>
+                            <option {{ (in_array('التغذية في الامراض الصدرية' , $interrests) ? 'selected' : '' ) }} value="التغذية في الامراض الصدرية"> التغذية في الامراض الصدرية </option>
+                            <option {{ (in_array('امراض الجهاز الهضمي مثل (القلون العصبي)' , $interrests) ? 'selected' : '' ) }} value="امراض الجهاز الهضمي مثل (القلون العصبي)"> امراض الجهاز الهضمي مثل (القلون العصبي) </option>
+                            <option {{ (in_array('التغذية في الحالات النفسية مثل الاكتئاب ,,,' , $interrests) ? 'selected' : '' ) }} value="التغذية في الحالات النفسية مثل الاكتئاب ,,,"> التغذية في الحالات النفسية مثل الاكتئاب ,,, </option>
+                            <option {{ (in_array('التغذية في حالات الحوامل ' , $interrests) ? 'selected' : '' ) }} value="التغذية في حالات الحوامل "> التغذية في حالات الحوامل  </option>
+                            <option {{ (in_array('التغذية في الرضع والأطفال ' , $interrests) ? 'selected' : '' ) }} value="التغذية في الرضع والأطفال "> التغذية في الرضع والأطفال  </option>
+                            <option {{ (in_array('عدم تحمل اللاكتوز ' , $interrests) ? 'selected' : '' ) }} value="عدم تحمل اللاكتوز "> عدم تحمل اللاكتوز  </option>
+                            <option {{ (in_array('حالات السيلياك ' , $interrests) ? 'selected' : '' ) }} value="حالات السيلياك "> حالات السيلياك  </option>
+                            <option {{ (in_array('برنامج الحمية الكيتونية' , $interrests) ? 'selected' : '' ) }} value="برنامج الحمية الكيتونية"> برنامج الحمية الكيتونية </option>
+                            <option {{ (in_array('تغذية الحالات الحرجة' , $interrests) ? 'selected' : '' ) }} value="تغذية الحالات الحرجة"> تغذية الحالات الحرجة </option>
+                            <option {{ (in_array('تغذية الحالات الحرجة للأطفال' , $interrests) ? 'selected' : '' ) }} value="تغذية الحالات الحرجة للأطفال"> تغذية الحالات الحرجة للأطفال </option>
+                            <option {{ (in_array('تغذية الحالات الحرجة للخدج' , $interrests) ? 'selected' : '' ) }} value="تغذية الحالات الحرجة للخدج"> تغذية الحالات الحرجة للخدج </option>
+                            <option {{ (in_array('التغذية في حالات الحروق' , $interrests) ? 'selected' : '' ) }} value="التغذية في حالات الحروق"> التغذية في حالات الحروق </option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Medical License Number <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" required value="{{ @$user->profile->medical_license_number }}" name="medical_license_number" id="medical_license_number" placeholder="universityMedical License Number"  >
+                    </div>
+                </div>
+
+
+                <div class="col-12 mb-3">
+                    <div class="form-group mb-0">
+                        <label>Training Program</label>
+                        <textarea class="form-control" rows="5" name="training_program" id="training_program" placeholder="نبذة عن النظام المتبع" >{{ @$user->profile->training_program }}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- communication-channels-div -->
+    <div class="card" id="communication-channels-div" style="{{($doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
+        <div class="card-body">
+            <h4 class="card-title">Communication channels</h4>
+
+                @php
+                $channels = ($user->channels && count($user->channels)) ? $user->channels : [] ;
+                $communications = ($user->communications && count($user->communications)) ? $user->communications : [] ;
+                @endphp
+                @foreach ($channels as $channel)
+                <div class="row form-row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Channel</label>
+                            <select class="form-control select" name="channel_type[]">
+                                <option disabled selected>Select</option>
+                                <option value="Whatsapp" {{ ($channel->channel_type == 'Whatsapp') ? 'selected' : '' }} >واتساب</option>
+                                <option value="Telegram" {{ ($channel->channel_type == 'Telegram') ? 'selected' : '' }} >تليجرام</option>
+                                <option value="Facebook" {{ ($channel->channel_type == 'Facebook') ? 'selected' : '' }} >فيسبوك</option>
+                                <option value="Emo"      {{ ($channel->channel_type == 'Emo')      ? 'selected' : '' }} >إيمـو</option>
+                                <option value="Line"     {{ ($channel->channel_type == 'Line')     ? 'selected' : '' }} >لايـن</option>
+                                <option value="Skype"    {{ ($channel->channel_type == 'Skype')    ? 'selected' : '' }} >سكـايـب</option>
+                                <option value="WeChat"   {{ ($channel->channel_type == 'WeChat')   ? 'selected' : '' }} >WeChat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Link</label>
+                            <input type="text" value="{{ $channel->link }}" class="form-control" name="link[]" placeholder="Link Address">
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 pt-4 text-center">
+                        <a href="javascript:void(0);" onclick="this.parentElement.parentElement.remove()" class="del-channel"><i class="fas fa-times"></i></a>
+                    </div>
+                </div>
+                @endforeach
+            <div id="channels-rows">
+                <div class="row form-row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Channel</label>
+                            <select class="form-control select" name="channel_type[]">
+                                <option disabled selected>Select</option>
+                                <option value="Whatsapp" >واتساب</option>
+                                <option value="Telegram" >تليجرام</option>
+                                <option value="Facebook" >فيسبوك</option>
+                                <option value="Emo" >إيمـو</option>
+                                <option value="Line" >لايـن</option>
+                                <option value="Skype" >سكـايـب</option>
+                                <option value="WeChat" >WeChat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Link</label>
+                            <input type="text" class="form-control" name="link[]" placeholder="Link Address">
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 pt-4 text-center">
+                        <a href="javascript:void(0);" onclick="this.parentElement.parentElement.remove()" class="del-channel"><i class="fas fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="add-more">
+                    <a href="javascript:void(0);" class="add-channel"><i class="fa fa-plus-circle"></i> Add More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /communication-channels-div -->
+
+    <!-- communication-times-div -->
+    <div class="card contact-card" id="communication-times-div" style="{{($doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
+        <div class="card-body">
+            <h4 class="card-title">Communication times</h4>
+            @foreach ($communications as $communication )
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>Day</label>
+                            <select class="form-control select" name="day[]">
+                                <option value=""></option>
+                                <option value="Saturday" {{ ($communication->day == 'Saturday') ? 'selected' : '' }} >Saturday</option>
+                                <option value="Sunday" {{ ($communication->day == 'Sunday') ? 'selected' : '' }} >Sunday</option>
+                                <option value="Monday" {{ ($communication->day == 'Monday') ? 'selected' : '' }} >Monday</option>
+                                <option value="Tuesday" {{ ($communication->day == 'Tuesday') ? 'selected' : '' }} >Tuesday</option>
+                                <option value="Wednesday" {{ ($communication->day == 'Wednesday') ? 'selected' : '' }} >Wednesday</option>
+                                <option value="Thursday" {{ ($communication->day == 'Thursday') ? 'selected' : '' }} >Thursday</option>
+                                <option value="Friday" {{ ($communication->day == 'Friday') ? 'selected' : '' }} >Friday</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Start At</label>
+                            <input type="time" class="form-control" name="start_at[]" {{ $communication->start_at }} >
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">End At</label>
+                            <input type="time" class="form-control" name="end_at[]" {{ $communication->end_at }} >
+                        </div>
+                    </div>
+                    <div class="col-md-1 pt-4 text-center">
+                        <a href="javascript:void(0);" onclick="this.parentElement.parentElement.remove()" class="del-channel"><i class="fas fa-times"></i></a>
+                    </div>
+                </div>
+            @endforeach
+
+            <div id="communications-rows">
+                <div class="row form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>Day</label>
+                            <select class="form-control select" name="day[]">
+                                <option value="" ></option>
+                                <option value="Saturday" >Saturday</option>
+                                <option value="Sunday" >Sunday</option>
+                                <option value="Monday" >Monday</option>
+                                <option value="Tuesday" >Tuesday</option>
+                                <option value="Wednesday" >Wednesday</option>
+                                <option value="Thursday" >Thursday</option>
+                                <option value="Friday" >Friday</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Start At</label>
+                            <input type="time" class="form-control" name="start_at[]">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">End At</label>
+                            <input type="time" class="form-control" name="end_at[]">
+                        </div>
+                    </div>
+                    <div class="col-md-1 pt-4 text-center">
+                        <a href="javascript:void(0);" onclick="this.parentElement.parentElement.remove()" class="del-channel"><i class="fas fa-times"></i></a>
+                    </div>
 
                 </div>
             </div>
 
+            <div class="col-md-12">
+                <div class="add-more">
+                    <a href="javascript:void(0);" class="add-communication"><i class="fa fa-plus-circle"></i> Add More</a>
+                </div>
+            </div>
         </div>
-
     </div>
-    <!-- /Page Content -->
+    <!-- /communication-times-div -->
+
+
+    <!-- attachments	 -->
+    <div class="card services-card" id="attachments" style="{{($doctor_type != 'Follow up of patients') ? 'display:none;' : '' }} ">
+        <div class="card-body">
+            <h4 class="card-title mb-2">Attachments</h4>
+            <small>Please attach the following</small>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                    <div class="upload-img">
+                        <div class="change-photo-btn">
+                            <span><i class="fa fa-upload"></i> Professional Classification</span>
+                            <input type="file" class="upload" name="classification_certificate" >
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                    <div class="upload-img">
+                        <div class="change-photo-btn">
+                            <span><i class="fa fa-upload"></i> Bank statements certificate </span>
+                            <input type="file" class="upload" name="bank_statements_certificate">
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                    <div class="upload-img">
+                        <div class="change-photo-btn">
+                            <span><i class="fa fa-upload"></i> University qualification</span>
+                            <input type="file" class="upload" name="university_qualification">
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- /attachments -->
+
+    <div class="submit-section submit-btn-bottom text-center">
+        <button type="submit" class="btn btn-primary submit-btn">حفظ التعديلات</button>
+    </div>
+</form>
+
 
 @endsection
 
-@section('scripts')
-    <script src="{{asset('assets/front/plugins/select2/js/select2.min.js')}}"></script>
-    <!-- Profile Settings JS -->
-    <script src="{{asset('assets/front/js/profile-settings.js')}}"></script>
-    <script>
-        function readFileURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#output')
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(150);
-                };
 
-                reader.readAsDataURL(input.files[0]);
+@section('scripts')
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $('.select2').select2({maximumSelectionLength: 3});
+    function changeDocType(val)
+    {
+        if(val == 'Follow up of patients')
+        {
+            $('#Doctor-div').css('display', 'contents');
+            $('#Doctor-div-2').css('display', 'contents');
+            $('#university_qualification').prop('required', true);
+            $('#specialty_certificate').prop('required', true);
+            $('#university').prop('required', true);
+            $('#about').prop('required', true);
+            $('#interests').prop('required', true);
+            $('#follow_up_fee').prop('required', true);
+            $('#communication-channels-div').css('display', 'flex');
+            $('#attachments').css('display', 'flex');
+            $('#communication-times-div').css('display', 'flex');
+            $('#trainer-div').css('display', 'flex');
+            $('#training_fee-div').css('display', 'none');
+            $('#training_fee').prop('required', false);
+        }
+        else if(val == 'Trainer')
+        {
+
+            $('#Doctor-div').css('display', 'none');
+            $('#Doctor-div-2').css('display', 'none');
+            $('#university_qualification').prop('required', false);
+            $('#specialty_certificate').prop('required', false);
+            $('#university').prop('required', false);
+            $('#follow_up_fee').prop('required', false);
+            $('#communication-channels-div').css('display', 'none');
+            $('#attachments').css('display', 'none');
+            $('#communication-times-div').css('display', 'none');
+            ///////////////////////
+            $('#trainer-div').css('display', 'flex');
+            $('#trainer-div-2').css('display', 'flex');
+            $('#about').prop('required', true);
+            $('#interests').prop('required', true);
+            $('#training_fee-div').css('display', 'block');
+            $('#training_fee').prop('required', true);
+        }
+        else
+        {
+            $('#Doctor-div').css('display', 'none');
+            $('#Doctor-div-2').css('display', 'none');
+            $('#university_qualification').prop('required', false);
+            $('#specialty_certificate').prop('required', false);
+            $('#university').prop('required', false);
+            $('#about').prop('required', false);
+            $('#interests').prop('required', false);
+            $('#follow_up_fee').prop('required', false);
+            $('#communication-channels-div').css('display', 'none');
+            $('#attachments').css('display', 'none');
+            $('#communication-times-div').css('display', 'none');
+            $('#trainer-div').css('display', 'none');
+            $('#training_fee').prop('required', false);
+            $('#training_fee-div').css('display', 'none');
+        }
+    }
+
+    var channel_row = $('#channels-rows').html();
+    var communication_row = $('#communications-rows').html();
+    $('.add-channel').on('click', function () {
+            $('#channels-rows').append(channel_row);
+        }
+    );
+    $('.add-communication').on('click', function () {
+            $('#communications-rows').append(communication_row);
+        }
+    );
+
+    function uploade(ii)
+    {
+        $('#file_1').click();
+    }
+
+    function imageUploaded(input , ii)
+    {
+        var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+        var oInput = input;
+        if (oInput.type == "file") {
+            var sFileName = oInput.value;
+            if (sFileName.length > 0) {
+                var blnValid = false;
+                for (var j = 0; j < _validFileExtensions.length; j++) {
+                    var sCurExtension = _validFileExtensions[j];
+                    if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                        blnValid = true;
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function(e) {
+                                $('#profileImg_' + ii).attr('src', e.target.result);
+                            };
+                            reader.readAsDataURL(input.files[0]);
+                        } else {
+                            removeUpload();
+                        }
+                        break;
+                    }
+                }
+                if (!blnValid) {
+                    var err = $('#image_err_msg').val()
+                    alert(err);
+                    return false;
+                }
             }
         }
+        return true;
+    }
 
+    function removeUpload() {
+        var default_src = "{{ asset('assets/front/img/doctors/doctor-thumb-02.jpg') }}";
+        $('#profileImg').attr('src', default_src);
+    }
 
-        $('#history').on('change', function () {
-                var test = [];
-                $.each($('#history :selected'), function () {
-                    test.push($(this).val());
-                    if ($(this).val() == 'other') {
-                        // $('#for_sales_fields').show();
-                        $('#history_other-field').removeClass('d-none');
-                    } else
-                        $('#history_other-field').addClass('d-none');
-                })
-
-            }
-        );
-
-        $('#usual_medicines').on('change', function () {
-            if ($(this).val() == 'yes') {
-                $('#usual_medicines_other-field').removeClass('d-none');
-            } else
-                $('#usual_medicines_other-field').addClass('d-none');
-        });
-
-        $('#allergenic_foods').on('change', function () {
-            if ($(this).val() == 'yes') {
-                $('#allergenic_foods-field').removeClass('d-none');
-            } else
-                $('#allergenic_foods-field').addClass('d-none');
-        });
-        $("#complete-form").validate({
-            errorPlacement: function (error, element) {
-                console.log('error')
-                console.log(error)
-                console.log(element)
-                console.log(element.attr("id"))
-                $(element)
-                    .closest("form")
-                    .find("label[for='error-" + element.attr("id") + "']")
-                    .append(error);
-            },
-            errorElement: "span",
-            rules: {
-                length: {
-                    required: true,
-                    number: true
-                },
-                weight: {
-                    required: true,
-                    number: true
-                },
-                history: {
-                    required: true,
-                },
-                usual_medicines: {
-                    required: true,
-                },
-                allergenic_foods: {
-                    required: true,
-                },
-                highest_weight: {
-                    required: true,
-                },
-                lowest_weight: {
-                    required: true,
-                },
-                usual_weight: {
-                    required: true,
-                },
-                meals_number: {
-                    required: true,
-                },
-                meals_order: {
-                    required: true,
-                },
-                average_sleeping_hours: {
-                    required: true,
-                },
-                cups_of_water_daily: {
-                    required: true,
-                },
-                sport_activities: {
-                    required: true,
-                },
-                favorite_meals: {
-                    required: true,
-                },
-                unfavorite_meals: {
-                    required: true,
-                },
-                carbohydrates_favorite: {
-                    required: true,
-                },
-                carbohydrates_unFavorite: {
-                    required: true,
-                },
-                vegetables_favorite: {
-                    required: true,
-                },
-                vegetables_unFavorite: {
-                    required: true,
-                },
-                fruits_favorite: {
-                    required: true,
-                },
-                fruits_unFavorite: {
-                    required: true,
-                },
-                dairy_products_favorite: {
-                    required: true,
-                },
-                dairy_products_unFavorite: {
-                    required: true,
-                },
-                meat_favorite: {
-                    required: true,
-                },
-                meat_unFavorite: {
-                    required: true,
-                },
-                fats_favorite: {
-                    required: true,
-                },
-                fats_unFavorite: {
-                    required: true,
-                },
-                health_goal: {
-                    required: true,
-                },
-                motivation: {
-                    required: true,
-                },
-                confidence: {
-                    required: true,
-                },
-                nutritionists_number_worked_with_before: {
-                    required: true,
-                },
-                lost_weight_without_planning_or_knowing_reasons: {
-                    required: true,
-                },
-            },
-        });
-
-    </script>
+</script>
 @endsection

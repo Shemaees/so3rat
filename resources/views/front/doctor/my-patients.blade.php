@@ -53,11 +53,11 @@
 
                                         <div class="pro-widget-content">
                                             <div class="profile-info-widget">
-                                                <a href="{{route('patient-profile')}}" class="booking-doc-img ">
+                                                <a href="{{route('patient-profile',[$item->patient->id])}}" class="booking-doc-img ">
                                                     <img src="{{asset($item->patient->photo)}}" alt="User Image">
                                                 </a>
                                                 <div class="profile-det-info">
-                                                    <h3><a href="{{route('patient-profile')}}" style="color: #007bff">{{$item->patient->name}}</a></h3>
+                                                    <h3><a href="{{route('patient-profile',[$item->patient->id])}}" style="color: #007bff">{{$item->patient->name}}</a></h3>
 
                                                     <div class="patient-details">
                                                         <h5><b>الرقم:</b> {{$item->patient->id}}</h5>
